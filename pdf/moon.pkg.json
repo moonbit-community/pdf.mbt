@@ -1,0 +1,5 @@
+{
+  "import": ["illusory0x0/pdf/fmt", "illusory0x0/pdf/lexer_bytes"],
+  "test-import": ["moonbitlang/x/fs"],
+  "warn-list": "-2-6"
+}

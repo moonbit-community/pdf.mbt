@@ -1,0 +1,133 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "illusory0x0/pdf"
+
+import(
+  "illusory0x0/fmt"
+)
+
+// Values
+fn ascii_string_of_bytes(Bytes) -> String
+
+// Errors
+
+// Types and methods
+pub(all) struct File {
+  major : Int
+  minor : Int
+  objects : Array[Object]
+  trailer : Object
+}
+impl @fmt.Format for File
+
+pub(all) enum GraphicOperator {
+  Op_w(Double)
+  Op_J(Int)
+  Op_j(Int)
+  Op_M(Double)
+  Op_d(Array[Double], Double)
+  Op_ri(Bytes)
+  Op_i(Double)
+  Op_gs(Bytes)
+  Op_q
+  Op_Q
+  Op_cm(TransformMatrix)
+  Op_m(Double, Double)
+  Op_l(Double, Double)
+  Op_c(Double, Double, Double, Double, Double, Double)
+  Op_v(Double, Double, Double, Double)
+  Op_y(Double, Double, Double, Double)
+  Op_h
+  Op_re(Double, Double, Double, Double)
+  Op_S
+  Op_s
+  Op_f
+  Op_F
+  Op_f_star
+  Op_B
+  Op_B_star
+  Op_b
+  Op_b_star
+  Op_n
+  Op_W
+  Op_W_star
+  Op_BT
+  Op_ET
+  Op_Tc(Double)
+  Op_Tw(Double)
+  Op_Tz(Double)
+  Op_TL(Double)
+  Op_Tf(Bytes, Double)
+  Op_Tr(Int)
+  Op_Ts(Double)
+  Op_Td(Double, Double)
+  Op_TD(Double, Double)
+  Op_Tm(TransformMatrix)
+  Op_T_star
+  Op_Tj(Bytes)
+  Op_TJ(Object)
+  Op_single_quote(Bytes)
+  Op_double_quote(Double, Double, Bytes)
+  Op_d0(Double, Double)
+  Op_d1(Double, Double, Double, Double, Double, Double)
+  Op_CS(Bytes)
+  Op_cs(Bytes)
+  Op_SC(Array[Double])
+  Op_sc(Array[Double])
+  Op_SCN(Array[Double])
+  Op_scn(Array[Double])
+  Op_SCNName(Bytes, Array[Double])
+  Op_scnName(Bytes, Array[Double])
+  Op_G(Double)
+  Op_g(Double)
+  Op_RG(Double, Double, Double)
+  Op_rg(Double, Double, Double)
+  Op_K(Double, Double, Double, Double)
+  Op_k(Double, Double, Double, Double)
+  Op_sh(Bytes)
+  InlineImage(Object, Bytes)
+  Op_Do(Bytes)
+  Op_MP(Bytes)
+  Op_DP(Bytes, Object)
+  Op_BMC(Bytes)
+  Op_BDC(Bytes, Object)
+  Op_EMC
+  Op_BX
+  OP_EX
+  Op_Unknown(Bytes)
+  Op_Comment(Bytes)
+}
+impl @fmt.Format for GraphicOperator
+
+pub(all) enum Object {
+  Null
+  Boolean(Bool)
+  Integer(Int)
+  Real(Double)
+  String(Bytes)
+  Name(Bytes)
+  Array(Array[Object])
+  Dictionary(Array[(Bytes, Object)])
+  Stream(Object, Stream)
+  Indirect(Int)
+}
+impl @fmt.Format for Object
+impl ToJson for Object
+
+pub(all) struct Stream(Bytes)
+#deprecated
+fn Stream::inner(Self) -> Bytes
+impl ToJson for Stream
+
+pub(all) struct TransformMatrix {
+  a : Double
+  b : Double
+  c : Double
+  d : Double
+  e : Double
+  f : Double
+}
+
+// Type aliases
+
+// Traits
+

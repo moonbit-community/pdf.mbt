@@ -1,0 +1,169 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R]  
+  /Count 3
+>>
+endobj
+3 0 obj
+<<
+  /Length 486
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (Queue) Tj -40 0 Td 12 TL (2)' 0 TL 40 0 Td (Usage) Tj -40 0 Td 12 TL (2.1)' 0 TL 40 0 Td (Create and Clear) Tj -40 0 Td 12 TL (2.2)' 0 TL 40 0 Td (Length) Tj -40 0 Td 12 TL (2.3)' 0 TL 40 0 Td (Pop and Push) Tj -40 0 Td 12 TL (2.4)' 0 TL 40 0 Td (Peek) Tj -40 0 Td 12 TL (2.5)' 0 TL 40 0 Td (Traverse) Tj -40 0 Td 12 TL (2.6)' 0 TL 40 0 Td (Copy and Transfer) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 4635
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (Queue) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Queue is a first in first out \(FIFO\) data structure, allowing to process their) Tj T* ( elements in the order they come.) Tj T* 12 TL T* /F0 24 Tf (Usage) Tj 24 TL T* 12 TL T* /F0 20 Tf (Create and Clear) Tj 20 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can create a queue manually by using the ) Tj /F0 12 Tf (new) Tj /F0 12 Tf ( or construct it using the ) Tj /F0 12 Tf (from_) Tj T* (array) Tj /F0 12 Tf (.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _queue) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.Queue) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _queue1) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (To clear the queue, you can use the ) Tj /F0 12 Tf (clear) Tj /F0 12 Tf ( method.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  queue) Tj 0 0 0 rg (.clear) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Length) Tj 20 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can get the length of the queue by using the ) Tj /F0 12 Tf (length) Tj /F0 12 Tf ( method. The ) Tj /F0 12 Tf (is_empty) Tj /F0 12 Tf ( met) Tj T* (hod can be used to check if the queue is empty.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( false) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Pop and Push) Tj 20 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can add elements to the queue using the ) Tj /F0 12 Tf (push) Tj /F0 12 Tf ( method and remove them using th) Tj T* (e ) Tj /F0 12 Tf (pop) Tj /F0 12 Tf ( method.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  queue) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  queue) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue) Tj 0 0 0 rg (.pop) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue) Tj 0 0 0 rg (.pop) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Peek) Tj 20 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can get the first element of the queue without removing it using the ) Tj /F0 12 Tf (peek) Tj /F0 12 Tf ( me) Tj T* (thod.) Tj T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 4893
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue) Tj 0 0 0 rg (.peek) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Traverse) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can traverse the queue using the ) Tj /F0 12 Tf (each) Tj /F0 12 Tf ( method.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 1 rg ( mut) Tj 0 0 0 rg ( sum) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  queue) Tj 0 0 0 rg (.each) Tj 0 0 0 rg (\() Tj 0 0 0 rg (x) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( sum) Tj 0 0 0 rg ( +=) Tj 0 0 0 rg ( x) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (sum) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 6) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can fold the queue using the ) Tj /F0 12 Tf (fold) Tj /F0 12 Tf ( method.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( sum) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg (.fold) Tj 0 0 0 rg (\() Tj 0 0 0 rg (init) Tj 0 0 0 rg (=) Tj 1 0 1 rg (0) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( \() Tj 0 0 0 rg (acc) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( x) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( acc) Tj 0 0 0 rg ( +) Tj 0 0 0 rg ( x) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (sum) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 6) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Copy and Transfer) Tj 20 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can copy a queue using the ) Tj /F0 12 Tf (copy) Tj /F0 12 Tf ( method.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _queue2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( queue) Tj 0 0 0 rg (.copy) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Transfer the elements from one queue to another using the ) Tj /F0 12 Tf (transfer) Tj /F0 12 Tf ( method.) Tj T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dst) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.Queue) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( src) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.Queue) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (5) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 6) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 7) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 8) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  src) Tj 0 0 0 rg (.transfer) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dst) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000055 00000 n
+0000000079 00000 n
+0000000539 00000 n
+0000000521 00000 n
+0000004689 00000 n
+0000000521 00000 n
+0000004947 00000 n
+0000000521 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+12126
+%%EOF

@@ -1,0 +1,409 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "illusory0x0/pdf/pdf"
+
+import(
+  "illusory0x0/pdf/fmt"
+  "moonbitlang/core/json"
+)
+
+// Values
+fn ascii_string_of_bytesview(BytesView) -> String
+
+fn bytes_of_memory(@fmt.Memory, Int) -> Bytes
+
+fn define_catalog(pages~ : Object) -> Object
+
+fn define_font_item(name~ : Bytes, font~ : Object) -> (Bytes, Object)
+
+fn define_fonts(fonts~ : Array[(Bytes, Object)]) -> (Bytes, Object)
+
+fn define_icc(icc~ : Bytes) -> Object
+
+fn define_jpeg_image(image~ : Bytes, width~ : Int, height~ : Int, bpc~ : Int, icc~ : Int) -> Object
+
+fn define_page(contents~ : Object, parent~ : Object, resources~ : Array[(Bytes, Object)]) -> Object
+
+fn define_pages(pages~ : Array[Object]) -> Object
+
+fn define_xobject(xobjs~ : Array[(Bytes, Object)]) -> (Bytes, Object)
+
+fn make_pdf(Object, Array[Object]) -> File
+
+fn parse(Array[(Token, Position, Position)], initial_pos? : Position) -> Object raise ParseError
+
+fn parse_pdf_file(BytesView) -> File raise
+
+fn skip_comment(BytesView) -> Int
+
+fn string_of_memory(@fmt.Memory, Int) -> String
+
+fn tokenize(BytesView) -> Array[(Token, Position, Position)]
+
+fn tokenize_body(BytesView, start_bytes_offset~ : Int) -> LexResult[LexBody]
+
+fn tokenize_file(BytesView) -> LexResult[LexFile] raise LexError
+
+fn tokenize_header(BytesView, start_bytes_offset~ : Int) -> LexResult[LexHeader] raise LexError
+
+fn tokenize_pdf_hexadecimal_string(BytesView) -> Bytes
+
+fn tokenize_pdf_literal_string(BytesView) -> (Bytes, Int)
+
+fn tokenize_pdf_name(BytesView) -> (Bytes, Int)
+
+fn tokenize_startxref(BytesView, Int) -> LexResult[Int] raise LexError
+
+fn tokenize_trailer(BytesView, Int) -> LexResult[BytesView] raise LexError
+
+fn tokenize_xref_entry(BytesView, start_bytes_offset~ : Int) -> LexResult[LexXRefEntry] raise LexError
+
+fn tokenize_xref_table(BytesView, Int) -> LexResult[LexXRefTable] raise LexError
+
+// Errors
+type LexError
+impl Show for LexError
+
+pub suberror ParseError {
+  UnexpectedToken(Token, (Position, Position), Array[TokenKind])
+  UnexpectedEndOfInput(Position, Array[TokenKind])
+}
+
+// Types and methods
+pub(all) struct ContentStream(Array[GraphicOperator])
+#deprecated
+fn ContentStream::inner(Self) -> Array[GraphicOperator]
+fn ContentStream::iter(Self) -> Iter[GraphicOperator]
+fn ContentStream::to_stream(Self) -> Stream
+fn ContentStream::to_stream_object(Self) -> Object
+impl @fmt.Format for ContentStream
+impl ToJson for ContentStream
+
+pub type DICT_BEGIN
+
+pub type DICT_END
+
+pub type EOF
+
+pub type FALSE
+
+pub(all) struct File {
+  major : Int
+  minor : Int
+  objects : Array[Object]
+  trailer : Object
+}
+impl @fmt.Format for File
+impl ToJson for File
+
+pub type GREATER_THAN_SIGN
+
+pub(all) enum GraphicOperator {
+  Op_w(Double)
+  Op_J(Int)
+  Op_j(Int)
+  Op_M(Double)
+  Op_d(Array[Double], Double)
+  Op_ri(Bytes)
+  Op_i(Double)
+  Op_gs(Bytes)
+  Op_q
+  Op_Q
+  Op_cm(TransformMatrix)
+  Op_m(Double, Double)
+  Op_l(Double, Double)
+  Op_c(Double, Double, Double, Double, Double, Double)
+  Op_v(Double, Double, Double, Double)
+  Op_y(Double, Double, Double, Double)
+  Op_h
+  Op_re(Double, Double, Double, Double)
+  Op_S
+  Op_s
+  Op_f
+  Op_F
+  Op_f_star
+  Op_B
+  Op_B_star
+  Op_b
+  Op_b_star
+  Op_n
+  Op_W
+  Op_W_star
+  Op_BT
+  Op_ET
+  Op_Tc(Double)
+  Op_Tw(Double)
+  Op_Tz(Double)
+  Op_TL(Double)
+  Op_Tf(Bytes, Double)
+  Op_Tr(Int)
+  Op_Ts(Double)
+  Op_Td(Double, Double)
+  Op_TD(Double, Double)
+  Op_Tm(TransformMatrix)
+  Op_T_star
+  Op_Tj(Bytes)
+  Op_TJ(Object)
+  Op_single_quote(Bytes)
+  Op_double_quote(Double, Double, Bytes)
+  Op_d0(Double, Double)
+  Op_d1(Double, Double, Double, Double, Double, Double)
+  Op_CS(Bytes)
+  Op_cs(Bytes)
+  Op_SC(Array[Double])
+  Op_sc(Array[Double])
+  Op_SCN(Array[Double])
+  Op_scn(Array[Double])
+  Op_SCNName(Bytes, Array[Double])
+  Op_scnName(Bytes, Array[Double])
+  Op_G(Double)
+  Op_g(Double)
+  Op_RG(Double, Double, Double)
+  Op_rg(Double, Double, Double)
+  Op_K(Double, Double, Double, Double)
+  Op_k(Double, Double, Double, Double)
+  Op_sh(Bytes)
+  InlineImage(Object, Bytes)
+  Op_Do(Bytes)
+  Op_MP(Bytes)
+  Op_DP(Bytes, Object)
+  Op_BMC(Bytes)
+  Op_BDC(Bytes, Object)
+  Op_EMC
+  Op_BX
+  OP_EX
+  Op_Unknown(Bytes)
+  Op_Comment(Bytes)
+}
+impl @fmt.Format for GraphicOperator
+impl ToJson for GraphicOperator
+
+pub(all) struct INDIRECT {
+  object_num : Int
+  generation_num : Int
+}
+
+pub type LEFT_CURLY_BRACE
+
+pub type LEFT_PARENTHESIS
+
+pub type LEFT_SQUARE_BRACKET
+
+pub type LESS_THAN_SIGN
+
+type LexBody
+fn LexBody::from(Array[LexObj]) -> Self
+fn LexBody::iter(Self) -> Iter[LexObj]
+fn LexBody::length(Self) -> Int
+fn LexBody::op_get(Self, Int) -> LexObj
+impl Eq for LexBody
+impl Show for LexBody
+impl ToJson for LexBody
+
+pub(all) enum LexEntryState {
+  InUse
+  Free
+}
+impl Eq for LexEntryState
+impl Show for LexEntryState
+impl ToJson for LexEntryState
+
+pub(all) struct LexFile {
+  header : LexHeader
+  body : LexBody
+  xref_table : LexXRefTable
+  trailer : BytesView
+  start_xref_bytes_offset : Int
+}
+impl Eq for LexFile
+impl Show for LexFile
+impl ToJson for LexFile
+
+pub(all) struct LexHeader {
+  major : Int
+  minor : Int
+}
+impl Eq for LexHeader
+impl Show for LexHeader
+impl ToJson for LexHeader
+
+pub(all) struct LexObj {
+  start_bytes_offset : Int
+  object_num : Int
+  generation_num : Int
+  obj_bytes : BytesView
+}
+impl Eq for LexObj
+impl Show for LexObj
+impl ToJson for LexObj
+
+pub(all) struct LexResult[T] {
+  value : T
+  start_bytes_offset : Int
+  end_bytes_offset : Int
+  rest : BytesView
+}
+impl[T : Show] Show for LexResult[T]
+impl[T : ToJson] ToJson for LexResult[T]
+
+pub(all) struct LexXRefEntry {
+  bytes_offset : Int
+  generation_num : Int
+  state : LexEntryState
+}
+impl Eq for LexXRefEntry
+impl Show for LexXRefEntry
+impl ToJson for LexXRefEntry
+
+pub(all) struct LexXRefTable {
+  entries : Array[LexXRefEntry]
+  start_num : Int
+}
+impl Eq for LexXRefTable
+impl Show for LexXRefTable
+impl ToJson for LexXRefTable
+
+pub type NULL
+
+#alias(Atom)
+#alias(PDF_Array)
+#alias(PDF_Dict)
+#alias(PDF_Obj)
+#alias(PDF_Stream)
+pub(all) enum Object {
+  Null
+  Boolean(Bool)
+  Integer(Int)
+  Real(Double)
+  String(Bytes)
+  Name(Bytes)
+  Array(Array[Object])
+  Dictionary(Array[(Bytes, Object)])
+  Stream(Object, Stream)
+  Indirect(Int)
+}
+impl @fmt.Format for Object
+impl ToJson for Object
+
+pub struct Position {
+  row : Int
+  col : Int
+}
+impl Show for Position
+impl ToJson for Position
+impl @json.FromJson for Position
+
+pub type RIGHT_CURLY_BRACE
+
+pub type RIGHT_PARENTHESIS
+
+pub type RIGHT_SQUARE_BRACKET
+
+pub type SOLIDUS
+
+pub(all) enum StandardFont {
+  TimesRoman
+  TimesBold
+  TimesItalic
+  TimesBoldItalic
+  Helvetica
+  HelveticaBold
+  HelveticaOblique
+  HelveticaBoldOblique
+  Courier
+  CourierBold
+  CourierOblique
+  CourierBoldOblique
+  Symbol
+  ZapfDingbats
+}
+fn StandardFont::to_pdf_dictionary(Self) -> Object
+fn StandardFont::to_pdf_name(Self) -> Object
+impl Show for StandardFont
+impl ToJson for StandardFont
+
+pub(all) struct Stream(Bytes)
+#deprecated
+fn Stream::inner(Self) -> Bytes
+impl ToJson for Stream
+
+pub type TRUE
+
+pub(all) enum Token {
+  LEFT_PARENTHESIS
+  RIGHT_PARENTHESIS
+  LEFT_CURLY_BRACE
+  RIGHT_CURLY_BRACE
+  LEFT_SQUARE_BRACKET
+  RIGHT_SQUARE_BRACKET
+  LESS_THAN_SIGN
+  GREATER_THAN_SIGN
+  SOLIDUS
+  DICT_BEGIN
+  DICT_END
+  NULL
+  TRUE
+  FALSE
+  INTEGER(Int)
+  REAL(Double)
+  STRING(Bytes)
+  NAME(Bytes)
+  INDIRECT(INDIRECT)
+  STREAM_BYTES(Bytes)
+  EOF
+}
+fn Token::kind(Self) -> TokenKind
+impl Show for Token
+
+pub(all) enum TokenKind {
+  TK_LEFT_PARENTHESIS
+  TK_RIGHT_PARENTHESIS
+  TK_LEFT_CURLY_BRACE
+  TK_RIGHT_CURLY_BRACE
+  TK_LEFT_SQUARE_BRACKET
+  TK_RIGHT_SQUARE_BRACKET
+  TK_LESS_THAN_SIGN
+  TK_GREATER_THAN_SIGN
+  TK_SOLIDUS
+  TK_DICT_BEGIN
+  TK_DICT_END
+  TK_NULL
+  TK_TRUE
+  TK_FALSE
+  TK_INTEGER
+  TK_REAL
+  TK_STRING
+  TK_NAME
+  TK_INDIRECT
+  TK_STREAM_BYTES
+  TK_EOF
+}
+impl Eq for TokenKind
+impl Show for TokenKind
+
+pub(all) struct TransformMatrix {
+  a : Double
+  b : Double
+  c : Double
+  d : Double
+  e : Double
+  f : Double
+}
+impl ToJson for TransformMatrix
+
+// Type aliases
+pub type DictEntries = Array[(Bytes, Object)]
+
+pub type INTEGER = Int
+
+pub type NAME = Bytes
+
+pub type PDF_ArrayEntries = Array[Object]
+
+pub type REAL = Double
+
+pub type STREAM_BYTES = Bytes
+
+pub type STRING = Bytes
+
+// Traits
+

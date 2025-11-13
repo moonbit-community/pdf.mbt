@@ -1,0 +1,49 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "illusory0x0/pdf/lexer_bytes"
+
+// Values
+fn[T] base_err() -> T raise LexError
+
+let base_err_str : String
+
+fn[T] range_err() -> T raise LexError
+
+let range_err_str : String
+
+fn[T] syntax_err() -> T raise LexError
+
+let syntax_err_str : String
+
+fn[A : FromBytesView] tokenize(BytesView) -> (A, Int) raise LexError
+
+fn tokenize_bool(BytesView) -> (Bool, Int) raise LexError
+
+fn tokenize_double(BytesView) -> (Double, Int) raise LexError
+
+fn tokenize_int(BytesView, base? : Int) -> (Int, Int) raise LexError
+
+fn tokenize_int64(BytesView, base? : Int) -> (Int64, Int) raise LexError
+
+fn tokenize_uint(BytesView, base? : Int) -> (UInt, Int) raise LexError
+
+fn tokenize_uint64(BytesView, base? : Int) -> (UInt64, Int) raise LexError
+
+// Errors
+pub(all) suberror LexError String
+impl Show for LexError
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+pub(open) trait FromBytesView {
+  from(BytesView) -> (Self, Int) raise LexError
+}
+impl FromBytesView for Bool
+impl FromBytesView for Int
+impl FromBytesView for Int64
+impl FromBytesView for UInt
+impl FromBytesView for UInt64
+impl FromBytesView for Double
+

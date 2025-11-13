@@ -1,0 +1,404 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R]  
+  /Count 8
+>>
+endobj
+3 0 obj
+<<
+  /Length 980
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (BigInt Package Documentation) Tj -40 0 Td 12 TL (1.1)' 0 TL 40 0 Td (Creating BigInt Values) Tj -40 0 Td 12 TL (1.2)' 0 TL 40 0 Td (Basic Arithmetic Operations) Tj -40 0 Td 12 TL (1.3)' 0 TL 40 0 Td (Comparison Operations) Tj -40 0 Td 12 TL (1.4)' 0 TL 40 0 Td (Bitwise Operations) Tj -40 0 Td 12 TL (1.5)' 0 TL 40 0 Td (Power and Modular Arithmetic) Tj -40 0 Td 12 TL (1.6)' 0 TL 40 0 Td (String and Hexadecimal Conversion) Tj -40 0 Td 12 TL (1.7)' 0 TL 40 0 Td (Byte Array Conversion) Tj -40 0 Td 12 TL (1.8)' 0 TL 40 0 Td (Type Conversions) Tj -40 0 Td 12 TL (1.9)' 0 TL 40 0 Td (JSON Serialization) Tj -40 0 Td 12 TL (1.10)' 0 TL 40 0 Td (Utility Functions) Tj -40 0 Td 12 TL (1.11)' 0 TL 40 0 Td (Use Cases and Applications) Tj -40 0 Td 12 TL (1.12)' 0 TL 40 0 Td (Performance Considerations) Tj -40 0 Td 12 TL (1.13)' 0 TL 40 0 Td (Best Practices) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 3538
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (BigInt Package Documentation) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (This package provides arbitrary-precision integer arithmetic through the ) Tj /F0 12 Tf (BigInt) Tj /F0 12 Tf ( ) Tj T* (type. BigInt allows you to work with integers of unlimited size, making it perfe) Tj T* (ct for cryptographic operations, mathematical computations, and any scenario whe) Tj T* (re standard integer types are insufficient.) Tj T* 12 TL T* /F0 20 Tf (Creating BigInt Values) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (There are several ways to create BigInt values:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "creating bigint values") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                                          ) Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big1) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 12345678901234567890N) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big1) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("12345678901234567890") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (                          ) Tj T* 12 TL (8   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big2) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("42") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (                      ) Tj T* 12 TL (12  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big3) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int64) Tj 0 0 0 rg (\() Tj 1 0 1 rg (9223372036854775807L) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big3) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("9223372036854775807") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (                 ) Tj T* 12 TL (16  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big4) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_string) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("123456789012345678901234567890") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big4) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("123456789012345678901234567890") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 0 rg (                             ) Tj T* 12 TL (20  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big5) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_hex) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("1a2b3c4d5e6f") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big5) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("28772997619311") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (22  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Basic Arithmetic Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (BigInt supports all standard arithmetic operations:) Tj T* 12 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 6952
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "arithmetic operations") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 123456789012345678901234567890N) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( b) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 987654321098765432109876543210N) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (             ) Tj T* 12 TL (7   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( sum) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( +) Tj 0 0 0 rg ( b) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (sum) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("1111111110111111111011111111100") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (                ) Tj T* 12 TL (11  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( diff) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( b) Tj 0 0 0 rg ( -) Tj 0 0 0 rg ( a) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (diff) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("864197532086419753208641975320") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (                   ) Tj T* 12 TL (15  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( product) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (123) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( *) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (456) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (product) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("56088") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg (             ) Tj T* 12 TL (19  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( quotient) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1000) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( /) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (7) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (20  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (quotient) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("142") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg () Tj T* 12 TL (22  ) Tj 0 0 0 rg (           ) Tj T* 12 TL (23  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( remainder) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1000) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( %) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (7) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (24  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (remainder) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("6") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (25  ) Tj 0 0 0 rg () Tj T* 12 TL (26  ) Tj 0 0 0 rg (             ) Tj T* 12 TL (27  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( neg) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( -) Tj 0 0 0 rg (a) Tj 0 0 0 rg () Tj T* 12 TL (28  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (neg) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("-123456789012345678901234567890") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (29  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Comparison Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Compare BigInt values with each other and with regular integers:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "comparisons") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 12345N) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( small) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 123N) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (                                ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big) Tj 0 0 0 rg ( >) Tj 0 0 0 rg ( small) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big) Tj 0 0 0 rg ( ==) Tj 0 0 0 rg ( small) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("false") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (small) Tj 0 0 0 rg ( <) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (                             ) Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big) Tj 0 0 0 rg (.equal_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (12345) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big) Tj 0 0 0 rg (.compare_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (12345) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("0") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big) Tj 0 0 0 rg (.compare_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1000) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("1") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                ) Tj T* 12 TL (15  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (small) Tj 0 0 0 rg (.compare_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (200) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("-1") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (             ) Tj T* 12 TL (16  ) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (                               ) Tj T* 12 TL (18  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big64) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int64) Tj 0 0 0 rg (\() Tj 1 0 1 rg (9223372036854775807L) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big64) Tj 0 0 0 rg (.equal_int64) Tj 0 0 0 rg (\() Tj 1 0 1 rg (9223372036854775807L) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (20  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 3219
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL T* /F0 20 Tf (Bitwise Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (BigInt supports bitwise operations for bit manipulation:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "bitwise operations") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0b11110000N) Tj 0 0 0 rg (                  ) Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( b) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0b10101010N) Tj 0 0 0 rg (                  ) Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (                ) Tj T* 12 TL (7   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( and_result) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( &) Tj 0 0 0 rg ( b) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (and_result) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("160") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (              ) Tj T* 12 TL (9   ) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (               ) Tj T* 12 TL (11  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( or_result) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( |) Tj 0 0 0 rg ( b) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (or_result) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("250") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (              ) Tj T* 12 TL (13  ) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (                ) Tj T* 12 TL (15  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( xor_result) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( ^) Tj 0 0 0 rg ( b) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (xor_result) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("90") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (              ) Tj T* 12 TL (17  ) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg (               ) Tj T* 12 TL (19  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big_num) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 255N) Tj 0 0 0 rg () Tj T* 12 TL (20  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big_num) Tj 0 0 0 rg (.bit_length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("8") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg () Tj T* 12 TL (22  ) Tj 0 0 0 rg (                         ) Tj T* 12 TL (23  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( with_zeros) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 1000N) Tj 0 0 0 rg (                                ) Tj T* 12 TL (24  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( ctz) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( with_zeros) Tj 0 0 0 rg (.ctz) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (25  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (ctz) Tj 0 0 0 rg ( >=) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (26  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Power and Modular Arithmetic) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (BigInt provides efficient power and modular exponentiation:) Tj T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+11 0 obj
+<<
+  /Length 6071
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "power operations") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                ) Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( base) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 2N) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( exponent) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 10N) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( power) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( base) Tj 0 0 0 rg (.pow) Tj 0 0 0 rg (\() Tj 0 0 0 rg (exponent) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (power) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("1024") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (                                                     ) Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( base2) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 3N) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( exp2) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 5N) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( modulus) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 7N) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( mod_power) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( base2) Tj 0 0 0 rg (.pow) Tj 0 0 0 rg (\() Tj 0 0 0 rg (exp2) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( modulus~) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (mod_power) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("5") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                           ) Tj T* 12 TL (15  ) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg (                                                       ) Tj T* 12 TL (17  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( large_base) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 123N) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( large_exp) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 20N) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( large_mod) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 1000007N) Tj 0 0 0 rg () Tj T* 12 TL (20  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( result) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( large_base) Tj 0 0 0 rg (.pow) Tj 0 0 0 rg (\() Tj 0 0 0 rg (large_exp) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( modulus) Tj 0 0 0 rg (=) Tj 0 0 0 rg (large_mod) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (result) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("378446") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                      ) Tj T* 12 TL (22  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (String and Hexadecimal Conversion) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Convert BigInt to and from various string representations:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "string conversions") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 255N) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (                   ) Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( decimal) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_string) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (decimal) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("255") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (                            ) Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( hex_lower) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_hex) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (hex_lower) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("FF") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (                            ) Tj T* 12 TL (14  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( hex_upper) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_hex) Tj 0 0 0 rg (\() Tj 0 0 0 rg (uppercase) Tj 0 0 0 rg (=) Tj 0 0 1 rg (true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (hex_upper) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("FF") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (                   ) Tj T* 12 TL (18  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( from_hex) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_hex) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("deadbeef") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (from_hex) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("3735928559") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (20  ) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg (                          ) Tj T* 12 TL (22  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( original) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 98765432109876543210N) Tj 0 0 0 rg () Tj T* 12 TL (23  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( as_string) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( original) Tj 0 0 0 rg (.to_string) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (24  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( parsed_back) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_string) Tj 0 0 0 rg (\() Tj 0 0 0 rg (as_string) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (25  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (original) Tj 0 0 0 rg ( ==) Tj 0 0 0 rg ( parsed_back) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (26  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* ET
+endstream
+endobj
+12 0 obj
+<<
+  /Type /Page  
+  /Contents 11 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+13 0 obj
+<<
+  /Length 2949
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 20 Tf (Byte Array Conversion) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Convert BigInt to and from byte arrays:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "byte conversions") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0x123456789abcdefN) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (                     ) Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( bytes) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_octets) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (bytes) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( >) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (                                         ) Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( from_bytes) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_octets) Tj 0 0 0 rg (\() Tj 0 0 0 rg (bytes) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (from_bytes) Tj 0 0 0 rg ( ==) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (                                 ) Tj T* 12 TL (14  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( fixed_length) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (255) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (.to_octets) Tj 0 0 0 rg (\() Tj 0 0 0 rg (length) Tj 0 0 0 rg (=) Tj 1 0 1 rg (4) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (fixed_length) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("4") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (                     ) Tj T* 12 TL (18  ) Tj 0 0 0 rg (                        ) Tj T* 12 TL (19  ) Tj 0 0 0 rg (                                         ) Tj T* 12 TL (20  ) Tj 0 0 0 rg (                                               ) Tj T* 12 TL (21  ) Tj 0 0 0 rg (                                                                           ) Tj T* 12 TL (22  ) Tj 0 0 0 rg (                                                        ) Tj T* 12 TL (23  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Type Conversions) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Convert BigInt to standard integer types:) Tj T* 12 TL T* ET
+endstream
+endobj
+14 0 obj
+<<
+  /Type /Page  
+  /Contents 13 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+15 0 obj
+<<
+  /Length 4558
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "type conversions") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 12345N) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (                                    ) Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( as_int) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_int) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (as_int) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("12345") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (             ) Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( as_int64) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_int64) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (as_int64) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("12345") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (            ) Tj T* 12 TL (14  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( as_uint) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_uint) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (as_uint) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("12345") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (                     ) Tj T* 12 TL (18  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( small) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 255N) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( as_int16) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( small) Tj 0 0 0 rg (.to_int16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (20  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (as_int16) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("255") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( as_uint16) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( small) Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (22  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (as_uint16) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("255") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (23  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (JSON Serialization) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (BigInt values can be serialized to and from JSON:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "json serialization") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 12345678901234567890N) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (                                                      ) Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( json) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( big) Tj 0 0 0 rg (.to_json) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (json) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("String\(\\"12345678901234567890\\"\)") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (                                                              ) Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( very_big) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @bigint) Tj 0 0 0 rg (.BigInt) Tj 0 0 0 rg (::) Tj 0 0 0 rg (from_string) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("123456789012345678901234567890") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( big_json) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( very_big) Tj 0 0 0 rg (.to_json) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (big_json) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("String\(\\"123456789012345678901234567890\\"\)") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Utility Functions) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Check properties of BigInt values:) Tj T* 12 TL T* ET
+endstream
+endobj
+16 0 obj
+<<
+  /Type /Page  
+  /Contents 15 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+17 0 obj
+<<
+  /Length 4645
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "utility functions") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( zero) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0N) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( positive) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 42N) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( negative) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( -) Tj 1 0 1 rg (42N) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (                  ) Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (zero) Tj 0 0 0 rg (.is_zero) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (positive) Tj 0 0 0 rg (.is_zero) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("false") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (                                    ) Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (positive) Tj 0 0 0 rg ( >) Tj 0 0 0 rg ( zero) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (negative) Tj 0 0 0 rg ( <) Tj 0 0 0 rg ( zero) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (zero) Tj 0 0 0 rg ( ==) Tj 0 0 0 rg ( zero) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Use Cases and Applications) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (BigInt is particularly useful for:) Tj T* 12 TL T* /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Cryptography) Tj /F0 12 Tf (: RSA encryption, digital signatures, and key generation) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Mathematical computations) Tj /F0 12 Tf (: Factorial calculations, Fibonacci sequences, prime nu) Tj T* (mber testing) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Financial calculations) Tj /F0 12 Tf (: High-precision monetary computations) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Scientific computing) Tj /F0 12 Tf (: Large integer calculations in physics and chemistry) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Data processing) Tj /F0 12 Tf (: Handling large numeric IDs and checksums) Tj T* -10 0 Td 12 TL T* /F0 20 Tf (Performance Considerations) Tj 20 TL T* 12 TL T* /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F0 12 Tf (BigInt operations are slower than regular integer operations due to arbitrary pr) Tj T* (ecision) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F0 12 Tf (Addition and subtraction are generally fast) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F0 12 Tf (Multiplication and division become slower with larger numbers) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F0 12 Tf (Modular exponentiation is optimized for cryptographic use cases) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F0 12 Tf (String conversions can be expensive for very large numbers) Tj T* -10 0 Td 12 TL T* /F0 20 Tf (Best Practices) Tj 20 TL T* 12 TL T* /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Use regular integers when possible) Tj /F0 12 Tf (: Only use BigInt when you need arbitrary prec) Tj T* (ision) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Cache string representations) Tj /F0 12 Tf (: If you need to display the same BigInt multiple ti) Tj T* (mes) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Use modular arithmetic) Tj /F0 12 Tf (: For cryptographic applications, always use modular expon) Tj T* (entiation) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Be careful with conversions) Tj /F0 12 Tf (: Converting very large BigInt to regular integers wi) Tj T* (ll truncate) Tj T* -10 0 Td /F1 12 Tf 0 TL 10 0 Td (- ) Tj 12 TL /F0 12 Tf /F1 12 Tf (Consider memory usage) Tj /F0 12 Tf (: Very large BigInt values consume more memory) Tj T* -10 0 Td 12 TL T* ET
+endstream
+endobj
+18 0 obj
+<<
+  /Type /Page  
+  /Contents 17 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 19
+0000000000 65535 f 
+0000000055 00000 n
+0000000114 00000 n
+0000001033 00000 n
+0000000521 00000 n
+0000003592 00000 n
+0000000521 00000 n
+0000007006 00000 n
+0000000521 00000 n
+0000003273 00000 n
+0000000522 00000 n
+0000006126 00000 n
+0000000523 00000 n
+0000003004 00000 n
+0000000523 00000 n
+0000004613 00000 n
+0000000523 00000 n
+0000004700 00000 n
+0000000523 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+38148
+%%EOF

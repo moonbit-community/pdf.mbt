@@ -1,0 +1,33 @@
+digraph G {
+    rankdir=LR;
+    node [shape=box];
+    "Document catalog" -> {
+        "Page tree"
+        "Outline hierarchy"
+        "Structure tree"
+        "Metadata reference"
+        "Names dictionary"
+        "Interactive form"
+        "Collections"
+        "Information and control"
+    }
+
+    "Page tree" -> {
+        "Page"
+    }
+    "Page" -> {
+        "Content stream"
+        "Thumbnail image"
+        "Annotations"
+    }
+    "Outline hierarchy" -> {
+        "Outline entry"
+    }
+    "Structure tree" -> {
+        "Structure element"
+    }
+    "Names dictionary" -> { 
+        "Embedded files"
+        "JavaScripts"
+    }
+}

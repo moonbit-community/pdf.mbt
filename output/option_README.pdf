@@ -1,0 +1,216 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R]  
+  /Count 4
+>>
+endobj
+3 0 obj
+<<
+  /Length 402
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (Option) Tj -40 0 Td 12 TL (2)' 0 TL 40 0 Td (Usage) Tj -40 0 Td 12 TL (2.1)' 0 TL 40 0 Td (Create) Tj -40 0 Td 12 TL (2.2)' 0 TL 40 0 Td (Extracting values) Tj -40 0 Td 12 TL (2.3)' 0 TL 40 0 Td (Transforming values) Tj -40 0 Td 12 TL (2.4)' 0 TL 40 0 Td (Monadic operations) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 4252
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (Option) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (The ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf ( type is a built-in type in MoonBit that represents an optional value.) Tj T* ( The type annotation ) Tj /F0 12 Tf (Option[A]) Tj /F0 12 Tf ( can also be written as ) Tj /F0 12 Tf (A?) Tj /F0 12 Tf (.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (It is an enum with two variants: ) Tj /F0 12 Tf (Some\(T\)) Tj /F0 12 Tf (, which represents a value of type ) Tj /F0 12 Tf (T) Tj /F0 12 Tf (, ) Tj T* (and ) Tj /F0 12 Tf (None) Tj /F0 12 Tf (, representing no value.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Note that some methods of the Option are defined in the ) Tj /F0 12 Tf (core/builtin) Tj /F0 12 Tf ( package.) Tj T* 12 TL T* /F0 24 Tf (Usage) Tj 24 TL T* 12 TL T* /F0 20 Tf (Create) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can create an ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf ( value using the ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf ( and ) Tj /F0 12 Tf (None) Tj /F0 12 Tf ( constructors, remember to) Tj T* ( give proper type annotations.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( some) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( none) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( String) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( None) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (some) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("Some\(42\)") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (none) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("None") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Extracting values) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can extract the value from an ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf ( using the ) Tj /F0 12 Tf (match) Tj /F0 12 Tf ( expression \(Pattern Ma) Tj T* (tching\).) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( i) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( j) Tj 0 0 0 rg ( =) Tj 0 0 1 rg ( match) Tj 0 0 0 rg ( i) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (    Some) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( value) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (    None) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( abort) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("unreachable") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  }) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (j) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Or using the ) Tj /F0 12 Tf (unwrap) Tj /F0 12 Tf ( method, which will panic if the result is ) Tj /F0 12 Tf (None) Tj /F0 12 Tf ( and return th) Tj T* (e value if it is ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( some) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( some) Tj 0 0 0 rg (.unwrap) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (      ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 5509
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL /F0 12 Tf /F0 12 Tf (A safer alternative to ) Tj /F0 12 Tf (unwrap) Tj /F0 12 Tf ( is the ) Tj /F0 12 Tf (or) Tj /F0 12 Tf ( method, which returns the value if it is) Tj T* ( ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf (, otherwise, it returns the default value.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( none) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( None) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( none) Tj 0 0 0 rg (.unwrap_or) Tj 0 0 0 rg (\() Tj 1 0 1 rg (0) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (     ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (There is also the ) Tj /F0 12 Tf (or_else) Tj /F0 12 Tf ( method, which returns the value if it is ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf (, otherwi) Tj T* (se, it returns the result of the provided function.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( none) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( None) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( none) Tj 0 0 0 rg (.unwrap_or_else) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (     ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Transforming values) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can transform the value of an ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf ( using the ) Tj /F0 12 Tf (map) Tj /F0 12 Tf ( method. It applies the pr) Tj T* (ovided function to the value if it is ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf (, otherwise, it returns ) Tj /F0 12 Tf (None) Tj /F0 12 Tf (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( some) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( new_some) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( some) Tj 0 0 0 rg (.map) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( +) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (            ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (new_some) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (43) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (There is a ) Tj /F0 12 Tf (filter) Tj /F0 12 Tf ( method that applies a predicate to the value if it is ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf (, ot) Tj T* (herwise, it returns ) Tj /F0 12 Tf (None) Tj /F0 12 Tf (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( some) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( new_some) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( some) Tj 0 0 0 rg (.filter) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( >) Tj 1 0 1 rg ( 40) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (            ) Tj T* 12 TL (5   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( none) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( some) Tj 0 0 0 rg (.filter) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( >) Tj 1 0 1 rg ( 50) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (        ) Tj T* 12 TL (6   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (new_some) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (none) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( None) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Monadic operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can chain multiple operations that return ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf ( using the ) Tj /F0 12 Tf (bind) Tj /F0 12 Tf ( method, whic) Tj T* (h applies a function to the value if it is ) Tj /F0 12 Tf (Some) Tj /F0 12 Tf (, otherwise, it returns ) Tj /F0 12 Tf (None) Tj /F0 12 Tf (. Dif) Tj T* (ferent from ) Tj /F0 12 Tf (map) Tj /F0 12 Tf (, the function in argument returns an ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf (.) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 2887
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( some) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( new_some) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( some) Tj 0 0 0 rg (.bind) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg ( +) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (            ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (new_some) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (43) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Sometimes we want to reduce the nested ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf ( values into a single ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf (, you c) Tj T* (an use the ) Tj /F0 12 Tf (flatten) Tj /F0 12 Tf ( method to achieve this. It transforms ) Tj /F0 12 Tf (Some\(Some\(value\)\)) Tj /F0 12 Tf ( i) Tj T* (nto ) Tj /F0 12 Tf (Some\(value\)) Tj /F0 12 Tf (, and ) Tj /F0 12 Tf (None) Tj /F0 12 Tf ( otherwise.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( some) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 0 0 0 rg (Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( new_some) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( some) Tj 0 0 0 rg (.flatten) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (            ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (new_some) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( none) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( Int) Tj 0 0 0 rg (?) Tj 0 0 0 rg (?) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 0 0 0 rg (None) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( new_none) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( none) Tj 0 0 0 rg (.flatten) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (        ) Tj T* 12 TL (8   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (new_none) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( None) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000055 00000 n
+0000000086 00000 n
+0000000455 00000 n
+0000000521 00000 n
+0000004306 00000 n
+0000000521 00000 n
+0000005563 00000 n
+0000000521 00000 n
+0000002941 00000 n
+0000000522 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+15786
+%%EOF

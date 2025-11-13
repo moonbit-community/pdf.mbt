@@ -1,0 +1,113 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Length 53
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET
+endstream
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R]  
+  /Count 1
+>>
+endobj
+3 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R  
+  /Outlines 5 0 R
+>>
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 1 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Type /Outlines  
+  /First 6 0 R  
+  /Last 6 0 R  
+  /Count 0
+>>
+endobj
+6 0 obj
+<<
+  /Title (chapter 1)  
+  /Parent 5 0 R  
+  /Prev null  
+  /Next null  
+  /First 7 0 R  
+  /Last 8 0 R  
+  /Count 0
+>>
+endobj
+7 0 obj
+<<
+  /Title (section 1.1)  
+  /Parent 6 0 R  
+  /Prev null  
+  /Next 8 0 R  
+  /First null  
+  /Last null  
+  /Count 0
+>>
+endobj
+8 0 obj
+<<
+  /Title (section 1.2)  
+  /Parent 6 0 R  
+  /Prev 7 0 R  
+  /Next null  
+  /First 9 0 R  
+  /Last 9 0 R  
+  /Count 0
+>>
+endobj
+9 0 obj
+<<
+  /Title (subsection 1.2.1)  
+  /Parent 8 0 R  
+  /Prev null  
+  /Next null  
+  /First null  
+  /Last null  
+  /Count 0
+>>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000105 00000 n
+0000000067 00000 n
+0000000075 00000 n
+0000000221 00000 n
+0000000085 00000 n
+0000000136 00000 n
+0000000137 00000 n
+0000000139 00000 n
+0000000141 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 3 0 R
+>>
+startxref
+1381
+%%EOF

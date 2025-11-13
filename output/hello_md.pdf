@@ -1,0 +1,263 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R]  
+  /Count 5
+>>
+endobj
+3 0 obj
+<<
+  /Length 265
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (H1) Tj -40 0 Td 12 TL (1.1)' 0 TL 40 0 Td (H1.1) Tj -40 0 Td 12 TL (1.1.1)' 0 TL 40 0 Td (H1.1.1) Tj -40 0 Td 12 TL (2)' 0 TL 40 0 Td (H2) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 2994
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (H1) Tj 24 TL T* 12 TL T* /F0 20 Tf (H1.1) Tj 20 TL T* 12 TL T* /F0 16 Tf (H1.1.1) Tj 16 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (hello ) Tj /F1 12 Tf (world) Tj /F0 12 Tf ( ) Tj /F2 12 Tf (hello) Tj /F0 12 Tf ( moonbit ) Tj /F3 12 Tf (Rust) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 1 rg (fn) Tj 0 0 0 rg ( main) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (2   ) Tj 0 0 0 rg (  println) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("Hello, World!") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (;) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod consequa) Tj T* (t mollis. Ut sodales arcu nec magna gravida, nec vestibulum erat porta. Vestibul) Tj T* (um vestibulum porttitor sapien ac condimentum. Sed eget ligula ac justo tincidun) Tj T* (t condimentum. Fusce ornare nunc non arcu commodo, ac dignissim quam ultricies. ) Tj T* (Fusce pellentesque ligula nisi, et consectetur diam tincidunt sit amet. Ut in au) Tj T* (gue congue, porta tortor vitae, euismod turpis. Nam porta augue eget turpis elei) Tj T* (fend, sed pharetra ligula faucibus. Donec diam arcu, venenatis ut purus in, elem) Tj T* (entum rutrum libero. Phasellus lacinia eleifend dolor, vel laoreet leo tristique) Tj T* ( non. Etiam quis elementum metus, nec consectetur libero.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Proin odio leo, interdum ac auctor ut, efficitur at nibh. Praesent pellentesque ) Tj T* (justo ac purus iaculis finibus. Sed aliquam finibus pellentesque. Aliquam venena) Tj T* (tis venenatis eros, vel volutpat mi maximus at. Sed laoreet velit vel placerat s) Tj T* (ollicitudin. Quisque enim est, ultricies at augue vel, malesuada aliquam arcu. P) Tj T* (ellentesque ullamcorper, arcu quis tempor facilisis, lorem turpis accumsan augue) Tj T* (, vitae consectetur nibh lorem a sapien. Donec nunc libero, faucibus vel convall) Tj T* (is nec, tincidunt in elit. Sed porttitor molestie nulla, mattis suscipit mi lobo) Tj T* (rtis bibendum. Aliquam nunc turpis, convallis et felis ac, volutpat commodo nequ) Tj T* (e. Ut in venenatis neque. Vivamus sit amet sagittis elit. Ut ut aliquet neque. S) Tj T* (ed sit amet dolor cursus, viverra ipsum eu, condimentum nunc. Orci varius natoqu) Tj T* (e penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam dol) Tj T* (or mi, sodales nec augue ut, cursus sagittis tellus.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Maecenas vehicula, elit ut tristique rhoncus, urna nulla congue ipsum, ac semper) Tj T* ( nisi nulla ac arcu. Sed sit amet viverra neque, pellentesque maximus sem. Nam m) Tj T* (olestie hendrerit ipsum, ut volutpat magna suscipit in. Morbi ultricies augue a ) Tj T* (sem porttitor, quis efficitur arcu iaculis. Fusce gravida dolor vel turpis rhonc) Tj T* (us, ac dapibus lectus faucibus. Pellentesque ultrices nibh in lectus dictum dapi) Tj T* (bus. In eget aliquet justo.) Tj T* 12 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 4057
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL /F0 12 Tf /F0 12 Tf (Praesent sagittis, justo ac imperdiet maximus, ante lacus pulvinar felis, non lu) Tj T* (ctus odio quam et velit. Praesent finibus, metus ac varius egestas, massa ipsum ) Tj T* (sagittis lacus, quis feugiat orci libero ac urna. Orci varius natoque penatibus ) Tj T* (et magnis dis parturient montes, nascetur ridiculus mus. Nam tincidunt diam dign) Tj T* (issim diam placerat bibendum. Aliquam tempor purus non libero imperdiet ultricie) Tj T* (s. Vivamus iaculis velit sed hendrerit bibendum. Integer eu eros eros. Maecenas ) Tj T* (pellentesque ornare turpis, in pharetra odio lacinia quis. Nulla vel convallis a) Tj T* (rcu. Phasellus est dui, interdum a congue id, vestibulum tempus nunc. Duis vitae) Tj T* ( ante in neque facilisis pellentesque vel ut leo. Donec egestas enim diam, eget ) Tj T* (maximus felis tincidunt eu. Vivamus vel odio condimentum, egestas lorem in, tinc) Tj T* (idunt metus. Phasellus ipsum neque, vulputate a elementum sed, commodo sed mauri) Tj T* (s. Integer laoreet mi ac pretium mollis. Mauris hendrerit, sem id congue molesti) Tj T* (e, diam augue iaculis nisi, eget consectetur sapien velit eu quam.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Curabitur sit amet felis nec nibh viverra volutpat. Fusce vel pretium est. Aenea) Tj T* (n euismod a est quis bibendum. Integer vestibulum dictum metus, ac sollicitudin ) Tj T* (enim venenatis ac. Proin vel aliquet mauris. Maecenas lacinia aliquam turpis non) Tj T* ( laoreet. Etiam ut interdum massa, vitae gravida odio. Phasellus condimentum ege) Tj T* (stas orci ut lobortis.) Tj T* 12 TL T* /F0 24 Tf (H2) Tj 24 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor dui v) Tj T* (itae eleifend efficitur. Phasellus finibus arcu orci, vel porttitor justo rutrum) Tj T* ( ac. Vestibulum arcu ante, ultrices id massa in, sagittis interdum velit. Praese) Tj T* (nt lacus erat, tincidunt in suscipit nec, rutrum nec ex. Pellentesque vitae ferm) Tj T* (entum tortor, non mattis ex. Maecenas justo velit, interdum vitae pretium vitae,) Tj T* ( varius sed odio. Suspendisse efficitur a arcu vitae dapibus. Class aptent tacit) Tj T* (i sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praese) Tj T* (nt elit sapien, scelerisque eu tellus ac, laoreet mattis metus. Morbi vel ante r) Tj T* (utrum, placerat est a, imperdiet purus. Nulla sollicitudin, quam non dapibus ele) Tj T* (ifend, magna tortor egestas magna, sit amet ornare dolor justo bibendum elit. Fu) Tj T* (sce vel vehicula orci, in tincidunt tortor. Cras magna diam, cursus sed sollicit) Tj T* (udin nec, sodales sed magna. Donec in scelerisque nulla. Etiam pharetra neque qu) Tj T* (is facilisis interdum.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Vivamus accumsan enim sit amet neque ullamcorper facilisis. Praesent mattis mi a) Tj T* (t commodo pellentesque. Proin sollicitudin risus in leo imperdiet commodo. Pelle) Tj T* (ntesque sodales lectus nunc, eu tincidunt tortor dapibus at. Morbi mollis justo ) Tj T* (et ex convallis viverra. Aenean et sapien sapien. Duis sit amet egestas metus. M) Tj T* (aecenas eu risus vitae metus porttitor imperdiet in id quam. Fusce sollicitudin ) Tj T* (ac eros non imperdiet. Suspendisse semper tempor tristique. Curabitur ac feugiat) Tj T* ( augue. Cras interdum massa nec quam placerat, facilisis tristique augue bibendu) Tj T* (m. Praesent ut mauris nunc. Nullam sit amet condimentum nisi, vel blandit mi. Cu) Tj T* (rabitur ut nibh vitae est hendrerit vulputate vitae in nisl. Mauris auctor elit ) Tj T* (at ex vestibulum porttitor eget viverra felis.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Duis porttitor sodales massa et dictum. Phasellus sed libero eros. Pellentesque ) Tj T* (non condimentum urna. Curabitur et gravida ligula. Quisque commodo, nisl et accu) Tj T* (msan consequat, nunc erat convallis lacus, non ullamcorper mi elit at tortor. Se) Tj T* (d condimentum ex magna. Praesent porta orci vel sem blandit facilisis.) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 3702
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL /F0 12 Tf /F0 12 Tf (Aenean pharetra convallis magna eu auctor. Sed efficitur elit non dui molestie, ) Tj T* (a mollis dolor tempus. Vestibulum molestie finibus sem non luctus. Nunc elementu) Tj T* (m nisi vel quam iaculis, vitae posuere nulla volutpat. Donec et nisi ut lectus t) Tj T* (ristique mattis. Nam erat purus, ultricies quis rutrum convallis, eleifend vitae) Tj T* ( nisl. Donec et sem ut elit efficitur tincidunt nec non mauris. Aenean elementum) Tj T* ( erat mauris, eu molestie nulla dapibus eget.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Nulla et ante nisl. Nulla arcu metus, ornare at venenatis ut, hendrerit nec quam) Tj T* (. Aliquam erat volutpat. Nulla venenatis maximus odio ac efficitur. Sed pharetra) Tj T* ( turpis eget varius faucibus. Duis eros mi, tincidunt at laoreet vitae, sodales ) Tj T* (eu mauris. Aenean aliquam sit amet dolor nec pulvinar. Ut non ligula non dolor c) Tj T* (ursus posuere eget non purus. Quisque eu augue nec nisl sollicitudin commodo vel) Tj T* ( hendrerit arcu. Maecenas vitae sodales purus. Ut dictum cursus nisl sed imperdi) Tj T* (et. Praesent consequat eros vel neque ultrices convallis.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Praesent ullamcorper venenatis risus sit amet pellentesque. Praesent varius posu) Tj T* (ere venenatis. Etiam leo felis, facilisis ac lobortis ac, finibus vitae elit. Pr) Tj T* (aesent arcu enim, consectetur eu quam congue, elementum convallis dui. Morbi ves) Tj T* (tibulum, lectus eget congue tincidunt, metus nunc iaculis sem, nec suscipit tell) Tj T* (us mauris ac felis. Donec ac auctor velit. Vestibulum pellentesque facilisis eni) Tj T* (m ac mollis. Quisque ut odio id ligula ullamcorper fermentum. Vivamus laoreet od) Tj T* (io vitae augue volutpat cursus et vitae eros. Duis tempus rhoncus laoreet. Aenea) Tj T* (n tempus ante dolor, quis convallis ante pretium vel. Curabitur sagittis neque i) Tj T* (n bibendum commodo.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Vivamus gravida interdum ante vel euismod. Morbi pellentesque lacus vitae arcu t) Tj T* (empor posuere. Mauris dignissim nunc quis congue auctor. Fusce dictum augue ex. ) Tj T* (Praesent mollis ante in est aliquet consequat. Nulla eget viverra sapien. Quisqu) Tj T* (e suscipit egestas urna eget rutrum. Phasellus quis enim non velit placerat dict) Tj T* (um. Donec interdum elit vitae convallis hendrerit. Sed aliquet neque a pharetra ) Tj T* (placerat. Phasellus pellentesque at est id tincidunt. Proin pulvinar eu quam et ) Tj T* (lacinia. Nunc commodo dolor non ultrices vulputate. Sed tempor nisl at neque auc) Tj T* (tor cursus at eget turpis. Donec euismod lorem nec ultrices suscipit. Pellentesq) Tj T* (ue ac consectetur sem.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Donec tincidunt volutpat metus et faucibus. Praesent tincidunt ligula in nisl ul) Tj T* (tricies, vitae sodales ex tempor. Nunc ut varius risus. Ut et congue justo. Maur) Tj T* (is a iaculis urna. Etiam aliquam nunc et ante commodo, ut interdum ante auctor. ) Tj T* (Donec a dui nunc. Donec a eros vitae dui finibus sodales. Quisque elementum puru) Tj T* (s a nisi malesuada pretium.) Tj T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Sed mauris neque, imperdiet vel bibendum eu, maximus quis ligula. Sed dapibus co) Tj T* (ndimentum sem eget rutrum. Integer at lectus quis erat efficitur ullamcorper. Ma) Tj T* (ecenas efficitur, tellus eget rutrum iaculis, orci nibh ornare libero, quis fini) Tj T* (bus mauris odio sed magna. Aenean odio purus, blandit in augue ut, scelerisque a) Tj T* (liquam justo. Integer eu efficitur enim. Proin finibus velit nec felis tempor fi) Tj T* (nibus. Nam pharetra ac arcu ac sagittis.) Tj T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+11 0 obj
+<<
+  /Length 720
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL /F0 12 Tf /F0 12 Tf (Phasellus rutrum quam ac risus tincidunt, eget lobortis mauris dignissim. Curabi) Tj T* (tur nibh neque, iaculis tempor eros ut, pretium vestibulum nisl. Etiam nulla qua) Tj T* (m, auctor vel eros a, convallis scelerisque enim. Maecenas venenatis vulputate e) Tj T* (x, et ullamcorper elit sollicitudin vitae. Morbi sodales metus in eros vestibulu) Tj T* (m finibus. Sed neque sem, laoreet et consectetur sed, suscipit quis turpis. Done) Tj T* (c justo erat, tincidunt vitae nulla feugiat, iaculis interdum tortor. Proin port) Tj T* (a est ut ultrices dignissim. Nunc suscipit volutpat dolor vitae accumsan. Vivamu) Tj T* (s convallis tincidunt ipsum at mattis.) Tj T* ET
+endstream
+endobj
+12 0 obj
+<<
+  /Type /Page  
+  /Contents 11 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000055 00000 n
+0000000093 00000 n
+0000000318 00000 n
+0000000521 00000 n
+0000003048 00000 n
+0000000521 00000 n
+0000004111 00000 n
+0000000521 00000 n
+0000003756 00000 n
+0000000522 00000 n
+0000000774 00000 n
+0000000523 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+15098
+%%EOF

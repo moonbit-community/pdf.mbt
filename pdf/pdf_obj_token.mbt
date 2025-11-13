@@ -1,0 +1,105 @@
+///|
+pub(all) enum Token {
+  LEFT_PARENTHESIS
+  RIGHT_PARENTHESIS
+  LEFT_CURLY_BRACE
+  RIGHT_CURLY_BRACE
+  LEFT_SQUARE_BRACKET
+  RIGHT_SQUARE_BRACKET
+  LESS_THAN_SIGN
+  GREATER_THAN_SIGN
+  SOLIDUS
+  DICT_BEGIN
+  DICT_END
+  NULL
+  TRUE
+  FALSE
+  INTEGER(Int)
+  REAL(Double)
+  STRING(Bytes)
+  NAME(Bytes)
+  INDIRECT(INDIRECT)
+  STREAM_BYTES(Bytes)
+  EOF
+}
+
+///|
+pub fn Token::kind(self : Token) -> TokenKind {
+  match self {
+    LEFT_PARENTHESIS => TK_LEFT_PARENTHESIS
+    RIGHT_PARENTHESIS => TK_RIGHT_PARENTHESIS
+    LEFT_CURLY_BRACE => TK_LEFT_CURLY_BRACE
+    RIGHT_CURLY_BRACE => TK_RIGHT_CURLY_BRACE
+    LEFT_SQUARE_BRACKET => TK_LEFT_SQUARE_BRACKET
+    RIGHT_SQUARE_BRACKET => TK_RIGHT_SQUARE_BRACKET
+    LESS_THAN_SIGN => TK_LESS_THAN_SIGN
+    GREATER_THAN_SIGN => TK_GREATER_THAN_SIGN
+    SOLIDUS => TK_SOLIDUS
+    DICT_BEGIN => TK_DICT_BEGIN
+    DICT_END => TK_DICT_END
+    NULL => TK_NULL
+    TRUE => TK_TRUE
+    FALSE => TK_FALSE
+    INTEGER(_) => TK_INTEGER
+    REAL(_) => TK_REAL
+    STRING(_) => TK_STRING
+    NAME(_) => TK_NAME
+    INDIRECT(_) => TK_INDIRECT
+    STREAM_BYTES(_) => TK_STREAM_BYTES
+    EOF => TK_EOF
+  }
+}
+
+///|
+pub(all) enum TokenKind {
+  TK_LEFT_PARENTHESIS
+  TK_RIGHT_PARENTHESIS
+  TK_LEFT_CURLY_BRACE
+  TK_RIGHT_CURLY_BRACE
+  TK_LEFT_SQUARE_BRACKET
+  TK_RIGHT_SQUARE_BRACKET
+  TK_LESS_THAN_SIGN
+  TK_GREATER_THAN_SIGN
+  TK_SOLIDUS
+  TK_DICT_BEGIN
+  TK_DICT_END
+  TK_NULL
+  TK_TRUE
+  TK_FALSE
+  TK_INTEGER
+  TK_REAL
+  TK_STRING
+  TK_NAME
+  TK_INDIRECT
+  TK_STREAM_BYTES
+  TK_EOF
+} derive(Eq)
+
+///|
+pub impl Show for TokenKind with output(self, logger) {
+  logger.write_string(
+    match self {
+      TK_LEFT_PARENTHESIS => "\"(\""
+      TK_RIGHT_PARENTHESIS => "\")\""
+      TK_LEFT_CURLY_BRACE => "\"{\""
+      TK_RIGHT_CURLY_BRACE => "\"}\""
+      TK_LEFT_SQUARE_BRACKET => "\"[\""
+      TK_RIGHT_SQUARE_BRACKET => "\"]\""
+      TK_LESS_THAN_SIGN => "\"<\""
+      TK_GREATER_THAN_SIGN => "\">\""
+      TK_SOLIDUS => "\"/\""
+      TK_DICT_BEGIN => "\"<<\""
+      TK_DICT_END => "\">>\""
+      TK_NULL => "\"null\""
+      TK_TRUE => "\"true\""
+      TK_FALSE => "\"false\""
+      TK_INTEGER => "INTEGER"
+      TK_REAL => "REAL"
+      TK_STRING => "STRING"
+      TK_NAME => "NAME"
+      TK_INDIRECT => "INDIRECT"
+      TK_STREAM_BYTES => "STREAM_BYTES"
+      TK_EOF => "EOF"
+    },
+  )
+}

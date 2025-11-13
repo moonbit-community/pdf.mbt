@@ -1,0 +1,9 @@
+[files]
+extend-exclude = ["pdf/__snapshot__/","resources/", "cmark_pdf/__snapshot__/"]
+
+[default.extend-words]
+Flate = "Flate"
+Parms = "Parms"
+parm = "parm"
+typ = "typ"
+Caf = "Caf"

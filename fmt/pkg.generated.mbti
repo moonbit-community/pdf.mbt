@@ -1,0 +1,109 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "illusory0x0/pdf/fmt"
+
+// Values
+fn format_count(Bytes, Array[&Format]) -> Int raise
+
+fn format_write(Bytes, Array[&Format], Memory, Int) -> Int raise
+
+// Errors
+
+// Types and methods
+pub(all) struct BigEndian[T](T)
+#deprecated
+fn[T] BigEndian::inner(Self[T]) -> T
+impl[T : BigEndianFormat] Format for BigEndian[T]
+
+pub(all) enum Center[T] {
+  Center(T, width~ : Int, padding~ : Byte)
+}
+impl[T : Format] Format for Center[T]
+
+pub(all) struct HexLower[T](T)
+#deprecated
+fn[T] HexLower::inner(Self[T]) -> T
+impl[T : HexLowerFormat] Format for HexLower[T]
+
+pub(all) struct HexUpper[T](T)
+#deprecated
+fn[T] HexUpper::inner(Self[T]) -> T
+impl[T : HexUpperFormat] Format for HexUpper[T]
+
+pub(all) enum Left[T] {
+  Left(T, width~ : Int, padding~ : Byte)
+}
+impl[T : Format] Format for Left[T]
+
+pub(all) struct LittleEndian[T](T)
+#deprecated
+fn[T] LittleEndian::inner(Self[T]) -> T
+impl[T : LittleEndianFormat] Format for LittleEndian[T]
+
+type Memory
+fn Memory::length(Self) -> Int
+fn Memory::make(Int, Byte) -> Self
+fn Memory::op_get(Self, Int) -> Byte
+fn Memory::op_set(Self, Int, Byte) -> Unit
+
+pub(all) enum Right[T] {
+  Right(T, width~ : Int, padding~ : Byte)
+}
+impl[T : Format] Format for Right[T]
+
+// Type aliases
+
+// Traits
+pub(open) trait BigEndianFormat {
+  write(Self, Memory, Int) -> Int
+  count(Self) -> Int
+}
+impl BigEndianFormat for Int
+impl BigEndianFormat for Int16
+impl BigEndianFormat for UInt
+impl BigEndianFormat for UInt16
+
+pub(open) trait Format {
+  #as_free_fn
+  write(Self, Memory, Int) -> Int
+  #as_free_fn
+  count(Self) -> Int
+}
+impl Format for Byte
+impl Format for Int
+impl Format for Int16
+impl Format for UInt
+impl Format for UInt16
+impl Format for Double
+impl Format for Bytes
+impl[A : Format] Format for Iter[A]
+impl[A : Format, B : Format] Format for Iter2[A, B]
+impl[A : Format, B : Format] Format for (A, B)
+impl Format for BytesView
+
+pub(open) trait HexLowerFormat {
+  write(Self, Memory, Int) -> Int
+  count(Self) -> Int
+}
+impl HexLowerFormat for Int
+impl HexLowerFormat for Int16
+impl HexLowerFormat for UInt
+impl HexLowerFormat for UInt16
+
+pub(open) trait HexUpperFormat {
+  write(Self, Memory, Int) -> Int
+  count(Self) -> Int
+}
+impl HexUpperFormat for Int
+impl HexUpperFormat for Int16
+impl HexUpperFormat for UInt
+impl HexUpperFormat for UInt16
+
+pub(open) trait LittleEndianFormat {
+  write(Self, Memory, Int) -> Int
+  count(Self) -> Int
+}
+impl LittleEndianFormat for Int
+impl LittleEndianFormat for Int16
+impl LittleEndianFormat for UInt
+impl LittleEndianFormat for UInt16
+

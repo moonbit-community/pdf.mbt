@@ -1,0 +1,169 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R]  
+  /Count 3
+>>
+endobj
+3 0 obj
+<<
+  /Length 384
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (double) Tj -40 0 Td 12 TL (1.1)' 0 TL 40 0 Td (Constants and Special Values) Tj -40 0 Td 12 TL (1.2)' 0 TL 40 0 Td (Basic Operations) Tj -40 0 Td 12 TL (1.3)' 0 TL 40 0 Td (Special Value Testing) Tj -40 0 Td 12 TL (1.4)' 0 TL 40 0 Td (Binary Representation) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 5445
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (double) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (This package provides comprehensive support for double-precision floating-point ) Tj T* (arithmetic, including basic operations, trigonometric functions, exponential and) Tj T* ( logarithmic functions, as well as utility functions for handling special values) Tj T* (.) Tj T* 12 TL T* /F0 20 Tf (Constants and Special Values) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (The package provides several important constants and special floating-point valu) Tj T* (es:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "special values") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                   ) Tj T* 12 TL (4   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.infinity) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("Infinity") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.neg_infinity) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("-Infinity") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.not_a_number) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("NaN") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (           ) Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.max_value) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("1.7976931348623157e+308") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.min_value) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("-1.7976931348623157e+308") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.min_positive) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("2.2250738585072014e-308") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Basic Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Basic mathematical operations and rounding functions:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "basic operations") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                   ) Tj T* 12 TL (4   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.abs) Tj 0 0 0 rg (\() Tj 0 0 0 rg (-) Tj 1 0 1 rg (3.14) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("3.14") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (                       ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.floor) Tj 0 0 0 rg (\() Tj 1 0 1 rg (3.7) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("3") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.ceil) Tj 0 0 0 rg (\() Tj 1 0 1 rg (3.2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("4") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.round) Tj 0 0 0 rg (\() Tj 1 0 1 rg (3.5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("4") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.trunc) Tj 0 0 0 rg (\() Tj 1 0 1 rg (3.7) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("3") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (                 ) Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2.0) Tj 0 0 0 rg (.pow) Tj 0 0 0 rg (\() Tj 1 0 1 rg (3) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("8") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (         ) Tj T* 12 TL (16  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (-) Tj 1 0 1 rg (3.14) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (.signum) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("-1") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2.0) Tj 0 0 0 rg (.signum) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("1") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 0 rg (                    ) Tj T* 12 TL (20  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.from_int) Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("42") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Special Value Testing) Tj 20 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 4135
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Functions for testing special floating-point values and comparing numbers:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "special value testing") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                               ) Tj T* 12 TL (4   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.not_a_number) Tj 0 0 0 rg (.is_nan) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.infinity) Tj 0 0 0 rg (.is_inf) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.infinity) Tj 0 0 0 rg (.is_pos_inf) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.neg_infinity) Tj 0 0 0 rg (.is_neg_inf) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (                         ) Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( relative_tolerance) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 1.e-9) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@double) Tj 0 0 0 rg (.is_close) Tj 0 0 0 rg (\() Tj 1 0 1 rg (0.1) Tj 0 0 0 rg ( +) Tj 1 0 1 rg ( 0.2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 0.3) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( relative_tolerance~) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Binary Representation) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Functions for converting doubles to their binary representation:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "binary representation") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( num) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 1.0) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (                                                  ) Tj T* 12 TL (6   ) Tj 0 0 0 rg (                                                           ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (    num) Tj 0 0 0 rg (.to_be_bytes) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (    content) Tj 0 0 0 rg (=) Tj 0 0 0 rg (\() Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 1 0 0 rg (      #|b"\\x3f\\xf0\\x00\\x00\\x00\\x00\\x00\\x00") Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (    \)) Tj 0 0 0 rg (,) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (  \)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (    num) Tj 0 0 0 rg (.to_le_bytes) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (    content) Tj 0 0 0 rg (=) Tj 0 0 0 rg (\() Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 1 0 0 rg (      #|b"\\x00\\x00\\x00\\x00\\x00\\x00\\xf0\\x3f") Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (    \)) Tj 0 0 0 rg (,) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg (  \)) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Note: Most methods can be called either as a method \() Tj /F0 12 Tf (d.to_be_bytes\(\)) Tj /F0 12 Tf (\) or as ) Tj T* (a package function \() Tj /F0 12 Tf (@double.to_be_bytes\(d\)) Tj /F0 12 Tf (\).) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000055 00000 n
+0000000079 00000 n
+0000000437 00000 n
+0000000521 00000 n
+0000005499 00000 n
+0000000521 00000 n
+0000004189 00000 n
+0000000521 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+12076
+%%EOF

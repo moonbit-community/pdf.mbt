@@ -1,0 +1,9 @@
+target/
+.mooncakes/
+.DS_Store
+.moonagent
+node_modules
+build
+moonbit-system-prompt.md 
+
+*.mbt.map.json

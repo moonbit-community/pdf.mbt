@@ -1,0 +1,216 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R]  
+  /Count 4
+>>
+endobj
+3 0 obj
+<<
+  /Length 492
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (uint16) Tj -40 0 Td 12 TL (1.1)' 0 TL 40 0 Td (Constants) Tj -40 0 Td 12 TL (1.2)' 0 TL 40 0 Td (Arithmetic Operations) Tj -40 0 Td 12 TL (1.3)' 0 TL 40 0 Td (Bitwise Operations) Tj -40 0 Td 12 TL (1.4)' 0 TL 40 0 Td (Comparison and Equality) Tj -40 0 Td 12 TL (1.5)' 0 TL 40 0 Td (Default Value and Hashing) Tj -40 0 Td 12 TL (1.6)' 0 TL 40 0 Td (Type Conversions) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 3920
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (uint16) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (The ) Tj /F0 12 Tf (moonbitlang/core/uint16) Tj /F0 12 Tf ( package provides functionality for working with 16-b) Tj T* (it unsigned integers. This package includes constants, operators, and conversion) Tj T* (s for UInt16 values.) Tj T* 12 TL T* /F0 20 Tf (Constants) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (The package defines the minimum and maximum values for UInt16:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "UInt16 constants") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                            ) Tj T* 12 TL (4   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@uint16) Tj 0 0 0 rg (.min_value) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("0") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (                            ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@uint16) Tj 0 0 0 rg (.max_value) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("65535") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Arithmetic Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (UInt16 supports standard arithmetic operations:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "UInt16 arithmetic") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 100) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( b) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 50) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (             ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( +) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("150") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (                ) Tj T* 12 TL (10  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( -) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("50") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (                   ) Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( *) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("5000") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (             ) Tj T* 12 TL (16  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( /) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("2") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg (                      ) Tj T* 12 TL (19  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@uint16) Tj 0 0 0 rg (.max_value) Tj 0 0 0 rg ( +) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("0") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                     ) Tj T* 12 TL (20  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (@uint16) Tj 0 0 0 rg (.min_value) Tj 0 0 0 rg ( -) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("65535") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                                    ) Tj T* 12 TL (21  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Bitwise Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (UInt16 supports various bitwise operations:) Tj T* 12 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 4907
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "UInt16 bitwise operations") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0b1010) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( b) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0b1100) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (                ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( &) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("8") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (               ) Tj T* 12 TL (10  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( |) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("14") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (                ) Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( ^) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("6") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (               ) Tj T* 12 TL (16  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( <<) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("20") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( <<) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("40") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg () Tj T* 12 TL (19  ) Tj 0 0 0 rg (                ) Tj T* 12 TL (20  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( >>) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("5") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (21  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (b) Tj 0 0 0 rg ( >>) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("3") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (22  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Comparison and Equality) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (UInt16 supports comparison and equality operations:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "UInt16 comparison and equality") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 100) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( b) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 50) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( c) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 100) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (             ) Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( ==) Tj 0 0 0 rg ( c) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( !=) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (               ) Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( >) Tj 0 0 0 rg ( b) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (b) Tj 0 0 0 rg ( <) Tj 0 0 0 rg ( a) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg ( >=) Tj 0 0 0 rg ( c) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (c) Tj 0 0 0 rg ( <=) Tj 0 0 0 rg ( a) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("true") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Default Value and Hashing) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (UInt16 implements the Default trait:) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 3948
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "UInt16 default value") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                       ) Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( a) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 0) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (a) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("0") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (                                          ) Tj T* 12 TL (8   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 42) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg (.hash) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("42") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Type Conversions) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (UInt16 works with various conversions to and from other types:) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 1 0 0 rg ( "UInt16 conversions") Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 0 rg (                       ) Tj T* 12 TL (4   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 1 0 1 rg (42) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("42") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (                       ) Tj T* 12 TL (7   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( value) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( UInt16) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 100) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (value) Tj 0 0 0 rg (.to_int) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("100") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (                                     ) Tj T* 12 TL (11  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (-) Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("65535") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                                ) Tj T* 12 TL (12  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 1 0 1 rg (65536) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("0") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                                ) Tj T* 12 TL (13  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 1 0 1 rg (65537) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("1") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (                                ) Tj T* 12 TL (14  ) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (                        ) Tj T* 12 TL (16  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 1 0 1 rg (b'A') Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("65") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (17  ) Tj 0 0 0 rg (  inspect) Tj 0 0 0 rg (\() Tj 1 0 1 rg (b'\\xFF') Tj 0 0 0 rg (.to_uint16) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 1 0 0 rg ("255") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (18  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000055 00000 n
+0000000086 00000 n
+0000000545 00000 n
+0000000521 00000 n
+0000003974 00000 n
+0000000521 00000 n
+0000004961 00000 n
+0000000521 00000 n
+0000004002 00000 n
+0000000522 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+16003
+%%EOF

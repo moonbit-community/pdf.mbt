@@ -1,0 +1,125 @@
+%derive<Eq> TokenKind 
+
+// moonyacc entry point, specify the `parse` non-terminal symbol as the start point
+%start parse 
+
+// specify the position type 
+%position<Position>
+
+
+// PDF delimiter characters
+ 
+%token LEFT_PARENTHESIS "("
+%token RIGHT_PARENTHESIS ")"
+%token LEFT_CURLY_BRACE "{"
+%token RIGHT_CURLY_BRACE "}"
+%token LEFT_SQUARE_BRACKET "["
+%token RIGHT_SQUARE_BRACKET "]"
+%token LESS_THAN_SIGN "<"
+%token GREATER_THAN_SIGN ">"
+%token SOLIDUS "/"
+%token DICT_BEGIN "<<"
+%token DICT_END ">>"
+
+
+
+
+// PDF end-of-line markers
+// `\r`, `\r\n`, `\n`, this can appear in  reverse solidus `\`
+// reverse solidus after an end-of-line marker is used for multi-line literal strings, in this case, end-of-line marker is ignored.
+
+// if string literal has end-of-line marker, it would be convert to `\n`.
+
+
+//
+// PDF comment:
+// starting with a percent sign (%) and continuing to the end of the line
+// this comment should outside a PDF string or inside a content stream.
+
+// PDF Objects:
+
+// Null object, see more details in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.9
+%token NULL "null"
+
+// Booleans objects, see more details in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.2
+%token TRUE "true"
+%token FALSE "false"
+
+// Numeric objects, see more details in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.3
+%token<Int> INTEGER
+
+%token<Double> REAL 
+
+// String objects, see more details in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.4
+//
+// here we parse `Literal String` and `Hexadecimal String` into a unified representation as STRING token
+//
+%token<Bytes> STRING 
+
+// Name objects, see more details in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.5
+// 
+// here is different from the official PDF specification:
+// warning!
+//
+// this NAME token contains the leading solidus (/) character
+%token<Bytes> NAME
+
+// Indirect Object, see more details in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.10
+%token<INDIRECT> INDIRECT
+
+// Array objects, Dictionary objects and Stream objects aren't terminal symbols.
+
+%token<Bytes> STREAM_BYTES 
+
+%nonassoc STREAM_BYTES
+
+
+// here define an EOF token to mark the end of input
+%token EOF
+
+%% 
+// moonyacc entry point must be declared using `%start <symbol_name>` directive
+// here is the definition of the entry point symbol
+parse -> PDF_Obj :  
+  |  PDF_Obj EOF { $1 }
+;
+
+PDF_Obj -> PDF_Obj :
+  | Atom { $1 }
+  | PDF_Array { $1 }
+  | PDF_Dict { $1 }
+  | PDF_Stream { $1 }
+;
+Atom -> Atom :
+  | NAME { Name($1) }
+  | STRING { String($1) }
+  | INTEGER { Integer($1) }
+  | REAL { Real($1) }
+  | NULL { Null }
+  | TRUE { Boolean(true) }
+  | FALSE { Boolean(false) }
+  | INDIRECT { Indirect($1.object_num) }
+;
+PDF_ArrayEntries -> PDF_ArrayEntries :
+  |  { [] }
+  | PDF_ArrayEntries PDF_Obj { $1.push($2)
+      $1 }
+;
+PDF_Array -> PDF_Array :
+  | LEFT_SQUARE_BRACKET PDF_ArrayEntries RIGHT_SQUARE_BRACKET { Array($2) }
+;
+DictEntries -> DictEntries :
+  | NAME PDF_Obj { [($1, $2)] }
+  | DictEntries NAME PDF_Obj { $1.push(($2, $3))
+      $1 }
+;
+PDF_Dict -> PDF_Dict :
+  | DICT_BEGIN DICT_END { Object::Dictionary([]) }
+  | DICT_BEGIN DictEntries DICT_END { Object::Dictionary($2) }
+;
+PDF_Stream -> PDF_Stream :
+  | PDF_Dict STREAM_BYTES { Object::Stream($1, $2) }
+;
+
+
+%%

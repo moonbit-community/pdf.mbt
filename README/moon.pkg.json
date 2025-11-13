@@ -1,0 +1,9 @@
+{
+  "test-import": [
+    "illusory0x0/pdf/pdf",
+    "illusory0x0/pdf/cmark_pdf",
+    "illusory0x0/pdf/lexer_bytes",
+    "illusory0x0/pdf/fmt",
+    "rami3l/cmark/cmark"
+  ]
+}

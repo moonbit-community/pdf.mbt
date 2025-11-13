@@ -1,0 +1,216 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R]  
+  /Count 4
+>>
+endobj
+3 0 obj
+<<
+  /Length 537
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (HashSet) Tj -40 0 Td 12 TL (2)' 0 TL 40 0 Td (Usage) Tj -40 0 Td 12 TL (2.1)' 0 TL 40 0 Td (Create) Tj -40 0 Td 12 TL (2.2)' 0 TL 40 0 Td (Insert & Contain) Tj -40 0 Td 12 TL (2.3)' 0 TL 40 0 Td (Remove) Tj -40 0 Td 12 TL (2.4)' 0 TL 40 0 Td (Size & Capacity) Tj -40 0 Td 12 TL (2.5)' 0 TL 40 0 Td (Clear) Tj -40 0 Td 12 TL (2.6)' 0 TL 40 0 Td (Iteration) Tj -40 0 Td 12 TL (2.7)' 0 TL 40 0 Td (Set Operations) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 3593
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (HashSet) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (A mutable hash set based on a Robin Hood hash table.) Tj T* 12 TL T* /F0 24 Tf (Usage) Tj 24 TL T* 12 TL T* /F0 20 Tf (Create) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can create an empty set using ) Tj /F0 12 Tf (new\(\)) Tj /F0 12 Tf ( or construct it using ) Tj /F0 12 Tf (from_array\(\)) Tj /F0 12 Tf (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _set1) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _set2) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.HashSet) Tj 0 0 0 rg ([) Tj 0 0 0 rg (String) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Insert & Contain) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (insert\(\)) Tj /F0 12 Tf ( to add a key to the set, and ) Tj /F0 12 Tf (contains\(\)) Tj /F0 12 Tf ( to check whethe) Tj T* (r a key exists.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( set) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.HashSet) Tj 0 0 0 rg ([) Tj 0 0 0 rg (String) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  set) Tj 0 0 0 rg (.add) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("a") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg (.contains) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("a") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Remove) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (remove\(\)) Tj /F0 12 Tf ( to remove a key.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( set) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  set) Tj 0 0 0 rg (.remove) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("a") Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg (.contains) Tj 0 0 0 rg (\() Tj 1 0 0 rg ("a") Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( false) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Size & Capacity) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (size\(\)) Tj /F0 12 Tf ( to get the number of keys in the set, or ) Tj /F0 12 Tf (capacity\(\)) Tj /F0 12 Tf ( to ge) Tj T* (t the current capacity.) Tj T* 12 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 4566
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( set) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg (.size) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg (.capacity) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 8) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Similarly, you can use ) Tj /F0 12 Tf (is_empty\(\)) Tj /F0 12 Tf ( to check whether the set is empty.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( set) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.HashSet) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Clear) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (clear) Tj /F0 12 Tf ( to remove all keys from the set, but the allocated memory will) Tj T* ( not change.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( set) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  set) Tj 0 0 0 rg (.clear) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Iteration) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (each\(\)) Tj /F0 12 Tf ( or ) Tj /F0 12 Tf (eachi\(\)) Tj /F0 12 Tf ( to iterate through all keys.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( set) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( arr) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( [) Tj 0 0 0 rg (]) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  set) Tj 0 0 0 rg (.each) Tj 0 0 0 rg (\() Tj 0 0 0 rg (k) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( arr) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 0 0 0 rg (k) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( arr2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( [) Tj 0 0 0 rg (]) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  set) Tj 0 0 0 rg (.eachi) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (i) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( k) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( arr2) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (i) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( k) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Set Operations) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (union\(\)) Tj /F0 12 Tf (, ) Tj /F0 12 Tf (intersection\(\)) Tj /F0 12 Tf (, ) Tj /F0 12 Tf (difference\(\)) Tj /F0 12 Tf ( and ) Tj /F0 12 Tf (symmetric_difference) Tj T* (\(\)) Tj /F0 12 Tf ( to perform set operations.) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 2863
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( m1) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( m2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 0 rg ("b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "d") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 1 rg (  fn) Tj 0 0 0 rg ( to_sorted_array) Tj 0 0 0 rg (\() Tj 0 0 0 rg (set) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @hashset) Tj 0 0 0 rg (.HashSet) Tj 0 0 0 rg ([) Tj 0 0 0 rg (String) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 1 rg (    let) Tj 0 0 0 rg ( arr) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( set) Tj 0 0 0 rg (.to_array) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (    arr) Tj 0 0 0 rg (.sort) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (    arr) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  }) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m1) Tj 0 0 0 rg (.union) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m2) Tj 0 0 0 rg (\)) Tj 0 0 1 rg ( |>) Tj 0 0 0 rg ( to_sorted_array) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "d") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m1) Tj 0 0 0 rg (.intersection) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m2) Tj 0 0 0 rg (\)) Tj 0 0 1 rg ( |>) Tj 0 0 0 rg ( to_sorted_array) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 0 rg ("b") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "c") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m1) Tj 0 0 0 rg (.difference) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m2) Tj 0 0 0 rg (\)) Tj 0 0 1 rg ( |>) Tj 0 0 0 rg ( to_sorted_array) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m1) Tj 0 0 0 rg (.symmetric_difference) Tj 0 0 0 rg (\() Tj 0 0 0 rg (m2) Tj 0 0 0 rg (\)) Tj 0 0 1 rg ( |>) Tj 0 0 0 rg ( to_sorted_array) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 0 rg ("a") Tj 0 0 0 rg (,) Tj 1 0 0 rg ( "d") Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000055 00000 n
+0000000086 00000 n
+0000000590 00000 n
+0000000521 00000 n
+0000003647 00000 n
+0000000521 00000 n
+0000004620 00000 n
+0000000521 00000 n
+0000002917 00000 n
+0000000522 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+14295
+%%EOF

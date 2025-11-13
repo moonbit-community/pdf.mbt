@@ -1,0 +1,310 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R]  
+  /Count 6
+>>
+endobj
+3 0 obj
+<<
+  /Length 637
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (Deque) Tj -40 0 Td 12 TL (2)' 0 TL 40 0 Td (Usage) Tj -40 0 Td 12 TL (2.1)' 0 TL 40 0 Td (Create) Tj -40 0 Td 12 TL (2.2)' 0 TL 40 0 Td (Length & Capacity) Tj -40 0 Td 12 TL (2.3)' 0 TL 40 0 Td (Front & Back & Get) Tj -40 0 Td 12 TL (2.4)' 0 TL 40 0 Td (Push & Set) Tj -40 0 Td 12 TL (2.5)' 0 TL 40 0 Td (Pop) Tj -40 0 Td 12 TL (2.6)' 0 TL 40 0 Td (Clear) Tj -40 0 Td 12 TL (2.7)' 0 TL 40 0 Td (Equal) Tj -40 0 Td 12 TL (2.8)' 0 TL 40 0 Td (Iter & Map) Tj -40 0 Td 12 TL (2.9)' 0 TL 40 0 Td (Search & Contains) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 4651
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (Deque) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Deque is a double-ended queue implemented as a round-robin queue, supporting O\() Tj T* (1\) head or tail insertion and querying, just like double-ended queues in other ) Tj T* (languages\(C++ std::deque / Rust VecDeque\), here deque also supports random acc) Tj T* (ess.) Tj T* 12 TL T* /F0 24 Tf (Usage) Tj 24 TL T* 12 TL T* /F0 20 Tf (Create) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can create a deque manually via the ) Tj /F0 12 Tf (new\(\)) Tj /F0 12 Tf ( or construct it using the ) Tj /F0 12 Tf (of\(\)) Tj /F0 12 Tf () Tj T* (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _dv) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.Deque) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (If you want to set the length at creation time to minimize expansion consumption) Tj T* (, you can add parameter ) Tj /F0 12 Tf (capacity) Tj /F0 12 Tf ( to the ) Tj /F0 12 Tf (new\(\)) Tj /F0 12 Tf ( function.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _dv) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.Deque) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (capacity) Tj 0 0 0 rg (=) Tj 1 0 1 rg (10) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Length & Capacity) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (A deque is an indefinite-length, auto-expandable datatype. You can use ) Tj /F0 12 Tf (length\(\) Tj T* ()) Tj /F0 12 Tf ( to get the number of elements in the current queue, or ) Tj /F0 12 Tf (capacity\(\)) Tj /F0 12 Tf ( to get the) Tj T* ( current capacity.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.capacity) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL /F0 12 Tf /F0 12 Tf (Similarly, you can use the ) Tj /F0 12 Tf (is_empty) Tj /F0 12 Tf ( to determine whether the queue is empty.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.Deque) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (reserve_capacity) Tj /F0 12 Tf ( to reserve capacity, ensures that it can hold at le) Tj T* (ast the number of elements) Tj /F0 12 Tf ( ) Tj /F0 12 Tf (specified by the ) Tj /F0 12 Tf (capacity) Tj /F0 12 Tf ( argument.) Tj T* 12 TL T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 5065
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.reserve_capacity) Tj 0 0 0 rg (\() Tj 1 0 1 rg (10) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.capacity) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 10) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Also, you can use ) Tj /F0 12 Tf (shrink_to_fit) Tj /F0 12 Tf ( to shrink the capacity of the deque.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (capacity) Tj 0 0 0 rg (=) Tj 1 0 1 rg (10) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_back) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_back) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_back) Tj 0 0 0 rg (\() Tj 1 0 1 rg (3) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.capacity) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 10) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.shrink_to_fit) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.capacity) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Front & Back & Get) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (front\(\)) Tj /F0 12 Tf ( and ) Tj /F0 12 Tf (back\(\)) Tj /F0 12 Tf ( to get the head and tail elements of the queu) Tj T* (e, respectively. Since the queue may be empty, their return values are both ) Tj /F0 12 Tf (Opti) Tj T* (on) Tj /F0 12 Tf (, or ) Tj /F0 12 Tf (None) Tj /F0 12 Tf ( if the queue is empty.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.front) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.back) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can also use ) Tj /F0 12 Tf (get) Tj /F0 12 Tf ( to access elements of the queue directly, but be careful no) Tj T* (t to cross the boundaries!) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg ([) Tj 1 0 1 rg (0) Tj 0 0 0 rg (]) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg ([) Tj 1 0 1 rg (4) Tj 0 0 0 rg (]) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Push & Set) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Since the queue is bi-directional, you can use ) Tj /F0 12 Tf (push_front\(\)) Tj /F0 12 Tf ( and ) Tj /F0 12 Tf (push_back\(\)) Tj /F0 12 Tf ( ) Tj T* (to add values to the head or tail of the queue, respectively.) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 6018
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_front) Tj 0 0 0 rg (\() Tj 1 0 1 rg (6) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_front) Tj 0 0 0 rg (\() Tj 1 0 1 rg (7) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_back) Tj 0 0 0 rg (\() Tj 1 0 1 rg (8) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.push_back) Tj 0 0 0 rg (\() Tj 1 0 1 rg (9) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (                          ) Tj T* 12 TL (9   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can also use ) Tj /F0 12 Tf (Deque::set) Tj /F0 12 Tf ( or operator ) Tj /F0 12 Tf (_[_]=_) Tj /F0 12 Tf (to set elements of the queue direc) Tj T* (tly, but be careful not to cross the boundaries!) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg ([) Tj 1 0 1 rg (0) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg ([) Tj 1 0 1 rg (0) Tj 0 0 0 rg (]) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Pop) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (pop_front\(\)) Tj /F0 12 Tf ( and ) Tj /F0 12 Tf (pop_back\(\)) Tj /F0 12 Tf ( to pop the element at the head or tai) Tj T* (l of the queue, respectively, and like [Front & Back]\(#Front & Back & Get\), th) Tj T* (eir return values are ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf (, loaded with the value of the element being popped.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _back) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg (.pop_back) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (           ) Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.back) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (4) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _front) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg (.pop_front) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (          ) Tj T* 12 TL (7   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.front) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL /F0 12 Tf /F0 12 Tf (If you only want to pop an element without getting the return value, you can use) Tj T* ( ) Tj /F0 12 Tf (unsafe_pop_front\(\)) Tj /F0 12 Tf ( with ) Tj /F0 12 Tf (unsafe_pop_back\(\)) Tj /F0 12 Tf (. These two functions will panic i) Tj T* (f the queue is empty.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.unsafe_pop_front) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.front) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.unsafe_pop_back) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.back) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (4) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Clear) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (clear) Tj /F0 12 Tf ( to clear a deque. But note that the memory it already occupies) Tj T* ( does not change.) Tj T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+11 0 obj
+<<
+  /Length 7484
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.clear) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Equal) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (deque supports comparing them directly using ) Tj /F0 12 Tf (equal) Tj /F0 12 Tf (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dqa) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dqb) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dqa) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( dqb) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Iter & Map) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (deque supports vector-like ) Tj /F0 12 Tf (iter/iteri/map/mapi) Tj /F0 12 Tf ( functions and their inverse forms) Tj T* (.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( arr) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( [) Tj 0 0 0 rg (]) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.each) Tj 0 0 0 rg (\() Tj 0 0 0 rg (elem) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( arr) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 0 0 0 rg (elem) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (arr) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( arr2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( [) Tj 0 0 0 rg (]) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (  dv) Tj 0 0 0 rg (.eachi) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (i) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( _elem) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( arr2) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 0 0 0 rg (i) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (9   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (arr2) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 1 rg (0) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (10  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( arr3) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( [) Tj 0 0 0 rg (]) Tj 0 0 0 rg () Tj T* 12 TL (11  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg (.map) Tj 0 0 0 rg (\() Tj 0 0 0 rg (elem) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( arr3) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 0 0 0 rg (elem) Tj 0 0 0 rg ( +) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (12  ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (arr3) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 1 rg (2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 6) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (13  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( arr4) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( [) Tj 0 0 0 rg (]) Tj 0 0 0 rg () Tj T* 12 TL (14  ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg (.mapi) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\() Tj 0 0 0 rg (i) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( elem) Tj 0 0 0 rg (\)) Tj 0 0 0 rg ( =>) Tj 0 0 0 rg ( arr4) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 0 0 0 rg (elem) Tj 0 0 0 rg ( +) Tj 0 0 0 rg ( i) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (15  ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (arr4) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( [) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 7) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 9) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (16  ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Search & Contains) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (contains\(\)) Tj /F0 12 Tf ( to find out if a value is in the deque, or ) Tj /F0 12 Tf (search\(\)) Tj /F0 12 Tf ( t) Tj T* (o find its index in the deque.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( dv) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @deque) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.contains) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.contains) Tj 0 0 0 rg (\() Tj 1 0 1 rg (6) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( false) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.search) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (0) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (dv) Tj 0 0 0 rg (.search) Tj 0 0 0 rg (\() Tj 1 0 1 rg (6) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( None) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (8   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* ET
+endstream
+endobj
+12 0 obj
+<<
+  /Type /Page  
+  /Contents 11 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+13 0 obj
+<<
+  /Length 33
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL T* ET
+endstream
+endobj
+14 0 obj
+<<
+  /Type /Page  
+  /Contents 13 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000055 00000 n
+0000000100 00000 n
+0000000690 00000 n
+0000000521 00000 n
+0000004705 00000 n
+0000000521 00000 n
+0000005119 00000 n
+0000000521 00000 n
+0000006072 00000 n
+0000000522 00000 n
+0000007539 00000 n
+0000000523 00000 n
+0000000086 00000 n
+0000000523 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+27872
+%%EOF

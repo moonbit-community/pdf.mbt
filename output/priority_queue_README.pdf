@@ -1,0 +1,216 @@
+%PDF-1.4
+%ÄÅÇÉ
+1 0 obj
+<<
+  /Type /Catalog  
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages  
+  /Kids [4 0 R 6 0 R 8 0 R 10 0 R]  
+  /Count 4
+>>
+endobj
+3 0 obj
+<<
+  /Length 518
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf 24 TL (Table of Contents)' /F0 12 Tf 12 TL T* (1)' 0 TL 40 0 Td (Priority Queue) Tj -40 0 Td 12 TL (2)' 0 TL 40 0 Td (Usage) Tj -40 0 Td 12 TL (2.1)' 0 TL 40 0 Td (Create) Tj -40 0 Td 12 TL (2.2)' 0 TL 40 0 Td (Length) Tj -40 0 Td 12 TL (2.3)' 0 TL 40 0 Td (Peek) Tj -40 0 Td 12 TL (2.4)' 0 TL 40 0 Td (Push) Tj -40 0 Td 12 TL (2.5)' 0 TL 40 0 Td (Pop) Tj -40 0 Td 12 TL (2.6)' 0 TL 40 0 Td (Clear) Tj -40 0 Td 12 TL (2.7)' 0 TL 40 0 Td (Copy and Transfer) Tj -40 0 Td 12 TL 36 TL T* ET
+endstream
+endobj
+4 0 obj
+<<
+  /Type /Page  
+  /Contents 3 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+5 0 obj
+<<
+  /Length 4485
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F0 24 Tf (Priority Queue) Tj 24 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (A priority queue is a data structure capable of maintaining maximum/minimum valu) Tj T* (es at front of the queue, which may have other names in other programming langua) Tj T* (ges \(C++ std::priority_queue / Rust BinaryHeap \). The priority queue here is i) Tj T* (mplemented as a pairing heap and has excellent performance.) Tj T* 12 TL T* /F0 24 Tf (Usage) Tj 24 TL T* 12 TL T* /F0 20 Tf (Create) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (new\(\)) Tj /F0 12 Tf ( or ) Tj /F0 12 Tf (of\(\)) Tj /F0 12 Tf ( to create a priority queue.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue1) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.T) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( queue2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  @json) Tj 0 0 0 rg (.inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue1) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 0 0 0 rg ([) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  @json) Tj 0 0 0 rg (.inspect) Tj 0 0 0 rg (\() Tj 0 0 0 rg (queue2) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( content) Tj 0 0 0 rg (=) Tj 0 0 0 rg ([) Tj 1 0 1 rg (3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Note, however, that the default priority queue created is greater-first; if you ) Tj T* (need to create a less-first queue, you can write a struct belongs to Compare tra) Tj T* (it to implement it.) Tj T* 12 TL T* /F0 20 Tf (Length) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (length\(\)) Tj /F0 12 Tf ( to get the number of elements in the current priority que) Tj T* (ue.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (Similarly, you can use the ) Tj /F0 12 Tf (is_empty) Tj /F0 12 Tf ( to determine whether the priority queue is e) Tj T* (mpty.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.T) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Peek) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (peek\(\)) Tj /F0 12 Tf ( to look at the head element of a queue, which must be eithe) Tj T* (r the maximum or minimum value of an element in the queue, depending on the natu) Tj T* (re of the specification. The return value of ) Tj /F0 12 Tf (peek\(\)) Tj /F0 12 Tf ( is an Option, which means ) Tj T* (that the result will be ) Tj /F0 12 Tf (None) Tj /F0 12 Tf ( when the queue is empty.) Tj T* ET
+endstream
+endobj
+6 0 obj
+<<
+  /Type /Page  
+  /Contents 5 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+7 0 obj
+<<
+  /Length 5030
+>>
+stream
+ 1 0 0 1 50 770 cm BT 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.peek) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Push) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (push\(\)) Tj /F0 12 Tf ( to add elements to the priority queue.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( :) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.T) Tj 0 0 0 rg ([) Tj 0 0 0 rg (Int) Tj 0 0 0 rg (]) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.new) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  pq) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 1 0 1 rg (1) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  pq) Tj 0 0 0 rg (.push) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.peek) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (2) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (7   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Pop) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (pop\(\)) Tj /F0 12 Tf ( to pop the element at the front of the priority queue, respe) Tj T* (ctively, and like ) Tj /F0 12 Tf (Peek) Tj /F0 12 Tf (, its return values are ) Tj /F0 12 Tf (Option) Tj /F0 12 Tf (, loaded with the value of t) Tj T* (he element being popped.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (5) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.pop) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 0 rg ( Some) Tj 0 0 0 rg (\() Tj 1 0 1 rg (5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (5) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 1) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.length) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Clear) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can use ) Tj /F0 12 Tf (clear) Tj /F0 12 Tf ( to clear a priority queue.) Tj T* 12 TL T* /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 4) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 5) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 0 rg (  pq) Tj 0 0 0 rg (.clear) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg (  assert_eq) Tj 0 0 0 rg (\() Tj 0 0 0 rg (pq) Tj 0 0 0 rg (.is_empty) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg (,) Tj 0 0 1 rg ( true) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* /F0 20 Tf (Copy and Transfer) Tj 20 TL T* 12 TL T* 12 TL /F0 12 Tf /F0 12 Tf (You can copy a priority queue using the ) Tj /F0 12 Tf (copy) Tj /F0 12 Tf ( method.) Tj T* 12 TL T* ET
+endstream
+endobj
+8 0 obj
+<<
+  /Type /Page  
+  /Contents 7 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+9 0 obj
+<<
+  /Length 687
+>>
+stream
+ 1 0 0 1 50 770 cm BT /F4 12 Tf 12 TL (1   ) Tj 0 0 0 rg (    ) Tj T* 12 TL (2   ) Tj 0 0 1 rg (test) Tj 0 0 0 rg ( {) Tj 0 0 0 rg () Tj T* 12 TL (3   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( @priority_queue) Tj 0 0 0 rg (.of) Tj 0 0 0 rg (\() Tj 0 0 0 rg ([) Tj 1 0 1 rg (1) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 2) Tj 0 0 0 rg (,) Tj 1 0 1 rg ( 3) Tj 0 0 0 rg (]) Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (4   ) Tj 0 0 1 rg (  let) Tj 0 0 0 rg ( _pq2) Tj 0 0 0 rg ( =) Tj 0 0 0 rg ( pq) Tj 0 0 0 rg (.copy) Tj 0 0 0 rg (\() Tj 0 0 0 rg (\)) Tj 0 0 0 rg () Tj T* 12 TL (5   ) Tj 0 0 0 rg () Tj T* 12 TL (6   ) Tj 0 0 0 rg (}) Tj 0 0 0 rg () Tj T* T* 12 TL T* ET
+endstream
+endobj
+10 0 obj
+<<
+  /Type /Page  
+  /Contents 9 0 R  
+  /Parent 2 0 R  
+  /MediaBox [0 0 595.2765 841.89105]  
+  /Resources <<
+  /Font <<
+  /F0 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Roman
+>>  
+  /F1 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Bold
+>>  
+  /F2 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-Italic
+>>  
+  /F3 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Times-BoldItalic
+>>  
+  /F4 <<
+  /Type /Font  
+  /Subtype /Type1  
+  /BaseFont /Courier
+>>
+>>
+>>
+>>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000055 00000 n
+0000000086 00000 n
+0000000571 00000 n
+0000000521 00000 n
+0000004539 00000 n
+0000000521 00000 n
+0000005084 00000 n
+0000000521 00000 n
+0000000740 00000 n
+0000000522 00000 n
+trailer
+<<
+  /Size 5  
+  /Root 1 0 R
+>>
+startxref
+13455
+%%EOF
