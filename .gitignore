@@ -5,5 +5,5 @@ target/
 node_modules
 build
 moonbit-system-prompt.md 
-
+_build
 *.mbt.map.json
