@@ -14,7 +14,7 @@ A comprehensive MoonBit library for generating standards-compliant PDF documents
 
 ### Basic PDF Generation
 
-```moonbit nocheck
+```mbt check
 ///|
 test "create basic PDF" {
   // Create a simple PDF with text
@@ -30,7 +30,7 @@ test "create basic PDF" {
 
 ### Markdown to PDF Conversion
 
-```moonbit nocheck
+```mbt check
 ///|
 test "markdown to PDF conversion" {
   let markdown =
@@ -59,7 +59,7 @@ The core package provides low-level PDF object model and file generation capabil
 
 #### PDF Objects
 
-```moonbit nocheck
+```mbt check
 ///|
 test "PDF objects" {
   // Create basic PDF objects
@@ -72,7 +72,7 @@ test "PDF objects" {
     (b"/Type", @pdf.Object::Name(b"/Page")),
     (b"/Contents", @pdf.Object::Integer(1)),
   ])
-  @json.inspect(dict_obj, content=[
+  json_inspect(dict_obj, content=[
     "Dictionary",
     [["/Type", ["Name", "/Page"]], ["/Contents", ["Integer", 1]]],
   ])
@@ -81,7 +81,7 @@ test "PDF objects" {
 
 #### Graphics Operators
 
-```moonbit nocheck
+```mbt check
 ///|
 test "graphics operators" {
   // Create graphics operators for drawing
@@ -96,7 +96,7 @@ test "graphics operators" {
 
 #### Standard Fonts
 
-```moonbit nocheck
+```mbt check
 ///|
 test "standard fonts" {
   // Use PDF standard fonts
@@ -104,7 +104,7 @@ test "standard fonts" {
 
   // Convert to PDF objects
   let font_dict = times_roman.to_pdf_dictionary()
-  @json.inspect(font_dict, content=[
+  json_inspect(font_dict, content=[
     "Dictionary",
     [
       ["/Type", ["Name", "/Font"]],
@@ -121,7 +121,7 @@ High-level API for converting Markdown to formatted PDF documents.
 
 #### Document Structure
 
-```moonbit nocheck
+```mbt check
 ///|
 test "document structure" {
   let markdown =
@@ -143,7 +143,7 @@ test "document structure" {
 
 #### Canvas Drawing API
 
-```moonbit nocheck
+```mbt check
 ///|
 test "canvas API" {
   let canvas = @cmark_pdf.Canvas::new()
@@ -175,7 +175,7 @@ Efficient parsing of various data types from byte streams.
 
 #### Basic Parsing
 
-```moonbit nocheck
+```mbt check
 ///|
 test "basic parsing" {
   // Parse integers
@@ -185,19 +185,19 @@ test "basic parsing" {
 
   // Parse floats
   let (pi, len) = @lexer_bytes.tokenize_double(b"3.14159")
-  @json.inspect(pi, content=3.14159)
+  json_inspect(pi, content=3.14159)
   inspect(len, content="7")
 
   // Parse booleans
   let (flag, len) = @lexer_bytes.tokenize_bool(b"true")
-  @json.inspect(flag, content=true)
+  json_inspect(flag, content=true)
   inspect(len, content="4")
 }
 ```
 
 #### Number Base Conversion
 
-```moonbit nocheck
+```mbt check
 ///|
 test "number bases" {
   // Hexadecimal
@@ -218,13 +218,13 @@ test "number bases" {
 
 Low-level formatting utilities used internally for PDF generation.
 
-```moonbit nocheck
+```mbt check
 ///|
 test "memory formatting" {
   let buffer = @fmt.Memory::make(1024, Byte::default())
 
   // Write formatted data
-  let written = @fmt.format_write("{} + {} = {}", [1, 2, 3], buffer, 0)
+  let written = @fmt.format_write(b"{} + {} = {}", [1, 2, 3], buffer, 0)
   inspect(written > 0, content="true")
 
   // Extract string
@@ -237,7 +237,7 @@ test "memory formatting" {
 
 ### Creating Custom PDF Documents
 
-```moonbit nocheck
+```mbt check
 ///|
 test "custom PDF document" {
   // Create content stream with graphics operators
@@ -263,14 +263,14 @@ test "custom PDF document" {
 
   // Create complete PDF
   let pdf_file = @pdf.make_pdf(catalog, [content.to_stream_object(), pages])
-  @json.inspect(pdf_file.major, content=1)
-  @json.inspect(pdf_file.minor, content=4)
+  json_inspect(pdf_file.major, content=1)
+  json_inspect(pdf_file.minor, content=4)
 }
 ```
 
 ### Error Handling
 
-```moonbit nocheck
+```mbt check
 ///|
 test "error handling examples" {
   // Handle parsing errors
@@ -284,13 +284,13 @@ test "error handling examples" {
   let safe_parse = @lexer_bytes.tokenize_double(b"invalid") catch {
     @lexer_bytes.LexError(_) => (0.0, 0)
   }
-  @json.inspect(safe_parse.0, content=0.0)
+  json_inspect(safe_parse.0, content=0.0)
 }
 ```
 
 ### Working with Images
 
-```moonbit nocheck
+```mbt check
 ///|
 test "image handling concept" {
   // This demonstrates the API structure for image handling
@@ -305,7 +305,7 @@ test "image handling concept" {
     (b"/BitsPerComponent", @pdf.Object::Integer(8)),
     (b"/ColorSpace", @pdf.Object::Name(b"/DeviceRGB")),
   ])
-  @json.inspect(image_dict, content=[
+  json_inspect(image_dict, content=[
     "Dictionary",
     [
       ["/Type", ["Name", "/XObject"]],
@@ -323,7 +323,7 @@ test "image handling concept" {
 
 While the library focuses on PDF generation, it integrates well with file operations:
 
-```moonbit nocheck
+```mbt check
 ///|
 test "file integration pattern" {
   // Generate PDF content
