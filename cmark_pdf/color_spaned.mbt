@@ -96,7 +96,7 @@ fn from_cmark_code_block(block : @cmark.CodeBlock) -> Array[Array[ColorSpaned]] 
       let (token, start, end) = token
       let start = start.cnum
       let end = end.cnum
-      let s = try! line.v[start:end]
+      let s = line.v[start:end]
       // DOT_* token ignore the leading `.`, here we use a workaround
       // https://github.com/moonbitlang/parser/issues/77
       let dot = match token {
