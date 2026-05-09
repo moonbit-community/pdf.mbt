@@ -2,10 +2,10 @@
   "name": "illusory0x0/pdf",
   "version": "0.1.0",
   "deps": {
-    "moonbitlang/x": "0.4.34",
-    "moonbitlang/yacc": "0.7.2",
-    "moonbitlang/parser": "0.1.11",
-    "rami3l/cmark": "0.4.0"
+    "moonbitlang/x": "0.4.43",
+    "moonbitlang/yacc": "0.7.13",
+    "moonbitlang/parser": "0.2.5",
+    "moonbit-community/cmark": "0.4.3"
   },
   "bin-deps": {
     "moonbitlang/yacc": "0.7.2"
@@ -15,5 +15,7 @@
   "license": "Apache-2.0",
   "keywords": [],
   "description": "A MoonBit library for generating standards-compliant PDF documents with comprehensive support for PDF objects, graphics operators.",
-  "exclude": ["resources/pdf_dataset"]
+  "exclude": [
+    "resources/pdf_dataset"
+  ]
 }
