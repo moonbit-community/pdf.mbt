@@ -103,9 +103,9 @@ fn from_cmark_code_block(block : @cmark.CodeBlock) -> Array[Array[ColorSpaned]] 
         DOT_INT(_) | DOT_LIDENT(_) | DOT_UIDENT(_) => b"."
         _ => b""
       }
-      let bytes = Bytes::make(start - prev_col - dot.length(), ' ') +
+      let bytes = Bytes::make(start - prev_col - dot.length(), b' ') +
         dot +
-        pdf_bytes_of_string(s.to_string())
+        pdf_bytes_of_string(s.to_owned())
       let style = token_to_color_style(token)
       let cs = ColorSpaned::{ text: bytes, style }
       cs_line.push(cs)

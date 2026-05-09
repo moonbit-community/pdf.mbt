@@ -19,7 +19,7 @@ fn BytesView::step(self : Self, step : Int) -> Self? {
   let mut step = step
   let mut str = self
   while str is [ch, .. rest] && step > 0 {
-    if ch != '_' {
+    if ch != b'_' {
       step -= 1
     }
     str = rest
@@ -43,10 +43,10 @@ fn[T] BytesView::fold_digits(
   let mut len = 0
   let mut str = self
   while str is [ch, .. rest] {
-    if ch is ('0'..='9') {
+    if ch is (b'0'..=b'9') {
       len += 1
       ret = f(ch.to_int() - '0', ret)
-    } else if ch != '_' {
+    } else if ch != b'_' {
       break
     }
     str = rest

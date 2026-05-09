@@ -4,7 +4,7 @@ test "parse simple PDF" {
   // Create a minimal valid PDF content using bytes literal  
   let input = b"%PDF-1.4\n1 0 obj\ntrue\nendobj\nxref\n0 2\n0000000000 65535 f \n0000000009 00000 n\ntrailer\n<</Size 2>>\nstartxref\n40\n%%EOF"
   let result = parse_pdf_file(input) // Let errors propagate
-  @json.inspect(result, content={
+  json_inspect(result, content={
     "major": 1,
     "minor": 4,
     "objects": [["Boolean", true]],
@@ -13,7 +13,7 @@ test "parse simple PDF" {
 
   // test lexer
   let file = @pdf.tokenize_file(input)
-  @json.inspect(file, content={
+  json_inspect(file, content={
     "value": {
       "header": { "major": 1, "minor": 4 },
       "body": [
@@ -39,7 +39,7 @@ test "parse simple PDF" {
     "rest": "",
   })
   let obj = file.value.body[0]
-  @json.inspect(obj, content={
+  json_inspect(obj, content={
     "bytes_offset": 9,
     "object_num": 1,
     "generation_num": 0,
@@ -48,7 +48,7 @@ test "parse simple PDF" {
   let bytes = obj.obj_bytes
   inspect(@pdf.ascii_string_of_bytesview(bytes), content="\\ntrue\\n")
   inspect(
-    @pdf.ascii_string_of_bytesview(bytes.to_bytes()),
+    @pdf.ascii_string_of_bytesview(bytes.to_owned()),
     content="\\ntrue\\n",
   )
   inspect(
@@ -57,14 +57,14 @@ test "parse simple PDF" {
       #|b"\x0atrue\x0a"
     ),
   )
-  let tokens = @pdf.tokenize(bytes.to_bytes())
+  let tokens = @pdf.tokenize(bytes.to_owned())
   inspect(tokens.length(), content="2")
   inspect(
     tokens,
     content="[(TRUE, {row: 1, col: 0}, {row: 1, col: 4}), (EOF, {row: 2, col: 0}, {row: 2, col: 0})]",
   )
   let result = @pdf.parse(tokens)
-  @json.inspect(result, content=["Boolean", true])
+  json_inspect(result, content=["Boolean", true])
 }
 
 ///|

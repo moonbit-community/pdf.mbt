@@ -217,7 +217,7 @@ pub fn tokenize(input : BytesView) -> Array[(Token, Position, Position)] {
         }
         if found_endstream {
           // Extract the stream data (between stream and endstream)
-          let stream_data = stream_input[:end_pos].to_bytes()
+          let stream_data = stream_input[:end_pos].to_owned()
           push(
             STREAM_BYTES(stream_data),
             6 + (rest.length() - stream_input.length()) + end_pos,
@@ -257,69 +257,69 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
   for input = input {
     match input {
     // Escape sequences
-    ['\\', 'n', .. rest] => {
+    [b'\\', b'n', .. rest] => {
       buffer.write_byte(b'\n')
       offset += 2
       continue rest
     }
-    ['\\', 'r', .. rest] => {
+    [b'\\', b'r', .. rest] => {
       buffer.write_byte(b'\r')
       offset += 2
       continue rest
     }
-    ['\\', 't', .. rest] => {
+    [b'\\', b't', .. rest] => {
       buffer.write_byte(b'\t')
       offset += 2
       continue rest
     }
-    ['\\', 'b', .. rest] => {
+    [b'\\', b'b', .. rest] => {
       buffer.write_byte(b'\b')
       offset += 2
       continue rest
     }
-    ['\\', 'f', .. rest] => {
+    [b'\\', b'f', .. rest] => {
       buffer.write_byte(b'\x0c') // form feed
       offset += 2
       continue rest
     }
-    ['\\', '\\', .. rest] => {
+    [b'\\', b'\\', .. rest] => {
       buffer.write_byte(b'\\')
       offset += 2
       continue rest
     }
-    ['\\', '(', .. rest] => {
+    [b'\\', b'(', .. rest] => {
       buffer.write_byte(b'(')
       offset += 2
       continue rest
     }
-    ['\\', ')', .. rest] => {
+    [b'\\', b')', .. rest] => {
       buffer.write_byte(b')')
       offset += 2
       continue rest
     }
     // Multi-line string handling: backslash followed by end-of-line marker is ignored
-    ['\\', '\r', '\n', .. rest] => {
+    [b'\\', b'\r', b'\n', .. rest] => {
       // Backslash followed by CRLF - ignore both the backslash and the end-of-line
       offset += 3
       continue rest
     }
-    ['\\', '\r', .. rest] => {
+    [b'\\', b'\r', .. rest] => {
       // Backslash followed by CR - ignore both
       offset += 2
       continue rest
     }
-    ['\\', '\n', .. rest] => {
+    [b'\\', b'\n', .. rest] => {
       // Backslash followed by LF - ignore both
       offset += 2
       continue rest
     }
     // Octal escape sequences: \ddd where d is 0-7
-    ['\\', d1, d2, d3, .. rest] if d1 >= '0' &&
-      d1 <= '7' &&
-      d2 >= '0' &&
-      d2 <= '7' &&
-      d3 >= '0' &&
-      d3 <= '7' => {
+    [b'\\', d1, d2, d3, .. rest] if d1 >= b'0' &&
+      d1 <= b'7' &&
+      d2 >= b'0' &&
+      d2 <= b'7' &&
+      d3 >= b'0' &&
+      d3 <= b'7' => {
       let octal_value = (d1.to_int() - '0'.to_int()) * 64 +
         (d2.to_int() - '0'.to_int()) * 8 +
         (d3.to_int() - '0'.to_int())
@@ -328,7 +328,7 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
       continue rest
     }
     // Two-digit octal escape sequences: \dd
-    ['\\', d1, d2, .. rest] if d1 >= '0' && d1 <= '7' && d2 >= '0' && d2 <= '7' => {
+    [b'\\', d1, d2, .. rest] if d1 >= b'0' && d1 <= b'7' && d2 >= b'0' && d2 <= b'7' => {
       let octal_value = (d1.to_int() - '0'.to_int()) * 8 +
         (d2.to_int() - '0'.to_int())
       buffer.write_byte(octal_value.to_byte())
@@ -336,35 +336,35 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
       continue rest
     }
     // One-digit octal escape sequences: \d
-    ['\\', d1, .. rest] if d1 >= '0' && d1 <= '7' => {
+    [b'\\', d1, .. rest] if d1 >= b'0' && d1 <= b'7' => {
       let octal_value = d1.to_int() - '0'.to_int()
       buffer.write_byte(octal_value.to_byte())
       offset += 2
       continue rest
     }
     // Unrecognized escape sequence - ignore the backslash
-    ['\\', _, .. rest] => {
+    [b'\\', _, .. rest] => {
       offset += 2
       continue rest
     }
     // End-of-line markers in string literals are converted to \n
-    ['\r', '\n', .. rest] => {
+    [b'\r', b'\n', .. rest] => {
       buffer.write_byte(b'\n')
       offset += 2
       continue rest
     }
-    ['\r', .. rest] => {
+    [b'\r', .. rest] => {
       buffer.write_byte(b'\n')
       offset += 1
       continue rest
     }
-    ['\n', .. rest] => {
+    [b'\n', .. rest] => {
       buffer.write_byte(b'\n')
       offset += 1
       continue rest
     }
     // Close delimiter: early return when encountering ')'
-    [')', .. _rest] =>
+    [b')', .. _rest] =>
       // Return immediately when we encounter the closing parenthesis
       // offset + 1 to include the ')' character in the advance offset
       break (buffer.to_bytes(), offset + 1)

@@ -171,60 +171,60 @@ fn Number::try_fast_path(self : Number) -> Double? {
 ///|
 test "tokenize_double" {
   let tests : Array[(BytesView, Result[(Double, Int), String])] = [
-    ("", Err(syntax_err_str)),
-    ("1x", Err(syntax_err_str)),
-    ("1.1.", Err(syntax_err_str)),
-    ("1e", Err(syntax_err_str)),
-    ("1e-", Err(syntax_err_str)),
-    (".e-1", Err(syntax_err_str)),
-    ("1", Ok((1.0, 1))),
-    ("+1", Ok((1.0, 2))),
-    ("1e23", Ok((1.0e23, 4))),
-    ("1E23", Ok((1.0e23, 4))),
-    ("100000000000000000000000", Ok((1.0e23, 24))),
-    ("1e-100", Ok((1.0e-100, 6))),
-    ("123456700", Ok((1.234567e+08, 9))),
-    ("99999999999999974834176", Ok((9.999999999999997e+22, 23))),
-    ("100000000000000000000001", Ok((1.0000000000000001e+23, 24))),
-    ("100000000000000008388608", Ok((1.0000000000000001e+23, 24))),
-    ("100000000000000016777215", Ok((1.0000000000000001e+23, 24))),
-    ("100000000000000016777216", Ok((1.0000000000000003e+23, 24))),
-    ("-1", Ok((-1.0, 2))),
-    ("-0.1", Ok((-0.1, 4))),
-    ("-0", Ok((-0.0, 2))),
-    ("1e-20", Ok((1.0e-20, 5))),
-    ("625e-3", Ok((0.625, 6))),
-    ("6.62607015e-34", Ok((6.62607015e-34, 14))),
-    ("2.2250738585072012e-308", Ok((2.2250738585072014e-308, 23))),
-    ("2.2250738585072011e-308", Ok((2.225073858507201e-308, 23))),
-    ("0", Ok((0.0, 1))),
-    ("0e0", Ok((0.0, 3))),
-    ("-0e0", Ok((-0.0, 4))),
-    ("+0e0", Ok((0.0, 4))),
-    ("0e-0", Ok((0.0, 4))),
-    ("-0e-0", Ok((-0.0, 5))),
-    ("+0e-0", Ok((0.0, 5))),
-    ("0e+0", Ok((0.0, 4))),
-    ("-0e+0", Ok((-0.0, 5))),
-    ("+0e+0", Ok((0.0, 5))),
-    ("0e+01234567890123456789", Ok((0.0, 23))),
-    ("0.00e-01234567890123456789", Ok((0.0, 26))),
-    ("-0e+01234567890123456789", Ok((-0.0, 24))),
-    ("-0.00e-01234567890123456789", Ok((-0.0, 27))),
-    ("0e292", Ok((0.0, 5))),
-    ("0e347", Ok((0.0, 5))),
-    ("0e348", Ok((0.0, 5))),
-    ("-0e291", Ok((-0.0, 6))),
-    ("-0e292", Ok((-0.0, 6))),
-    ("-0e347", Ok((-0.0, 6))),
-    ("-0e348", Ok((-0.0, 6))),
-    ("1.7976931348623157e308", Ok((1.7976931348623157e308, 22))),
-    ("-1.7976931348623157e308", Ok((-1.7976931348623157e308, 23))),
-    ("1.7976931348623158e308", Ok((1.7976931348623157e308, 22))),
-    ("-1.7976931348623158e308", Ok((-1.7976931348623157e308, 23))),
-    ("1e308", Ok((1.0e308, 5))),
+    (b"", Err(syntax_err_str)),
+    (b"1x", Err(syntax_err_str)),
+    (b"1.1.", Err(syntax_err_str)),
+    (b"1e", Err(syntax_err_str)),
+    (b"1e-", Err(syntax_err_str)),
+    (b".e-1", Err(syntax_err_str)),
+    (b"1", Ok((1.0, 1))),
+    (b"+1", Ok((1.0, 2))),
+    (b"1e23", Ok((1.0e23, 4))),
+    (b"1E23", Ok((1.0e23, 4))),
+    (b"100000000000000000000000", Ok((1.0e23, 24))),
+    (b"1e-100", Ok((1.0e-100, 6))),
+    (b"123456700", Ok((1.234567e+08, 9))),
+    (b"99999999999999974834176", Ok((9.999999999999997e+22, 23))),
+    (b"100000000000000000000001", Ok((1.0000000000000001e+23, 24))),
+    (b"100000000000000008388608", Ok((1.0000000000000001e+23, 24))),
+    (b"100000000000000016777215", Ok((1.0000000000000001e+23, 24))),
+    (b"100000000000000016777216", Ok((1.0000000000000003e+23, 24))),
+    (b"-1", Ok((-1.0, 2))),
+    (b"-0.1", Ok((-0.1, 4))),
+    (b"-0", Ok((-0.0, 2))),
+    (b"1e-20", Ok((1.0e-20, 5))),
+    (b"625e-3", Ok((0.625, 6))),
+    (b"6.62607015e-34", Ok((6.62607015e-34, 14))),
+    (b"2.2250738585072012e-308", Ok((2.2250738585072014e-308, 23))),
+    (b"2.2250738585072011e-308", Ok((2.225073858507201e-308, 23))),
+    (b"0", Ok((0.0, 1))),
+    (b"0e0", Ok((0.0, 3))),
+    (b"-0e0", Ok((-0.0, 4))),
+    (b"+0e0", Ok((0.0, 4))),
+    (b"0e-0", Ok((0.0, 4))),
+    (b"-0e-0", Ok((-0.0, 5))),
+    (b"+0e-0", Ok((0.0, 5))),
+    (b"0e+0", Ok((0.0, 4))),
+    (b"-0e+0", Ok((-0.0, 5))),
+    (b"+0e+0", Ok((0.0, 5))),
+    (b"0e+01234567890123456789", Ok((0.0, 23))),
+    (b"0.00e-01234567890123456789", Ok((0.0, 26))),
+    (b"-0e+01234567890123456789", Ok((-0.0, 24))),
+    (b"-0.00e-01234567890123456789", Ok((-0.0, 27))),
+    (b"0e292", Ok((0.0, 5))),
+    (b"0e347", Ok((0.0, 5))),
+    (b"0e348", Ok((0.0, 5))),
+    (b"-0e291", Ok((-0.0, 6))),
+    (b"-0e292", Ok((-0.0, 6))),
+    (b"-0e347", Ok((-0.0, 6))),
+    (b"-0e348", Ok((-0.0, 6))),
+    (b"1.7976931348623157e308", Ok((1.7976931348623157e308, 22))),
+    (b"-1.7976931348623157e308", Ok((-1.7976931348623157e308, 23))),
+    (b"1.7976931348623158e308", Ok((1.7976931348623157e308, 22))),
+    (b"-1.7976931348623158e308", Ok((-1.7976931348623157e308, 23))),
+    (b"1e308", Ok((1.0e308, 5))),
     (
-      "1.7976931348623159e308",
+      b"1.7976931348623159e308",
       Err(
         // zeros
         // large double
@@ -232,49 +232,49 @@ test "tokenize_double" {
       ),
     ),
     (
-      "-1.7976931348623159e308",
+      b"-1.7976931348623159e308",
       Err(
         // overflow
         range_err_str,
       ),
     ),
-    ("2e308", Err(range_err_str)),
-    ("1e309", Err(range_err_str)),
-    ("1e310", Err(range_err_str)),
-    ("1e400", Err(range_err_str)),
-    ("1e40000", Err(range_err_str)),
+    (b"2e308", Err(range_err_str)),
+    (b"1e309", Err(range_err_str)),
+    (b"1e310", Err(range_err_str)),
+    (b"1e400", Err(range_err_str)),
+    (b"1e40000", Err(range_err_str)),
     // denormalized
-    ("1e-305", Ok((1.0e-305, 6))),
-    ("1e-306", Ok((1.0e-306, 6))),
-    ("1e-307", Ok((1.0e-307, 6))),
-    ("1e-308", Ok((1.0e-308, 6))),
-    ("1e-309", Ok((1.0e-309, 6))),
-    ("1e-310", Ok((1.0e-310, 6))),
-    ("1e-322", Ok((1.0e-322, 6))),
+    (b"1e-305", Ok((1.0e-305, 6))),
+    (b"1e-306", Ok((1.0e-306, 6))),
+    (b"1e-307", Ok((1.0e-307, 6))),
+    (b"1e-308", Ok((1.0e-308, 6))),
+    (b"1e-309", Ok((1.0e-309, 6))),
+    (b"1e-310", Ok((1.0e-310, 6))),
+    (b"1e-322", Ok((1.0e-322, 6))),
     // smallest denormal
-    ("5e-324", Ok((5.0e-324, 6))),
-    ("4e-324", Ok((5.0e-324, 6))),
-    ("3e-324", Ok((5.0e-324, 6))),
+    (b"5e-324", Ok((5.0e-324, 6))),
+    (b"4e-324", Ok((5.0e-324, 6))),
+    (b"3e-324", Ok((5.0e-324, 6))),
     // underflow
-    ("2e-324", Ok((0.0, 6))),
-    ("1e-350", Ok((0.0, 6))),
-    ("1e-400000", Ok((0.0, 9))),
+    (b"2e-324", Ok((0.0, 6))),
+    (b"1e-350", Ok((0.0, 6))),
+    (b"1e-400000", Ok((0.0, 9))),
     // underscores
-    ("1_23.50_0_0e+1_2", Ok((1.235e+14, 16))),
-    ("-_123.5e+12", Err(syntax_err_str)),
-    ("+_123.5e+12", Err(syntax_err_str)),
-    ("_123.5e+12", Err(syntax_err_str)),
-    ("1__23.5e+12", Err(syntax_err_str)),
-    ("123_.5e+12", Err(syntax_err_str)),
-    ("123._5e+12", Err(syntax_err_str)),
-    ("123.5_e+12", Err(syntax_err_str)),
-    ("123.5__0e+12", Err(syntax_err_str)),
-    ("123.5e_+12", Err(syntax_err_str)),
-    ("123.5e+_12", Err(syntax_err_str)),
-    ("123.5e_-12", Err(syntax_err_str)),
-    ("123.5e-_12", Err(syntax_err_str)),
-    ("123.5e+1__2", Err(syntax_err_str)),
-    ("123.5e+12_", Err(syntax_err_str)),
+    (b"1_23.50_0_0e+1_2", Ok((1.235e+14, 16))),
+    (b"-_123.5e+12", Err(syntax_err_str)),
+    (b"+_123.5e+12", Err(syntax_err_str)),
+    (b"_123.5e+12", Err(syntax_err_str)),
+    (b"1__23.5e+12", Err(syntax_err_str)),
+    (b"123_.5e+12", Err(syntax_err_str)),
+    (b"123._5e+12", Err(syntax_err_str)),
+    (b"123.5_e+12", Err(syntax_err_str)),
+    (b"123.5__0e+12", Err(syntax_err_str)),
+    (b"123.5e_+12", Err(syntax_err_str)),
+    (b"123.5e+_12", Err(syntax_err_str)),
+    (b"123.5e_-12", Err(syntax_err_str)),
+    (b"123.5e-_12", Err(syntax_err_str)),
+    (b"123.5e+1__2", Err(syntax_err_str)),
+    (b"123.5e+12_", Err(syntax_err_str)),
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
@@ -289,24 +289,24 @@ test "tokenize_double" {
 
 ///|
 test "tokenize_double_inf" {
-  assert_eq(tokenize_double("inf"), (@double.infinity, 3))
-  assert_eq(tokenize_double("+Inf"), (@double.infinity, 4))
-  assert_eq(tokenize_double("-Inf"), (@double.neg_infinity, 4))
-  assert_eq(tokenize_double("+Infinity"), (@double.infinity, 9))
-  assert_eq(tokenize_double("-Infinity"), (@double.neg_infinity, 9))
-  assert_eq(tokenize_double("+INFINITY"), (@double.infinity, 9))
-  assert_eq(tokenize_double("-INFINITY"), (@double.neg_infinity, 9))
+  assert_eq(tokenize_double(b"inf"), (@double.infinity, 3))
+  assert_eq(tokenize_double(b"+Inf"), (@double.infinity, 4))
+  assert_eq(tokenize_double(b"-Inf"), (@double.neg_infinity, 4))
+  assert_eq(tokenize_double(b"+Infinity"), (@double.infinity, 9))
+  assert_eq(tokenize_double(b"-Infinity"), (@double.neg_infinity, 9))
+  assert_eq(tokenize_double(b"+INFINITY"), (@double.infinity, 9))
+  assert_eq(tokenize_double(b"-INFINITY"), (@double.neg_infinity, 9))
 }
 
 ///|
 test "tokenize_double_nan" {
-  let (val1, len1) = tokenize_double("nan")
+  let (val1, len1) = tokenize_double(b"nan")
   assert_true(val1.is_nan())
   assert_eq(len1, 3)
-  let (val2, len2) = tokenize_double("NaN")
+  let (val2, len2) = tokenize_double(b"NaN")
   assert_true(val2.is_nan())
   assert_eq(len2, 3)
-  let (val3, len3) = tokenize_double("NAN")
+  let (val3, len3) = tokenize_double(b"NAN")
   assert_true(val3.is_nan())
   assert_eq(len3, 3)
 }

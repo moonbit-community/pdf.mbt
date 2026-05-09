@@ -60,22 +60,22 @@ pub fn[A : FromBytesView] tokenize(str : BytesView) -> (A, Int) raise LexError {
 
 ///|
 test "parse" {
-  let (b, b_len) : (Bool, Int) = tokenize("true")
+  let (b, b_len) : (Bool, Int) = tokenize(b"true")
   inspect(b, content="true")
   inspect(b_len, content="4")
-  let (i, i_len) : (Int, Int) = tokenize("12345")
+  let (i, i_len) : (Int, Int) = tokenize(b"12345")
   inspect(i, content="12345")
   inspect(i_len, content="5")
-  let (i64, i64_len) : (Int64, Int) = tokenize("9223372036854775807")
+  let (i64, i64_len) : (Int64, Int) = tokenize(b"9223372036854775807")
   assert_eq(i64, 9223372036854775807L)
   assert_eq(i64_len, 19)
-  let (ui, ui_len) : (UInt, Int) = tokenize("4294967295")
+  let (ui, ui_len) : (UInt, Int) = tokenize(b"4294967295")
   inspect(ui, content="4294967295")
   inspect(ui_len, content="10")
-  let (ui64, ui64_len) : (UInt64, Int) = tokenize("18446744073709551615")
+  let (ui64, ui64_len) : (UInt64, Int) = tokenize(b"18446744073709551615")
   assert_eq(ui64, 18446744073709551615UL)
   assert_eq(ui64_len, 20)
-  let (d, d_len) : (Double, Int) = tokenize("1234.56789")
+  let (d, d_len) : (Double, Int) = tokenize(b"1234.56789")
   assert_eq(d, 1234.56789)
   assert_eq(d_len, 10)
 }

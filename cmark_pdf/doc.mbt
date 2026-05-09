@@ -156,7 +156,7 @@ fn Block::render_to_canvas(block : Block, canvas : Canvas) -> Unit {
         canvas.set_font(b"/F1", font_size_body)
         canvas.set_leading(0)
         canvas.move_text(10, 0)
-        canvas.show_text("- ")
+        canvas.show_text(b"- ")
         Block::render_to_canvas(item, canvas)
         canvas.move_text(-10, 0)
       }

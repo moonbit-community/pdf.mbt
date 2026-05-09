@@ -68,7 +68,7 @@ fn write_pdf_header(pdf : File, buf : @fmt.Memory, start : Int) -> Int {
   try {
     let mut offset = start
     offset += @fmt.format_write(
-      "%PDF-{}.{}\n",
+      b"%PDF-{}.{}\n",
       [pdf.major, pdf.minor],
       buf,
       offset,
@@ -78,7 +78,7 @@ fn write_pdf_header(pdf : File, buf : @fmt.Memory, start : Int) -> Int {
     // PDF file should transport as binary file
     //
     offset += @fmt.format_write(
-      "%{}\n",
+      b"%{}\n",
       [@fmt.BigEndian(0x80818283)],
       buf,
       offset,
@@ -105,7 +105,7 @@ fn count_pdf_header(pdf : File) -> Int {
 fn write_pdf_obj(obj : Object, n : Int, buf : @fmt.Memory, start : Int) -> Int {
   try {
     let mut offset = start
-    offset += @fmt.format_write("{} 0 obj\n", [n], buf, offset)
+    offset += @fmt.format_write(b"{} 0 obj\n", [n], buf, offset)
     offset += @fmt.write(obj, buf, offset)
     offset += @fmt.write(b"\nendobj\n", buf, offset)
     offset - start

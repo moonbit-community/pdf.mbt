@@ -15,7 +15,7 @@
 ///|
 test "tokenize_inf_nan basic cases" {
   // Test basic NaN parsing
-  let result_nan = tokenize_inf_nan("nan")
+  let result_nan = tokenize_inf_nan(b"nan")
   match result_nan {
     Some((value, length)) => {
       inspect(value.is_nan(), content="true")
@@ -25,7 +25,7 @@ test "tokenize_inf_nan basic cases" {
   }
 
   // Test basic infinity parsing
-  let result_inf = tokenize_inf_nan("inf")
+  let result_inf = tokenize_inf_nan(b"inf")
   match result_inf {
     Some((value, length)) => {
       inspect(value.is_inf() && value > 0.0, content="true")
@@ -38,7 +38,7 @@ test "tokenize_inf_nan basic cases" {
 ///|
 test "tokenize_inf_nan with signs" {
   // Test positive signed NaN
-  let result_pos_nan = tokenize_inf_nan("+nan")
+  let result_pos_nan = tokenize_inf_nan(b"+nan")
   match result_pos_nan {
     Some((value, length)) => {
       inspect(value.is_nan(), content="true")
@@ -48,7 +48,7 @@ test "tokenize_inf_nan with signs" {
   }
 
   // Test negative signed infinity
-  let result_neg_inf = tokenize_inf_nan("-inf")
+  let result_neg_inf = tokenize_inf_nan(b"-inf")
   match result_neg_inf {
     Some((value, length)) => {
       inspect(value.is_inf() && value < 0.0, content="true")
@@ -61,7 +61,7 @@ test "tokenize_inf_nan with signs" {
 ///|
 test "tokenize_inf_nan case insensitive" {
   // Test uppercase
-  let result_uppercase = tokenize_inf_nan("NAN")
+  let result_uppercase = tokenize_inf_nan(b"NAN")
   match result_uppercase {
     Some((value, length)) => {
       inspect(value.is_nan(), content="true")
@@ -71,7 +71,7 @@ test "tokenize_inf_nan case insensitive" {
   }
 
   // Test mixed case
-  let result_mixed = tokenize_inf_nan("InF")
+  let result_mixed = tokenize_inf_nan(b"InF")
   match result_mixed {
     Some((value, length)) => {
       inspect(value.is_inf() && value > 0.0, content="true")
@@ -84,7 +84,7 @@ test "tokenize_inf_nan case insensitive" {
 ///|
 test "tokenize_inf_nan with infinity suffix" {
   // Test full infinity word
-  let result_infinity = tokenize_inf_nan("infinity")
+  let result_infinity = tokenize_inf_nan(b"infinity")
   match result_infinity {
     Some((value, length)) => {
       inspect(value.is_inf() && value > 0.0, content="true")
@@ -94,7 +94,7 @@ test "tokenize_inf_nan with infinity suffix" {
   }
 
   // Test signed full infinity
-  let result_neg_infinity = tokenize_inf_nan("-INFINITY")
+  let result_neg_infinity = tokenize_inf_nan(b"-INFINITY")
   match result_neg_infinity {
     Some((value, length)) => {
       inspect(value.is_inf() && value < 0.0, content="true")
@@ -107,7 +107,7 @@ test "tokenize_inf_nan with infinity suffix" {
 ///|
 test "tokenize_inf_nan with trailing BytesViews" {
   // Test trailing characters after 'inf'
-  let result_trailing = tokenize_inf_nan("infabc")
+  let result_trailing = tokenize_inf_nan(b"infabc")
   match result_trailing {
     Some((value, length)) => {
       inspect(value.is_inf() && value > 0.0, content="true")
@@ -117,7 +117,7 @@ test "tokenize_inf_nan with trailing BytesViews" {
   }
 
   // Test trailing characters after 'nan'
-  let result_nan_trailing = tokenize_inf_nan("nanxyz")
+  let result_nan_trailing = tokenize_inf_nan(b"nanxyz")
   match result_nan_trailing {
     Some((value, length)) => {
       inspect(value.is_nan(), content="true")
@@ -127,7 +127,7 @@ test "tokenize_inf_nan with trailing BytesViews" {
   }
 
   // Test trailing characters after signed infinity
-  let result_signed_trailing = tokenize_inf_nan("+infinity123")
+  let result_signed_trailing = tokenize_inf_nan(b"+infinity123")
   match result_signed_trailing {
     Some((value, length)) => {
       inspect(value.is_inf() && value > 0.0, content="true")
@@ -140,54 +140,54 @@ test "tokenize_inf_nan with trailing BytesViews" {
 ///|
 test "tokenize_inf_nan failures" {
   // Test invalid input
-  inspect(tokenize_inf_nan("hello"), content="None")
-  inspect(tokenize_inf_nan(""), content="None")
-  inspect(tokenize_inf_nan("in"), content="None")
-  inspect(tokenize_inf_nan("na"), content="None")
+  debug_inspect(tokenize_inf_nan(b"hello"), content="None")
+  debug_inspect(tokenize_inf_nan(b""), content="None")
+  debug_inspect(tokenize_inf_nan(b"in"), content="None")
+  debug_inspect(tokenize_inf_nan(b"na"), content="None")
 }
 
 ///|
 test "checked_mul basic cases" {
   // Test zero multiplication
-  inspect(checked_mul(0UL, 5UL), content="Some(0)")
-  inspect(checked_mul(5UL, 0UL), content="Some(0)")
+  debug_inspect(checked_mul(0UL, 5UL), content="Some(0)")
+  debug_inspect(checked_mul(5UL, 0UL), content="Some(0)")
 
   // Test multiplication by one
-  inspect(checked_mul(1UL, 42UL), content="Some(42)")
-  inspect(checked_mul(42UL, 1UL), content="Some(42)")
+  debug_inspect(checked_mul(1UL, 42UL), content="Some(42)")
+  debug_inspect(checked_mul(42UL, 1UL), content="Some(42)")
 
   // Test normal multiplication
-  inspect(checked_mul(3UL, 4UL), content="Some(12)")
-  inspect(checked_mul(10UL, 10UL), content="Some(100)")
+  debug_inspect(checked_mul(3UL, 4UL), content="Some(12)")
+  debug_inspect(checked_mul(10UL, 10UL), content="Some(100)")
 }
 
 ///|
 test "checked_mul edge cases" {
   // Test potential overflow
   let large_val = 0xFFFFFFFFFFFFFFFFUL // max uint64
-  inspect(checked_mul(large_val, 2UL), content="None")
-  inspect(checked_mul(2UL, large_val), content="None")
+  debug_inspect(checked_mul(large_val, 2UL), content="None")
+  debug_inspect(checked_mul(2UL, large_val), content="None")
 
   // Test small multiplication that should work
-  inspect(checked_mul(2UL, 3UL), content="Some(6)")
+  debug_inspect(checked_mul(2UL, 3UL), content="Some(6)")
 
   // Test corner case
-  inspect(
+  debug_inspect(
     checked_mul(5UL, 3689348814741910323UL),
     content="Some(18446744073709551615)",
   )
-  inspect(
+  debug_inspect(
     checked_mul(3689348814741910323UL, 5UL),
     content="Some(18446744073709551615)",
   )
-  inspect(
+  debug_inspect(
     checked_mul(4UL, 4611686018427387903UL),
     content="Some(18446744073709551612)",
   )
-  inspect(
+  debug_inspect(
     checked_mul(4611686018427387903UL, 4UL),
     content="Some(18446744073709551612)",
   )
-  inspect(checked_mul(4611686018427387904UL, 4UL), content="None")
-  inspect(checked_mul(4UL, 4611686018427387904UL), content="None")
+  debug_inspect(checked_mul(4611686018427387904UL, 4UL), content="None")
+  debug_inspect(checked_mul(4UL, 4611686018427387904UL), content="None")
 }

@@ -80,7 +80,7 @@ fn reverse(xs : Memory, start : Int, end : Int) -> Unit {
 ///|
 pub impl Format for UInt with write(value, buffer, start) {
   if value == 0 {
-    buffer[start + 0] = '0'
+    buffer[start + 0] = b'0'
     return 1
   }
   let mut value = value
@@ -142,7 +142,7 @@ pub impl BigEndianFormat for UInt with count(_) -> Int {
 ///|
 pub impl HexLowerFormat for UInt with write(value, buffer, start) {
   if value == 0 {
-    buffer[start + 0] = '0'
+    buffer[start + 0] = b'0'
     return 1
   }
   let mut value = value
@@ -166,7 +166,7 @@ pub impl HexLowerFormat for UInt with count(_) -> Int {
 ///|
 pub impl HexUpperFormat for UInt with write(value, buffer, start) {
   if value == 0 {
-    buffer[start + 0] = '0'
+    buffer[start + 0] = b'0'
     return 1
   }
   let mut value = value
@@ -260,7 +260,7 @@ pub impl Format for Int with write(value, buffer, start) {
     Format::write(value, buffer, start)
   } else {
     let value = (-value).reinterpret_as_uint()
-    buffer[start] = '-'
+    buffer[start] = b'-'
     Format::write(value, buffer, start + 1) + 1
   }
 }

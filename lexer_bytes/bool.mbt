@@ -16,8 +16,8 @@
 /// Parse a BytesView and return the represented boolean value and advance length, or an error.
 pub fn tokenize_bool(str : BytesView) -> (Bool, Int) raise LexError {
   match str {
-    "1" | "t" | "T" | "true" | "TRUE" | "True" => (true, str.length())
-    "0" | "f" | "F" | "false" | "FALSE" | "False" => (false, str.length())
+    b"1" | b"t" | b"T" | b"true" | b"TRUE" | b"True" => (true, str.length())
+    b"0" | b"f" | b"F" | b"false" | b"FALSE" | b"False" => (false, str.length())
     _ => syntax_err()
   }
 }
@@ -25,20 +25,20 @@ pub fn tokenize_bool(str : BytesView) -> (Bool, Int) raise LexError {
 ///|
 test "tokenize_bool" {
   let tests : Array[(BytesView, Result[(Bool, Int), String])] = [
-    ("", Err(syntax_err_str)),
-    ("zutomayo", Err(syntax_err_str)),
-    ("0", Ok((false, 1))),
-    ("f", Ok((false, 1))),
-    ("F", Ok((false, 1))),
-    ("FALSE", Ok((false, 5))),
-    ("false", Ok((false, 5))),
-    ("False", Ok((false, 5))),
-    ("1", Ok((true, 1))),
-    ("t", Ok((true, 1))),
-    ("T", Ok((true, 1))),
-    ("TRUE", Ok((true, 4))),
-    ("true", Ok((true, 4))),
-    ("True", Ok((true, 4))),
+    (b"", Err(syntax_err_str)),
+    (b"zutomayo", Err(syntax_err_str)),
+    (b"0", Ok((false, 1))),
+    (b"f", Ok((false, 1))),
+    (b"F", Ok((false, 1))),
+    (b"FALSE", Ok((false, 5))),
+    (b"false", Ok((false, 5))),
+    (b"False", Ok((false, 5))),
+    (b"1", Ok((true, 1))),
+    (b"t", Ok((true, 1))),
+    (b"T", Ok((true, 1))),
+    (b"TRUE", Ok((true, 4))),
+    (b"true", Ok((true, 4))),
+    (b"True", Ok((true, 4))),
   ]
   for i in 0..<tests.length() {
     let t = tests[i]

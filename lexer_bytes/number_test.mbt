@@ -14,14 +14,14 @@
 
 ///|
 test "tokenize_inf_nan positive NaN" {
-  let (result, advance_len) = @lexer_bytes.tokenize_double("+nan")
+  let (result, advance_len) = @lexer_bytes.tokenize_double(b"+nan")
   inspect(result.is_nan(), content="true")
   inspect(advance_len, content="4")
 }
 
 ///|
 test "tokenize_inf_nan negative NaN" {
-  let (result, advance_len) = @lexer_bytes.tokenize_double("-nan")
+  let (result, advance_len) = @lexer_bytes.tokenize_double(b"-nan")
   inspect(result.is_nan(), content="true")
   inspect(advance_len, content="4")
 }

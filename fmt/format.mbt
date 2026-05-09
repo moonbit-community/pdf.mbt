@@ -17,7 +17,7 @@ fn find_first_placeholder(format : Bytes) -> Int? {
   for index = 0, cs = format[:] {
     match cs {
       [] => break None
-      ['{', '}', ..] => break Some(index)
+      [b'{', b'}', ..] => break Some(index)
       [_, .. rest] => continue index + 1, rest
     }
   }
@@ -35,7 +35,7 @@ fn split_format(format : BytesView) -> (Array[BytesView], Int) {
       snippets.push(format[start:index])
       break
     }
-    ['{', '}', .. rest] => {
+    [b'{', b'}', .. rest] => {
       snippets.push(format[start:index])
       start = index + 2
       index += 2

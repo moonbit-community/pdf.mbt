@@ -34,7 +34,7 @@ test "test write to file" {
   let bytes = bytes_of_memory(buf, offset)
   let len = bytes.length()
   let stm = @pdf.Object::Stream(
-    @pdf.Dictionary([("/Length", @pdf.Integer(len))]),
+    @pdf.Dictionary([(b"/Length", @pdf.Integer(len))]),
     bytes,
   )
   let offset = @fmt.write(stm, buf, 0)
@@ -54,7 +54,7 @@ test "test write to file" {
 ///|
 test {
   let buffer = @fmt.Memory::make(4096, Byte::default())
-  let offset = @fmt.format_write(" ET", [], buffer, 0)
+  let offset = @fmt.format_write(b" ET", [], buffer, 0)
   inspect(string_of_memory(buffer, offset), content=" ET")
 }
 
@@ -63,10 +63,10 @@ test {
 /// first and last should be indirect references
 fn make_outline(first : @pdf.Object, last : @pdf.Object) -> @pdf.Object {
   @pdf.Dictionary([
-    ("/Type", @pdf.Name(b"/Outlines")),
-    ("/First", first),
-    ("/Last", last),
-    ("/Count", @pdf.Integer(0)),
+    (b"/Type", @pdf.Name(b"/Outlines")),
+    (b"/First", first),
+    (b"/Last", last),
+    (b"/Count", @pdf.Integer(0)),
   ])
 }
 
@@ -80,22 +80,22 @@ fn make_outline_item(
   last~ : @pdf.Object,
 ) -> @pdf.Object {
   @pdf.Dictionary([
-    ("/Title", @pdf.String(title)),
-    ("/Parent", parent),
-    ("/Prev", prev),
-    ("/Next", next),
-    ("/First", first),
-    ("/Last", last),
-    ("/Count", @pdf.Integer(0)),
+    (b"/Title", @pdf.String(title)),
+    (b"/Parent", parent),
+    (b"/Prev", prev),
+    (b"/Next", next),
+    (b"/First", first),
+    (b"/Last", last),
+    (b"/Count", @pdf.Integer(0)),
   ])
 }
 
 ///|
 fn define_catalog(pages~ : @pdf.Object, outlines~ : @pdf.Object) -> @pdf.Object {
   Dictionary([
-    ("/Type", Name("/Catalog")),
-    ("/Pages", pages),
-    ("/Outlines", outlines),
+    (b"/Type", Name(b"/Catalog")),
+    (b"/Pages", pages),
+    (b"/Outlines", outlines),
   ])
 }
 
@@ -201,7 +201,7 @@ test {
   }
   let _tree_with_index = TreeWithIndex::from(tree, 0)
   let objs = _tree_with_index.to_outline_item(0)
-  @json.inspect(objs, content=[
+  json_inspect(objs, content=[
     [
       0,
       [
@@ -293,7 +293,7 @@ test (t : @test.Test) {
 
   // 1 0 obj
   let stm = @pdf.Object::Stream(
-    @pdf.Dictionary([("/Length", @pdf.Integer(len))]),
+    @pdf.Dictionary([(b"/Length", @pdf.Integer(len))]),
     bytes,
   )
   // 2 0 obj - Use define_pages helper
@@ -305,9 +305,9 @@ test (t : @test.Test) {
     outlines=@pdf.Indirect(5),
   )
   let times_italic_font = @pdf.Dictionary([
-    ("/Type", @pdf.Name(b"/Font")),
-    ("/Subtype", @pdf.Name(b"/Type1")),
-    ("/BaseFont", @pdf.Name(b"/Times-Italic")),
+    (b"/Type", @pdf.Name(b"/Font")),
+    (b"/Subtype", @pdf.Name(b"/Type1")),
+    (b"/BaseFont", @pdf.Name(b"/Times-Italic")),
   ])
   let font_f0 = define_font_item(name=b"/F0", font=times_italic_font)
   // 4 0 obj - Use define_page and helper functions for resources
@@ -360,7 +360,7 @@ test "image" (t : @test.Test) {
 
   // 1 0 obj
   let stm = @pdf.Object::Stream(
-    @pdf.Dictionary([("/Length", @pdf.Integer(len))]),
+    @pdf.Dictionary([(b"/Length", @pdf.Integer(len))]),
     bytes,
   )
   // 2 0 obj - Use define_pages helper
@@ -371,9 +371,9 @@ test "image" (t : @test.Test) {
 
   // 4 0 obj - Use define_page and helper functions for resources
   let times_italic_font = @pdf.Dictionary([
-    ("/Type", @pdf.Name(b"/Font")),
-    ("/Subtype", @pdf.Name(b"/Type1")),
-    ("/BaseFont", @pdf.Name(b"/Times-Italic")),
+    (b"/Type", @pdf.Name(b"/Font")),
+    (b"/Subtype", @pdf.Name(b"/Type1")),
+    (b"/BaseFont", @pdf.Name(b"/Times-Italic")),
   ])
   let image_bytes = @fs.read_file_to_bytes("resources/images/ocaml.jpg")
   // 5 0 obj 

@@ -10,23 +10,23 @@ fn multiple_page_to_bytes(contents : Array[ContentStream]) -> Bytes {
 fn multiple_pages(contents : Array[ContentStream]) -> @pdf.File {
   // Font resources
   let font_f0 = define_font_item(
-    name="/F0",
+    name=b"/F0",
     font=@pdf.TimesRoman.to_pdf_dictionary(),
   )
   let font_f1 = define_font_item(
-    name="/F1",
+    name=b"/F1",
     font=@pdf.TimesBold.to_pdf_dictionary(),
   )
   let font_f2 = define_font_item(
-    name="/F2",
+    name=b"/F2",
     font=@pdf.TimesItalic.to_pdf_dictionary(),
   )
   let font_f3 = define_font_item(
-    name="/F3",
+    name=b"/F3",
     font=@pdf.TimesBoldItalic.to_pdf_dictionary(),
   )
   let font_f4 = define_font_item(
-    name="/F4",
+    name=b"/F4",
     font=@pdf.Courier.to_pdf_dictionary(),
   )
   let font_resources = define_fonts(fonts=[

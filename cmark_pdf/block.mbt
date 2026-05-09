@@ -306,7 +306,7 @@ test "Block::from_list_item with simple paragraph" {
   let doc = @cmark.Doc::from_string(md_str)
   let block = doc.block
   let block = Block::from_cmark(block)
-  @json.inspect(block, content=[
+  json_inspect(block, content=[
     "List",
     [["Paragraph", [["Plain", "Simple item"]]]],
   ])

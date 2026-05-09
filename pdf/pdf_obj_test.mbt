@@ -17,7 +17,7 @@ test {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[[] [13] [[[2323] 32] 232]]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Array", []],
@@ -39,7 +39,7 @@ test "basic integer array" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[123 323 434]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["Integer", 123], ["Integer", 323], ["Integer", 434]],
   ])
@@ -51,7 +51,7 @@ test "empty array" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[]")
-  @json.inspect(obj, content=["Array", []])
+  json_inspect(obj, content=["Array", []])
 }
 
 ///|
@@ -60,7 +60,7 @@ test "array with single element" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[42]")
-  @json.inspect(obj, content=["Array", [["Integer", 42]]])
+  json_inspect(obj, content=["Array", [["Integer", 42]]])
 }
 
 ///|
@@ -72,7 +72,7 @@ test "dictionary with indirect references" {
     string_of_pdf_object(obj),
     content="<<\\n  /Parent 1 0 R  \\n  /Contents 2 0 R  \\n  /Resources 3 0 R\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Parent", ["Indirect", 1]],
@@ -88,7 +88,7 @@ test "array with whitespace variations" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[1 2 3 4 5]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Integer", 1],
@@ -109,7 +109,7 @@ test "dictionary with PDF catalog structure" {
     string_of_pdf_object(obj),
     content="<<\\n  /Type /Catalog  \\n  /Pages 1 0 R  \\n  /Outlines 2 0 R\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Type", ["Name", "/Catalog"]],
@@ -125,7 +125,7 @@ test "array with PDF dash pattern" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[3 2 1 4]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["Integer", 3], ["Integer", 2], ["Integer", 1], ["Integer", 4]],
   ])
@@ -137,7 +137,7 @@ test "array with scientific notation numbers" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[100000 -0.0025 314]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["Real", 100000], ["Real", -0.0025], ["Real", 314]],
   ])
@@ -149,7 +149,7 @@ test "array with zero values" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[0 0 0 0]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["Integer", 0], ["Real", 0], ["Integer", 0], ["Real", 0]],
   ])
@@ -164,7 +164,7 @@ test "array with large numbers" {
     string_of_pdf_object(obj),
     content="[999999999 -999999999 1.7976931348623157e+308]",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Integer", 999999999],
@@ -180,7 +180,7 @@ test "array with special float values" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[0.1 0.01 0.001 10 100 1000]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Real", 0.1],
@@ -199,7 +199,7 @@ test "array with empty string" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[() /Name ()]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["String", ""], ["Name", "/Name"], ["String", ""]],
   ])
@@ -211,7 +211,7 @@ test "array for PDF rectangle" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[0 0 612 792]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["Integer", 0], ["Integer", 0], ["Integer", 612], ["Integer", 792]],
   ])
@@ -223,7 +223,7 @@ test "array for PDF transformation matrix" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[1 0 0 1 72 720]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Integer", 1],
@@ -242,7 +242,7 @@ test "array for PDF color space" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[/DeviceRGB]")
-  @json.inspect(obj, content=["Array", [["Name", "/DeviceRGB"]]])
+  json_inspect(obj, content=["Array", [["Name", "/DeviceRGB"]]])
 }
 
 ///|
@@ -254,7 +254,7 @@ test "array with PDF procedure set" {
     string_of_pdf_object(obj),
     content="[/PDF /Text /ImageB /ImageC /ImageI]",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Name", "/PDF"],
@@ -272,7 +272,7 @@ test "array with mixed real and integer" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="[72 72 144 144]")
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [["Integer", 72], ["Real", 72], ["Integer", 144], ["Real", 144]],
   ])
@@ -287,7 +287,7 @@ test "array with all basic types combined" {
     string_of_pdf_object(obj),
     content="[123 3.14 true false null /Name (Hello) 456 0 R]",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Array",
     [
       ["Integer", 123],
@@ -308,7 +308,7 @@ test "empty dictionary" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="<<\\n\\n>>")
-  @json.inspect(obj, content=["Dictionary", []])
+  json_inspect(obj, content=["Dictionary", []])
 }
 
 ///|
@@ -317,7 +317,7 @@ test "dictionary with single entry" {
   let tokens = tokenize(s)
   let obj = parse(tokens)
   inspect(string_of_pdf_object(obj), content="<<\\n  /Type /Font\\n>>")
-  @json.inspect(obj, content=["Dictionary", [["/Type", ["Name", "/Font"]]]])
+  json_inspect(obj, content=["Dictionary", [["/Type", ["Name", "/Font"]]]])
 }
 
 ///|
@@ -329,7 +329,7 @@ test "dictionary with multiple entries" {
     string_of_pdf_object(obj),
     content="<<\\n  /Type /Font  \\n  /Subtype /Type1  \\n  /BaseFont /Helvetica\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Type", ["Name", "/Font"]],
@@ -348,7 +348,7 @@ test "dictionary with integer values" {
     string_of_pdf_object(obj),
     content="<<\\n  /Width 612  \\n  /Height 792  \\n  /Count 5\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Width", ["Integer", 612]],
@@ -367,7 +367,7 @@ test "dictionary with real values" {
     string_of_pdf_object(obj),
     content="<<\\n  /X 72.5  \\n  /Y 144.25  \\n  /Scale 1.5\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/X", ["Real", 72.5]],
@@ -386,7 +386,7 @@ test "dictionary with boolean values" {
     string_of_pdf_object(obj),
     content="<<\\n  /Visible true  \\n  /Hidden false  \\n  /Required true\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Visible", ["Boolean", true]],
@@ -405,7 +405,7 @@ test "dictionary with null values" {
     string_of_pdf_object(obj),
     content="<<\\n  /Parent null  \\n  /Next null  \\n  /Prev 123\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [["/Parent", "Null"], ["/Next", "Null"], ["/Prev", ["Integer", 123]]],
   ])
@@ -420,7 +420,7 @@ test "dictionary with string values" {
     string_of_pdf_object(obj),
     content="<<\\n  /Title (Hello)  \\n  /Author (World)\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [["/Title", ["String", "Hello"]], ["/Author", ["String", "World"]]],
   ])
@@ -435,7 +435,7 @@ test "dictionary with image XObject structure" {
     string_of_pdf_object(obj),
     content="<<\\n  /Type /XObject  \\n  /Subtype /Image  \\n  /Width 100  \\n  /Height 200  \\n  /BitsPerComponent 8  \\n  /ColorSpace /DeviceRGB\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Type", ["Name", "/XObject"]],
@@ -457,7 +457,7 @@ test "dictionary with empty strings" {
     string_of_pdf_object(obj),
     content="<<\\n  /EmptyString ()  \\n  /NonEmpty (Hello)\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [["/EmptyString", ["String", ""]], ["/NonEmpty", ["String", "Hello"]]],
   ])
@@ -472,7 +472,7 @@ test "dictionary with negative numbers" {
     string_of_pdf_object(obj),
     content="<<\\n  /X -72  \\n  /Y -144  \\n  /Offset -3.5\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/X", ["Integer", -72]],
@@ -491,7 +491,7 @@ test "dictionary with scientific notation" {
     string_of_pdf_object(obj),
     content="<<\\n  /Large 1000000  \\n  /Small 0.0025  \\n  /Medium 314\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Large", ["Real", 1000000]],
@@ -510,7 +510,7 @@ test "dictionary with zero values" {
     string_of_pdf_object(obj),
     content="<<\\n  /Zero 0  \\n  /ZeroReal 0  \\n  /NegZero 0\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Zero", ["Integer", 0]],
@@ -529,7 +529,7 @@ test "dictionary with all null values" {
     string_of_pdf_object(obj),
     content="<<\\n  /A null  \\n  /B null  \\n  /C null\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [["/A", "Null"], ["/B", "Null"], ["/C", "Null"]],
   ])
@@ -544,7 +544,7 @@ test "dictionary with all boolean combinations" {
     string_of_pdf_object(obj),
     content="<<\\n  /True true  \\n  /False false  \\n  /AlsoTrue true  \\n  /AlsoFalse false\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/True", ["Boolean", true]],
@@ -564,7 +564,7 @@ test "dictionary with long hex strings" {
     string_of_pdf_object(obj),
     content="<<\\n  /Data (Hello World)  \\n  /Short (A)\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [["/Data", ["String", "Hello World"]], ["/Short", ["String", "A"]]],
   ])
@@ -579,7 +579,7 @@ test "dictionary with precision real numbers" {
     string_of_pdf_object(obj),
     content="<<\\n  /Pi 3.14159265  \\n  /E 2.71828  \\n  /Sqrt2 1.414213\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Pi", ["Real", 3.14159265]],
@@ -598,7 +598,7 @@ test "dictionary with very large integers" {
     string_of_pdf_object(obj),
     content="<<\\n  /Large 2147483647  \\n  /Negative -2147483648  \\n  /Zero 0\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Large", ["Integer", 2147483647]],
@@ -617,7 +617,7 @@ test "dictionary with mixed indirect references" {
     string_of_pdf_object(obj),
     content="<<\\n  /Object1 123 0 R  \\n  /Object2 456 0 R  \\n  /Direct /Name\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Object1", ["Indirect", 123]],
@@ -636,7 +636,7 @@ test "dictionary with alternating types" {
     string_of_pdf_object(obj),
     content="<<\\n  /A 1  \\n  /B true  \\n  /C (A)  \\n  /D /Name  \\n  /E null  \\n  /F 3.14\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/A", ["Integer", 1]],
@@ -658,7 +658,7 @@ test "dictionary with only names" {
     string_of_pdf_object(obj),
     content="<<\\n  /Type /Font  \\n  /Subtype /Type1  \\n  /BaseFont /Helvetica\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Type", ["Name", "/Font"]],
@@ -677,7 +677,7 @@ test "dictionary with only integers" {
     string_of_pdf_object(obj),
     content="<<\\n  /Width 100  \\n  /Height 200  \\n  /Depth 50  \\n  /Count 42\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Width", ["Integer", 100]],
@@ -697,7 +697,7 @@ test "dictionary with only reals" {
     string_of_pdf_object(obj),
     content="<<\\n  /X 72  \\n  /Y 144.5  \\n  /Scale 1  \\n  /Opacity 0.75\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/X", ["Real", 72]],
@@ -717,7 +717,7 @@ test "dictionary with only booleans" {
     string_of_pdf_object(obj),
     content="<<\\n  /Visible true  \\n  /Hidden false  \\n  /Required true  \\n  /Optional false\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Visible", ["Boolean", true]],
@@ -737,7 +737,7 @@ test "dictionary with only strings" {
     string_of_pdf_object(obj),
     content="<<\\n  /Title (Hello)  \\n  /Author (World)  \\n  /Subject (Test)\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Title", ["String", "Hello"]],
@@ -756,7 +756,7 @@ test "dictionary with only indirect references" {
     string_of_pdf_object(obj),
     content="<<\\n  /Parent 1 0 R  \\n  /Next 2 0 R  \\n  /Prev 3 0 R  \\n  /Root 4 0 R\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/Parent", ["Indirect", 1]],
@@ -776,7 +776,7 @@ test "dictionary with single character keys" {
     string_of_pdf_object(obj),
     content="<<\\n  /A 1  \\n  /B 2  \\n  /C 3  \\n  /D 4  \\n  /E 5\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/A", ["Integer", 1]],
@@ -797,7 +797,7 @@ test "dictionary with long key names" {
     string_of_pdf_object(obj),
     content="<<\\n  /VeryLongKeyNameThatExceedsNormalLength 42  \\n  /AnotherExtremelyLongKeyName /Value\\n>>",
   )
-  @json.inspect(obj, content=[
+  json_inspect(obj, content=[
     "Dictionary",
     [
       ["/VeryLongKeyNameThatExceedsNormalLength", ["Integer", 42]],
@@ -1626,7 +1626,7 @@ test "tokenize comprehensive integration" {
       EOF => "EOF"
       _ => "OTHER"
     }
-    if not(found_token_types.contains(token_type)) {
+    if !found_token_types.contains(token_type) {
       found_token_types.push(token_type)
     }
   }
