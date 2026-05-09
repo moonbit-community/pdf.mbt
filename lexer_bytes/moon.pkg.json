@@ -1,1 +1,3 @@
-{}
+{
+  "import": ["moonbitlang/core/double", "moonbitlang/core/uint64"]
+}
