@@ -4,7 +4,7 @@
     "moonbitlang/parser/lexer",
     "moonbitlang/parser/tokens",
     "moonbitlang/parser/basic",
-    "rami3l/cmark/cmark",
+    "moonbit-community/cmark/cmark",
     "illusory0x0/pdf/pdf",
     "illusory0x0/pdf/fmt"
   ]
