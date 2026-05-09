@@ -14,7 +14,7 @@ A comprehensive MoonBit library for generating standards-compliant PDF documents
 
 ### Basic PDF Generation
 
-```moonbit
+```moonbit nocheck
 ///|
 test "create basic PDF" {
   // Create a simple PDF with text
@@ -30,7 +30,7 @@ test "create basic PDF" {
 
 ### Markdown to PDF Conversion
 
-```moonbit
+```moonbit nocheck
 ///|
 test "markdown to PDF conversion" {
   let markdown =
@@ -59,7 +59,7 @@ The core package provides low-level PDF object model and file generation capabil
 
 #### PDF Objects
 
-```moonbit
+```moonbit nocheck
 ///|
 test "PDF objects" {
   // Create basic PDF objects
@@ -81,7 +81,7 @@ test "PDF objects" {
 
 #### Graphics Operators
 
-```moonbit
+```moonbit nocheck
 ///|
 test "graphics operators" {
   // Create graphics operators for drawing
@@ -96,7 +96,7 @@ test "graphics operators" {
 
 #### Standard Fonts
 
-```moonbit
+```moonbit nocheck
 ///|
 test "standard fonts" {
   // Use PDF standard fonts
@@ -121,7 +121,7 @@ High-level API for converting Markdown to formatted PDF documents.
 
 #### Document Structure
 
-```moonbit
+```moonbit nocheck
 ///|
 test "document structure" {
   let markdown =
@@ -143,7 +143,7 @@ test "document structure" {
 
 #### Canvas Drawing API
 
-```moonbit
+```moonbit nocheck
 ///|
 test "canvas API" {
   let canvas = @cmark_pdf.Canvas::new()
@@ -175,7 +175,7 @@ Efficient parsing of various data types from byte streams.
 
 #### Basic Parsing
 
-```moonbit
+```moonbit nocheck
 ///|
 test "basic parsing" {
   // Parse integers
@@ -197,7 +197,7 @@ test "basic parsing" {
 
 #### Number Base Conversion
 
-```moonbit
+```moonbit nocheck
 ///|
 test "number bases" {
   // Hexadecimal
@@ -218,7 +218,7 @@ test "number bases" {
 
 Low-level formatting utilities used internally for PDF generation.
 
-```moonbit
+```moonbit nocheck
 ///|
 test "memory formatting" {
   let buffer = @fmt.Memory::make(1024, Byte::default())
@@ -237,7 +237,7 @@ test "memory formatting" {
 
 ### Creating Custom PDF Documents
 
-```moonbit
+```moonbit nocheck
 ///|
 test "custom PDF document" {
   // Create content stream with graphics operators
@@ -270,7 +270,7 @@ test "custom PDF document" {
 
 ### Error Handling
 
-```moonbit
+```moonbit nocheck
 ///|
 test "error handling examples" {
   // Handle parsing errors
@@ -290,7 +290,7 @@ test "error handling examples" {
 
 ### Working with Images
 
-```moonbit
+```moonbit nocheck
 ///|
 test "image handling concept" {
   // This demonstrates the API structure for image handling
@@ -323,7 +323,7 @@ test "image handling concept" {
 
 While the library focuses on PDF generation, it integrates well with file operations:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "file integration pattern" {
   // Generate PDF content

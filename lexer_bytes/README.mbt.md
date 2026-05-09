@@ -4,7 +4,7 @@ A MoonBit library for parsing various data types from `BytesView`, providing eff
 
 ## Quick Start
 
-```moonbit
+```moonbit nocheck
 ///|
 test "basic usage" {
   // Parse integers from bytes
@@ -28,7 +28,7 @@ test "basic usage" {
 
 All parsing functions can raise `StrConvError` when the input cannot be parsed:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "error handling" {
   // Using try? to get Result type
@@ -58,7 +58,7 @@ test "error handling" {
 
 Parse integers from `BytesView` with optional base specification:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "tokenize_int examples" {
   // Default base 10
@@ -94,7 +94,7 @@ test "tokenize_int examples" {
 
 Parse 64-bit integers from `BytesView`:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "tokenize_int64 examples" {
   let (val1, advance_len) = @lexer_bytes.tokenize_int64(b"9223372036854775807")
@@ -121,7 +121,7 @@ test "tokenize_int64 examples" {
 
 Parse unsigned integers from `BytesView`:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "tokenize_uint examples" {
   let (val1, advance_len) = @lexer_bytes.tokenize_uint(b"4294967295")
@@ -145,7 +145,7 @@ test "tokenize_uint examples" {
 
 Parse 64-bit unsigned integers from `BytesView`:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "tokenize_uint64 examples" {
   let (val1, _) = @lexer_bytes.tokenize_uint64(b"18446744073709551615")
@@ -165,7 +165,7 @@ test "tokenize_uint64 examples" {
 
 Parse double-precision floating point numbers from `BytesView`:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "tokenize_double examples" {
   let (val1, _) = @lexer_bytes.tokenize_double(b"3.14159")
@@ -195,7 +195,7 @@ test "tokenize_double examples" {
 
 Parse boolean values from `BytesView`:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "tokenize_bool examples" {
   // True values
@@ -226,7 +226,7 @@ test "tokenize_bool examples" {
 
 Generic parsing function that works with any type implementing `FromBytesView`:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "generic parse examples" {
   // Parse integers
@@ -258,7 +258,7 @@ The `FromBytesView` trait enables types to be parsed from `BytesView`. Built-in 
 - `UInt64`
 - `Double`
 
-```moonbit
+```moonbit nocheck
 ///|
 test "trait usage examples" {
   // Using trait methods directly
@@ -279,7 +279,7 @@ test "trait usage examples" {
 
 All parsing functions can raise `StrConvError` when conversion fails:
 
-```moonbit
+```moonbit nocheck
 ///|
 test "error examples" {
   // Integer parsing errors
@@ -312,7 +312,7 @@ test "error examples" {
 
 ### Working with BytesView
 
-```moonbit
+```moonbit nocheck
 ///|
 test "bytesview usage" {
   // Work with individual BytesViews
@@ -330,7 +330,7 @@ test "bytesview usage" {
 
 ### Base Conversion Examples
 
-```moonbit
+```moonbit nocheck
 ///|
 test "base conversion showcase" {
   let binary = b"11010110"

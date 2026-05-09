@@ -35,12 +35,11 @@ fn multiple_pages(contents : Array[ContentStream]) -> @pdf.File {
 
   // 1 0 obj
   let catalog = define_catalog(pages=Indirect(2))
-  let stream_page_id_s = contents.mapi((i, x) => make_content_and_page(
-    x,
-    start_id=3 + i * 2,
-    parent=Indirect(2),
-    resources=[font_resources],
-  ))
+  let stream_page_id_s = contents.mapi((i, x) => {
+    make_content_and_page(x, start_id=3 + i * 2, parent=Indirect(2), resources=[
+      font_resources,
+    ])
+  })
   let pages = []
   let rest_objs = []
   for item in stream_page_id_s {

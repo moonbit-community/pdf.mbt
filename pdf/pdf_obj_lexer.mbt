@@ -256,129 +256,132 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
   let mut offset = 0
   for input = input {
     match input {
-    // Escape sequences
-    [b'\\', b'n', .. rest] => {
-      buffer.write_byte(b'\n')
-      offset += 2
-      continue rest
-    }
-    [b'\\', b'r', .. rest] => {
-      buffer.write_byte(b'\r')
-      offset += 2
-      continue rest
-    }
-    [b'\\', b't', .. rest] => {
-      buffer.write_byte(b'\t')
-      offset += 2
-      continue rest
-    }
-    [b'\\', b'b', .. rest] => {
-      buffer.write_byte(b'\b')
-      offset += 2
-      continue rest
-    }
-    [b'\\', b'f', .. rest] => {
-      buffer.write_byte(b'\x0c') // form feed
-      offset += 2
-      continue rest
-    }
-    [b'\\', b'\\', .. rest] => {
-      buffer.write_byte(b'\\')
-      offset += 2
-      continue rest
-    }
-    [b'\\', b'(', .. rest] => {
-      buffer.write_byte(b'(')
-      offset += 2
-      continue rest
-    }
-    [b'\\', b')', .. rest] => {
-      buffer.write_byte(b')')
-      offset += 2
-      continue rest
-    }
-    // Multi-line string handling: backslash followed by end-of-line marker is ignored
-    [b'\\', b'\r', b'\n', .. rest] => {
-      // Backslash followed by CRLF - ignore both the backslash and the end-of-line
-      offset += 3
-      continue rest
-    }
-    [b'\\', b'\r', .. rest] => {
-      // Backslash followed by CR - ignore both
-      offset += 2
-      continue rest
-    }
-    [b'\\', b'\n', .. rest] => {
-      // Backslash followed by LF - ignore both
-      offset += 2
-      continue rest
-    }
-    // Octal escape sequences: \ddd where d is 0-7
-    [b'\\', d1, d2, d3, .. rest] if d1 >= b'0' &&
-      d1 <= b'7' &&
-      d2 >= b'0' &&
-      d2 <= b'7' &&
-      d3 >= b'0' &&
-      d3 <= b'7' => {
-      let octal_value = (d1.to_int() - '0'.to_int()) * 64 +
-        (d2.to_int() - '0'.to_int()) * 8 +
-        (d3.to_int() - '0'.to_int())
-      buffer.write_byte(octal_value.to_byte())
-      offset += 4
-      continue rest
-    }
-    // Two-digit octal escape sequences: \dd
-    [b'\\', d1, d2, .. rest] if d1 >= b'0' && d1 <= b'7' && d2 >= b'0' && d2 <= b'7' => {
-      let octal_value = (d1.to_int() - '0'.to_int()) * 8 +
-        (d2.to_int() - '0'.to_int())
-      buffer.write_byte(octal_value.to_byte())
-      offset += 3
-      continue rest
-    }
-    // One-digit octal escape sequences: \d
-    [b'\\', d1, .. rest] if d1 >= b'0' && d1 <= b'7' => {
-      let octal_value = d1.to_int() - '0'.to_int()
-      buffer.write_byte(octal_value.to_byte())
-      offset += 2
-      continue rest
-    }
-    // Unrecognized escape sequence - ignore the backslash
-    [b'\\', _, .. rest] => {
-      offset += 2
-      continue rest
-    }
-    // End-of-line markers in string literals are converted to \n
-    [b'\r', b'\n', .. rest] => {
-      buffer.write_byte(b'\n')
-      offset += 2
-      continue rest
-    }
-    [b'\r', .. rest] => {
-      buffer.write_byte(b'\n')
-      offset += 1
-      continue rest
-    }
-    [b'\n', .. rest] => {
-      buffer.write_byte(b'\n')
-      offset += 1
-      continue rest
-    }
-    // Close delimiter: early return when encountering ')'
-    [b')', .. _rest] =>
-      // Return immediately when we encounter the closing parenthesis
-      // offset + 1 to include the ')' character in the advance offset
-      break (buffer.to_bytes(), offset + 1)
-    [
-      // Regular characters
-      c,
-      .. rest,
-    ] => {
-      buffer.write_byte(c.to_int().to_byte())
-      offset += 1
-      continue rest
-    }
-    // End of input without finding closing ')'
-    [] => break (buffer.to_bytes(), offset)
+      // Escape sequences
+      [b'\\', b'n', .. rest] => {
+        buffer.write_byte(b'\n')
+        offset += 2
+        continue rest
+      }
+      [b'\\', b'r', .. rest] => {
+        buffer.write_byte(b'\r')
+        offset += 2
+        continue rest
+      }
+      [b'\\', b't', .. rest] => {
+        buffer.write_byte(b'\t')
+        offset += 2
+        continue rest
+      }
+      [b'\\', b'b', .. rest] => {
+        buffer.write_byte(b'\b')
+        offset += 2
+        continue rest
+      }
+      [b'\\', b'f', .. rest] => {
+        buffer.write_byte(b'\x0c') // form feed
+        offset += 2
+        continue rest
+      }
+      [b'\\', b'\\', .. rest] => {
+        buffer.write_byte(b'\\')
+        offset += 2
+        continue rest
+      }
+      [b'\\', b'(', .. rest] => {
+        buffer.write_byte(b'(')
+        offset += 2
+        continue rest
+      }
+      [b'\\', b')', .. rest] => {
+        buffer.write_byte(b')')
+        offset += 2
+        continue rest
+      }
+      // Multi-line string handling: backslash followed by end-of-line marker is ignored
+      [b'\\', b'\r', b'\n', .. rest] => {
+        // Backslash followed by CRLF - ignore both the backslash and the end-of-line
+        offset += 3
+        continue rest
+      }
+      [b'\\', b'\r', .. rest] => {
+        // Backslash followed by CR - ignore both
+        offset += 2
+        continue rest
+      }
+      [b'\\', b'\n', .. rest] => {
+        // Backslash followed by LF - ignore both
+        offset += 2
+        continue rest
+      }
+      // Octal escape sequences: \ddd where d is 0-7
+      [b'\\', d1, d2, d3, .. rest] if d1 >= b'0' &&
+        d1 <= b'7' &&
+        d2 >= b'0' &&
+        d2 <= b'7' &&
+        d3 >= b'0' &&
+        d3 <= b'7' => {
+        let octal_value = (d1.to_int() - '0'.to_int()) * 64 +
+          (d2.to_int() - '0'.to_int()) * 8 +
+          (d3.to_int() - '0'.to_int())
+        buffer.write_byte(octal_value.to_byte())
+        offset += 4
+        continue rest
+      }
+      // Two-digit octal escape sequences: \dd
+      [b'\\', d1, d2, .. rest] if d1 >= b'0' &&
+        d1 <= b'7' &&
+        d2 >= b'0' &&
+        d2 <= b'7' => {
+        let octal_value = (d1.to_int() - '0'.to_int()) * 8 +
+          (d2.to_int() - '0'.to_int())
+        buffer.write_byte(octal_value.to_byte())
+        offset += 3
+        continue rest
+      }
+      // One-digit octal escape sequences: \d
+      [b'\\', d1, .. rest] if d1 >= b'0' && d1 <= b'7' => {
+        let octal_value = d1.to_int() - '0'.to_int()
+        buffer.write_byte(octal_value.to_byte())
+        offset += 2
+        continue rest
+      }
+      // Unrecognized escape sequence - ignore the backslash
+      [b'\\', _, .. rest] => {
+        offset += 2
+        continue rest
+      }
+      // End-of-line markers in string literals are converted to \n
+      [b'\r', b'\n', .. rest] => {
+        buffer.write_byte(b'\n')
+        offset += 2
+        continue rest
+      }
+      [b'\r', .. rest] => {
+        buffer.write_byte(b'\n')
+        offset += 1
+        continue rest
+      }
+      [b'\n', .. rest] => {
+        buffer.write_byte(b'\n')
+        offset += 1
+        continue rest
+      }
+      // Close delimiter: early return when encountering ')'
+      [b')', .. _rest] =>
+        // Return immediately when we encounter the closing parenthesis
+        // offset + 1 to include the ')' character in the advance offset
+        break (buffer.to_bytes(), offset + 1)
+      [
+        // Regular characters
+        c,
+        .. rest,
+      ] => {
+        buffer.write_byte(c.to_int().to_byte())
+        offset += 1
+        continue rest
+      }
+      // End of input without finding closing ')'
+      [] => break (buffer.to_bytes(), offset)
     }
   }
 }
@@ -391,44 +394,46 @@ pub fn tokenize_pdf_hexadecimal_string(input : BytesView) -> Bytes {
   let mut pending_digit : Int? = None
   for input = input {
     match input {
-    // Skip whitespace characters (space, tab, CR, LF)
-    [b' ', .. rest] | [b'\t', .. rest] | [b'\r', .. rest] | [b'\n', .. rest] =>
-      continue rest
+      // Skip whitespace characters (space, tab, CR, LF)
+      [b' ', .. rest]
+      | [b'\t', .. rest]
+      | [b'\r', .. rest]
+      | [b'\n', .. rest] => continue rest
 
-    // Process hex digits
-    [b, .. rest] =>
-      match hex_byte_to_value(b) {
-        Some(digit) =>
-          match pending_digit {
-            None => {
-              // First digit of a pair
-              pending_digit = Some(digit)
-              continue rest
+      // Process hex digits
+      [b, .. rest] =>
+        match hex_byte_to_value(b) {
+          Some(digit) =>
+            match pending_digit {
+              None => {
+                // First digit of a pair
+                pending_digit = Some(digit)
+                continue rest
+              }
+              Some(first_digit) => {
+                // Second digit of a pair - combine into byte
+                let byte_value = first_digit * 16 + digit
+                output.push(byte_value.to_byte())
+                pending_digit = None
+                continue rest
+              }
             }
-            Some(first_digit) => {
-              // Second digit of a pair - combine into byte
-              let byte_value = first_digit * 16 + digit
-              output.push(byte_value.to_byte())
-              pending_digit = None
-              continue rest
-            }
-          }
-        None =>
-          // Non-hex character, skip it (could be part of malformed input)
-          continue rest
-      }
-    [] => {
-      // End of input
-      // Handle odd number of hex digits by treating last digit as if followed by 0
-      match pending_digit {
-        Some(digit) => {
-          let byte_value = digit * 16 // digit followed by 0
-          output.push(byte_value.to_byte())
+          None =>
+            // Non-hex character, skip it (could be part of malformed input)
+            continue rest
         }
-        None => ()
+      [] => {
+        // End of input
+        // Handle odd number of hex digits by treating last digit as if followed by 0
+        match pending_digit {
+          Some(digit) => {
+            let byte_value = digit * 16 // digit followed by 0
+            output.push(byte_value.to_byte())
+          }
+          None => ()
+        }
+        break Bytes::from_array(output)
       }
-      break Bytes::from_array(output)
-    }
     }
   }
 }
@@ -445,86 +450,86 @@ pub fn tokenize_pdf_name(input : BytesView) -> (Bytes, Int) {
   let mut offset = 0
   for input = input[offset:] {
     match input {
-    // Handle escape sequences (#XX)
-    [b'#', h1, h2, .. rest] =>
-      match (hex_byte_to_value(h1), hex_byte_to_value(h2)) {
-        (Some(v1), Some(v2)) => {
-          let byte_value = v1 * 16 + v2
-          buffer.write_byte(byte_value.to_byte())
-          offset += 3
-          continue rest
+      // Handle escape sequences (#XX)
+      [b'#', h1, h2, .. rest] =>
+        match (hex_byte_to_value(h1), hex_byte_to_value(h2)) {
+          (Some(v1), Some(v2)) => {
+            let byte_value = v1 * 16 + v2
+            buffer.write_byte(byte_value.to_byte())
+            offset += 3
+            continue rest
+          }
+          _ => {
+            // Invalid hex sequence, treat # as literal character
+            buffer.write_byte(b'#')
+            offset += 1
+            continue [h1, h2, ..rest]
+          }
         }
-        _ => {
-          // Invalid hex sequence, treat # as literal character
-          buffer.write_byte(b'#')
-          offset += 1
-          continue [h1, h2, ..rest]
+
+      // Handle incomplete escape sequence at end
+      [b'#', h1, .. rest] =>
+        match hex_byte_to_value(h1) {
+          Some(v1) => {
+            // Incomplete hex sequence, treat as if followed by 0
+            let byte_value = v1 * 16
+            buffer.write_byte(byte_value.to_byte())
+            offset += 2
+            continue rest
+          }
+          _ => {
+            // Invalid hex character, treat # as literal
+            buffer.write_byte(b'#')
+            offset += 1
+            continue [h1, ..rest]
+          }
         }
+
+      // Handle lone # at end
+      [b'#'] => {
+        buffer.write_byte(b'#')
+        offset += 1
+        break (buffer.to_bytes(), offset)
       }
 
-    // Handle incomplete escape sequence at end
-    [b'#', h1, .. rest] =>
-      match hex_byte_to_value(h1) {
-        Some(v1) => {
-          // Incomplete hex sequence, treat as if followed by 0
-          let byte_value = v1 * 16
-          buffer.write_byte(byte_value.to_byte())
-          offset += 2
-          continue rest
-        }
-        _ => {
-          // Invalid hex character, treat # as literal
-          buffer.write_byte(b'#')
-          offset += 1
-          continue [h1, ..rest]
-        }
+      // PDF name delimiters - stop parsing when encountered
+      [b' ', ..]
+      | [b'\t', ..]
+      | [b'\r', ..]
+      | [b'\n', ..]
+      | [b'\f', ..]
+      | [b'\x00', ..] =>
+        // Whitespace characters end the name
+        break (buffer.to_bytes(), offset)
+      [b'(', ..]
+      | [b')', ..]
+      | [b'<', ..]
+      | [b'>', ..]
+      | [b'[', ..]
+      | [b']', ..]
+      | [b'{', ..]
+      | [b'}', ..] =>
+        // Delimiter characters end the name
+        break (buffer.to_bytes(), offset)
+      [b'/', ..] =>
+        // Solidus (forward slash) ends the name
+        break (buffer.to_bytes(), offset)
+      [b'%', ..] =>
+        // Comment start ends the name
+        break (buffer.to_bytes(), offset)
+      [
+
+        // Regular characters - continue building the name
+        c,
+        .. rest,
+      ] => {
+        buffer.write_byte(c)
+        offset += 1
+        continue rest
       }
 
-    // Handle lone # at end
-    [b'#'] => {
-      buffer.write_byte(b'#')
-      offset += 1
-      break (buffer.to_bytes(), offset)
-    }
-
-    // PDF name delimiters - stop parsing when encountered
-    [b' ', ..]
-    | [b'\t', ..]
-    | [b'\r', ..]
-    | [b'\n', ..]
-    | [b'\f', ..]
-    | [b'\x00', ..] =>
-      // Whitespace characters end the name
-      break (buffer.to_bytes(), offset)
-    [b'(', ..]
-    | [b')', ..]
-    | [b'<', ..]
-    | [b'>', ..]
-    | [b'[', ..]
-    | [b']', ..]
-    | [b'{', ..]
-    | [b'}', ..] =>
-      // Delimiter characters end the name
-      break (buffer.to_bytes(), offset)
-    [b'/', ..] =>
-      // Solidus (forward slash) ends the name
-      break (buffer.to_bytes(), offset)
-    [b'%', ..] =>
-      // Comment start ends the name
-      break (buffer.to_bytes(), offset)
-    [
-
-      // Regular characters - continue building the name
-      c,
-      .. rest,
-    ] => {
-      buffer.write_byte(c)
-      offset += 1
-      continue rest
-    }
-
-    // End of input
-    [] => break (buffer.to_bytes(), offset)
+      // End of input
+      [] => break (buffer.to_bytes(), offset)
     }
   }
 }
@@ -551,58 +556,58 @@ fn tokenize_pdf_indirect(input : BytesView) -> INDIRECT {
   let mut parsing_number = false
   for input = input {
     match input {
-    // Skip whitespace and find numbers
-    [b' ', .. rest] | [b'\t', .. rest] => {
-      if parsing_number {
-        // Finished parsing a number
-        if parsing_first {
-          object_num = current_number
-          parsing_first = false
-        } else {
-          generation_num = current_number
-          break // We have both numbers, ignore the rest (should be 'R')
+      // Skip whitespace and find numbers
+      [b' ', .. rest] | [b'\t', .. rest] => {
+        if parsing_number {
+          // Finished parsing a number
+          if parsing_first {
+            object_num = current_number
+            parsing_first = false
+          } else {
+            generation_num = current_number
+            break // We have both numbers, ignore the rest (should be 'R')
+          }
+          current_number = 0
+          parsing_number = false
         }
-        current_number = 0
-        parsing_number = false
+        continue rest
       }
-      continue rest
-    }
 
-    // Parse digit characters
-    [b'0'..=b'9' as digit, .. rest] => {
-      parsing_number = true
-      current_number = current_number * 10 + (digit.to_int() - b'0'.to_int())
-      continue rest
-    }
+      // Parse digit characters
+      [b'0'..=b'9' as digit, .. rest] => {
+        parsing_number = true
+        current_number = current_number * 10 + (digit.to_int() - b'0'.to_int())
+        continue rest
+      }
 
-    // Skip 'R' character and any other characters
-    [_, .. rest] => {
-      if parsing_number {
-        // Finished parsing a number
-        if parsing_first {
-          object_num = current_number
-          parsing_first = false
-        } else {
-          generation_num = current_number
-          break // We have both numbers
+      // Skip 'R' character and any other characters
+      [_, .. rest] => {
+        if parsing_number {
+          // Finished parsing a number
+          if parsing_first {
+            object_num = current_number
+            parsing_first = false
+          } else {
+            generation_num = current_number
+            break // We have both numbers
+          }
+          current_number = 0
+          parsing_number = false
         }
-        current_number = 0
-        parsing_number = false
+        continue rest
       }
-      continue rest
-    }
 
-    // End of input
-    [] => {
-      if parsing_number {
-        if parsing_first {
-          object_num = current_number
-        } else {
-          generation_num = current_number
+      // End of input
+      [] => {
+        if parsing_number {
+          if parsing_first {
+            object_num = current_number
+          } else {
+            generation_num = current_number
+          }
         }
+        break
       }
-      break
-    }
     }
   }
   INDIRECT::{ object_num, generation_num }

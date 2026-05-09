@@ -98,12 +98,9 @@ pub fn markdown_to_bytes(md_str : String) -> Bytes {
   //   for doc in split_doc {
   // println    (doc)
   //   }
-  let contents : Array[ContentStream] = split_doc.map(doc => [
-    Op_cm(tm),
-    Op_BT,
-    ..doc.to_graphic_operators(),
-    Op_ET,
-  ])
+  let contents : Array[ContentStream] = split_doc.map(doc => {
+    [Op_cm(tm), Op_BT, ..doc.to_graphic_operators(), Op_ET]
+  })
   multiple_page_to_bytes([table_of_contents, ..contents])
 }
 

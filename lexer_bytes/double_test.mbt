@@ -34,8 +34,14 @@ test "try_fast_path overflow when mantissa is too large" {
 ///|
 test "corner cases" {
   inspect(try? @lexer_bytes.tokenize_double(b".123"), content="Ok((0.123, 4))")
-  inspect(try? @lexer_bytes.tokenize_double(b"."), content="Err(invalid syntax)")
-  inspect(try? @lexer_bytes.tokenize_double(b"-"), content="Err(invalid syntax)")
+  inspect(
+    try? @lexer_bytes.tokenize_double(b"."),
+    content="Err(invalid syntax)",
+  )
+  inspect(
+    try? @lexer_bytes.tokenize_double(b"-"),
+    content="Err(invalid syntax)",
+  )
 }
 
 ///|

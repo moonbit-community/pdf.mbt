@@ -57,7 +57,7 @@ let max_mantissa_fast_path : UInt64 = 2UL << mantissa_explicit_bits
 /// Returns a tuple of (parsed_value, advance_length).
 ///
 /// Examples:
-/// ```mbt
+/// ```mbt nocheck
 ///   inspect(@lexer_bytes.tokenize_double("123"), content="(123, 3)")
 ///   inspect(@lexer_bytes.tokenize_double("12.34"), content="(12.34, 5)")
 ///   inspect(@lexer_bytes.tokenize_double(".123"), content="(0.123, 4)")

@@ -1,5 +1,0 @@
-{
-  "import": ["moonbitlang/core/math"],
-  "test-import": ["moonbitlang/core/bench", "moonbitlang/core/buffer"],
-  "warn-list": "-1"
-}

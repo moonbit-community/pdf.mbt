@@ -1,38 +1,39 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "illusory0x0/pdf/cmark_pdf"
 
-import(
-  "illusory0x0/pdf/fmt"
-  "illusory0x0/pdf/pdf"
-  "rami3l/cmark/cmark"
-)
+import {
+  "illusory0x0/pdf/fmt",
+  "illusory0x0/pdf/pdf",
+  "moonbit-community/cmark/cmark",
+  "moonbitlang/core/debug",
+}
 
 // Values
-fn ascii_string_of_bytesview(BytesView) -> String
+pub fn ascii_string_of_bytesview(BytesView) -> String
 
-fn bytes_of_memory(@fmt.Memory, Int) -> Bytes
+pub fn bytes_of_memory(@fmt.Memory, Int) -> Bytes
 
-fn define_catalog(pages~ : @pdf.Object) -> @pdf.Object
+pub fn define_catalog(pages~ : @pdf.Object) -> @pdf.Object
 
-fn define_font_item(name~ : Bytes, font~ : @pdf.Object) -> (Bytes, @pdf.Object)
+pub fn define_font_item(name~ : Bytes, font~ : @pdf.Object) -> (Bytes, @pdf.Object)
 
-fn define_fonts(fonts~ : Array[(Bytes, @pdf.Object)]) -> (Bytes, @pdf.Object)
+pub fn define_fonts(fonts~ : Array[(Bytes, @pdf.Object)]) -> (Bytes, @pdf.Object)
 
-fn define_icc(icc~ : Bytes) -> @pdf.Object
+pub fn define_icc(icc~ : Bytes) -> @pdf.Object
 
-fn define_jpeg_image(image~ : Bytes, width~ : Int, height~ : Int, bpc~ : Int, icc~ : Int) -> @pdf.Object
+pub fn define_jpeg_image(image~ : Bytes, width~ : Int, height~ : Int, bpc~ : Int, icc~ : Int) -> @pdf.Object
 
-fn define_page(contents~ : @pdf.Object, parent~ : @pdf.Object, resources~ : Array[(Bytes, @pdf.Object)]) -> @pdf.Object
+pub fn define_page(contents~ : @pdf.Object, parent~ : @pdf.Object, resources~ : Array[(Bytes, @pdf.Object)]) -> @pdf.Object
 
-fn define_pages(pages~ : Array[@pdf.Object]) -> @pdf.Object
+pub fn define_pages(pages~ : Array[@pdf.Object]) -> @pdf.Object
 
-fn define_xobject(xobjs~ : Array[(Bytes, @pdf.Object)]) -> (Bytes, @pdf.Object)
+pub fn define_xobject(xobjs~ : Array[(Bytes, @pdf.Object)]) -> (Bytes, @pdf.Object)
 
-fn make_pdf(@pdf.Object, Array[@pdf.Object]) -> @pdf.File
+pub fn make_pdf(@pdf.Object, Array[@pdf.Object]) -> @pdf.File
 
-fn markdown_to_bytes(String) -> Bytes
+pub fn markdown_to_bytes(String) -> Bytes
 
-fn string_of_memory(@fmt.Memory, Int) -> String
+pub fn string_of_memory(@fmt.Memory, Int) -> String
 
 // Errors
 
@@ -45,63 +46,53 @@ pub(all) enum Block {
   MoonBitCodeBlock(Array[Array[ColorSpaned]])
   Blocks(Array[Block])
   List(Array[Block])
-}
-fn Block::from_cmark(@cmark.Block) -> Self
-impl Show for Block
-impl ToJson for Block
+} derive(ToJson, @debug.Debug)
+pub fn Block::from_cmark(@cmark.Block) -> Self
 
 type Canvas
-fn Canvas::begin_text(Self) -> Unit
-fn Canvas::close_path(Self) -> Unit
-fn Canvas::end_path(Self) -> Unit
-fn Canvas::end_text(Self) -> Unit
-fn Canvas::fill(Self) -> Unit
-fn Canvas::fill_and_stroke(Self) -> Unit
-fn Canvas::line_to(Self, Double, Double) -> Unit
-fn Canvas::move_text(Self, Double, Double) -> Unit
-fn Canvas::move_text_set_leading(Self, Double, Double) -> Unit
-fn Canvas::move_to(Self, Double, Double) -> Unit
-fn Canvas::new() -> Self
-fn Canvas::next_line(Self) -> Unit
-fn Canvas::rectangle(Self, Double, Double, Double, Double) -> Unit
-fn Canvas::restore_state(Self) -> Unit
-fn Canvas::save_state(Self) -> Unit
-fn Canvas::set_char_spacing(Self, Double) -> Unit
-fn Canvas::set_font(Self, Bytes, Double) -> Unit
-fn Canvas::set_gray_fill(Self, Double) -> Unit
-fn Canvas::set_gray_stroke(Self, Double) -> Unit
-fn Canvas::set_horizontal_scaling(Self, Double) -> Unit
-fn Canvas::set_leading(Self, Double) -> Unit
-fn Canvas::set_line_width(Self, Double) -> Unit
-fn Canvas::set_rgb_fill_color(Self, Double, Double, Double) -> Unit
-fn Canvas::set_rgb_stroke_color(Self, Double, Double, Double) -> Unit
-fn Canvas::set_text_rendering_mode(Self, Int) -> Unit
-fn Canvas::set_text_rise(Self, Double) -> Unit
-fn Canvas::set_word_spacing(Self, Double) -> Unit
-fn Canvas::show_text(Self, Bytes) -> Unit
-fn Canvas::show_text_next_line(Self, Bytes) -> Unit
-fn Canvas::stroke(Self) -> Unit
-fn Canvas::to_array(Self) -> Array[@pdf.GraphicOperator]
-fn Canvas::to_content(Self) -> @pdf.ContentStream
+pub fn Canvas::begin_text(Self) -> Unit
+pub fn Canvas::close_path(Self) -> Unit
+pub fn Canvas::end_path(Self) -> Unit
+pub fn Canvas::end_text(Self) -> Unit
+pub fn Canvas::fill(Self) -> Unit
+pub fn Canvas::fill_and_stroke(Self) -> Unit
+pub fn Canvas::line_to(Self, Double, Double) -> Unit
+pub fn Canvas::move_text(Self, Double, Double) -> Unit
+pub fn Canvas::move_text_set_leading(Self, Double, Double) -> Unit
+pub fn Canvas::move_to(Self, Double, Double) -> Unit
+pub fn Canvas::new() -> Self
+pub fn Canvas::next_line(Self) -> Unit
+pub fn Canvas::rectangle(Self, Double, Double, Double, Double) -> Unit
+pub fn Canvas::restore_state(Self) -> Unit
+pub fn Canvas::save_state(Self) -> Unit
+pub fn Canvas::set_char_spacing(Self, Double) -> Unit
+pub fn Canvas::set_font(Self, Bytes, Double) -> Unit
+pub fn Canvas::set_gray_fill(Self, Double) -> Unit
+pub fn Canvas::set_gray_stroke(Self, Double) -> Unit
+pub fn Canvas::set_horizontal_scaling(Self, Double) -> Unit
+pub fn Canvas::set_leading(Self, Double) -> Unit
+pub fn Canvas::set_line_width(Self, Double) -> Unit
+pub fn Canvas::set_rgb_fill_color(Self, Double, Double, Double) -> Unit
+pub fn Canvas::set_rgb_stroke_color(Self, Double, Double, Double) -> Unit
+pub fn Canvas::set_text_rendering_mode(Self, Int) -> Unit
+pub fn Canvas::set_text_rise(Self, Double) -> Unit
+pub fn Canvas::set_word_spacing(Self, Double) -> Unit
+pub fn Canvas::show_text(Self, Bytes) -> Unit
+pub fn Canvas::show_text_next_line(Self, Bytes) -> Unit
+pub fn Canvas::stroke(Self) -> Unit
+pub fn Canvas::to_array(Self) -> Array[@pdf.GraphicOperator]
+pub fn Canvas::to_content(Self) -> @pdf.ContentStream
 
-type ColorSpaned
-impl Show for ColorSpaned
-impl ToJson for ColorSpaned
+type ColorSpaned derive(ToJson, @debug.Debug)
 
-pub(all) struct Doc(Array[Block])
-fn Doc::from_cmark(@cmark.Doc) -> Self
-#deprecated
-fn Doc::inner(Self) -> Array[Block]
-fn Doc::to_flatheadings(Self) -> Array[FlatHeading]
-impl Show for Doc
-impl ToJson for Doc
+pub(all) struct Doc(Array[Block]) derive(ToJson, @debug.Debug)
+pub fn Doc::from_cmark(@cmark.Doc) -> Self
+pub fn Doc::to_flatheadings(Self) -> Array[FlatHeading]
 
 pub(all) struct FlatHeading {
   num : Array[Int]
   text : String
-}
-impl Show for FlatHeading
-impl ToJson for FlatHeading
+} derive(ToJson, @debug.Debug)
 
 pub(all) enum Inline {
   Plain(String)
@@ -109,19 +100,15 @@ pub(all) enum Inline {
   Emphasis(String)
   StrongEmphasis_Emphasis(String)
   CodeSpan(String)
-}
-fn Inline::from_cmark(@cmark.Inline) -> Array[Self]
-impl Show for Inline
-impl ToJson for Inline
+} derive(ToJson, @debug.Debug)
+pub fn Inline::from_cmark(@cmark.Inline) -> Array[Self]
 
 pub(all) enum TokenStyle {
   Keyword
   Num
   Str
   Other
-}
-impl Show for TokenStyle
-impl ToJson for TokenStyle
+} derive(ToJson, @debug.Debug)
 
 // Type aliases
 pub using @pdf {type ContentStream}

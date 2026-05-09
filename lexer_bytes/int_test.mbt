@@ -133,7 +133,10 @@ test "panic @lexer_bytes.tokenize_int64/invalid_base" {
 ///|
 test "edge cases" {
   // Invalid: Missing digits after hex prefix
-  inspect(try? @lexer_bytes.tokenize_int64(b"0x"), content="Err(invalid syntax)")
+  inspect(
+    try? @lexer_bytes.tokenize_int64(b"0x"),
+    content="Err(invalid syntax)",
+  )
   inspect(
     try? @lexer_bytes.tokenize_int64(b"0x_"),
     content="Err(invalid syntax)",
