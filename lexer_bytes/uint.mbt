@@ -63,12 +63,13 @@ pub fn tokenize_uint64(
     is (['0'..='9' | 'a'..='z' | 'A'..='Z', ..]
     | ['_', '0'..='9' | 'a'..='z' | 'A'..='Z', ..])
   guard has_digit else { syntax_err() }
-  let result = loop (rest, 0UL, allow_underscore) {
+  let result = for rest = rest, acc = 0UL, allow_underscore = allow_underscore {
+    match (rest, acc, allow_underscore) {
     (['_'], _, _) =>
       // the last character cannot be underscore
       syntax_err()
     (['_', ..], _, false) => syntax_err()
-    (['_', .. rest], acc, true) => continue (rest, acc, false)
+    (['_', .. rest], acc, true) => continue rest, acc, false
     ([c, .. rest], acc, _) => {
       let c = c.to_int()
       let d = match c {
@@ -81,9 +82,10 @@ pub fn tokenize_uint64(
       guard acc < overflow_threshold else { range_err() }
       let next_acc = acc * num_base.to_uint64() + d.to_uint64()
       guard next_acc >= acc && next_acc <= UINT64_MAX else { range_err() }
-      continue (rest, next_acc, true)
+      continue rest, next_acc, true
     }
-    ([], acc, _) => acc
+    ([], acc, _) => break acc
+    }
   }
   (result, original_length)
 }

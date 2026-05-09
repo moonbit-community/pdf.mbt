@@ -377,13 +377,13 @@ pub(all) struct LexFile {
   xref_table : LexXRefTable
   trailer : BytesView
   start_xref_bytes_offset : Int
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub(all) struct LexHeader {
   major : Int
   minor : Int
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub(all) struct LexObj {
@@ -393,10 +393,10 @@ pub(all) struct LexObj {
   object_num : Int
   generation_num : Int
   obj_bytes : BytesView
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
-struct LexBody(FixedArray[LexObj]) derive(Eq, Show)
+struct LexBody(FixedArray[LexObj]) derive(Eq, Debug)
 
 ///|
 pub fn LexBody::length(self : LexBody) -> Int = "%fixedarray.length"
@@ -418,7 +418,7 @@ pub fn LexBody::iter(self : LexBody) -> Iter[LexObj] {
 pub(all) struct LexXRefTable {
   entries : Array[LexXRefEntry]
   start_num : Int
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub(all) struct LexXRefEntry {
@@ -426,10 +426,10 @@ pub(all) struct LexXRefEntry {
   /// most of cases is 0
   generation_num : Int
   state : LexEntryState
-} derive(Eq, Show)
+} derive(Eq, Debug)
 
 ///|
 pub(all) enum LexEntryState {
   InUse
   Free
-} derive(Eq, Show)
+} derive(Eq, Debug)

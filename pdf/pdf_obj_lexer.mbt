@@ -22,7 +22,7 @@ pub fn tokenize(input : BytesView) -> Array[(Token, Position, Position)] {
     start_col = col
   }
 
-  for {
+  for ;; {
     lexmatch input with longest {
       // Whitespace (spaces, tabs, form feed, null character)
       ("[ \t\f\0]+" as s, rest) => {
@@ -162,7 +162,7 @@ pub fn tokenize(input : BytesView) -> Array[(Token, Position, Position)] {
         push(SOLIDUS, 1)
         input = rest
       }
-      ("\d+[ \t]+\d+[ \t]+R" as s, rest) => {
+      ("[[:digit:]]+[ \t]+[[:digit:]]+[ \t]+R" as s, rest) => {
         let indirect = tokenize_pdf_indirect(s)
         push(INDIRECT(indirect), s.length())
         input = rest
@@ -254,7 +254,8 @@ pub fn tokenize(input : BytesView) -> Array[(Token, Position, Position)] {
 pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
   let buffer = @buffer.new(size_hint=input.length())
   let mut offset = 0
-  loop input {
+  for input = input {
+    match input {
     // Escape sequences
     ['\\', 'n', .. rest] => {
       buffer.write_byte(b'\n')
@@ -366,7 +367,7 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
     [')', .. _rest] =>
       // Return immediately when we encounter the closing parenthesis
       // offset + 1 to include the ')' character in the advance offset
-      (buffer.to_bytes(), offset + 1)
+      break (buffer.to_bytes(), offset + 1)
     [
       // Regular characters
       c,
@@ -377,7 +378,8 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
       continue rest
     }
     // End of input without finding closing ')'
-    [] => (buffer.to_bytes(), offset)
+    [] => break (buffer.to_bytes(), offset)
+    }
   }
 }
 
@@ -387,7 +389,8 @@ pub fn tokenize_pdf_literal_string(input : BytesView) -> (Bytes, Int) {
 pub fn tokenize_pdf_hexadecimal_string(input : BytesView) -> Bytes {
   let output = []
   let mut pending_digit : Int? = None
-  loop input {
+  for input = input {
+    match input {
     // Skip whitespace characters (space, tab, CR, LF)
     [b' ', .. rest] | [b'\t', .. rest] | [b'\r', .. rest] | [b'\n', .. rest] =>
       continue rest
@@ -424,7 +427,8 @@ pub fn tokenize_pdf_hexadecimal_string(input : BytesView) -> Bytes {
         }
         None => ()
       }
-      Bytes::from_array(output)
+      break Bytes::from_array(output)
+    }
     }
   }
 }
@@ -439,7 +443,8 @@ pub fn tokenize_pdf_hexadecimal_string(input : BytesView) -> Bytes {
 pub fn tokenize_pdf_name(input : BytesView) -> (Bytes, Int) {
   let buffer = @buffer.new(size_hint=input.length())
   let mut offset = 0
-  loop input[offset:] {
+  for input = input[offset:] {
+    match input {
     // Handle escape sequences (#XX)
     [b'#', h1, h2, .. rest] =>
       match (hex_byte_to_value(h1), hex_byte_to_value(h2)) {
@@ -479,7 +484,7 @@ pub fn tokenize_pdf_name(input : BytesView) -> (Bytes, Int) {
     [b'#'] => {
       buffer.write_byte(b'#')
       offset += 1
-      (buffer.to_bytes(), offset)
+      break (buffer.to_bytes(), offset)
     }
 
     // PDF name delimiters - stop parsing when encountered
@@ -490,7 +495,7 @@ pub fn tokenize_pdf_name(input : BytesView) -> (Bytes, Int) {
     | [b'\f', ..]
     | [b'\x00', ..] =>
       // Whitespace characters end the name
-      (buffer.to_bytes(), offset)
+      break (buffer.to_bytes(), offset)
     [b'(', ..]
     | [b')', ..]
     | [b'<', ..]
@@ -500,13 +505,13 @@ pub fn tokenize_pdf_name(input : BytesView) -> (Bytes, Int) {
     | [b'{', ..]
     | [b'}', ..] =>
       // Delimiter characters end the name
-      (buffer.to_bytes(), offset)
+      break (buffer.to_bytes(), offset)
     [b'/', ..] =>
       // Solidus (forward slash) ends the name
-      (buffer.to_bytes(), offset)
+      break (buffer.to_bytes(), offset)
     [b'%', ..] =>
       // Comment start ends the name
-      (buffer.to_bytes(), offset)
+      break (buffer.to_bytes(), offset)
     [
 
       // Regular characters - continue building the name
@@ -519,7 +524,8 @@ pub fn tokenize_pdf_name(input : BytesView) -> (Bytes, Int) {
     }
 
     // End of input
-    [] => (buffer.to_bytes(), offset)
+    [] => break (buffer.to_bytes(), offset)
+    }
   }
 }
 
@@ -543,7 +549,8 @@ fn tokenize_pdf_indirect(input : BytesView) -> INDIRECT {
   let mut current_number = 0
   let mut parsing_first = true
   let mut parsing_number = false
-  loop input {
+  for input = input {
+    match input {
     // Skip whitespace and find numbers
     [b' ', .. rest] | [b'\t', .. rest] => {
       if parsing_number {
@@ -595,6 +602,7 @@ fn tokenize_pdf_indirect(input : BytesView) -> INDIRECT {
         }
       }
       break
+    }
     }
   }
   INDIRECT::{ object_num, generation_num }

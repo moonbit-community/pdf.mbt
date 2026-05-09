@@ -5,43 +5,65 @@ pub suberror ParseError {
 }
 
 ///|
-typealias Error as YYObj
+type YYObj = Error
 
 ///|
 priv suberror YYObj_Void
 
 ///|
-priv suberror YYObj_Int Int
+priv suberror YYObj_Int {
+  YYObj_Int(Int)
+}
 
 ///|
-priv suberror YYObj_Atom Atom
+priv suberror YYObj_Atom {
+  YYObj_Atom(Atom)
+}
 
 ///|
-priv suberror YYObj_Bytes Bytes
+priv suberror YYObj_Bytes {
+  YYObj_Bytes(Bytes)
+}
 
 ///|
-priv suberror YYObj_Double Double
+priv suberror YYObj_Double {
+  YYObj_Double(Double)
+}
 
 ///|
-priv suberror YYObj_PDF_Obj PDF_Obj
+priv suberror YYObj_PDF_Obj {
+  YYObj_PDF_Obj(PDF_Obj)
+}
 
 ///|
-priv suberror YYObj_INDIRECT INDIRECT
+priv suberror YYObj_INDIRECT {
+  YYObj_INDIRECT(INDIRECT)
+}
 
 ///|
-priv suberror YYObj_PDF_Dict PDF_Dict
+priv suberror YYObj_PDF_Dict {
+  YYObj_PDF_Dict(PDF_Dict)
+}
 
 ///|
-priv suberror YYObj_PDF_Array PDF_Array
+priv suberror YYObj_PDF_Array {
+  YYObj_PDF_Array(PDF_Array)
+}
 
 ///|
-priv suberror YYObj_PDF_Stream PDF_Stream
+priv suberror YYObj_PDF_Stream {
+  YYObj_PDF_Stream(PDF_Stream)
+}
 
 ///|
-priv suberror YYObj_DictEntries DictEntries
+priv suberror YYObj_DictEntries {
+  YYObj_DictEntries(DictEntries)
+}
 
 ///|
-priv suberror YYObj_PDF_ArrayEntries PDF_ArrayEntries
+priv suberror YYObj_PDF_ArrayEntries {
+  YYObj_PDF_ArrayEntries(PDF_ArrayEntries)
+}
 
 ///|
 type YYState = (YYSymbol) -> YYDecision
@@ -799,8 +821,8 @@ fn[T] yy_parse(
       }
       Reduce(count, symbol, action)
       | ReduceNoLookahead(count, symbol, action) =>
-        loop (count, symbol, action) {
-          _ => {
+        for count = count, symbol = symbol, action = action {
+          {
             let args = data_stack[data_stack.length() - count:]
             let data = action(last_pos, args)
             let (start_pos, end_pos) = if args.length() == 0 {
@@ -819,10 +841,10 @@ fn[T] yy_parse(
               Shift(next_state) => {
                 state_stack = @list.cons(next_state, state_stack)
                 state = next_state
+                break
               }
               Reduce(count, symbol, action)
-              | ReduceNoLookahead(count, symbol, action) =>
-                continue (count, symbol, action)
+              | ReduceNoLookahead(count, symbol, action) => continue count, symbol, action
               _ => panic()
             }
           }

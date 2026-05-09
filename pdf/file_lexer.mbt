@@ -1,5 +1,7 @@
 ///|
-suberror LexError String derive(Show)
+suberror LexError {
+  LexError(String)
+} derive(Debug)
 
 ///|
 pub(all) struct LexResult[T] {
@@ -7,7 +9,7 @@ pub(all) struct LexResult[T] {
   start_bytes_offset : Int
   end_bytes_offset : Int
   rest : BytesView
-} derive(Show)
+} derive(Debug)
 
 ///|
 pub fn tokenize_header(
@@ -16,7 +18,9 @@ pub fn tokenize_header(
 ) -> LexResult[LexHeader] raise LexError {
   lexmatch input with longest {
     (
-      ("%PDF-" ("\d+" as major) "." ("\d+" as minor) "(\r\n)|\r|\n") as all,
+      (
+        "%PDF-" ("[[:digit:]]+" as major) "." ("[[:digit:]]+" as minor) "(\r\n)|\r|\n"
+      ) as all,
       rest
     ) => {
       let (major, _) = try! @lexer_bytes.tokenize_int(major)
@@ -51,7 +55,7 @@ pub fn tokenize_body(
   let mut offset = start_bytes_offset
   let mut rest = input
   let body_buffer = []
-  for {
+  for ;; {
     // in `ISO 32000-2:2020 (PDF 2.0)`, section 7.3.10
     // 
     // The definition of and indirect object in a PDF file **shall** consist of its object number
@@ -60,7 +64,9 @@ pub fn tokenize_body(
     //
     lexmatch rest with longest {
       (
-        (("\d+" as obj_num) "[ ]+" ("\d+" as gen_num) "[ ]+" "obj") as header,
+        (
+          ("[[:digit:]]+" as obj_num) "[ ]+" ("[[:digit:]]+" as gen_num) "[ ]+" "obj"
+        ) as header,
         rest_after_header
       ) =>
         match rest_after_header.find(EndObj) {
@@ -108,9 +114,9 @@ pub fn tokenize_xref_entry(
   lexmatch input with longest {
     (
       (
-        ("\d+" as offset_str)
+        ("[[:digit:]]+" as offset_str)
         " "
-        ("\d+" as gen_str)
+        ("[[:digit:]]+" as gen_str)
         " "
         "n"
         "[ ]*"
@@ -130,9 +136,9 @@ pub fn tokenize_xref_entry(
     }
     (
       (
-        ("\d+" as offset_str)
+        ("[[:digit:]]+" as offset_str)
         " "
-        ("\d+" as gen_str)
+        ("[[:digit:]]+" as gen_str)
         " "
         "f"
         "[ ]*"
@@ -167,9 +173,9 @@ pub fn tokenize_xref_table(
       (
         "xref"
         "(\r\n)|\r|\n"
-        ("\d+" as start_num_str)
+        ("[[:digit:]]+" as start_num_str)
         " "
-        ("\d+" as count_str)
+        ("[[:digit:]]+" as count_str)
         "(\r\n)|\r|\n"
       ) as header,
       rest
@@ -278,7 +284,9 @@ pub fn tokenize_startxref(
 ) -> LexResult[Int] raise LexError {
   lexmatch input with longest {
     (
-      ("startxref" "(\r\n)|\r|\n" ("\d+" as offset_str) "(\r\n)|\r|\n" "%%EOF") as all,
+      (
+        "startxref" "(\r\n)|\r|\n" ("[[:digit:]]+" as offset_str) "(\r\n)|\r|\n" "%%EOF"
+      ) as all,
       rest
     ) => {
       let (xref_offset, _) = try! @lexer_bytes.tokenize_int(offset_str)

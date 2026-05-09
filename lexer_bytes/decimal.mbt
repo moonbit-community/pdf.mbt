@@ -62,7 +62,8 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
     _ => str
   }
   // read digits
-  let rest = loop rest {
+  let rest = for rest = rest {
+    match rest {
     ['_', .. rest] => continue rest
     ['.', .. rest] => {
       guard !has_dp else { syntax_err() }
@@ -85,7 +86,8 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
       }
       continue rest
     }
-    rest => rest
+    rest => break rest
+    }
   }
   guard has_digits else { syntax_err() }
   if !has_dp {
@@ -105,13 +107,15 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
       }
       guard rest is ['0'..='9', ..] else { syntax_err() }
       let mut exp = 0
-      let rest = loop rest {
+      let rest = for rest = rest {
+        match rest {
         ['_', .. rest] => continue rest
         ['0'..='9' as digit, .. rest] => {
           exp = exp * 10 + (digit.to_int() - '0')
           continue rest
         }
-        rest => rest
+        rest => break rest
+        }
       }
       d.decimal_point += exp_sign * exp
       rest

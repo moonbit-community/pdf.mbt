@@ -179,7 +179,7 @@ pub fn define_icc(icc~ : Bytes) -> Object {
     Dictionary([
       ("/Length", Integer(icc.length())),
       ("/N", Integer(3)),
-      ("/Range", Array([0, 1, 0, 1, 0, 1].map(Integer(_)))),
+      ("/Range", Array([0, 1, 0, 1, 0, 1].map(x => Integer(x)))),
     ]),
     icc,
   )

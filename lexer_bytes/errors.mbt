@@ -13,7 +13,9 @@
 // limitations under the License.
 
 ///|
-pub(all) suberror LexError String
+pub(all) suberror LexError {
+  LexError(String)
+}
 
 ///|
 pub impl Show for LexError with output(self, logger) {

@@ -14,10 +14,12 @@ pub(open) trait Format {
 
 ///|
 fn find_first_placeholder(format : Bytes) -> Int? {
-  loop (0, format[:]) {
-    (_, []) => None
-    (index, ['{', '}', ..]) => Some(index)
-    (index, [_, .. cs]) => continue (index + 1, cs)
+  for index = 0, cs = format[:] {
+    match cs {
+      [] => break None
+      ['{', '}', ..] => break Some(index)
+      [_, .. rest] => continue index + 1, rest
+    }
   }
 }
 
@@ -27,18 +29,23 @@ fn split_format(format : BytesView) -> (Array[BytesView], Int) {
   let snippets = []
   let mut start = 0
   let mut index = 0
-  loop format[:] {
-    [] => snippets.push(format[start:index])
-    ['{', '}', .. cs] => {
+  for cs = format[:] {
+    match cs {
+    [] => {
+      snippets.push(format[start:index])
+      break
+    }
+    ['{', '}', .. rest] => {
       snippets.push(format[start:index])
       start = index + 2
       index += 2
       count += 1
-      continue cs
+      continue rest
     }
-    [_, .. cs] => {
+    [_, .. rest] => {
       index += 1
-      continue cs
+      continue rest
+    }
     }
   }
   (snippets, count)
@@ -112,4 +119,17 @@ pub fn format_count(format : Bytes, data : Array[&Format]) -> Int raise {
 }
 
 ///|
-priv suberror DebugError String derive(Show)
+priv suberror DebugError {
+  DebugError(String)
+}
+
+///|
+impl Show for DebugError with output(self, logger) {
+  match self {
+    DebugError(message) => {
+      logger.write_string("DebugError(")
+      logger.write_object(message)
+      logger.write_string(")")
+    }
+  }
+}
