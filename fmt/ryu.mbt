@@ -589,7 +589,7 @@ fn write_floating_decimal64_to_memory(
       output /= 10
     }
     index += olength
-    for i in olength..<(exp + 1) {
+    for _ in olength..<(exp + 1) {
       dst[index] = b'0'
       index += 1
     }
