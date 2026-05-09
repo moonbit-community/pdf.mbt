@@ -36,13 +36,13 @@ fn try_tokenize_19digits(s : BytesView, x : UInt64) -> (BytesView, UInt64, Int) 
   let mut len = 0
   for s = s {
     match s {
-    ['0'..='9' as ch, .. rest] if x < min_19digit_int => {
+    [b'0'..=b'9' as ch, .. rest] if x < min_19digit_int => {
       len += 1
       x = x * 10UL +
         UInt64::extend_uint((ch.to_int() - '0').reinterpret_as_uint()) // no overflows here
       continue rest
     }
-    ['_', .. rest] => continue rest
+    [b'_', .. rest] => continue rest
     s => break (s, x, len)
     }
   }
@@ -57,11 +57,11 @@ fn tokenize_scientific(s : BytesView) -> (BytesView, Int64)? {
   }
   let exp_num = 0L
   let mut neg_exp = false
-  if s is ['+' | '-' as ch, .. rest] {
-    neg_exp = ch == '-'
+  if s is [b'+' | b'-' as ch, .. rest] {
+    neg_exp = ch == b'-'
     s = rest
   }
-  if s is ['0'..='9', ..] {
+  if s is [b'0'..=b'9', ..] {
     let (s, exp_num, _) = s.fold_digits(exp_num, (digit, exp_num : Int64) => if exp_num <
       0x10000L {
       10L * exp_num + digit.to_int64() // no overflows here
@@ -86,10 +86,10 @@ fn tokenize_number(s : BytesView) -> (Number, Int)? {
 
   // handle optional +/- sign
   let mut negative = false
-  if s is ['-', .. rest] {
+  if s is [b'-', .. rest] {
     negative = true
     s = rest
-  } else if s is ['+', .. rest] {
+  } else if s is [b'+', .. rest] {
     s = rest
   }
   if s.length() == 0 {
@@ -105,7 +105,7 @@ fn tokenize_number(s : BytesView) -> (Number, Int)? {
   // handle dot with the following digits
   let mut n_after_dot = 0
   let mut exponent = 0L
-  if s is ['.', .. rest] {
+  if s is [b'.', .. rest] {
     s = rest
     // TODO: optimization chance. In the original Rust implementation,
     // the the digits are stored as consecutive bytes in the BytesView.
@@ -123,7 +123,7 @@ fn tokenize_number(s : BytesView) -> (Number, Int)? {
 
   // handle scientific format
   let exp_number = 0L
-  if s is ['e' | 'E', ..] {
+  if s is [b'e' | b'E', ..] {
     let (new_s, exp_number) = match tokenize_scientific(s) {
       Some(res) => res
       None => return None
@@ -140,7 +140,7 @@ fn tokenize_number(s : BytesView) -> (Number, Int)? {
   n_digits -= 19
   let mut many_digits = false
   let mut p = start
-  while p is ['0' | '.' as ch, .. rest] {
+  while p is [b'0' | b'.' as ch, .. rest] {
     n_digits -= (ch.to_int() - 46) / 2 // '0' = b'.' + 2
     p = rest
   }
@@ -174,16 +174,16 @@ fn tokenize_inf_nan(s : BytesView) -> (Double, Int)? {
   let mut s = s
   let mut pos = true
   let mut len = 0
-  if s is ['-' | '+' as ch, .. rest] {
-    pos = ch == '+'
+  if s is [b'-' | b'+' as ch, .. rest] {
+    pos = ch == b'+'
     s = rest
     len += 1
   }
-  if s is ['n' | 'N', 'a' | 'A', 'n' | 'N', ..] {
+  if s is [b'n' | b'N', b'a' | b'A', b'n' | b'N', ..] {
     Some((@double.not_a_number, len + 3))
-  } else if s is ['i' | 'I', 'n' | 'N', 'f' | 'F', .. rest] {
+  } else if s is [b'i' | b'I', b'n' | b'N', b'f' | b'F', .. rest] {
     len += 3
-    if rest is ['i' | 'I', 'n' | 'N', 'i' | 'I', 't' | 'T', 'y' | 'Y', ..] {
+    if rest is [b'i' | b'I', b'n' | b'N', b'i' | b'I', b't' | b'T', b'y' | b'Y', ..] {
       len += 5
     }
     if pos {
@@ -215,7 +215,7 @@ fn checked_mul(a : UInt64, b : UInt64) -> UInt64? {
   if b.clz() == 0 || a.clz() == 0 {
     return None
   }
-  let quotient : UInt64 = @uint64.max_value / b
+  let quotient : UInt64 = @uint64.MAX_VALUE / b
   if a > quotient {
     return None
   }

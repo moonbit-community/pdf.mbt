@@ -6,161 +6,161 @@ pub impl @fmt.Format for GraphicOperator with write(
 ) -> Int {
   try {
     match value {
-      Op_w(w) => @fmt.format_write(" {} w", [w], buffer, start)
-      Op_J(j) => @fmt.format_write(" {} J", [j], buffer, start)
-      Op_j(j) => @fmt.format_write(" {} j", [j], buffer, start)
-      Op_M(m) => @fmt.format_write(" {} M", [m], buffer, start)
+      Op_w(w) => @fmt.format_write(b" {} w", [w], buffer, start)
+      Op_J(j) => @fmt.format_write(b" {} J", [j], buffer, start)
+      Op_j(j) => @fmt.format_write(b" {} j", [j], buffer, start)
+      Op_M(m) => @fmt.format_write(b" {} M", [m], buffer, start)
       Op_cm(t) =>
         @fmt.format_write(
-          " {} {} {} {} {} {} cm",
+          b" {} {} {} {} {} {} cm",
           [t.a, t.b, t.c, t.d, t.e, t.f],
           buffer,
           start,
         )
-      Op_BT => @fmt.format_write(" BT", [], buffer, start)
-      Op_ET => @fmt.format_write(" ET", [], buffer, start)
-      Op_Tf(k, s) => @fmt.format_write(" {} {} Tf", [k, s], buffer, start)
-      Op_Tj(s) => @fmt.format_write(" ({}) Tj", [s], buffer, start)
+      Op_BT => @fmt.format_write(b" BT", [], buffer, start)
+      Op_ET => @fmt.format_write(b" ET", [], buffer, start)
+      Op_Tf(k, s) => @fmt.format_write(b" {} {} Tf", [k, s], buffer, start)
+      Op_Tj(s) => @fmt.format_write(b" ({}) Tj", [s], buffer, start)
       Op_d(fl, y) => {
         let mut offset = start
         for f in fl {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" {} d", [y], buffer, offset)
+        offset += @fmt.format_write(b" {} d", [y], buffer, offset)
         offset - start
       }
-      Op_ri(s) => @fmt.format_write(" {} ri", [s], buffer, start)
-      Op_i(i) => @fmt.format_write(" {} i", [i], buffer, start)
-      Op_gs(s) => @fmt.format_write(" {} gs", [s], buffer, start)
-      Op_q => @fmt.format_write(" q", [], buffer, start)
-      Op_Q => @fmt.format_write(" Q", [], buffer, start)
-      Op_m(a, b) => @fmt.format_write(" {} {} m", [a, b], buffer, start)
-      Op_l(a, b) => @fmt.format_write(" {} {} l", [a, b], buffer, start)
+      Op_ri(s) => @fmt.format_write(b" {} ri", [s], buffer, start)
+      Op_i(i) => @fmt.format_write(b" {} i", [i], buffer, start)
+      Op_gs(s) => @fmt.format_write(b" {} gs", [s], buffer, start)
+      Op_q => @fmt.format_write(b" q", [], buffer, start)
+      Op_Q => @fmt.format_write(b" Q", [], buffer, start)
+      Op_m(a, b) => @fmt.format_write(b" {} {} m", [a, b], buffer, start)
+      Op_l(a, b) => @fmt.format_write(b" {} {} l", [a, b], buffer, start)
       Op_c(a, b, c, d, e, k) =>
         @fmt.format_write(
-          " {} {} {} {} {} {} c",
+          b" {} {} {} {} {} {} c",
           [a, b, c, d, e, k],
           buffer,
           start,
         )
       Op_v(a, b, c, d) =>
-        @fmt.format_write(" {} {} {} {} v", [a, b, c, d], buffer, start)
+        @fmt.format_write(b" {} {} {} {} v", [a, b, c, d], buffer, start)
       Op_y(a, b, c, d) =>
-        @fmt.format_write(" {} {} {} {} y", [a, b, c, d], buffer, start)
-      Op_h => @fmt.format_write(" h", [], buffer, start)
+        @fmt.format_write(b" {} {} {} {} y", [a, b, c, d], buffer, start)
+      Op_h => @fmt.format_write(b" h", [], buffer, start)
       Op_re(a, b, c, d) =>
-        @fmt.format_write(" {} {} {} {} re", [a, b, c, d], buffer, start)
-      Op_S => @fmt.format_write(" S", [], buffer, start)
-      Op_s => @fmt.format_write(" s", [], buffer, start)
-      Op_f => @fmt.format_write(" f", [], buffer, start)
-      Op_F => @fmt.format_write(" F", [], buffer, start)
-      Op_f_star => @fmt.format_write(" f*", [], buffer, start)
-      Op_B => @fmt.format_write(" B", [], buffer, start)
-      Op_B_star => @fmt.format_write(" B*", [], buffer, start)
-      Op_b => @fmt.format_write(" b", [], buffer, start)
-      Op_b_star => @fmt.format_write(" b*", [], buffer, start)
-      Op_n => @fmt.format_write(" n", [], buffer, start)
-      Op_W => @fmt.format_write(" W", [], buffer, start)
-      Op_W_star => @fmt.format_write(" W*", [], buffer, start)
-      Op_Tc(c) => @fmt.format_write(" {} Tc", [c], buffer, start)
-      Op_Tw(w) => @fmt.format_write(" {} Tw", [w], buffer, start)
-      Op_Tz(z) => @fmt.format_write(" {} Tz", [z], buffer, start)
-      Op_TL(l) => @fmt.format_write(" {} TL", [l], buffer, start)
-      Op_Tr(i) => @fmt.format_write(" {} Tr", [i], buffer, start)
-      Op_Ts(r) => @fmt.format_write(" {} Ts", [r], buffer, start)
-      Op_Td(k, k_) => @fmt.format_write(" {} {} Td", [k, k_], buffer, start)
-      Op_TD(k, k_) => @fmt.format_write(" {} {} TD", [k, k_], buffer, start)
+        @fmt.format_write(b" {} {} {} {} re", [a, b, c, d], buffer, start)
+      Op_S => @fmt.format_write(b" S", [], buffer, start)
+      Op_s => @fmt.format_write(b" s", [], buffer, start)
+      Op_f => @fmt.format_write(b" f", [], buffer, start)
+      Op_F => @fmt.format_write(b" F", [], buffer, start)
+      Op_f_star => @fmt.format_write(b" f*", [], buffer, start)
+      Op_B => @fmt.format_write(b" B", [], buffer, start)
+      Op_B_star => @fmt.format_write(b" B*", [], buffer, start)
+      Op_b => @fmt.format_write(b" b", [], buffer, start)
+      Op_b_star => @fmt.format_write(b" b*", [], buffer, start)
+      Op_n => @fmt.format_write(b" n", [], buffer, start)
+      Op_W => @fmt.format_write(b" W", [], buffer, start)
+      Op_W_star => @fmt.format_write(b" W*", [], buffer, start)
+      Op_Tc(c) => @fmt.format_write(b" {} Tc", [c], buffer, start)
+      Op_Tw(w) => @fmt.format_write(b" {} Tw", [w], buffer, start)
+      Op_Tz(z) => @fmt.format_write(b" {} Tz", [z], buffer, start)
+      Op_TL(l) => @fmt.format_write(b" {} TL", [l], buffer, start)
+      Op_Tr(i) => @fmt.format_write(b" {} Tr", [i], buffer, start)
+      Op_Ts(r) => @fmt.format_write(b" {} Ts", [r], buffer, start)
+      Op_Td(k, k_) => @fmt.format_write(b" {} {} Td", [k, k_], buffer, start)
+      Op_TD(k, k_) => @fmt.format_write(b" {} {} TD", [k, k_], buffer, start)
       Op_Tm(t) =>
         @fmt.format_write(
-          " {} {} {} {} {} {} Tm",
+          b" {} {} {} {} {} {} Tm",
           [t.a, t.b, t.c, t.d, t.e, t.f],
           buffer,
           start,
         )
-      Op_T_star => @fmt.format_write(" T*", [], buffer, start)
-      Op_TJ(obj) => @fmt.format_write(" {} TJ", [obj], buffer, start)
-      Op_single_quote(s) => @fmt.format_write(" ({})'", [s], buffer, start)
+      Op_T_star => @fmt.format_write(b" T*", [], buffer, start)
+      Op_TJ(obj) => @fmt.format_write(b" {} TJ", [obj], buffer, start)
+      Op_single_quote(s) => @fmt.format_write(b" ({})'", [s], buffer, start)
       Op_double_quote(k, k_, s) =>
-        @fmt.format_write(" {} {} ({}) \"", [k, k_, s], buffer, start)
-      Op_d0(k, k_) => @fmt.format_write(" {} {} d0", [k, k_], buffer, start)
+        @fmt.format_write(b" {} {} ({}) \"", [k, k_, s], buffer, start)
+      Op_d0(k, k_) => @fmt.format_write(b" {} {} d0", [k, k_], buffer, start)
       Op_d1(a, b, c, d, e, k) =>
         @fmt.format_write(
-          " {} {} {} {} {} {} d1",
+          b" {} {} {} {} {} {} d1",
           [a, b, c, d, e, k],
           buffer,
           start,
         )
-      Op_CS(s) => @fmt.format_write(" {} CS", [s], buffer, start)
-      Op_cs(s) => @fmt.format_write(" {} cs", [s], buffer, start)
+      Op_CS(s) => @fmt.format_write(b" {} CS", [s], buffer, start)
+      Op_cs(s) => @fmt.format_write(b" {} cs", [s], buffer, start)
       Op_SC(fs) => {
         let mut offset = start
         for f in fs {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" SC", [], buffer, offset)
+        offset += @fmt.format_write(b" SC", [], buffer, offset)
         offset - start
       }
       Op_SCN(fs) => {
         let mut offset = start
         for f in fs {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" SCN", [], buffer, offset)
+        offset += @fmt.format_write(b" SCN", [], buffer, offset)
         offset - start
       }
       Op_scn(fs) => {
         let mut offset = start
         for f in fs {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" scn", [], buffer, offset)
+        offset += @fmt.format_write(b" scn", [], buffer, offset)
         offset - start
       }
       Op_scnName(s, fs) => {
         let mut offset = start
         for f in fs {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" {} scn", [s], buffer, offset)
+        offset += @fmt.format_write(b" {} scn", [s], buffer, offset)
         offset - start
       }
       Op_SCNName(s, fs) => {
         let mut offset = start
         for f in fs {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" {} SCN", [s], buffer, offset)
+        offset += @fmt.format_write(b" {} SCN", [s], buffer, offset)
         offset - start
       }
-      Op_G(k) => @fmt.format_write(" {} G", [k], buffer, start)
-      Op_g(k) => @fmt.format_write(" {} g", [k], buffer, start)
+      Op_G(k) => @fmt.format_write(b" {} G", [k], buffer, start)
+      Op_g(k) => @fmt.format_write(b" {} g", [k], buffer, start)
       Op_RG(r, g, b) =>
-        @fmt.format_write(" {} {} {} Rg", [r, g, b], buffer, start)
+        @fmt.format_write(b" {} {} {} Rg", [r, g, b], buffer, start)
       Op_rg(r, g, b) =>
-        @fmt.format_write(" {} {} {} rg", [r, g, b], buffer, start)
+        @fmt.format_write(b" {} {} {} rg", [r, g, b], buffer, start)
       Op_K(c, m, y, k) =>
-        @fmt.format_write(" {} {} {} {} K", [c, m, y, k], buffer, start)
+        @fmt.format_write(b" {} {} {} {} K", [c, m, y, k], buffer, start)
       Op_k(c, m, y, k) =>
-        @fmt.format_write(" {} {} {} {} k", [c, m, y, k], buffer, start)
-      Op_sh(s) => @fmt.format_write(" {} sh", [s], buffer, start)
+        @fmt.format_write(b" {} {} {} {} k", [c, m, y, k], buffer, start)
+      Op_sh(s) => @fmt.format_write(b" {} sh", [s], buffer, start)
       InlineImage(dict, data) =>
-        @fmt.format_write(" BI {} ID {} EI", [dict, data], buffer, start)
-      Op_Do(s) => @fmt.format_write(" {} Do", [s], buffer, start)
-      Op_MP(s) => @fmt.format_write(" {} MP", [s], buffer, start)
-      Op_DP(s, o) => @fmt.format_write(" {} {} DP", [s, o], buffer, start)
-      Op_BMC(s) => @fmt.format_write(" {} BMC", [s], buffer, start)
-      Op_BDC(s, obj) => @fmt.format_write(" {} {} BDC", [s, obj], buffer, start)
-      Op_EMC => @fmt.format_write(" EMC", [], buffer, start)
-      Op_BX => @fmt.format_write(" Bx", [], buffer, start)
+        @fmt.format_write(b" BI {} ID {} EI", [dict, data], buffer, start)
+      Op_Do(s) => @fmt.format_write(b" {} Do", [s], buffer, start)
+      Op_MP(s) => @fmt.format_write(b" {} MP", [s], buffer, start)
+      Op_DP(s, o) => @fmt.format_write(b" {} {} DP", [s, o], buffer, start)
+      Op_BMC(s) => @fmt.format_write(b" {} BMC", [s], buffer, start)
+      Op_BDC(s, obj) => @fmt.format_write(b" {} {} BDC", [s, obj], buffer, start)
+      Op_EMC => @fmt.format_write(b" EMC", [], buffer, start)
+      Op_BX => @fmt.format_write(b" Bx", [], buffer, start)
       Op_Unknown(_) => 0
-      Op_Comment(s) => @fmt.format_write(" % {}\n", [s], buffer, start)
-      OP_EX => @fmt.format_write(" EX", [], buffer, start)
+      Op_Comment(s) => @fmt.format_write(b" % {}\n", [s], buffer, start)
+      OP_EX => @fmt.format_write(b" EX", [], buffer, start)
       Op_sc(fs) => {
         let mut offset = start
         for f in fs {
-          offset += @fmt.format_write(" {}", [f], buffer, offset)
+          offset += @fmt.format_write(b" {}", [f], buffer, offset)
         }
-        offset += @fmt.format_write(" sc", [], buffer, offset)
+        offset += @fmt.format_write(b" sc", [], buffer, offset)
         offset - start
       }
     }

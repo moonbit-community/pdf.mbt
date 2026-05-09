@@ -234,7 +234,7 @@ pub fn tokenize_trailer(
               break
             } else {
               let prev_char = rest_after_header[trailer_content_end - 1]
-              if prev_char == '\n' || prev_char == '\r' {
+              if prev_char == b'\n' || prev_char == b'\r' {
                 found_startxref = true
                 break
               }
@@ -243,17 +243,17 @@ pub fn tokenize_trailer(
         }
         trailer_content_end += 1
       }
-      if not(found_startxref) {
+      if !found_startxref {
         raise LexError("No 'startxref' found after trailer")
       }
       let mut dict_end = trailer_content_end
       if dict_end > 0 {
         let last_char = rest_after_header[dict_end - 1]
-        if last_char == '\n' || last_char == '\r' {
+        if last_char == b'\n' || last_char == b'\r' {
           dict_end -= 1
           if dict_end > 0 &&
-            last_char == '\n' &&
-            rest_after_header[dict_end - 1] == '\r' {
+            last_char == b'\n' &&
+            rest_after_header[dict_end - 1] == b'\r' {
             dict_end -= 1
           }
         }
@@ -313,13 +313,13 @@ pub fn skip_comment(input : BytesView) -> Int {
       while comment_content_end < rest_after_percent.length() &&
             comment_content_end < max_comment_length {
         let char = rest_after_percent[comment_content_end]
-        if char == '\r' || char == '\n' {
+        if char == b'\r' || char == b'\n' {
           found_newline = true
           break
         }
         comment_content_end += 1
       }
-      if not(found_newline) &&
+      if !found_newline &&
         comment_content_end == rest_after_percent.length() {
         is_eof_comment = true
       }

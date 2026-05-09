@@ -14,16 +14,16 @@ fn write_pdf_string(
   offset += @fmt.write(b"(", buffer, offset)
   for x in pdf_string {
     match x {
-      '(' | ')' | '\\' as c => {
+      b'(' | b')' | b'\\' as c => {
         offset += @fmt.write(b"\\", buffer, offset)
         buffer[offset] = c
         offset += 1
       }
-      '\n' => offset += @fmt.write(b"\\n", buffer, offset)
-      '\r' => offset += @fmt.write(b"\\r", buffer, offset)
-      '\t' => offset += @fmt.write(b"\\t", buffer, offset)
-      '\b' => offset += @fmt.write(b"\\b", buffer, offset)
-      '\x0c' => offset += @fmt.write(b"\\f", buffer, offset)
+      b'\n' => offset += @fmt.write(b"\\n", buffer, offset)
+      b'\r' => offset += @fmt.write(b"\\r", buffer, offset)
+      b'\t' => offset += @fmt.write(b"\\t", buffer, offset)
+      b'\b' => offset += @fmt.write(b"\\b", buffer, offset)
+      b'\x0c' => offset += @fmt.write(b"\\f", buffer, offset)
       c => {
         // here we do not handle octal escape sequence for some non-printable ASCII characters
         buffer[offset] = c
@@ -39,7 +39,7 @@ fn write_pdf_string(
 fn write_pdf_name(pdf_name : Bytes, buffer : @fmt.Memory, start : Int) -> Int {
   let mut offset = start
   if needs_processing(pdf_name) {
-    if pdf_name == b"" || pdf_name[0] != '/' {
+    if pdf_name == b"" || pdf_name[0] != b'/' {
       println("warning: bad name")
       offset += @fmt.write(b"/", buffer, offset)
     } else {
@@ -66,14 +66,14 @@ fn write_pdf_name_inner(
   let mut offset = start
   for ch in pdf_name {
     match ch {
-      '\x00' => {
+      b'\x00' => {
         println("Warning: name \{pdf_name} contains the null character\n")
         offset += @fmt.write(b"#00", buffer, offset)
       }
       // outside the range of ``!'' (0x21) to ``~'' (0x7E)
       // should be written in `#xx` notation
       //
-      h if h < '\x21' || h > '\x7e' || is_delimiter(h) || h == '#' => {
+      h if h < b'\x21' || h > b'\x7e' || is_delimiter(h) || h == b'#' => {
         offset += @fmt.write(b"#", buffer, offset)
         // write high nibble
         offset += @fmt.write(HEX_DIGITS[h.to_int() / 16], buffer, offset)
@@ -98,14 +98,14 @@ fn needs_processing(pdf_name : Bytes) -> Bool {
     // ignore the leading '/'
     pdf_name[1:]
     .iter()
-    .any(x => x < '\x21' || x > '\x7e' || is_delimiter(x) || x == '#')
+    .any(x => x < b'\x21' || x > b'\x7e' || is_delimiter(x) || x == b'#')
   }
 }
 
 ///|
 fn is_delimiter(x : Byte) -> Bool {
   match x {
-    '(' | ')' | '<' | '>' | '[' | ']' | '{' | '}' | '/' | '%' => true
+    b'(' | b')' | b'<' | b'>' | b'[' | b']' | b'{' | b'}' | b'/' | b'%' => true
     _ => false
   }
 }

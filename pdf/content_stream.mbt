@@ -30,5 +30,5 @@ pub fn ContentStream::to_stream(self : Self) -> Stream {
 pub fn ContentStream::to_stream_object(self : Self) -> Object {
   let stream = self.to_stream()
   let len = stream.0.length()
-  Object::Stream(Dictionary([("/Length", Integer(len))]), stream)
+  Object::Stream(Dictionary([(b"/Length", Integer(len))]), stream)
 }

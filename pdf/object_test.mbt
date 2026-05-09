@@ -26,8 +26,8 @@ test "@fmt.Format for Object" {
   let offset = @fmt.write(value, buffer, 0)
   inspect(string_of_memory(buffer, offset), content="[1 2 3]")
   let value = @pdf.Dictionary([
-    ("/Type", @pdf.Name(b"/Example")),
-    ("/Count", @pdf.Integer(3)),
+    (b"/Type", @pdf.Name(b"/Example")),
+    (b"/Count", @pdf.Integer(3)),
   ])
   let offset = @fmt.write(value, buffer, 0)
   inspect(
@@ -40,7 +40,7 @@ test "@fmt.Format for Object" {
     ),
   )
   let value = @pdf.Object::Stream(
-    @pdf.Dictionary([("/Length", @pdf.Integer(11))]),
+    @pdf.Dictionary([(b"/Length", @pdf.Integer(11))]),
     b"Hello World",
   )
   let offset = @fmt.write(value, buffer, 0)
@@ -59,9 +59,9 @@ test "@fmt.Format for Object" {
   let offset = @fmt.write(value, buffer, 0)
   inspect(string_of_memory(buffer, offset), content="1 0 R")
   let value = @pdf.Dictionary([
-    ("/Type", @pdf.Name(b"/Pages")),
-    ("/Kids", @pdf.Integer(1)),
-    ("/Count", @pdf.Integer(1)),
+    (b"/Type", @pdf.Name(b"/Pages")),
+    (b"/Kids", @pdf.Integer(1)),
+    (b"/Count", @pdf.Integer(1)),
   ])
   let offset = @fmt.write(value, buffer, 0)
   inspect(

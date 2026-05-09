@@ -27,37 +27,37 @@ fn pdf_bytes_of_string(non_escape : String) -> Bytes {
       // ref: ISO 32000-2:2020 (PDF 2.0), section 7.3.4.2
       match byte {
         // Backslash - must be escaped
-        '\\' => {
+        b'\\' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b'\\')
         }
         // Parentheses - must be escaped in literal strings
-        '(' => {
+        b'(' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b'(')
         }
-        ')' => {
+        b')' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b')')
         }
         // Control characters - escape as named sequences
-        '\n' => {
+        b'\n' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b'n')
         }
-        '\r' => {
+        b'\r' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b'r')
         }
-        '\t' => {
+        b'\t' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b't')
         }
-        '\b' => {
+        b'\b' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b'b')
         }
-        '\f' => {
+        b'\f' => {
           buffer.write_byte(b'\\')
           buffer.write_byte(b'f')
         }

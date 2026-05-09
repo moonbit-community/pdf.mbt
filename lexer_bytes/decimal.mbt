@@ -54,26 +54,26 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
   let mut has_digits = false
   // read sign
   let rest = match str {
-    ['-', .. rest] => {
+    [b'-', .. rest] => {
       d.negative = true
       rest
     }
-    ['+', .. rest] => rest
+    [b'+', .. rest] => rest
     _ => str
   }
   // read digits
   let rest = for rest = rest {
     match rest {
-    ['_', .. rest] => continue rest
-    ['.', .. rest] => {
+    [b'_', .. rest] => continue rest
+    [b'.', .. rest] => {
       guard !has_dp else { syntax_err() }
       has_dp = true
       d.decimal_point = d.digits_num
       continue rest
     }
-    ['0'..='9' as digit, .. rest] => {
+    [b'0'..=b'9' as digit, .. rest] => {
       has_digits = true
-      if digit == '0' && d.digits_num == 0 {
+      if digit == b'0' && d.digits_num == 0 {
         // ignore leading zeros
         d.decimal_point -= 1
         continue rest
@@ -81,7 +81,7 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
       if d.digits_num < d.digits.length() {
         d.digits[d.digits_num] = (digit.to_int() - '0').to_byte()
         d.digits_num += 1
-      } else if digit != '0' {
+      } else if digit != b'0' {
         d.truncated = true
       }
       continue rest
@@ -95,22 +95,22 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
   }
   // read exponent part
   let rest = match rest {
-    ['e' | 'E', .. rest] => {
+    [b'e' | b'E', .. rest] => {
       let mut exp_sign = 1
       let rest = match rest {
-        ['+', .. rest] => rest
-        ['-', .. rest] => {
+        [b'+', .. rest] => rest
+        [b'-', .. rest] => {
           exp_sign = -1
           rest
         }
         rest => rest
       }
-      guard rest is ['0'..='9', ..] else { syntax_err() }
+      guard rest is [b'0'..=b'9', ..] else { syntax_err() }
       let mut exp = 0
       let rest = for rest = rest {
         match rest {
-        ['_', .. rest] => continue rest
-        ['0'..='9' as digit, .. rest] => {
+        [b'_', .. rest] => continue rest
+        [b'0'..=b'9' as digit, .. rest] => {
           exp = exp * 10 + (digit.to_int() - '0')
           continue rest
         }
@@ -452,7 +452,7 @@ fn Decimal::new_digits(self : Decimal, s : Int) -> Int {
       less = true
       break
     }
-    let d = cheat_num.unsafe_charcode_at(i) - '0'
+    let d = cheat_num.unsafe_get(i).to_int() - '0'.to_int()
     if self.digits[i].to_int() != d {
       less = self.digits[i].to_int() < d
       break
@@ -586,7 +586,7 @@ test "tokenize_decimal" {
     tokenize_decimal_priv(s),
     content="0.0000000000000000000000000000007888609052210118054117285652827862296732064351090230047702789306640625",
   )
-  assert_eq(tokenize_decimal_priv("1.0e-10").to_string(), "0.0000000001")
+  assert_eq(tokenize_decimal_priv(b"1.0e-10").to_string(), "0.0000000001")
 }
 
 ///|
@@ -626,23 +626,23 @@ test "shift" {
 
 ///|
 test "parse decimal with underscore" {
-  inspect(tokenize_decimal_priv("1e1_2"), content="1000000000000")
-  inspect(tokenize_decimal_priv("1e12"), content="1000000000000")
-  inspect(tokenize_decimal_priv("1_2_3"), content="123")
+  inspect(tokenize_decimal_priv(b"1e1_2"), content="1000000000000")
+  inspect(tokenize_decimal_priv(b"1e12"), content="1000000000000")
+  inspect(tokenize_decimal_priv(b"1_2_3"), content="123")
 }
 
 ///|
 test "parse decimal error" {
-  inspect(try? tokenize_decimal_priv("1e"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv("1e+"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv("1e_"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv("1-23"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv("1.2.3"), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b"1e"), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b"1e+"), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b"1e_"), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b"1-23"), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b"1.2.3"), content="Err(invalid syntax)")
 }
 
 ///|
 test "parse decimal with large numbers" {
-  let s = Bytes::make(100, '9')
+  let s = Bytes::make(100, b'9')
   inspect(
     tokenize_decimal_priv(s),
     content="9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
@@ -652,7 +652,7 @@ test "parse decimal with large numbers" {
 ///|
 test "should_round_up when truncated and half-way" {
   // Create a decimal from "12.50"
-  let decimal = tokenize_decimal_priv("12.50")
+  let decimal = tokenize_decimal_priv(b"12.50")
   // Convert to double
   inspect(decimal.to_double_priv(), content="12.5")
 }
@@ -660,7 +660,7 @@ test "should_round_up when truncated and half-way" {
 ///|
 test "tokenize_decimal with large numbers and truncation" {
   // Construct a very large number to trigger truncation
-  let s = Bytes::make(1000, '9')
+  let s = Bytes::make(1000, b'9')
   inspect(
     tokenize_decimal_priv(s),
     content="99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
@@ -688,16 +688,16 @@ test "rounded_integer overflow when decimal_point > 20" {
 
 ///|
 test "corner cases" {
-  inspect(try? tokenize_decimal_priv(".123"), content="Ok(0.123)")
-  inspect(try? tokenize_decimal_priv("."), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv("-"), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b".123"), content="Ok(0.123)")
+  inspect(try? tokenize_decimal_priv(b"."), content="Err(invalid syntax)")
+  inspect(try? tokenize_decimal_priv(b"-"), content="Err(invalid syntax)")
 }
 
 ///|
 test "tokenize_double mantissa normalization boundary" {
-  inspect(tokenize_double("1.9999999999999999"), content="(2, 18)")
+  inspect(tokenize_double(b"1.9999999999999999"), content="(2, 18)")
   inspect(
-    tokenize_double("9007199254740991.5"),
+    tokenize_double(b"9007199254740991.5"),
     content="(9007199254740992, 18)",
   )
 }

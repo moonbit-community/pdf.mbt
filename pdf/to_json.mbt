@@ -237,16 +237,16 @@ pub impl ToJson for LexEntryState with to_json(self) {
 test "ToJson implementations" {
   let in_use : LexEntryState = InUse
   let free : LexEntryState = Free
-  @json.inspect(in_use, content="InUse")
-  @json.inspect(free, content="Free")
+  json_inspect(in_use, content="InUse")
+  json_inspect(free, content="Free")
   let header : LexHeader = { major: 1, minor: 7 }
-  @json.inspect(header, content={ "major": 1, "minor": 7 })
+  json_inspect(header, content={ "major": 1, "minor": 7 })
   let entry : LexXRefEntry = {
     bytes_offset: 123,
     generation_num: 0,
     state: InUse,
   }
-  @json.inspect(entry, content={
+  json_inspect(entry, content={
     "bytes_offset": 123,
     "generation_num": 0,
     "state": "InUse",
@@ -258,7 +258,7 @@ test "ToJson implementations" {
     generation_num: 0,
     obj_bytes: test_bytes[:],
   }
-  @json.inspect(obj, content={
+  json_inspect(obj, content={
     "bytes_offset": 100,
     "object_num": 1,
     "generation_num": 0,

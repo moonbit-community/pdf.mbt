@@ -33,26 +33,26 @@ fn tokenize_as_result(s : BytesView, base~ : Int) -> Result[Int64, String] {
 
 ///|
 test "tokenize_int64_invalid_base" {
-  assert_eq(tokenize_as_result("12345", base=1), Err(base_err))
-  assert_eq(tokenize_as_result("12345", base=37), Err(base_err))
-  assert_eq(tokenize_as_result("12345", base=-1), Err(base_err))
-  assert_eq(tokenize_as_result("12345", base=100), Err(base_err))
+  assert_eq(tokenize_as_result(b"12345", base=1), Err(base_err))
+  assert_eq(tokenize_as_result(b"12345", base=37), Err(base_err))
+  assert_eq(tokenize_as_result(b"12345", base=-1), Err(base_err))
+  assert_eq(tokenize_as_result(b"12345", base=100), Err(base_err))
 }
 
 ///|
 test "tokenize_int64_uncovered_lines" {
   let tests : Array[(BytesView, Int, Result[Int64, String])] = [
     // Test cases for uncovered lines in strconv/int.mbt:69
-    ("A", 16, Ok(10L)),
-    ("a", 16, Ok(10L)),
-    ("Z", 36, Ok(35L)),
-    ("z", 36, Ok(35L)),
-    ("G", 16, Err(syntax_err)),
-    ("g", 16, Err(syntax_err)),
-    ("@", 16, Err(syntax_err)),
-    ("`", 16, Err(syntax_err)),
-    ("[", 16, Err(syntax_err)),
-    ("{", 16, Err(syntax_err)),
+    (b"A", 16, Ok(10L)),
+    (b"a", 16, Ok(10L)),
+    (b"Z", 36, Ok(35L)),
+    (b"z", 36, Ok(35L)),
+    (b"G", 16, Err(syntax_err)),
+    (b"g", 16, Err(syntax_err)),
+    (b"@", 16, Err(syntax_err)),
+    (b"`", 16, Err(syntax_err)),
+    (b"[", 16, Err(syntax_err)),
+    (b"{", 16, Err(syntax_err)),
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
@@ -63,85 +63,85 @@ test "tokenize_int64_uncovered_lines" {
 ///|
 test "@lexer_bytes.tokenize_int64/base_parsing" {
   // Test different bases
-  let (val1, _) = @lexer_bytes.tokenize_int64("1010", base=2)
+  let (val1, _) = @lexer_bytes.tokenize_int64(b"1010", base=2)
   inspect(val1, content="10")
-  let (val2, _) = @lexer_bytes.tokenize_int64("777", base=8)
+  let (val2, _) = @lexer_bytes.tokenize_int64(b"777", base=8)
   inspect(val2, content="511")
-  let (val3, _) = @lexer_bytes.tokenize_int64("ff", base=16)
+  let (val3, _) = @lexer_bytes.tokenize_int64(b"ff", base=16)
   inspect(val3, content="255")
   // Test auto-detection of base
-  let (val4, _) = @lexer_bytes.tokenize_int64("0xFF")
+  let (val4, _) = @lexer_bytes.tokenize_int64(b"0xFF")
   inspect(val4, content="255")
-  let (val5, _) = @lexer_bytes.tokenize_int64("0b1010")
+  let (val5, _) = @lexer_bytes.tokenize_int64(b"0b1010")
   inspect(val5, content="10")
-  let (val6, _) = @lexer_bytes.tokenize_int64("0o777")
+  let (val6, _) = @lexer_bytes.tokenize_int64(b"0o777")
   inspect(val6, content="511")
 }
 
 ///|
 test "panic @lexer_bytes.tokenize_int64/invalid_input" {
   // Empty BytesView
-  ignore(@lexer_bytes.tokenize_int64(""))
+  ignore(@lexer_bytes.tokenize_int64(b""))
   // Invalid characters for given base
-  ignore(@lexer_bytes.tokenize_int64("2", base=2))
+  ignore(@lexer_bytes.tokenize_int64(b"2", base=2))
   // Invalid base
-  ignore(@lexer_bytes.tokenize_int64("123", base=37))
+  ignore(@lexer_bytes.tokenize_int64(b"123", base=37))
 }
 
 ///|
 test "@lexer_bytes.tokenize_int64/boundary_values" {
   // Test minimum and maximum values
-  let (val1, _) = @lexer_bytes.tokenize_int64("-9223372036854775808")
+  let (val1, _) = @lexer_bytes.tokenize_int64(b"-9223372036854775808")
   inspect(val1, content="-9223372036854775808")
-  let (val2, _) = @lexer_bytes.tokenize_int64("9223372036854775807")
+  let (val2, _) = @lexer_bytes.tokenize_int64(b"9223372036854775807")
   inspect(val2, content="9223372036854775807")
   // Test with underscores
-  let (val3, _) = @lexer_bytes.tokenize_int64("922_3372_0368_5477_5807")
+  let (val3, _) = @lexer_bytes.tokenize_int64(b"922_3372_0368_5477_5807")
   inspect(val3, content="9223372036854775807")
   // Test with different sign prefixes
-  let (val4, _) = @lexer_bytes.tokenize_int64("+42")
+  let (val4, _) = @lexer_bytes.tokenize_int64(b"+42")
   inspect(val4, content="42")
-  let (val5, _) = @lexer_bytes.tokenize_int64("-42")
+  let (val5, _) = @lexer_bytes.tokenize_int64(b"-42")
   inspect(val5, content="-42")
 }
 
 ///|
 test "@lexer_bytes.tokenize_int64/base10" {
-  let (val1, _) = @lexer_bytes.tokenize_int64("12345")
+  let (val1, _) = @lexer_bytes.tokenize_int64(b"12345")
   inspect(val1, content="12345")
-  let (val2, _) = @lexer_bytes.tokenize_int64("-12345")
+  let (val2, _) = @lexer_bytes.tokenize_int64(b"-12345")
   inspect(val2, content="-12345")
-  let (val3, _) = @lexer_bytes.tokenize_int64("0")
+  let (val3, _) = @lexer_bytes.tokenize_int64(b"0")
   inspect(val3, content="0")
-  let (val4, _) = @lexer_bytes.tokenize_int64("-0")
+  let (val4, _) = @lexer_bytes.tokenize_int64(b"-0")
   inspect(val4, content="0")
 }
 
 ///|
 test "@lexer_bytes.tokenize_int64/boundary_cases" {
-  let (val1, _) = @lexer_bytes.tokenize_int64("9223372036854775807")
+  let (val1, _) = @lexer_bytes.tokenize_int64(b"9223372036854775807")
   inspect(val1, content="9223372036854775807")
-  let (val2, _) = @lexer_bytes.tokenize_int64("-9223372036854775808")
+  let (val2, _) = @lexer_bytes.tokenize_int64(b"-9223372036854775808")
   inspect(val2, content="-9223372036854775808")
 }
 
 ///|
 test "panic @lexer_bytes.tokenize_int64/invalid_base" {
-  ignore(@lexer_bytes.tokenize_int64("12345x"))
+  ignore(@lexer_bytes.tokenize_int64(b"12345x"))
 }
 
 ///|
 test "edge cases" {
   // Invalid: Missing digits after hex prefix
-  inspect(try? @lexer_bytes.tokenize_int64("0x"), content="Err(invalid syntax)")
+  inspect(try? @lexer_bytes.tokenize_int64(b"0x"), content="Err(invalid syntax)")
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x_"),
+    try? @lexer_bytes.tokenize_int64(b"0x_"),
     content="Err(invalid syntax)",
   )
 
   // Underscore is allowed between the prefix and the first digit
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x_DEADBEEF"),
+    try? @lexer_bytes.tokenize_int64(b"0x_DEADBEEF"),
     content="Ok((3735928559, 11))",
   )
 }
@@ -149,63 +149,63 @@ test "edge cases" {
 ///|
 test "more edge cases" {
   inspect(
-    try? @lexer_bytes.tokenize_int64("0b01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
     content="Ok((2817, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0o01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
     content="Ok((1, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0b01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
     content="Ok((2817, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0o01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
     content="Ok((1, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0b01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
     content="Ok((2817, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0o01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
     content="Ok((1, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0b01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
     content="Ok((2817, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0o01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x01", base=16),
+    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
     content="Ok((1, 4))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0b01", base=10),
+    try? @lexer_bytes.tokenize_int64(b"0b01", base=10),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0o01", base=10),
+    try? @lexer_bytes.tokenize_int64(b"0o01", base=10),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_int64("0x01", base=10),
+    try? @lexer_bytes.tokenize_int64(b"0x01", base=10),
     content="Err(invalid syntax)",
   )
 }

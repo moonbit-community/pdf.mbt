@@ -16,21 +16,21 @@
 test "@lexer_bytes.tokenize_uint64/base_handling" {
   // Different bases with valid input
   inspect(
-    try? @lexer_bytes.tokenize_uint64("FF", base=16),
+    try? @lexer_bytes.tokenize_uint64(b"FF", base=16),
     content="Ok((255, 2))",
   )
-  inspect(try? @lexer_bytes.tokenize_uint64("0xFF"), content="Ok((255, 4))")
+  inspect(try? @lexer_bytes.tokenize_uint64(b"0xFF"), content="Ok((255, 4))")
   inspect(
-    try? @lexer_bytes.tokenize_uint64("377", base=8),
+    try? @lexer_bytes.tokenize_uint64(b"377", base=8),
     content="Ok((255, 3))",
   )
-  inspect(try? @lexer_bytes.tokenize_uint64("0o377"), content="Ok((255, 5))")
+  inspect(try? @lexer_bytes.tokenize_uint64(b"0o377"), content="Ok((255, 5))")
   inspect(
-    try? @lexer_bytes.tokenize_uint64("11111111", base=2),
+    try? @lexer_bytes.tokenize_uint64(b"11111111", base=2),
     content="Ok((255, 8))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0b11111111"),
+    try? @lexer_bytes.tokenize_uint64(b"0b11111111"),
     content="Ok((255, 10))",
   )
 }
@@ -39,24 +39,24 @@ test "@lexer_bytes.tokenize_uint64/base_handling" {
 test "@lexer_bytes.tokenize_uint64/underscore" {
   // Valid underscore placements
   inspect(
-    try? @lexer_bytes.tokenize_uint64("1_000_000"),
+    try? @lexer_bytes.tokenize_uint64(b"1_000_000"),
     content="Ok((1000000, 9))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xff_ff_ff"),
+    try? @lexer_bytes.tokenize_uint64(b"0xff_ff_ff"),
     content="Ok((16777215, 10))",
   )
   // Invalid underscore placements
   inspect(
-    try? @lexer_bytes.tokenize_uint64("_123"),
+    try? @lexer_bytes.tokenize_uint64(b"_123"),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("123_"),
+    try? @lexer_bytes.tokenize_uint64(b"123_"),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("1__23"),
+    try? @lexer_bytes.tokenize_uint64(b"1__23"),
     content="Err(invalid syntax)",
   )
 }
@@ -64,69 +64,69 @@ test "@lexer_bytes.tokenize_uint64/underscore" {
 ///|
 test "panic @lexer_bytes.tokenize_uint64/errors" {
   // Empty BytesView
-  ignore(@lexer_bytes.tokenize_uint64(""))
+  ignore(@lexer_bytes.tokenize_uint64(b""))
   // Invalid base
-  ignore(@lexer_bytes.tokenize_uint64("123", base=37))
+  ignore(@lexer_bytes.tokenize_uint64(b"123", base=37))
   // Signs not allowed
-  ignore(@lexer_bytes.tokenize_uint64("+123"))
-  ignore(@lexer_bytes.tokenize_uint64("-123"))
+  ignore(@lexer_bytes.tokenize_uint64(b"+123"))
+  ignore(@lexer_bytes.tokenize_uint64(b"-123"))
   // Range error (overflow)
-  ignore(@lexer_bytes.tokenize_uint64("18446744073709551616"))
+  ignore(@lexer_bytes.tokenize_uint64(b"18446744073709551616"))
 }
 
 ///|
 test "@lexer_bytes.tokenize_uint64/hex_and_edge_cases" {
   // Valid hexadecimal numbers with 0x/0X prefix
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xDEADBEEF"),
+    try? @lexer_bytes.tokenize_uint64(b"0xDEADBEEF"),
     content="Ok((3735928559, 10))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0XDEADBEEF"),
+    try? @lexer_bytes.tokenize_uint64(b"0XDEADBEEF"),
     content="Ok((3735928559, 10))",
   )
 
   // Valid hexadecimal numbers without prefix when base=16 is specified
   inspect(
-    try? @lexer_bytes.tokenize_uint64("deadbeef", base=16),
+    try? @lexer_bytes.tokenize_uint64(b"deadbeef", base=16),
     content="Ok((3735928559, 8))",
   )
 
   // Valid hexadecimal numbers with allowed underscore placements
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xDEAD_BEEF"),
+    try? @lexer_bytes.tokenize_uint64(b"0xDEAD_BEEF"),
     content="Ok((3735928559, 11))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("dead_beef", base=16),
+    try? @lexer_bytes.tokenize_uint64(b"dead_beef", base=16),
     content="Ok((3735928559, 9))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0x1_2345"),
+    try? @lexer_bytes.tokenize_uint64(b"0x1_2345"),
     content="Ok((74565, 8))",
   )
 
   // Edge case: zero value
-  inspect(try? @lexer_bytes.tokenize_uint64("0x0"), content="Ok((0, 3))")
-  inspect(try? @lexer_bytes.tokenize_uint64("0x00"), content="Ok((0, 4))")
+  inspect(try? @lexer_bytes.tokenize_uint64(b"0x0"), content="Ok((0, 3))")
+  inspect(try? @lexer_bytes.tokenize_uint64(b"0x00"), content="Ok((0, 4))")
 
   // Edge case: maximum valid uint64 value (all bits set)
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xFFFFFFFFFFFFFFFF"),
+    try? @lexer_bytes.tokenize_uint64(b"0xFFFFFFFFFFFFFFFF"),
     content="Ok((18446744073709551615, 18))",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xDEADBEEF_"),
+    try? @lexer_bytes.tokenize_uint64(b"0xDEADBEEF_"),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xDE__AD_BEEF"),
+    try? @lexer_bytes.tokenize_uint64(b"0xDE__AD_BEEF"),
     content="Err(invalid syntax)",
   )
 
   // Invalid hex digit (G is not a valid base-16 digit)
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0xDEADBEG"),
+    try? @lexer_bytes.tokenize_uint64(b"0xDEADBEG"),
     content="Err(invalid syntax)",
   )
 }
@@ -135,17 +135,17 @@ test "@lexer_bytes.tokenize_uint64/hex_and_edge_cases" {
 test "edge cases" {
   // Invalid: Missing digits after hex prefix
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0x"),
+    try? @lexer_bytes.tokenize_uint64(b"0x"),
     content="Err(invalid syntax)",
   )
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0x_"),
+    try? @lexer_bytes.tokenize_uint64(b"0x_"),
     content="Err(invalid syntax)",
   )
 
   // Underscore is allowed between the prefix and the first digit
   inspect(
-    try? @lexer_bytes.tokenize_uint64("0x_DEADBEEF"),
+    try? @lexer_bytes.tokenize_uint64(b"0x_DEADBEEF"),
     content="Ok((3735928559, 11))",
   )
 }

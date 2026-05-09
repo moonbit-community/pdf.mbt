@@ -29,7 +29,7 @@ pub fn parse_pdf_file(input : BytesView) -> File raise {
 fn parse_pdf_object(obj_bytes : BytesView) -> Object raise ParseError {
   // TODO: 
   // lexmatch might has some bug, here use `to_bytes()` as a workaround
-  let tokens = tokenize(obj_bytes.to_bytes())
+  let tokens = tokenize(obj_bytes.to_owned())
   let parsed_obj = parse(tokens)
   // Let ParseError propagate
    catch {
