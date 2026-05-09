@@ -31,21 +31,21 @@ fn split_format(format : BytesView) -> (Array[BytesView], Int) {
   let mut index = 0
   for cs = format[:] {
     match cs {
-    [] => {
-      snippets.push(format[start:index])
-      break
-    }
-    [b'{', b'}', .. rest] => {
-      snippets.push(format[start:index])
-      start = index + 2
-      index += 2
-      count += 1
-      continue rest
-    }
-    [_, .. rest] => {
-      index += 1
-      continue rest
-    }
+      [] => {
+        snippets.push(format[start:index])
+        break
+      }
+      [b'{', b'}', .. rest] => {
+        snippets.push(format[start:index])
+        start = index + 2
+        index += 2
+        count += 1
+        continue rest
+      }
+      [_, .. rest] => {
+        index += 1
+        continue rest
+      }
     }
   }
   (snippets, count)

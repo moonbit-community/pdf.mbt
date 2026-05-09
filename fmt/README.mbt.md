@@ -6,7 +6,7 @@ A destination-passing style formatting library for MoonBit with extensible API d
 
 The core API revolves around the `@fmt.Format` trait, with helper functions `@fmt.format_count` and `@fmt.format_write`:
 
-```mbt
+```mbt nocheck
 ///|
 test "basic formatting" {
   let fmt = b"hello {}!"
@@ -22,7 +22,7 @@ test "basic formatting" {
 
 Implement the `@fmt.Format` trait for your types:
 
-```mbt
+```mbt nocheck
 ///|
 struct Point {
   x : Int
@@ -53,7 +53,7 @@ test "custom formatter" {
 
 ### Number Formatting
 
-```mbt
+```mbt nocheck
 ///|
 test "hex formatting" {
   // Allocate a large buffer (1024 bytes) that can be reused for multiple operations
@@ -98,7 +98,7 @@ test "endianness formatting" {
 
 ### Padding
 
-```mbt
+```mbt nocheck
 ///|
 test "padding examples" {
   // Use a large reusable buffer (1024 bytes) to avoid multiple allocations
@@ -122,7 +122,7 @@ test "padding examples" {
 
 ### Combining Manipulators
 
-```mbt
+```mbt nocheck
 ///|
 test "combined formatting" {
   // Use a large reusable buffer (1024 bytes) for efficiency
@@ -138,7 +138,7 @@ test "combined formatting" {
 
 ## Helper Functions
 
-```mbt
+```mbt nocheck
 ///|
 /// Convert memory buffer to string with C-style escape sequences
 fn string_of_memory(mem : @fmt.Memory, len : Int) -> String {

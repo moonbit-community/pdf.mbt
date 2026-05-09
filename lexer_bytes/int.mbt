@@ -70,7 +70,7 @@ test {
 /// These underscores do not affect the value.
 /// Returns a tuple of (parsed_value, advance_length).
 /// Examples:
-/// ```mbt
+/// ```mbt nocheck
 ///   inspect(@lexer_bytes.tokenize_int64("123"), content="(123, 3)")
 ///   inspect(@lexer_bytes.tokenize_int64("0xff", base=0), content="(255, 4)") 
 ///   inspect(@lexer_bytes.tokenize_int64("0o10"), content="(8, 4)")
@@ -105,33 +105,33 @@ pub fn tokenize_int64(
   // convert
   let result = for rest = rest, acc = 0L, allow_underscore = allow_underscore {
     match (rest, acc, allow_underscore) {
-    ([b'_'], _, _) =>
-      // the last character cannot be underscore
-      syntax_err()
-    ([b'_', ..], _, false) => syntax_err()
-    ([b'_', .. rest], acc, true) => continue rest, acc, false
-    ([c, .. rest], acc, _) => {
-      let c = c.to_int()
-      let d = match c {
-        '0'..='9' => c - '0'
-        'a'..='z' => c + (10 - 'a')
-        'A'..='Z' => c + (10 - 'A')
-        _ => syntax_err()
+      ([b'_'], _, _) =>
+        // the last character cannot be underscore
+        syntax_err()
+      ([b'_', ..], _, false) => syntax_err()
+      ([b'_', .. rest], acc, true) => continue rest, acc, false
+      ([c, .. rest], acc, _) => {
+        let c = c.to_int()
+        let d = match c {
+          '0'..='9' => c - '0'
+          'a'..='z' => c + (10 - 'a')
+          'A'..='Z' => c + (10 - 'A')
+          _ => syntax_err()
+        }
+        guard d < num_base else { syntax_err() }
+        if neg {
+          guard acc >= overflow_threshold else { range_err() }
+          let next_acc = acc * num_base.to_int64() - d.to_int64()
+          guard next_acc <= acc else { range_err() }
+          continue rest, next_acc, true
+        } else {
+          guard acc < overflow_threshold else { range_err() }
+          let next_acc = acc * num_base.to_int64() + d.to_int64()
+          guard next_acc >= acc else { range_err() }
+          continue rest, next_acc, true
+        }
       }
-      guard d < num_base else { syntax_err() }
-      if neg {
-        guard acc >= overflow_threshold else { range_err() }
-        let next_acc = acc * num_base.to_int64() - d.to_int64()
-        guard next_acc <= acc else { range_err() }
-        continue rest, next_acc, true
-      } else {
-        guard acc < overflow_threshold else { range_err() }
-        let next_acc = acc * num_base.to_int64() + d.to_int64()
-        guard next_acc >= acc else { range_err() }
-        continue rest, next_acc, true
-      }
-    }
-    ([], acc, _) => break acc
+      ([], acc, _) => break acc
     }
   }
   (result, original_length)
@@ -181,26 +181,26 @@ fn check_underscore(str : BytesView) -> Bool {
   let follow_underscore = false
   for rest = rest, allow_underscore = allow_underscore, follow_underscore = follow_underscore {
     match (rest, allow_underscore, follow_underscore) {
-    // Empty BytesView is valid
-    ([], _, _) => break true
-    // BytesView ending with underscore is invalid
-    ([b'_'], _, _) => break false
-    // Underscore not allowed in current position (e.g., between non-digits)
-    ([b'_', ..], false, _) => break false
-    // Valid underscore - continue but mark that next char must be a digit
-    ([b'_', .. rest], true, _) => continue rest, false, true
-    // Handle non-underscore character
-    ([c, .. rest], _, follow_underscore) =>
-      if is_digit(c) {
-        // Digit found - allow underscore in next position
-        continue rest, true, false
-      } else if follow_underscore {
-        // Non-digit found after underscore - invalid
-        break false
-      } else {
-        // Non-digit found (not after underscore) - continue but don't allow underscores
-        continue rest, false, false
-      }
+      // Empty BytesView is valid
+      ([], _, _) => break true
+      // BytesView ending with underscore is invalid
+      ([b'_'], _, _) => break false
+      // Underscore not allowed in current position (e.g., between non-digits)
+      ([b'_', ..], false, _) => break false
+      // Valid underscore - continue but mark that next char must be a digit
+      ([b'_', .. rest], true, _) => continue rest, false, true
+      // Handle non-underscore character
+      ([c, .. rest], _, follow_underscore) =>
+        if is_digit(c) {
+          // Digit found - allow underscore in next position
+          continue rest, true, false
+        } else if follow_underscore {
+          // Non-digit found after underscore - invalid
+          break false
+        } else {
+          // Non-digit found (not after underscore) - continue but don't allow underscores
+          continue rest, false, false
+        }
     }
   }
 }

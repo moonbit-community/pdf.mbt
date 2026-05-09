@@ -64,29 +64,29 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
   // read digits
   let rest = for rest = rest {
     match rest {
-    [b'_', .. rest] => continue rest
-    [b'.', .. rest] => {
-      guard !has_dp else { syntax_err() }
-      has_dp = true
-      d.decimal_point = d.digits_num
-      continue rest
-    }
-    [b'0'..=b'9' as digit, .. rest] => {
-      has_digits = true
-      if digit == b'0' && d.digits_num == 0 {
-        // ignore leading zeros
-        d.decimal_point -= 1
+      [b'_', .. rest] => continue rest
+      [b'.', .. rest] => {
+        guard !has_dp else { syntax_err() }
+        has_dp = true
+        d.decimal_point = d.digits_num
         continue rest
       }
-      if d.digits_num < d.digits.length() {
-        d.digits[d.digits_num] = (digit.to_int() - '0').to_byte()
-        d.digits_num += 1
-      } else if digit != b'0' {
-        d.truncated = true
+      [b'0'..=b'9' as digit, .. rest] => {
+        has_digits = true
+        if digit == b'0' && d.digits_num == 0 {
+          // ignore leading zeros
+          d.decimal_point -= 1
+          continue rest
+        }
+        if d.digits_num < d.digits.length() {
+          d.digits[d.digits_num] = (digit.to_int() - '0').to_byte()
+          d.digits_num += 1
+        } else if digit != b'0' {
+          d.truncated = true
+        }
+        continue rest
       }
-      continue rest
-    }
-    rest => break rest
+      rest => break rest
     }
   }
   guard has_digits else { syntax_err() }
@@ -109,12 +109,12 @@ fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
       let mut exp = 0
       let rest = for rest = rest {
         match rest {
-        [b'_', .. rest] => continue rest
-        [b'0'..=b'9' as digit, .. rest] => {
-          exp = exp * 10 + (digit.to_int() - '0')
-          continue rest
-        }
-        rest => break rest
+          [b'_', .. rest] => continue rest
+          [b'0'..=b'9' as digit, .. rest] => {
+            exp = exp * 10 + (digit.to_int() - '0')
+            continue rest
+          }
+          rest => break rest
         }
       }
       d.decimal_point += exp_sign * exp

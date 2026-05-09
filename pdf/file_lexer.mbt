@@ -19,7 +19,11 @@ pub fn tokenize_header(
   lexmatch input with longest {
     (
       (
-        "%PDF-" ("[[:digit:]]+" as major) "." ("[[:digit:]]+" as minor) "(\r\n)|\r|\n"
+        "%PDF-"
+        ("[[:digit:]]+" as major)
+        "."
+        ("[[:digit:]]+" as minor)
+        "(\r\n)|\r|\n"
       ) as all,
       rest
     ) => {
@@ -65,7 +69,11 @@ pub fn tokenize_body(
     lexmatch rest with longest {
       (
         (
-          ("[[:digit:]]+" as obj_num) "[ ]+" ("[[:digit:]]+" as gen_num) "[ ]+" "obj"
+          ("[[:digit:]]+" as obj_num)
+          "[ ]+"
+          ("[[:digit:]]+" as gen_num)
+          "[ ]+"
+          "obj"
         ) as header,
         rest_after_header
       ) =>
@@ -285,7 +293,11 @@ pub fn tokenize_startxref(
   lexmatch input with longest {
     (
       (
-        "startxref" "(\r\n)|\r|\n" ("[[:digit:]]+" as offset_str) "(\r\n)|\r|\n" "%%EOF"
+        "startxref"
+        "(\r\n)|\r|\n"
+        ("[[:digit:]]+" as offset_str)
+        "(\r\n)|\r|\n"
+        "%%EOF"
       ) as all,
       rest
     ) => {
@@ -319,8 +331,7 @@ pub fn skip_comment(input : BytesView) -> Int {
         }
         comment_content_end += 1
       }
-      if !found_newline &&
-        comment_content_end == rest_after_percent.length() {
+      if !found_newline && comment_content_end == rest_after_percent.length() {
         is_eof_comment = true
       }
       if is_eof_comment {

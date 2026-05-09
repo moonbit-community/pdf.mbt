@@ -195,12 +195,14 @@ fn calculate_block_height(block : Block, indent_level : Int) -> Double {
       font_size // Op_TL sets leading to font_size, Op_T_star consumes it
     }
     Paragraph(para) => {
-      let para = para.map(x => match x {
-        Plain(x) => x
-        StrongEmphasis(x) => x
-        Emphasis(x) => x
-        StrongEmphasis_Emphasis(x) => x
-        CodeSpan(x) => x
+      let para = para.map(x => {
+        match x {
+          Plain(x) => x
+          StrongEmphasis(x) => x
+          Emphasis(x) => x
+          StrongEmphasis_Emphasis(x) => x
+          CodeSpan(x) => x
+        }
       })
       let ascii_count = para.fold(init=0, (acc, s) => acc + s.length())
       // Apply indentation context just like Block::write_to_canvas
@@ -220,12 +222,14 @@ fn calculate_block_height(block : Block, indent_level : Int) -> Double {
       let list_height = items.fold(init=0.0, fn(acc, item) {
         let item_height = match item {
           Paragraph(para) => {
-            let para = para.map(x => match x {
-              Plain(x) => x
-              StrongEmphasis(x) => x
-              Emphasis(x) => x
-              StrongEmphasis_Emphasis(x) => x
-              CodeSpan(x) => x
+            let para = para.map(x => {
+              match x {
+                Plain(x) => x
+                StrongEmphasis(x) => x
+                Emphasis(x) => x
+                StrongEmphasis_Emphasis(x) => x
+                CodeSpan(x) => x
+              }
             })
             let ascii_count = para.fold(init=0, (acc, s) => acc + s.length())
             // Apply indentation and bullet context just like Block::write_to_canvas

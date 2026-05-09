@@ -1,0 +1,17 @@
+import {
+  "illusory0x0/pdf/fmt",
+  "illusory0x0/pdf/lexer_bytes",
+  "moonbitlang/core/buffer",
+  "moonbitlang/core/encoding/utf8" @encoding/utf8,
+  "moonbitlang/core/json",
+  "moonbitlang/core/list",
+}
+
+import {
+  "moonbitlang/x/fs",
+  "moonbitlang/core/buffer",
+  "moonbitlang/core/encoding/utf8" @encoding/utf8,
+  "moonbitlang/core/test",
+} for "test"
+
+warnings = "-2-6"

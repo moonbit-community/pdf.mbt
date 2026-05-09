@@ -26,8 +26,9 @@ priv struct Number {
 ///|
 /// Returns the remaining slice, the parsed number, and the number of digits parsed.
 fn tokenize_digits(s : BytesView, x : UInt64) -> (BytesView, UInt64, Int) {
-  s.fold_digits(x, (digit, acc : UInt64) => acc * 10UL +
-    UInt64::extend_uint(digit.reinterpret_as_uint()))
+  s.fold_digits(x, (digit, acc : UInt64) => {
+    acc * 10UL + UInt64::extend_uint(digit.reinterpret_as_uint())
+  })
 }
 
 ///|
@@ -36,14 +37,14 @@ fn try_tokenize_19digits(s : BytesView, x : UInt64) -> (BytesView, UInt64, Int) 
   let mut len = 0
   for s = s {
     match s {
-    [b'0'..=b'9' as ch, .. rest] if x < min_19digit_int => {
-      len += 1
-      x = x * 10UL +
-        UInt64::extend_uint((ch.to_int() - '0').reinterpret_as_uint()) // no overflows here
-      continue rest
-    }
-    [b'_', .. rest] => continue rest
-    s => break (s, x, len)
+      [b'0'..=b'9' as ch, .. rest] if x < min_19digit_int => {
+        len += 1
+        x = x * 10UL +
+          UInt64::extend_uint((ch.to_int() - '0').reinterpret_as_uint()) // no overflows here
+        continue rest
+      }
+      [b'_', .. rest] => continue rest
+      s => break (s, x, len)
     }
   }
 }
@@ -62,11 +63,12 @@ fn tokenize_scientific(s : BytesView) -> (BytesView, Int64)? {
     s = rest
   }
   if s is [b'0'..=b'9', ..] {
-    let (s, exp_num, _) = s.fold_digits(exp_num, (digit, exp_num : Int64) => if exp_num <
-      0x10000L {
-      10L * exp_num + digit.to_int64() // no overflows here
-    } else {
-      exp_num
+    let (s, exp_num, _) = s.fold_digits(exp_num, (digit, exp_num : Int64) => {
+      if exp_num < 0x10000L {
+        10L * exp_num + digit.to_int64() // no overflows here
+      } else {
+        exp_num
+      }
     })
     if neg_exp {
       Some((s, -exp_num))
@@ -183,7 +185,8 @@ fn tokenize_inf_nan(s : BytesView) -> (Double, Int)? {
     Some((@double.not_a_number, len + 3))
   } else if s is [b'i' | b'I', b'n' | b'N', b'f' | b'F', .. rest] {
     len += 3
-    if rest is [b'i' | b'I', b'n' | b'N', b'i' | b'I', b't' | b'T', b'y' | b'Y', ..] {
+    if rest
+      is [b'i' | b'I', b'n' | b'N', b'i' | b'I', b't' | b'T', b'y' | b'Y', ..] {
       len += 5
     }
     if pos {
