@@ -7,7 +7,7 @@ pub(all) enum Block {
   MoonBitCodeBlock(Array[Array[ColorSpaned]])
   Blocks(Array[Block])
   List(Array[Block])
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub(all) enum TokenStyle {
@@ -15,7 +15,7 @@ pub(all) enum TokenStyle {
   Num
   Str
   Other
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub(all) enum Inline {
@@ -24,16 +24,16 @@ pub(all) enum Inline {
   Emphasis(String)
   StrongEmphasis_Emphasis(String)
   CodeSpan(String)
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 pub(all) struct FlatHeading {
   num : Array[Int]
   text : String
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
-pub(all) struct Doc(Array[Block]) derive(Show, ToJson)
+pub(all) struct Doc(Array[Block]) derive(Debug, ToJson)
 
 ///|
 pub using @pdf {type ContentStream}

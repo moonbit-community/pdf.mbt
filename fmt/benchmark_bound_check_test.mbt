@@ -45,7 +45,7 @@ fn write_uint_text(
 ) -> Unit {
   for i = 9, value = num; i >= 0 && value > 0; i = i - 1, value = value / 10 {
     temp[i] = (value % 10 + '0'.to_uint()).to_byte()
-  } else {
+  } nobreak {
     buffer.write_bytesview(temp.unsafe_reinterpret_as_bytes()[i + 1:])
   }
 }
@@ -55,7 +55,7 @@ fn write_uint_text_with_temp(num : UInt, buffer : @buffer.Buffer) -> Unit {
   let temp = FixedArray::make(10, b'\x00')
   for i = 9, value = num; i >= 0 && value > 0; i = i - 1, value = value / 10 {
     temp[i] = (value % 10 + '0'.to_uint()).to_byte()
-  } else {
+  } nobreak {
     buffer.write_bytesview(temp.unsafe_reinterpret_as_bytes()[i + 1:])
   }
 }

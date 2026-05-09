@@ -2,7 +2,16 @@
 pub struct Position {
   row : Int
   col : Int
-} derive(Show, ToJson, @json.FromJson)
+} derive(Debug, ToJson, @json.FromJson)
+
+///|
+pub impl Show for Position with output(self, logger) {
+  logger.write_string("{row: ")
+  logger.write_object(self.row)
+  logger.write_string(", col: ")
+  logger.write_object(self.col)
+  logger.write_string("}")
+}
 
 ///|
 pub impl Show for Token with output(self, logger) {

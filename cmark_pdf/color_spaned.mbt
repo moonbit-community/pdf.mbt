@@ -2,7 +2,7 @@
 struct ColorSpaned {
   text : Bytes
   style : TokenStyle
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 fn token_to_color_style(tok : @tokens.Token) -> TokenStyle {

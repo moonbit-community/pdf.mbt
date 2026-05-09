@@ -103,14 +103,14 @@ fn define_catalog(pages~ : @pdf.Object, outlines~ : @pdf.Object) -> @pdf.Object 
 struct Tree {
   title : String
   children : Array[Tree]
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 struct TreeWithIndex {
   title : String
   index : Int
   children : Array[TreeWithIndex]
-} derive(Show, ToJson)
+} derive(Debug, ToJson)
 
 ///|
 fn TreeWithIndex::from(tree : Tree, start_index : Int) -> TreeWithIndex {

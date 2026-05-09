@@ -77,7 +77,7 @@ pub type EOF
 
 ///|
 /// Non-terminal symbol: Object represented as Atom
-pub typealias Object as Atom
+pub type Atom = Object
 
 ///|
 /// Terminal symbol: Null value literal
@@ -85,37 +85,37 @@ pub type NULL
 
 ///|
 /// Non-terminal symbol: Integer represented as Int
-pub typealias Int as INTEGER
+pub type INTEGER = Int
 
 ///|
 /// Non-terminal symbol: Real number represented as Double
-pub typealias Double as REAL
+pub type REAL = Double
 
 ///|
 /// Non-terminal symbol: String represented as Bytes
-pub typealias Bytes as STRING
+pub type STRING = Bytes
 
 ///|
 /// Non-terminal symbol: Name represented as Bytes
-pub typealias Bytes as NAME
+pub type NAME = Bytes
 
 ///|
-pub typealias Object as PDF_Array
+pub type PDF_Array = Object
 
 ///|
-pub typealias Object as PDF_Dict
+pub type PDF_Dict = Object
 
 ///|
 pub type DictEntries = Array[(NAME, Object)]
 
 ///|
-pub typealias Object as PDF_Obj
+pub type PDF_Obj = Object
 
 ///|
-pub typealias Bytes as STREAM_BYTES
+pub type STREAM_BYTES = Bytes
 
 ///|
-pub typealias PDF_Obj as PDF_Stream
+pub type PDF_Stream = PDF_Obj
 
 ///|
 pub type PDF_ArrayEntries = Array[Object]

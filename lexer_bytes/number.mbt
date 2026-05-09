@@ -34,7 +34,8 @@ fn tokenize_digits(s : BytesView, x : UInt64) -> (BytesView, UInt64, Int) {
 fn try_tokenize_19digits(s : BytesView, x : UInt64) -> (BytesView, UInt64, Int) {
   let mut x = x
   let mut len = 0
-  loop s {
+  for s = s {
+    match s {
     ['0'..='9' as ch, .. rest] if x < min_19digit_int => {
       len += 1
       x = x * 10UL +
@@ -42,7 +43,8 @@ fn try_tokenize_19digits(s : BytesView, x : UInt64) -> (BytesView, UInt64, Int) 
       continue rest
     }
     ['_', .. rest] => continue rest
-    s => return (s, x, len)
+    s => break (s, x, len)
+    }
   }
 }
 
