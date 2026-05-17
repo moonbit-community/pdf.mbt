@@ -13,13 +13,20 @@
 // limitations under the License.
 
 ///|
+fn tokenize_double_as_result(str : BytesView) -> Result[(Double, Int), String] {
+  Result::Ok(@lexer_bytes.tokenize_double(str)) catch {
+    @lexer_bytes.LexError(err) => Err(err)
+  }
+}
+
+///|
 test "try_fast_path overflow when shift is too large" {
   // When the shift (exponent - max_exponent_fast_path) is too large,
   // the multiplication of mantissa with int_pow10[shift] will overflow,
   // triggering line 130
   let result = @lexer_bytes.tokenize_double(b"9007199254740992e30")
   // The function successfully falls back to slow path
-  inspect(result, content="(9.007199254740992e+45, 19)")
+  debug_inspect(result, content="(9.007199254740992e+45, 19)")
 }
 
 ///|
@@ -28,44 +35,29 @@ test "try_fast_path overflow when mantissa is too large" {
   // line 133 will be triggered
   let result = @lexer_bytes.tokenize_double(b"9007199254740992e23")
   // The function successfully falls back to slow path
-  inspect(result, content="(9.007199254740991e+38, 19)")
+  debug_inspect(result, content="(9.007199254740991e+38, 19)")
 }
 
 ///|
 test "corner cases" {
-  inspect(try? @lexer_bytes.tokenize_double(b".123"), content="Ok((0.123, 4))")
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"."),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"-"),
-    content="Err(invalid syntax)",
-  )
+  @debug.assert_eq(tokenize_double_as_result(b".123"), Ok((0.123, 4)))
+  @debug.assert_eq(tokenize_double_as_result(b"."), Err("invalid syntax"))
+  @debug.assert_eq(tokenize_double_as_result(b"-"), Err("invalid syntax"))
 }
 
 ///|
 test "tokenize_double infinity and NaN with trailing characters should error" {
   // These should trigger the uncovered line 84 in tokenize_double
   // tokenize_inf_nan succeeds but doesn't consume the entire BytesView
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"infabc"),
-    content="Err(invalid syntax)",
+  @debug.assert_eq(tokenize_double_as_result(b"infabc"), Err("invalid syntax"))
+  @debug.assert_eq(tokenize_double_as_result(b"nanxyz"), Err("invalid syntax"))
+  @debug.assert_eq(
+    tokenize_double_as_result(b"+infinity123"),
+    Err("invalid syntax"),
   )
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"nanxyz"),
-    content="Err(invalid syntax)",
+  @debug.assert_eq(
+    tokenize_double_as_result(b"-inf_extra"),
+    Err("invalid syntax"),
   )
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"+infinity123"),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"-inf_extra"),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_double(b"NaN!"),
-    content="Err(invalid syntax)",
-  )
+  @debug.assert_eq(tokenize_double_as_result(b"NaN!"), Err("invalid syntax"))
 }

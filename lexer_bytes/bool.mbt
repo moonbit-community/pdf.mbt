@@ -42,7 +42,7 @@ test "tokenize_bool" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_bool(t.0)) catch {
         LexError(err) => Err(err)
       },
