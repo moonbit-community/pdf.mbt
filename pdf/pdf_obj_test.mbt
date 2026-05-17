@@ -1470,7 +1470,7 @@ test "tokenize complex pdf document structure" {
   inspect(
     token_strings,
     content=(
-      #|["DICT_BEGIN", "NAME(/Type)", "NAME(/Page)", "NAME(/Parent)", "INDIRECT(3, 0)", "NAME(/MediaBox)", "LEFT_SQUARE_BRACKET", "INTEGER(0)", "INTEGER(0)", "INTEGER(612)", "INTEGER(792)", "RIGHT_SQUARE_BRACKET", "NAME(/Contents)", "INDIRECT(5, 0)", "NAME(/Resources)", "DICT_BEGIN", "NAME(/Font)", "DICT_BEGIN", "NAME(/F1)", "INDIRECT(6, 0)", "DICT_END", "NAME(/ProcSet)", "LEFT_SQUARE_BRACKET", "NAME(/PDF)", "NAME(/Text)", "RIGHT_SQUARE_BRACKET", "DICT_END", "DICT_END", "EOF"]
+      #|[DICT_BEGIN, NAME(/Type), NAME(/Page), NAME(/Parent), INDIRECT(3, 0), NAME(/MediaBox), LEFT_SQUARE_BRACKET, INTEGER(0), INTEGER(0), INTEGER(612), INTEGER(792), RIGHT_SQUARE_BRACKET, NAME(/Contents), INDIRECT(5, 0), NAME(/Resources), DICT_BEGIN, NAME(/Font), DICT_BEGIN, NAME(/F1), INDIRECT(6, 0), DICT_END, NAME(/ProcSet), LEFT_SQUARE_BRACKET, NAME(/PDF), NAME(/Text), RIGHT_SQUARE_BRACKET, DICT_END, DICT_END, EOF]
     ),
   )
 }
@@ -1636,7 +1636,7 @@ test "tokenize comprehensive integration" {
   inspect(
     found_token_types,
     content=(
-      #|["EOF", "DICT", "NAME", "REAL", "ARRAY", "OTHER", "STRING", "BOOLEAN", "INTEGER"]
+      #|[EOF, DICT, NAME, REAL, ARRAY, OTHER, STRING, BOOLEAN, INTEGER]
     ),
   )
 }

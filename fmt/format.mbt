@@ -121,15 +121,4 @@ pub fn format_count(format : Bytes, data : Array[&Format]) -> Int raise {
 ///|
 priv suberror DebugError {
   DebugError(String)
-}
-
-///|
-impl Show for DebugError with output(self, logger) {
-  match self {
-    DebugError(message) => {
-      logger.write_string("DebugError(")
-      logger.write_object(message)
-      logger.write_string(")")
-    }
-  }
-}
+} derive(@debug.Debug)
