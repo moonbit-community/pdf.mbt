@@ -52,10 +52,29 @@ fn check_and_consume_base(
 }
 
 ///|
+fn tokenize_int64_as_result(
+  str : BytesView,
+  base? : Int = 0,
+) -> Result[(Int64, Int), String] {
+  Result::Ok(tokenize_int64(str, base~)) catch {
+    LexError(err) => Err(err)
+  }
+}
+
+///|
 test {
-  inspect(try? tokenize_int64(b"0b01", base=3), content="Err(invalid syntax)")
-  inspect(try? tokenize_int64(b"0x01", base=3), content="Err(invalid syntax)")
-  inspect(try? tokenize_int64(b"0o01", base=3), content="Err(invalid syntax)")
+  @debug.assert_eq(
+    tokenize_int64_as_result(b"0b01", base=3),
+    Err(syntax_err_str),
+  )
+  @debug.assert_eq(
+    tokenize_int64_as_result(b"0x01", base=3),
+    Err(syntax_err_str),
+  )
+  @debug.assert_eq(
+    tokenize_int64_as_result(b"0o01", base=3),
+    Err(syntax_err_str),
+  )
 }
 
 ///|
@@ -293,7 +312,7 @@ test "tokenize_int64" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_int64(t.0)) catch {
         LexError(err) => Err(err)
       },
@@ -417,7 +436,7 @@ test "tokenize_int64_base" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_int64(t.0, base=t.1)) catch {
         LexError(err) => Err(err)
       },
@@ -457,7 +476,7 @@ test "tokenize_int" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_int(t.0)) catch {
         LexError(err) => Err(err)
       },

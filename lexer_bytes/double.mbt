@@ -278,7 +278,7 @@ test "tokenize_double" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_double(t.0)) catch {
         LexError(err) => Err(err)
       },
@@ -289,24 +289,24 @@ test "tokenize_double" {
 
 ///|
 test "tokenize_double_inf" {
-  assert_eq(tokenize_double(b"inf"), (@double.infinity, 3))
-  assert_eq(tokenize_double(b"+Inf"), (@double.infinity, 4))
-  assert_eq(tokenize_double(b"-Inf"), (@double.neg_infinity, 4))
-  assert_eq(tokenize_double(b"+Infinity"), (@double.infinity, 9))
-  assert_eq(tokenize_double(b"-Infinity"), (@double.neg_infinity, 9))
-  assert_eq(tokenize_double(b"+INFINITY"), (@double.infinity, 9))
-  assert_eq(tokenize_double(b"-INFINITY"), (@double.neg_infinity, 9))
+  @debug.assert_eq(tokenize_double(b"inf"), (@double.infinity, 3))
+  @debug.assert_eq(tokenize_double(b"+Inf"), (@double.infinity, 4))
+  @debug.assert_eq(tokenize_double(b"-Inf"), (@double.neg_infinity, 4))
+  @debug.assert_eq(tokenize_double(b"+Infinity"), (@double.infinity, 9))
+  @debug.assert_eq(tokenize_double(b"-Infinity"), (@double.neg_infinity, 9))
+  @debug.assert_eq(tokenize_double(b"+INFINITY"), (@double.infinity, 9))
+  @debug.assert_eq(tokenize_double(b"-INFINITY"), (@double.neg_infinity, 9))
 }
 
 ///|
 test "tokenize_double_nan" {
   let (val1, len1) = tokenize_double(b"nan")
   assert_true(val1.is_nan())
-  assert_eq(len1, 3)
+  @debug.assert_eq(len1, 3)
   let (val2, len2) = tokenize_double(b"NaN")
   assert_true(val2.is_nan())
-  assert_eq(len2, 3)
+  @debug.assert_eq(len2, 3)
   let (val3, len3) = tokenize_double(b"NAN")
   assert_true(val3.is_nan())
-  assert_eq(len3, 3)
+  @debug.assert_eq(len3, 3)
 }

@@ -36,8 +36,8 @@ fn parse_pdf_object(obj_bytes : BytesView) -> Object raise ParseError {
     UnexpectedToken(lookahead, position, expected) as e => {
       println(obj_bytes)
       println(lookahead)
-      println(position)
-      println(expected)
+      println(@debug.to_string(position))
+      println("unexpected token")
       raise e
     }
     e => raise e

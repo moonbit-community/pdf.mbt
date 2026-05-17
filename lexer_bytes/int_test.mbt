@@ -27,16 +27,25 @@ fn tokenize_as_result(s : BytesView, base~ : Int) -> Result[Int64, String] {
     Ok(val)
   } catch {
     @lexer_bytes.LexError(err) => Err(err)
-    _ => Err("Unknown error")
+  }
+}
+
+///|
+fn tokenize_tuple_as_result(
+  s : BytesView,
+  base? : Int = 0,
+) -> Result[(Int64, Int), String] {
+  Result::Ok(@lexer_bytes.tokenize_int64(s, base~)) catch {
+    @lexer_bytes.LexError(err) => Err(err)
   }
 }
 
 ///|
 test "tokenize_int64_invalid_base" {
-  assert_eq(tokenize_as_result(b"12345", base=1), Err(base_err))
-  assert_eq(tokenize_as_result(b"12345", base=37), Err(base_err))
-  assert_eq(tokenize_as_result(b"12345", base=-1), Err(base_err))
-  assert_eq(tokenize_as_result(b"12345", base=100), Err(base_err))
+  @debug.assert_eq(tokenize_as_result(b"12345", base=1), Err(base_err))
+  @debug.assert_eq(tokenize_as_result(b"12345", base=37), Err(base_err))
+  @debug.assert_eq(tokenize_as_result(b"12345", base=-1), Err(base_err))
+  @debug.assert_eq(tokenize_as_result(b"12345", base=100), Err(base_err))
 }
 
 ///|
@@ -56,7 +65,7 @@ test "tokenize_int64_uncovered_lines" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(tokenize_as_result(t.0, base=t.1), t.2)
+    @debug.assert_eq(tokenize_as_result(t.0, base=t.1), t.2)
   }
 }
 
@@ -133,82 +142,31 @@ test "panic @lexer_bytes.tokenize_int64/invalid_base" {
 ///|
 test "edge cases" {
   // Invalid: Missing digits after hex prefix
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x"),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x_"),
-    content="Err(invalid syntax)",
-  )
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x"), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x_"), Err(syntax_err))
 
   // Underscore is allowed between the prefix and the first digit
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x_DEADBEEF"),
-    content="Ok((3735928559, 11))",
+  @debug.assert_eq(
+    tokenize_tuple_as_result(b"0x_DEADBEEF"),
+    Ok((3735928559L, 11)),
   )
 }
 
 ///|
 test "more edge cases" {
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
-    content="Ok((2817, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
-    content="Ok((1, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
-    content="Ok((2817, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
-    content="Ok((1, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
-    content="Ok((2817, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
-    content="Ok((1, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0b01", base=16),
-    content="Ok((2817, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0o01", base=16),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x01", base=16),
-    content="Ok((1, 4))",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0b01", base=10),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0o01", base=10),
-    content="Err(invalid syntax)",
-  )
-  inspect(
-    try? @lexer_bytes.tokenize_int64(b"0x01", base=10),
-    content="Err(invalid syntax)",
-  )
+  @debug.assert_eq(tokenize_tuple_as_result(b"0b01", base=16), Ok((2817L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0o01", base=16), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x01", base=16), Ok((1L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0b01", base=16), Ok((2817L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0o01", base=16), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x01", base=16), Ok((1L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0b01", base=16), Ok((2817L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0o01", base=16), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x01", base=16), Ok((1L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0b01", base=16), Ok((2817L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0o01", base=16), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x01", base=16), Ok((1L, 4)))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0b01", base=10), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0o01", base=10), Err(syntax_err))
+  @debug.assert_eq(tokenize_tuple_as_result(b"0x01", base=10), Err(syntax_err))
 }

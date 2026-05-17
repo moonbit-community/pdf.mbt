@@ -91,6 +91,16 @@ pub fn tokenize_uint64(
 }
 
 ///|
+fn tokenize_uint64_as_result(
+  str : BytesView,
+  base? : Int = 0,
+) -> Result[(UInt64, Int), String] {
+  Result::Ok(tokenize_uint64(str, base~)) catch {
+    LexError(err) => Err(err)
+  }
+}
+
+///|
 /// Parse a BytesView in the given base (0, 2 to 36), return an UInt number and advance length, or an error.
 /// If the `~base` argument is 0, the base will be inferred by the prefix.
 pub fn tokenize_uint(
@@ -127,7 +137,7 @@ test "tokenize_uint64" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_uint64(t.0)) catch {
         LexError(err) => Err(err)
       },
@@ -231,7 +241,7 @@ test "tokenize_uint64_base" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_uint64(t.0, base=t.1)) catch {
         LexError(err) => Err(err)
       },
@@ -266,7 +276,7 @@ test "tokenize_uint" {
   ]
   for i in 0..<tests.length() {
     let t = tests[i]
-    assert_eq(
+    @debug.assert_eq(
       Result::Ok(tokenize_uint(t.0)) catch {
         LexError(err) => Err(err)
       },
@@ -277,6 +287,12 @@ test "tokenize_uint" {
 
 ///|
 test "tokenize_uint64 uppercase hex and invalid base" {
-  inspect(try? tokenize_uint64(b"ABCD", base=16), content="Ok((43981, 4))")
-  inspect(try? tokenize_uint64(b"1234", base=37), content="Err(invalid base)")
+  @debug.assert_eq(
+    tokenize_uint64_as_result(b"ABCD", base=16),
+    Ok((43981UL, 4)),
+  )
+  @debug.assert_eq(
+    tokenize_uint64_as_result(b"1234", base=37),
+    Err(base_err_str),
+  )
 }

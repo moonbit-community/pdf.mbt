@@ -16,7 +16,7 @@
 test "tokenize_uint64 overflow check" {
   let largest_uint64 = b"18446744073709551615" // Maximum UInt64 value
   let result = @lexer_bytes.tokenize_uint64(largest_uint64)
-  inspect(result, content="(18446744073709551615, 20)")
+  debug_inspect(result, content="(18446744073709551615, 20)")
 
   // Test overflow with very large value
   try {

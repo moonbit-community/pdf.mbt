@@ -48,6 +48,13 @@ fn tokenize_decimal_priv(str : BytesView) -> Decimal raise LexError {
 }
 
 ///|
+fn tokenize_decimal_result(str : BytesView) -> Result[String, String] {
+  Result::Ok(tokenize_decimal_priv(str).to_string()) catch {
+    LexError(err) => Err(err)
+  }
+}
+
+///|
 fn tokenize_decimal_from_view(str : BytesView) -> Decimal raise LexError {
   let d = Decimal::new_priv()
   let mut has_dp = false
@@ -633,11 +640,11 @@ test "parse decimal with underscore" {
 
 ///|
 test "parse decimal error" {
-  inspect(try? tokenize_decimal_priv(b"1e"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv(b"1e+"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv(b"1e_"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv(b"1-23"), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv(b"1.2.3"), content="Err(invalid syntax)")
+  @debug.assert_eq(tokenize_decimal_result(b"1e"), Err(syntax_err_str))
+  @debug.assert_eq(tokenize_decimal_result(b"1e+"), Err(syntax_err_str))
+  @debug.assert_eq(tokenize_decimal_result(b"1e_"), Err(syntax_err_str))
+  @debug.assert_eq(tokenize_decimal_result(b"1-23"), Err(syntax_err_str))
+  @debug.assert_eq(tokenize_decimal_result(b"1.2.3"), Err(syntax_err_str))
 }
 
 ///|
@@ -688,15 +695,15 @@ test "rounded_integer overflow when decimal_point > 20" {
 
 ///|
 test "corner cases" {
-  inspect(try? tokenize_decimal_priv(b".123"), content="Ok(0.123)")
-  inspect(try? tokenize_decimal_priv(b"."), content="Err(invalid syntax)")
-  inspect(try? tokenize_decimal_priv(b"-"), content="Err(invalid syntax)")
+  @debug.assert_eq(tokenize_decimal_result(b".123"), Ok("0.123"))
+  @debug.assert_eq(tokenize_decimal_result(b"."), Err(syntax_err_str))
+  @debug.assert_eq(tokenize_decimal_result(b"-"), Err(syntax_err_str))
 }
 
 ///|
 test "tokenize_double mantissa normalization boundary" {
-  inspect(tokenize_double(b"1.9999999999999999"), content="(2, 18)")
-  inspect(
+  debug_inspect(tokenize_double(b"1.9999999999999999"), content="(2, 18)")
+  debug_inspect(
     tokenize_double(b"9007199254740991.5"),
     content="(9007199254740992, 18)",
   )

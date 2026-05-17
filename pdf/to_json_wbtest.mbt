@@ -228,7 +228,7 @@ test {
     .map(x => x.start_bytes_offset)
     .collect()
   let expected_offsets = array_scanl(objs)(0, (acc, x) => acc + x.length())[0:objs_offsets.length()].to_owned()
-  assert_eq(objs_offsets, expected_offsets)
+  @debug.assert_eq(objs_offsets, expected_offsets)
   json_inspect(result, content={
     "value": [
       {
