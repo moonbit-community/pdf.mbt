@@ -254,13 +254,21 @@ test "format_write format dsl error" {
   }
 
   debug_inspect(
-    try? str(b"hello {} world", []),
+    try str(b"hello {} world", []) catch {
+      error => Err(error)
+    } noraise {
+      value => Ok(value)
+    },
     content=(
       #|Err(DebugError("data.length() mismatch with placeholder's count"))
     ),
   )
   debug_inspect(
-    try? str(b"hello {} world", [1, 2]),
+    try str(b"hello {} world", [1, 2]) catch {
+      error => Err(error)
+    } noraise {
+      value => Ok(value)
+    },
     content=(
       #|Err(DebugError("data.length() mismatch with placeholder's count"))
     ),
@@ -291,13 +299,21 @@ test "format_count" {
 
   // Test error cases - mismatched placeholder count
   debug_inspect(
-    try? @fmt.format_count(b"Hello {} world", []),
+    try @fmt.format_count(b"Hello {} world", []) catch {
+      error => Err(error)
+    } noraise {
+      value => Ok(value)
+    },
     content=(
       #|Err(DebugError("data.length() mismatch with placeholder's count"))
     ),
   )
   debug_inspect(
-    try? @fmt.format_count(b"Hello {} world", [1, 2]),
+    try @fmt.format_count(b"Hello {} world", [1, 2]) catch {
+      error => Err(error)
+    } noraise {
+      value => Ok(value)
+    },
     content=(
       #|Err(DebugError("data.length() mismatch with placeholder's count"))
     ),

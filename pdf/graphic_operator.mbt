@@ -1,5 +1,5 @@
 ///|
-pub impl @fmt.Format for GraphicOperator with write(
+pub impl @fmt.Format for GraphicOperator with fn write(
   value : GraphicOperator,
   buffer : @fmt.Memory,
   start : Int,
@@ -171,7 +171,7 @@ pub impl @fmt.Format for GraphicOperator with write(
 }
 
 ///|
-pub impl @fmt.Format for GraphicOperator with count(value : GraphicOperator) -> Int {
+pub impl @fmt.Format for GraphicOperator with fn count(value : GraphicOperator) -> Int {
   match value {
     // " {} w" = 1 + count(w) + 2 = count(w) + 3
     Op_w(w) => @fmt.count(w) + 3

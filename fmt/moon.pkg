@@ -7,5 +7,3 @@ import {
   "moonbitlang/core/bench",
   "moonbitlang/core/buffer",
 } for "test"
-
-warnings = "-1"

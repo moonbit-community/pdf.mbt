@@ -20,36 +20,36 @@
 
 ///|
 pub(open) trait FromBytesView {
-  from(BytesView) -> (Self, Int) raise LexError
+  fn from(BytesView) -> (Self, Int) raise LexError
 }
 
 ///|
-pub impl FromBytesView for Bool with from(str) {
+pub impl FromBytesView for Bool with fn from(str) {
   tokenize_bool(str)
 }
 
 ///|
-pub impl FromBytesView for Int with from(str) {
+pub impl FromBytesView for Int with fn from(str) {
   tokenize_int(str)
 }
 
 ///|
-pub impl FromBytesView for Int64 with from(str) {
+pub impl FromBytesView for Int64 with fn from(str) {
   tokenize_int64(str)
 }
 
 ///|
-pub impl FromBytesView for UInt with from(str) {
+pub impl FromBytesView for UInt with fn from(str) {
   tokenize_uint(str)
 }
 
 ///|
-pub impl FromBytesView for UInt64 with from(str) {
+pub impl FromBytesView for UInt64 with fn from(str) {
   tokenize_uint64(str)
 }
 
 ///|
-pub impl FromBytesView for Double with from(str) {
+pub impl FromBytesView for Double with fn from(str) {
   tokenize_double(str)
 }
 

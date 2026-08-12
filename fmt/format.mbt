@@ -6,10 +6,10 @@ pub(open) trait Format {
   ///
   /// The number of bytes written must not exceed count().
   #as_free_fn
-  write(value : Self, buffer : Memory, start : Int) -> Int
+  fn write(value : Self, buffer : Memory, start : Int) -> Int
   /// Upper bound on the number of bytes written
   #as_free_fn
-  count(value : Self) -> Int
+  fn count(value : Self) -> Int
 }
 
 ///|

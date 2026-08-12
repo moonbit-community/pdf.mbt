@@ -22,12 +22,12 @@ test "@fmt.Format for Object" {
   let value = @pdf.Name(b"/Name")
   let offset = @fmt.write(value, buffer, 0)
   inspect(string_of_memory(buffer, offset), content="/Name")
-  let value = @pdf.Array([@pdf.Integer(1), @pdf.Integer(2), @pdf.Integer(3)])
+  let value = @pdf.Array([Integer(1), Integer(2), Integer(3)])
   let offset = @fmt.write(value, buffer, 0)
   inspect(string_of_memory(buffer, offset), content="[1 2 3]")
   let value = @pdf.Dictionary([
-    (b"/Type", @pdf.Name(b"/Example")),
-    (b"/Count", @pdf.Integer(3)),
+    (b"/Type", Name(b"/Example")),
+    (b"/Count", Integer(3)),
   ])
   let offset = @fmt.write(value, buffer, 0)
   inspect(
@@ -40,7 +40,7 @@ test "@fmt.Format for Object" {
     ),
   )
   let value = @pdf.Object::Stream(
-    @pdf.Dictionary([(b"/Length", @pdf.Integer(11))]),
+    Dictionary([(b"/Length", Integer(11))]),
     b"Hello World",
   )
   let offset = @fmt.write(value, buffer, 0)
@@ -59,9 +59,9 @@ test "@fmt.Format for Object" {
   let offset = @fmt.write(value, buffer, 0)
   inspect(string_of_memory(buffer, offset), content="1 0 R")
   let value = @pdf.Dictionary([
-    (b"/Type", @pdf.Name(b"/Pages")),
-    (b"/Kids", @pdf.Integer(1)),
-    (b"/Count", @pdf.Integer(1)),
+    (b"/Type", Name(b"/Pages")),
+    (b"/Kids", Integer(1)),
+    (b"/Count", Integer(1)),
   ])
   let offset = @fmt.write(value, buffer, 0)
   inspect(
@@ -74,7 +74,7 @@ test "@fmt.Format for Object" {
       #|>>
     ),
   )
-  let value = @pdf.Array([@pdf.Indirect(1)])
+  let value = @pdf.Array([Indirect(1)])
   let offset = @fmt.write(value, buffer, 0)
   inspect(string_of_memory(buffer, offset), content="[1 0 R]")
 }

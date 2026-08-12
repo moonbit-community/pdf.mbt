@@ -18,7 +18,7 @@ pub(all) suberror LexError {
 }
 
 ///|
-pub impl Show for LexError with output(self, logger) {
+pub impl Show for LexError with fn output(self, logger) {
   match self {
     LexError(err) => logger.write_string(err)
   }

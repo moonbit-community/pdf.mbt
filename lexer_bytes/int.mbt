@@ -56,8 +56,8 @@ fn tokenize_int64_as_result(
   str : BytesView,
   base? : Int = 0,
 ) -> Result[(Int64, Int), String] {
-  Result::Ok(tokenize_int64(str, base~)) catch {
-    LexError(err) => Err(err)
+  Ok(tokenize_int64(str, base~)) catch {
+    error => Err(error.to_string())
   }
 }
 
@@ -313,8 +313,8 @@ test "tokenize_int64" {
   for i in 0..<tests.length() {
     let t = tests[i]
     @debug.assert_eq(
-      Result::Ok(tokenize_int64(t.0)) catch {
-        LexError(err) => Err(err)
+      Ok(tokenize_int64(t.0)) catch {
+        error => Err(error.to_string())
       },
       t.1,
     )
@@ -437,8 +437,8 @@ test "tokenize_int64_base" {
   for i in 0..<tests.length() {
     let t = tests[i]
     @debug.assert_eq(
-      Result::Ok(tokenize_int64(t.0, base=t.1)) catch {
-        LexError(err) => Err(err)
+      Ok(tokenize_int64(t.0, base=t.1)) catch {
+        error => Err(error.to_string())
       },
       t.2,
     )
@@ -477,8 +477,8 @@ test "tokenize_int" {
   for i in 0..<tests.length() {
     let t = tests[i]
     @debug.assert_eq(
-      Result::Ok(tokenize_int(t.0)) catch {
-        LexError(err) => Err(err)
+      Ok(tokenize_int(t.0)) catch {
+        error => Err(error.to_string())
       },
       t.1,
     )

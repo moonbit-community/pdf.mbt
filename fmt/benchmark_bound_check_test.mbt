@@ -1,6 +1,6 @@
 ///|
 test (b : @bench.T) {
-  let core_buffer = @buffer.new(size_hint=4096)
+  let core_buffer = Buffer(size_hint=4096)
   let memory : @fmt.Memory = @fmt.Memory::make(4096, 0)
   let data : UInt = 1234567890
   // data.to_string().length() == 10 
@@ -27,7 +27,7 @@ test (b : @bench.T) {
 
 ///|
 test {
-  let core_buffer = @buffer.new(size_hint=4096)
+  let core_buffer = Buffer(size_hint=4096)
   let memory : @fmt.Memory = @fmt.Memory::make(4096, 0)
   let data : UInt = 1234567890
   // data.to_string().length() == 10 
@@ -71,7 +71,7 @@ fn ascii_bytes_to_string(bytes : Bytes) -> String {
 
 ///|
 test {
-  let buf = @buffer.new(size_hint=100)
+  let buf = Buffer(size_hint=100)
   let temp = FixedArray::make(10, b'\x00')
   write_uint_text(123456789, buf, temp)
   inspect(buf.to_bytes() |> ascii_bytes_to_string, content="123456789")

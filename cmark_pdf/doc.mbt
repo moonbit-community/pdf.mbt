@@ -46,16 +46,16 @@ pub fn Doc::to_flatheadings(self : Doc) -> Array[FlatHeading] {
         2 => {
           h2 += 1
           h3 = 0
-          result.push(FlatHeading::{ num: [h1, h2], text })
+          result.push({ num: [h1, h2], text })
         }
         3 => {
           h3 += 1
-          result.push(FlatHeading::{ num: [h1, h2, h3], text })
+          result.push({ num: [h1, h2, h3], text })
         }
         _ => {
           // For levels > 3, treat them as level 3 headings
           h3 += 1
-          result.push(FlatHeading::{ num: [h1, h2, h3], text })
+          result.push({ num: [h1, h2, h3], text })
         }
       }
     }
@@ -296,7 +296,7 @@ fn split_bytes(
 ) -> Array[Bytes] {
   let mut cur_cols = init_cols
   let result = []
-  let buffer = @buffer.new()
+  let buffer = Buffer()
   for i in 0..<input.length() {
     let byte = input[i]
 

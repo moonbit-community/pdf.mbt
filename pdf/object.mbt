@@ -111,7 +111,7 @@ fn is_delimiter(x : Byte) -> Bool {
 }
 
 ///|
-pub impl @fmt.Format for Object with write(
+pub impl @fmt.Format for Object with fn write(
   value : Object,
   buffer : @fmt.Memory,
   start : Int,
@@ -191,7 +191,7 @@ pub impl @fmt.Format for Object with write(
 }
 
 ///|
-pub impl @fmt.Format for Object with count(value : Object) -> Int {
+pub impl @fmt.Format for Object with fn count(value : Object) -> Int {
   match value {
     Null => 4 // "null"
     Boolean(true) => 4 // "true"

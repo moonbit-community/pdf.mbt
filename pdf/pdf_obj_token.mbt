@@ -76,7 +76,7 @@ pub(all) enum TokenKind {
 } derive(Eq)
 
 ///|
-pub impl Show for TokenKind with output(self, logger) {
+pub impl Show for TokenKind with fn output(self, logger) {
   logger.write_string(
     match self {
       TK_LEFT_PARENTHESIS => "\"(\""

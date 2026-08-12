@@ -26,7 +26,7 @@ fn tokenize_as_result(s : BytesView, base~ : Int) -> Result[Int64, String] {
     inspect(advance_len, content=s.length().to_string())
     Ok(val)
   } catch {
-    @lexer_bytes.LexError(err) => Err(err)
+    error => Err(error.to_string())
   }
 }
 
@@ -35,8 +35,8 @@ fn tokenize_tuple_as_result(
   s : BytesView,
   base? : Int = 0,
 ) -> Result[(Int64, Int), String] {
-  Result::Ok(@lexer_bytes.tokenize_int64(s, base~)) catch {
-    @lexer_bytes.LexError(err) => Err(err)
+  Ok(@lexer_bytes.tokenize_int64(s, base~)) catch {
+    error => Err(error.to_string())
   }
 }
 

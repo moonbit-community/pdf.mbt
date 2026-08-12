@@ -1,5 +1,5 @@
 ///|
-pub impl Show for StandardFont with to_string(self) {
+pub impl Show for StandardFont with fn to_string(self) {
   match self {
     TimesRoman => "Times-Roman"
     TimesBold => "Times-Bold"
@@ -19,7 +19,7 @@ pub impl Show for StandardFont with to_string(self) {
 }
 
 ///|
-pub impl Show for StandardFont with output(self, logger) {
+pub impl Show for StandardFont with fn output(self, logger) {
   logger.write_string(self.to_string())
 }
 

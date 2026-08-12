@@ -43,8 +43,8 @@ test "tokenize_bool" {
   for i in 0..<tests.length() {
     let t = tests[i]
     @debug.assert_eq(
-      Result::Ok(tokenize_bool(t.0)) catch {
-        LexError(err) => Err(err)
+      Ok(tokenize_bool(t.0)) catch {
+        error => Err(error.to_string())
       },
       t.1,
     )

@@ -63,10 +63,6 @@ fn make_content_and_page(
   let content_id = start_id
   let page_id = start_id + 1
   let content_stream = content.to_stream_object()
-  let page = define_page(
-    contents=@pdf.Indirect(content_id),
-    parent~,
-    resources~,
-  )
+  let page = define_page(contents=Indirect(content_id), parent~, resources~)
   (content_stream, page, page_id)
 }

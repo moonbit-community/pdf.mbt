@@ -16,8 +16,8 @@ test "ToJson for File" {
   let file = File::{
     major: 1,
     minor: 7,
-    objects: [Object::Null, Object::Boolean(true)],
-    trailer: Object::Dictionary([]),
+    objects: [Null, Boolean(true)],
+    trailer: Dictionary([]),
   }
   let json = file.to_json()
   json_inspect(json, content={
@@ -73,7 +73,7 @@ test "ToJson for StandardFont" {
 
 ///|
 fn bytes_concat(bs : Array[Bytes]) -> Bytes {
-  let buffer = @buffer.new(size_hint=1024)
+  let buffer = Buffer(size_hint=1024)
   for b in bs {
     buffer.write_bytes(b)
   }
@@ -152,7 +152,11 @@ test "tokenize_file with comments between sections" {
     #|%%EOF
     #|
   let input = @encoding/utf8.encode(pdf_content)
-  let result = try? tokenize_file(input)
+  let result = try tokenize_file(input) catch {
+    error => Err(error)
+  } noraise {
+    value => Ok(value)
+  }
   json_inspect(result is Ok(_), content=true)
   match result {
     Ok(file_result) => {
@@ -184,7 +188,11 @@ test "tokenize_file without comments" {
     #|%%EOF
     #|
   let input = @encoding/utf8.encode(pdf_content)
-  let result = try? tokenize_file(input)
+  let result = try tokenize_file(input) catch {
+    error => Err(error)
+  } noraise {
+    value => Ok(value)
+  }
   json_inspect(result is Ok(_), content=true)
   match result {
     Ok(file_result) => {

@@ -30,12 +30,12 @@ struct Point {
 }
 
 ///|
-impl @fmt.Format for Point with count(self) {
+impl @fmt.Format for Point with fn count(self) {
   try! @fmt.format_count(b"({}, {})", [self.x, self.y])
 }
 
 ///|
-impl @fmt.Format for Point with write(self, buf, start) {
+impl @fmt.Format for Point with fn write(self, buf, start) {
   try! @fmt.format_write(b"({}, {})", [self.x, self.y], buf, start)
 }
 
