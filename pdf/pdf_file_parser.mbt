@@ -16,7 +16,7 @@ pub fn parse_pdf_file(input : BytesView) -> File raise {
   let trailer_dict = parse_pdf_object(pdf_file.trailer)
 
   // Step 4: Construct the final File structure
-  File::{
+  {
     major: pdf_file.header.major,
     minor: pdf_file.header.minor,
     objects: parsed_objects,
@@ -33,7 +33,7 @@ fn parse_pdf_object(obj_bytes : BytesView) -> Object raise ParseError {
   let parsed_obj = parse(tokens)
   // Let ParseError propagate
    catch {
-    UnexpectedToken(lookahead, position, expected) as e => {
+    UnexpectedToken(lookahead, position, _) as e => {
       println(obj_bytes)
       println(lookahead)
       println(@debug.to_string(position))

@@ -49,8 +49,8 @@ fn tokenize_decimal_priv(str : BytesView) -> Decimal raise LexError {
 
 ///|
 fn tokenize_decimal_result(str : BytesView) -> Result[String, String] {
-  Result::Ok(tokenize_decimal_priv(str).to_string()) catch {
-    LexError(err) => Err(err)
+  Ok(tokenize_decimal_priv(str).to_string()) catch {
+    error => Err(error.to_string())
   }
 }
 
@@ -532,7 +532,7 @@ fn Decimal::trim(self : Decimal) -> Unit {
 }
 
 ///|
-impl Show for Decimal with output(self, logger) {
+impl Show for Decimal with fn output(self, logger) {
   if self.digits_num == 0 {
     logger.write_char('0')
     return

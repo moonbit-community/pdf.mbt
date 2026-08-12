@@ -22,7 +22,7 @@ pub fn Canvas::to_array(self : Canvas) -> Array[@pdf.GraphicOperator] {
 /// Equivalent to PDF operator: `Tf`
 /// Sets the text font and size for subsequent text operations
 pub fn Canvas::set_font(self : Canvas, font : Bytes, size : Double) -> Unit {
-  self.0.push(@pdf.Op_Tf(font, size))
+  self.0.push(Op_Tf(font, size))
 }
 
 ///|
@@ -31,7 +31,7 @@ pub fn Canvas::set_font(self : Canvas, font : Bytes, size : Double) -> Unit {
 /// Equivalent to PDF operator: `Tj`
 /// Displays text at the current text position
 pub fn Canvas::show_text(self : Canvas, text : Bytes) -> Unit {
-  self.0.push(@pdf.Op_Tj(text))
+  self.0.push(Op_Tj(text))
 }
 
 ///|
@@ -40,7 +40,7 @@ pub fn Canvas::show_text(self : Canvas, text : Bytes) -> Unit {
 /// Equivalent to PDF operator: `TL`
 /// Sets the distance between lines of text
 pub fn Canvas::set_leading(self : Canvas, leading : Double) -> Unit {
-  self.0.push(@pdf.Op_TL(leading))
+  self.0.push(Op_TL(leading))
 }
 
 ///|
@@ -49,7 +49,7 @@ pub fn Canvas::set_leading(self : Canvas, leading : Double) -> Unit {
 /// Equivalent to PDF operator: `T*`
 /// Moves the text position to the beginning of the next line
 pub fn Canvas::next_line(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_T_star)
+  self.0.push(Op_T_star)
 }
 
 ///|
@@ -58,7 +58,7 @@ pub fn Canvas::next_line(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `'` (single quote)
 /// Combines moving to next line and showing text in one operation
 pub fn Canvas::show_text_next_line(self : Canvas, text : Bytes) -> Unit {
-  self.0.push(@pdf.Op_single_quote(text))
+  self.0.push(Op_single_quote(text))
 }
 
 ///|
@@ -67,7 +67,7 @@ pub fn Canvas::show_text_next_line(self : Canvas, text : Bytes) -> Unit {
 /// Equivalent to PDF operator: `BT`
 /// Starts a new text object for text operations
 pub fn Canvas::begin_text(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_BT)
+  self.0.push(Op_BT)
 }
 
 ///|
@@ -76,7 +76,7 @@ pub fn Canvas::begin_text(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `ET`
 /// Ends the current text object and resets text state
 pub fn Canvas::end_text(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_ET)
+  self.0.push(Op_ET)
 }
 
 ///|
@@ -85,7 +85,7 @@ pub fn Canvas::end_text(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `Td`
 /// Moves to start of next line, offset by (x, y) from current line start
 pub fn Canvas::move_text(self : Canvas, x : Double, y : Double) -> Unit {
-  self.0.push(@pdf.Op_Td(x, y))
+  self.0.push(Op_Td(x, y))
 }
 
 ///|
@@ -98,7 +98,7 @@ pub fn Canvas::move_text_set_leading(
   x : Double,
   y : Double,
 ) -> Unit {
-  self.0.push(@pdf.Op_TD(x, y))
+  self.0.push(Op_TD(x, y))
 }
 
 ///|
@@ -107,7 +107,7 @@ pub fn Canvas::move_text_set_leading(
 /// Equivalent to PDF operator: `Tc`
 /// Sets the spacing between individual characters
 pub fn Canvas::set_char_spacing(self : Canvas, spacing : Double) -> Unit {
-  self.0.push(@pdf.Op_Tc(spacing))
+  self.0.push(Op_Tc(spacing))
 }
 
 ///|
@@ -116,7 +116,7 @@ pub fn Canvas::set_char_spacing(self : Canvas, spacing : Double) -> Unit {
 /// Equivalent to PDF operator: `Tw`
 /// Sets the spacing between words
 pub fn Canvas::set_word_spacing(self : Canvas, spacing : Double) -> Unit {
-  self.0.push(@pdf.Op_Tw(spacing))
+  self.0.push(Op_Tw(spacing))
 }
 
 ///|
@@ -125,7 +125,7 @@ pub fn Canvas::set_word_spacing(self : Canvas, spacing : Double) -> Unit {
 /// Equivalent to PDF operator: `Tz`
 /// Sets the horizontal scaling factor for text
 pub fn Canvas::set_horizontal_scaling(self : Canvas, scale : Double) -> Unit {
-  self.0.push(@pdf.Op_Tz(scale))
+  self.0.push(Op_Tz(scale))
 }
 
 ///|
@@ -134,7 +134,7 @@ pub fn Canvas::set_horizontal_scaling(self : Canvas, scale : Double) -> Unit {
 /// Equivalent to PDF operator: `Tr`
 /// Sets how text should be rendered (fill, stroke, etc.)
 pub fn Canvas::set_text_rendering_mode(self : Canvas, mode : Int) -> Unit {
-  self.0.push(@pdf.Op_Tr(mode))
+  self.0.push(Op_Tr(mode))
 }
 
 ///|
@@ -143,7 +143,7 @@ pub fn Canvas::set_text_rendering_mode(self : Canvas, mode : Int) -> Unit {
 /// Equivalent to PDF operator: `Ts`
 /// Sets the text rise for superscript/subscript effects
 pub fn Canvas::set_text_rise(self : Canvas, rise : Double) -> Unit {
-  self.0.push(@pdf.Op_Ts(rise))
+  self.0.push(Op_Ts(rise))
 }
 
 ///|
@@ -152,7 +152,7 @@ pub fn Canvas::set_text_rise(self : Canvas, rise : Double) -> Unit {
 /// Equivalent to PDF operator: `q`
 /// Saves the current graphics state to the stack
 pub fn Canvas::save_state(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_q)
+  self.0.push(Op_q)
 }
 
 ///|
@@ -161,7 +161,7 @@ pub fn Canvas::save_state(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `Q`
 /// Restores the graphics state from the stack
 pub fn Canvas::restore_state(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_Q)
+  self.0.push(Op_Q)
 }
 
 ///|
@@ -170,7 +170,7 @@ pub fn Canvas::restore_state(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `w`
 /// Sets the width of lines for stroking operations
 pub fn Canvas::set_line_width(self : Canvas, width : Double) -> Unit {
-  self.0.push(@pdf.Op_w(width))
+  self.0.push(Op_w(width))
 }
 
 ///|
@@ -184,7 +184,7 @@ pub fn Canvas::set_rgb_stroke_color(
   g : Double,
   b : Double,
 ) -> Unit {
-  self.0.push(@pdf.Op_RG(r, g, b))
+  self.0.push(Op_RG(r, g, b))
 }
 
 ///|
@@ -198,7 +198,7 @@ pub fn Canvas::set_rgb_fill_color(
   g : Double,
   b : Double,
 ) -> Unit {
-  self.0.push(@pdf.Op_rg(r, g, b))
+  self.0.push(Op_rg(r, g, b))
 }
 
 ///|
@@ -207,7 +207,7 @@ pub fn Canvas::set_rgb_fill_color(
 /// Equivalent to PDF operator: `G`
 /// Sets the gray level (0-1) for stroking operations
 pub fn Canvas::set_gray_stroke(self : Canvas, gray : Double) -> Unit {
-  self.0.push(@pdf.Op_G(gray))
+  self.0.push(Op_G(gray))
 }
 
 ///|
@@ -216,7 +216,7 @@ pub fn Canvas::set_gray_stroke(self : Canvas, gray : Double) -> Unit {
 /// Equivalent to PDF operator: `g`
 /// Sets the gray level (0-1) for fill operations
 pub fn Canvas::set_gray_fill(self : Canvas, gray : Double) -> Unit {
-  self.0.push(@pdf.Op_g(gray))
+  self.0.push(Op_g(gray))
 }
 
 ///|
@@ -225,7 +225,7 @@ pub fn Canvas::set_gray_fill(self : Canvas, gray : Double) -> Unit {
 /// Equivalent to PDF operator: `m`
 /// Begins a new subpath by moving to the specified point
 pub fn Canvas::move_to(self : Canvas, x : Double, y : Double) -> Unit {
-  self.0.push(@pdf.Op_m(x, y))
+  self.0.push(Op_m(x, y))
 }
 
 ///|
@@ -234,7 +234,7 @@ pub fn Canvas::move_to(self : Canvas, x : Double, y : Double) -> Unit {
 /// Equivalent to PDF operator: `l`
 /// Appends a straight line segment to the current path
 pub fn Canvas::line_to(self : Canvas, x : Double, y : Double) -> Unit {
-  self.0.push(@pdf.Op_l(x, y))
+  self.0.push(Op_l(x, y))
 }
 
 ///|
@@ -249,7 +249,7 @@ pub fn Canvas::rectangle(
   width : Double,
   height : Double,
 ) -> Unit {
-  self.0.push(@pdf.Op_re(x, y, width, height))
+  self.0.push(Op_re(x, y, width, height))
 }
 
 ///|
@@ -258,7 +258,7 @@ pub fn Canvas::rectangle(
 /// Equivalent to PDF operator: `h`
 /// Closes the current subpath by appending a straight line from current point to starting point
 pub fn Canvas::close_path(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_h)
+  self.0.push(Op_h)
 }
 
 ///|
@@ -267,7 +267,7 @@ pub fn Canvas::close_path(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `S`
 /// Strokes the current path
 pub fn Canvas::stroke(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_S)
+  self.0.push(Op_S)
 }
 
 ///|
@@ -276,7 +276,7 @@ pub fn Canvas::stroke(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `f`
 /// Fills the current path using non-zero winding rule
 pub fn Canvas::fill(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_f)
+  self.0.push(Op_f)
 }
 
 ///|
@@ -285,7 +285,7 @@ pub fn Canvas::fill(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `B`
 /// Fills and strokes the current path using non-zero winding rule
 pub fn Canvas::fill_and_stroke(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_B)
+  self.0.push(Op_B)
 }
 
 ///|
@@ -294,5 +294,5 @@ pub fn Canvas::fill_and_stroke(self : Canvas) -> Unit {
 /// Equivalent to PDF operator: `n`
 /// Ends the path object without filling or stroking
 pub fn Canvas::end_path(self : Canvas) -> Unit {
-  self.0.push(@pdf.Op_n)
+  self.0.push(Op_n)
 }

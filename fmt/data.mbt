@@ -1,17 +1,17 @@
 ///|
-pub impl Format for UInt16 with write(value, buffer, start) {
+pub impl Format for UInt16 with fn write(value, buffer, start) {
   let value32 = value.to_uint()
   Format::write(value32, buffer, start)
 }
 
 ///|
 /// supremum
-pub impl Format for UInt16 with count(_) -> Int {
+pub impl Format for UInt16 with fn count(_) -> Int {
   UInt16_Digits10
 }
 
 ///|
-pub impl LittleEndianFormat for UInt16 with write(value, buffer, start) {
+pub impl LittleEndianFormat for UInt16 with fn write(value, buffer, start) {
   let b0 = (value.to_uint() & 0xFF).to_byte()
   let b1 = ((value.to_uint() >> 8) & 0xFF).to_byte()
   buffer[start + 0] = b0
@@ -21,12 +21,12 @@ pub impl LittleEndianFormat for UInt16 with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl LittleEndianFormat for UInt16 with count(_) -> Int {
+pub impl LittleEndianFormat for UInt16 with fn count(_) -> Int {
   2
 }
 
 ///|
-pub impl BigEndianFormat for UInt16 with write(value, buffer, start) {
+pub impl BigEndianFormat for UInt16 with fn write(value, buffer, start) {
   let b0 = ((value.to_uint() >> 8) & 0xFF).to_byte()
   let b1 = (value.to_uint() & 0xFF).to_byte()
   buffer[start + 0] = b0
@@ -36,31 +36,31 @@ pub impl BigEndianFormat for UInt16 with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl BigEndianFormat for UInt16 with count(_) -> Int {
+pub impl BigEndianFormat for UInt16 with fn count(_) -> Int {
   2
 }
 
 ///|
-pub impl HexLowerFormat for UInt16 with write(value, buffer, start) {
+pub impl HexLowerFormat for UInt16 with fn write(value, buffer, start) {
   let value_uint = value.to_uint() & 0xFFFF
   HexLowerFormat::write(value_uint, buffer, start)
 }
 
 ///|
 /// supremum
-pub impl HexLowerFormat for UInt16 with count(_) -> Int {
+pub impl HexLowerFormat for UInt16 with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl HexUpperFormat for UInt16 with write(value, buffer, start) {
+pub impl HexUpperFormat for UInt16 with fn write(value, buffer, start) {
   let value_uint = value.to_uint() & 0xFFFF
   HexUpperFormat::write(value_uint, buffer, start)
 }
 
 ///|
 /// supremum
-pub impl HexUpperFormat for UInt16 with count(_) -> Int {
+pub impl HexUpperFormat for UInt16 with fn count(_) -> Int {
   4
 }
 
@@ -78,7 +78,7 @@ fn reverse(xs : Memory, start : Int, end : Int) -> Unit {
 }
 
 ///|
-pub impl Format for UInt with write(value, buffer, start) {
+pub impl Format for UInt with fn write(value, buffer, start) {
   if value == 0 {
     buffer[start + 0] = b'0'
     return 1
@@ -97,12 +97,12 @@ pub impl Format for UInt with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl Format for UInt with count(_) -> Int {
+pub impl Format for UInt with fn count(_) -> Int {
   UInt_Digits10
 }
 
 ///|
-pub impl LittleEndianFormat for UInt with write(value, buffer, start) {
+pub impl LittleEndianFormat for UInt with fn write(value, buffer, start) {
   let b0 = (value & 0xFF).to_byte()
   let b1 = ((value >> 8) & 0xFF).to_byte()
   let b2 = ((value >> 16) & 0xFF).to_byte()
@@ -116,12 +116,12 @@ pub impl LittleEndianFormat for UInt with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl LittleEndianFormat for UInt with count(_) -> Int {
+pub impl LittleEndianFormat for UInt with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl BigEndianFormat for UInt with write(value, buffer, start) {
+pub impl BigEndianFormat for UInt with fn write(value, buffer, start) {
   let b0 = ((value >> 24) & 0xFF).to_byte()
   let b1 = ((value >> 16) & 0xFF).to_byte()
   let b2 = ((value >> 8) & 0xFF).to_byte()
@@ -135,12 +135,12 @@ pub impl BigEndianFormat for UInt with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl BigEndianFormat for UInt with count(_) -> Int {
+pub impl BigEndianFormat for UInt with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl HexLowerFormat for UInt with write(value, buffer, start) {
+pub impl HexLowerFormat for UInt with fn write(value, buffer, start) {
   if value == 0 {
     buffer[start + 0] = b'0'
     return 1
@@ -159,12 +159,12 @@ pub impl HexLowerFormat for UInt with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl HexLowerFormat for UInt with count(_) -> Int {
+pub impl HexLowerFormat for UInt with fn count(_) -> Int {
   8
 }
 
 ///|
-pub impl HexUpperFormat for UInt with write(value, buffer, start) {
+pub impl HexUpperFormat for UInt with fn write(value, buffer, start) {
   if value == 0 {
     buffer[start + 0] = b'0'
     return 1
@@ -183,24 +183,24 @@ pub impl HexUpperFormat for UInt with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl HexUpperFormat for UInt with count(_) -> Int {
+pub impl HexUpperFormat for UInt with fn count(_) -> Int {
   8
 }
 
 ///|
-pub impl Format for Int16 with write(value, buffer, start) {
+pub impl Format for Int16 with fn write(value, buffer, start) {
   let value32 = value.to_int()
   Format::write(value32, buffer, start)
 }
 
 ///|
 /// supremum
-pub impl Format for Int16 with count(_) -> Int {
+pub impl Format for Int16 with fn count(_) -> Int {
   Int16_Digits10
 }
 
 ///|
-pub impl LittleEndianFormat for Int16 with write(value, buffer, start) {
+pub impl LittleEndianFormat for Int16 with fn write(value, buffer, start) {
   let b0 = (value.to_int() & 0xFF).to_byte()
   let b1 = ((value.to_int() >> 8) & 0xFF).to_byte()
   buffer[start + 0] = b0
@@ -210,12 +210,12 @@ pub impl LittleEndianFormat for Int16 with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl LittleEndianFormat for Int16 with count(_) -> Int {
+pub impl LittleEndianFormat for Int16 with fn count(_) -> Int {
   2
 }
 
 ///|
-pub impl BigEndianFormat for Int16 with write(value, buffer, start) {
+pub impl BigEndianFormat for Int16 with fn write(value, buffer, start) {
   let b0 = ((value.to_int() >> 8) & 0xFF).to_byte()
   let b1 = (value.to_int() & 0xFF).to_byte()
   buffer[start + 0] = b0
@@ -225,36 +225,36 @@ pub impl BigEndianFormat for Int16 with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl BigEndianFormat for Int16 with count(_) -> Int {
+pub impl BigEndianFormat for Int16 with fn count(_) -> Int {
   2
 }
 
 ///|
-pub impl HexLowerFormat for Int16 with write(value, buffer, start) {
+pub impl HexLowerFormat for Int16 with fn write(value, buffer, start) {
   let value_uint = value.to_int().reinterpret_as_uint() & 0xFFFF
   HexLowerFormat::write(value_uint, buffer, start)
 }
 
 ///|
 /// supremum
-pub impl HexLowerFormat for Int16 with count(_) -> Int {
+pub impl HexLowerFormat for Int16 with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl HexUpperFormat for Int16 with write(value, buffer, start) {
+pub impl HexUpperFormat for Int16 with fn write(value, buffer, start) {
   let value_uint = value.to_int().reinterpret_as_uint() & 0xFFFF
   HexUpperFormat::write(value_uint, buffer, start)
 }
 
 ///|
 /// supremum
-pub impl HexUpperFormat for Int16 with count(_) -> Int {
+pub impl HexUpperFormat for Int16 with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl Format for Int with write(value, buffer, start) {
+pub impl Format for Int with fn write(value, buffer, start) {
   if value >= 0 {
     let value = value.reinterpret_as_uint()
     Format::write(value, buffer, start)
@@ -267,56 +267,56 @@ pub impl Format for Int with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl Format for Int with count(_) -> Int {
+pub impl Format for Int with fn count(_) -> Int {
   Int_Digits10
 }
 
 ///|
-pub impl LittleEndianFormat for Int with write(value, buffer, start) {
+pub impl LittleEndianFormat for Int with fn write(value, buffer, start) {
   LittleEndianFormat::write(value.reinterpret_as_uint(), buffer, start)
 }
 
 ///|
 /// supremum
-pub impl LittleEndianFormat for Int with count(_) -> Int {
+pub impl LittleEndianFormat for Int with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl BigEndianFormat for Int with write(value, buffer, start) {
+pub impl BigEndianFormat for Int with fn write(value, buffer, start) {
   BigEndianFormat::write(value.reinterpret_as_uint(), buffer, start)
 }
 
 ///|
 /// supremum
-pub impl BigEndianFormat for Int with count(_) -> Int {
+pub impl BigEndianFormat for Int with fn count(_) -> Int {
   4
 }
 
 ///|
-pub impl HexLowerFormat for Int with write(value, buffer, start) {
+pub impl HexLowerFormat for Int with fn write(value, buffer, start) {
   HexLowerFormat::write(value.reinterpret_as_uint(), buffer, start)
 }
 
 ///|
 /// supremum
-pub impl HexLowerFormat for Int with count(_) -> Int {
+pub impl HexLowerFormat for Int with fn count(_) -> Int {
   8
 }
 
 ///|
-pub impl HexUpperFormat for Int with write(value, buffer, start) {
+pub impl HexUpperFormat for Int with fn write(value, buffer, start) {
   HexUpperFormat::write(value.reinterpret_as_uint(), buffer, start)
 }
 
 ///|
 /// supremum
-pub impl HexUpperFormat for Int with count(_) -> Int {
+pub impl HexUpperFormat for Int with fn count(_) -> Int {
   8
 }
 
 ///|
-pub impl Format for Double with write(value, buffer, start) {
+pub impl Format for Double with fn write(value, buffer, start) {
   let repr = ryu_to_repr(value)
   match repr {
     Nan => memcpy(buffer, start, b"NaN")
@@ -333,13 +333,13 @@ pub impl Format for Double with write(value, buffer, start) {
 
 ///|
 /// upper bound
-pub impl Format for Double with count(_) -> Int {
+pub impl Format for Double with fn count(_) -> Int {
   /// https://en.cppreference.com/w/cpp/types/numeric_limits/max_digits10.html
   25
 }
 
 ///|
-pub impl Format for Bytes with write(value, buffer, start) {
+pub impl Format for Bytes with fn write(value, buffer, start) {
   for i in 0..<value.length() {
     buffer[start + i] = value[i]
   }
@@ -348,12 +348,12 @@ pub impl Format for Bytes with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl Format for Bytes with count(self) -> Int {
+pub impl Format for Bytes with fn count(self) -> Int {
   self.length()
 }
 
 ///|
-pub impl Format for BytesView with write(value, buffer, start) {
+pub impl Format for BytesView with fn write(value, buffer, start) {
   for i in 0..<value.length() {
     buffer[start + i] = value[i]
   }
@@ -362,24 +362,24 @@ pub impl Format for BytesView with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl Format for BytesView with count(self) -> Int {
+pub impl Format for BytesView with fn count(self) -> Int {
   self.length()
 }
 
 ///|
-pub impl Format for Byte with write(value, buffer, start) {
+pub impl Format for Byte with fn write(value, buffer, start) {
   buffer[start] = value
   1
 }
 
 ///|
 /// supremum
-pub impl Format for Byte with count(_) -> Int {
+pub impl Format for Byte with fn count(_) -> Int {
   1
 }
 
 ///|
-pub impl[A : Format] Format for Iter[A] with write(value, buffer, start) {
+pub impl[A : Format] Format for Iter[A] with fn write(value, buffer, start) {
   let mut offset = start
   offset += Format::write(b'[', buffer, offset)
   for x in value {
@@ -393,7 +393,7 @@ pub impl[A : Format] Format for Iter[A] with write(value, buffer, start) {
 
 ///|
 /// supremum
-pub impl[A : Format] Format for Iter[A] with count(self) -> Int {
+pub impl[A : Format] Format for Iter[A] with fn count(self) -> Int {
   // init = 1 for '['
   // +1 for each ','
   // overwrite last ',' with ']'
@@ -401,7 +401,7 @@ pub impl[A : Format] Format for Iter[A] with count(self) -> Int {
 }
 
 ///|
-pub impl[A : Format, B : Format] Format for Iter2[A, B] with write(
+pub impl[A : Format, B : Format] Format for Iter2[A, B] with fn write(
   value,
   buffer,
   start,
@@ -424,7 +424,7 @@ pub impl[A : Format, B : Format] Format for Iter2[A, B] with write(
 
 ///|
 /// supremum
-pub impl[A : Format, B : Format] Format for Iter2[A, B] with count(self) -> Int {
+pub impl[A : Format, B : Format] Format for Iter2[A, B] with fn count(self) -> Int {
   let mut supremum = 1 // for '['
   for x, y in self {
     // 4 for '(', ',', ')', ','
@@ -435,7 +435,7 @@ pub impl[A : Format, B : Format] Format for Iter2[A, B] with count(self) -> Int 
 }
 
 ///|
-pub impl[A : Format, B : Format] Format for (A, B) with write(
+pub impl[A : Format, B : Format] Format for (A, B) with fn write(
   value,
   buffer,
   start,
@@ -450,7 +450,7 @@ pub impl[A : Format, B : Format] Format for (A, B) with write(
 }
 
 ///|
-pub impl[A : Format, B : Format] Format for (A, B) with count(self) -> Int {
+pub impl[A : Format, B : Format] Format for (A, B) with fn count(self) -> Int {
   // 3 for '(', ',', ')'
   3 + self.0.count() + self.1.count()
 }

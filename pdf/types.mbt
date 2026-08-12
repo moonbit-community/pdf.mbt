@@ -402,7 +402,8 @@ struct LexBody(FixedArray[LexObj]) derive(Eq, Debug)
 pub fn LexBody::length(self : LexBody) -> Int = "%fixedarray.length"
 
 ///|
-pub fn LexBody::op_get(self : LexBody, index : Int) -> LexObj = "%fixedarray.get"
+#alias("_[_]")
+pub fn LexBody::get(self : LexBody, index : Int) -> LexObj = "%fixedarray.get"
 
 ///|
 pub fn LexBody::from(array : Array[LexObj]) -> LexBody {

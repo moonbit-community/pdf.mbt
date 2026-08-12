@@ -18,7 +18,7 @@
 /// | `\ddd`   | Character code ddd(octal) |
 /// 
 fn pdf_bytes_of_string(non_escape : String) -> Bytes {
-  let buffer = @buffer.new(size_hint=non_escape.length() * 2)
+  let buffer = Buffer(size_hint=non_escape.length() * 2)
   for i in 0..<non_escape.length() {
     let code_unit = non_escape[i]
     if Char::is_ascii(code_unit.unsafe_to_char()) {
@@ -74,14 +74,7 @@ fn pdf_bytes_of_string(non_escape : String) -> Bytes {
 
 ///|
 pub fn markdown_to_bytes(md_str : String) -> Bytes {
-  let tm : @pdf.TransformMatrix = @pdf.TransformMatrix::{
-    a: 1,
-    b: 0,
-    c: 0,
-    d: 1,
-    e: 50,
-    f: 770,
-  }
+  let tm : @pdf.TransformMatrix = { a: 1, b: 0, c: 0, d: 1, e: 50, f: 770 }
   let cmark_doc = @cmark.Doc::from_string(md_str)
   let doc = Doc::from_cmark(cmark_doc)
   let flat_headings = doc.to_flatheadings()

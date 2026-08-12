@@ -114,12 +114,28 @@ DictEntries -> DictEntries :
       $1 }
 ;
 PDF_Dict -> PDF_Dict :
-  | DICT_BEGIN DICT_END { Object::Dictionary([]) }
-  | DICT_BEGIN DictEntries DICT_END { Object::Dictionary($2) }
+  | DICT_BEGIN DICT_END { Dictionary([]) }
+  | DICT_BEGIN DictEntries DICT_END { Dictionary($2) }
 ;
 PDF_Stream -> PDF_Stream :
-  | PDF_Dict STREAM_BYTES { Object::Stream($1, $2) }
+  | PDF_Dict STREAM_BYTES { Stream($1, $2) }
 ;
 
 
 %%
+
+// The lexer exposes these delimiters for token inspection, while the object
+// grammar intentionally rejects them. Reading the generated parser symbols
+// here keeps the compiler's unused-constructor analysis accurate.
+fn init {
+  match (T_LEFT_PARENTHESIS : YYSymbol) {
+    T_LEFT_PARENTHESIS
+    | T_RIGHT_PARENTHESIS
+    | T_LEFT_CURLY_BRACE
+    | T_RIGHT_CURLY_BRACE
+    | T_LESS_THAN_SIGN
+    | T_GREATER_THAN_SIGN
+    | T_SOLIDUS => ()
+    _ => ()
+  }
+}

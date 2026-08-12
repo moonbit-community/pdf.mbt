@@ -14,8 +14,8 @@
 
 ///|
 fn tokenize_double_as_result(str : BytesView) -> Result[(Double, Int), String] {
-  Result::Ok(@lexer_bytes.tokenize_double(str)) catch {
-    @lexer_bytes.LexError(err) => Err(err)
+  Ok(@lexer_bytes.tokenize_double(str)) catch {
+    LexError(err) => Err(err)
   }
 }
 

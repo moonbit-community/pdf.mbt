@@ -190,9 +190,10 @@ pub type LESS_THAN_SIGN
 
 type LexBody derive(Eq, @debug.Debug)
 pub fn LexBody::from(Array[LexObj]) -> Self
+#alias("_[_]")
+pub fn LexBody::get(Self, Int) -> LexObj
 pub fn LexBody::iter(Self) -> Iter[LexObj]
 pub fn LexBody::length(Self) -> Int
-pub fn LexBody::op_get(Self, Int) -> LexObj
 pub impl ToJson for LexBody
 
 pub(all) enum LexEntryState {
@@ -330,6 +331,7 @@ pub(all) enum Token {
 }
 pub fn Token::kind(Self) -> TokenKind
 pub impl Show for Token
+pub impl @debug.Debug for Token
 
 pub(all) enum TokenKind {
   TK_LEFT_PARENTHESIS
@@ -382,4 +384,3 @@ pub type STREAM_BYTES = Bytes
 pub type STRING = Bytes
 
 // Traits
-

@@ -32,10 +32,12 @@ pub(all) struct LittleEndian[T](T)
 pub impl[T : LittleEndianFormat] Format for LittleEndian[T]
 
 type Memory
+#alias("_[_]")
+pub fn Memory::get(Self, Int) -> Byte
 pub fn Memory::length(Self) -> Int
 pub fn Memory::make(Int, Byte) -> Self
-pub fn Memory::op_get(Self, Int) -> Byte
-pub fn Memory::op_set(Self, Int, Byte) -> Unit
+#alias("_[_]=_")
+pub fn Memory::set(Self, Int, Byte) -> Unit
 
 pub(all) enum Right[T] {
   Right(T, width~ : Int, padding~ : Byte)
@@ -46,8 +48,8 @@ pub impl[T : Format] Format for Right[T]
 
 // Traits
 pub(open) trait BigEndianFormat {
-  write(Self, Memory, Int) -> Int
-  count(Self) -> Int
+  fn write(Self, Memory, Int) -> Int
+  fn count(Self) -> Int
 }
 pub impl BigEndianFormat for Int
 pub impl BigEndianFormat for Int16
@@ -56,9 +58,9 @@ pub impl BigEndianFormat for UInt16
 
 pub(open) trait Format {
   #as_free_fn
-  write(Self, Memory, Int) -> Int
+  fn write(Self, Memory, Int) -> Int
   #as_free_fn
-  count(Self) -> Int
+  fn count(Self) -> Int
 }
 pub impl Format for Byte
 pub impl Format for Int
@@ -73,8 +75,8 @@ pub impl[A : Format, B : Format] Format for (A, B)
 pub impl Format for BytesView
 
 pub(open) trait HexLowerFormat {
-  write(Self, Memory, Int) -> Int
-  count(Self) -> Int
+  fn write(Self, Memory, Int) -> Int
+  fn count(Self) -> Int
 }
 pub impl HexLowerFormat for Int
 pub impl HexLowerFormat for Int16
@@ -82,8 +84,8 @@ pub impl HexLowerFormat for UInt
 pub impl HexLowerFormat for UInt16
 
 pub(open) trait HexUpperFormat {
-  write(Self, Memory, Int) -> Int
-  count(Self) -> Int
+  fn write(Self, Memory, Int) -> Int
+  fn count(Self) -> Int
 }
 pub impl HexUpperFormat for Int
 pub impl HexUpperFormat for Int16
@@ -91,11 +93,10 @@ pub impl HexUpperFormat for UInt
 pub impl HexUpperFormat for UInt16
 
 pub(open) trait LittleEndianFormat {
-  write(Self, Memory, Int) -> Int
-  count(Self) -> Int
+  fn write(Self, Memory, Int) -> Int
+  fn count(Self) -> Int
 }
 pub impl LittleEndianFormat for Int
 pub impl LittleEndianFormat for Int16
 pub impl LittleEndianFormat for UInt
 pub impl LittleEndianFormat for UInt16
-

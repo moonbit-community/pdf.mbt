@@ -59,9 +59,14 @@ test "parse simple PDF" {
   )
   let tokens = @pdf.tokenize(bytes.to_owned())
   inspect(tokens.length(), content="2")
-  inspect(
+  debug_inspect(
     tokens,
-    content="[(TRUE, {row: 1, col: 0}, {row: 1, col: 4}), (EOF, {row: 2, col: 0}, {row: 2, col: 0})]",
+    content=(
+      #|[
+      #|  (TRUE, { row: 1, col: 0 }, { row: 1, col: 4 }),
+      #|  (EOF, { row: 2, col: 0 }, { row: 2, col: 0 }),
+      #|]
+    ),
   )
   let result = @pdf.parse(tokens)
   json_inspect(result, content=["Boolean", true])

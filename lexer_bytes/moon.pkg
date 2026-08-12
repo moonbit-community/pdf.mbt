@@ -3,5 +3,3 @@ import {
   "moonbitlang/core/double",
   "moonbitlang/core/uint64",
 }
-
-warnings = "-11-20"

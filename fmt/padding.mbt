@@ -4,7 +4,7 @@ pub(all) enum Left[T] {
 }
 
 ///|
-pub impl[T : Format] Format for Left[T] with write(
+pub impl[T : Format] Format for Left[T] with fn write(
   value : Left[T],
   buffer : Memory,
   start : Int,
@@ -28,7 +28,7 @@ pub impl[T : Format] Format for Left[T] with write(
 }
 
 ///|
-pub impl[T : Format] Format for Left[T] with count(value : Left[T]) {
+pub impl[T : Format] Format for Left[T] with fn count(value : Left[T]) {
   let Left(value, width~, ..) = value
   let cnt = Format::count(value)
   if cnt < width {
@@ -44,7 +44,7 @@ pub(all) enum Center[T] {
 }
 
 ///|
-pub impl[T : Format] Format for Center[T] with write(
+pub impl[T : Format] Format for Center[T] with fn write(
   value : Center[T],
   buffer : Memory,
   start : Int,
@@ -76,7 +76,7 @@ pub impl[T : Format] Format for Center[T] with write(
 }
 
 ///|
-pub impl[T : Format] Format for Center[T] with count(value : Center[T]) {
+pub impl[T : Format] Format for Center[T] with fn count(value : Center[T]) {
   let Center(value, width~, ..) = value
   let cnt = Format::count(value)
   if cnt < width {
@@ -92,7 +92,7 @@ pub(all) enum Right[T] {
 }
 
 ///|
-pub impl[T : Format] Format for Right[T] with write(
+pub impl[T : Format] Format for Right[T] with fn write(
   value : Right[T],
   buffer : Memory,
   start : Int,
@@ -110,7 +110,7 @@ pub impl[T : Format] Format for Right[T] with write(
 }
 
 ///|
-pub impl[T : Format] Format for Right[T] with count(value : Right[T]) {
+pub impl[T : Format] Format for Right[T] with fn count(value : Right[T]) {
   let Right(value, width~, ..) = value
   let cnt = Format::count(value)
   if cnt < width {

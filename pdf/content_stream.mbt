@@ -4,7 +4,7 @@ pub fn ContentStream::iter(xs : ContentStream) -> Iter[GraphicOperator] {
 }
 
 ///|
-pub impl @fmt.Format for ContentStream with write(self, buf, start) {
+pub impl @fmt.Format for ContentStream with fn write(self, buf, start) {
   let xs = self.0
   let mut offset = start
   for x in xs {
@@ -14,7 +14,7 @@ pub impl @fmt.Format for ContentStream with write(self, buf, start) {
 }
 
 ///|
-pub impl @fmt.Format for ContentStream with count(xs) {
+pub impl @fmt.Format for ContentStream with fn count(xs) {
   xs.0.fold(init=0, (acc, x) => @fmt.count(x) + acc)
 }
 
@@ -30,5 +30,5 @@ pub fn ContentStream::to_stream(self : Self) -> Stream {
 pub fn ContentStream::to_stream_object(self : Self) -> Object {
   let stream = self.to_stream()
   let len = stream.0.length()
-  Object::Stream(Dictionary([(b"/Length", Integer(len))]), stream)
+  Stream(Dictionary([(b"/Length", Integer(len))]), stream)
 }

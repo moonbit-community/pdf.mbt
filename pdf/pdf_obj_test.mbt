@@ -810,15 +810,29 @@ test "dictionary with long key names" {
 test {
   let input = b"<<\n  /Length 53\n>>\nstream\n 1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET\nendstream\n"
   let tokens = tokenize(input).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens,
-    content="[DICT_BEGIN, NAME(/Length), INTEGER(53), DICT_END, STREAM_BYTES( 1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET\\n), EOF]",
+    content=(
+      #|[
+      #|  DICT_BEGIN,
+      #|  NAME(/Length),
+      #|  INTEGER(53),
+      #|  DICT_END,
+      #|  STREAM_BYTES( 1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET\n),
+      #|  EOF,
+      #|]
+    ),
   )
   let input = b"stream\n1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET\nendstream"
   let tokens = tokenize(input).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens,
-    content="[STREAM_BYTES(1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET\\n), EOF]",
+    content=(
+      #|[
+      #|  STREAM_BYTES(1 0 0 1 50 770 cm BT /F0 36 Tf (Hello, World!) Tj ET\n),
+      #|  EOF,
+      #|]
+    ),
   )
 }
 
@@ -832,7 +846,7 @@ test "PDF comment lexing with different end-of-line markers" {
     let (tok, _, _) = triplet
     tok
   })
-  inspect(token_kinds1, content="[TRUE, EOF]")
+  debug_inspect(token_kinds1, content="[TRUE, EOF]")
 
   // Test PDF comments with \r (CR only)
   let input2 = b"% This is a comment\rtrue"
@@ -841,7 +855,7 @@ test "PDF comment lexing with different end-of-line markers" {
     let (tok, _, _) = triplet
     tok
   })
-  inspect(token_kinds2, content="[TRUE, EOF]")
+  debug_inspect(token_kinds2, content="[TRUE, EOF]")
 
   // Test PDF comments with \n (LF only)
   let input3 = b"% This is a comment\ntrue"
@@ -850,7 +864,7 @@ test "PDF comment lexing with different end-of-line markers" {
     let (tok, _, _) = triplet
     tok
   })
-  inspect(token_kinds3, content="[TRUE, EOF]")
+  debug_inspect(token_kinds3, content="[TRUE, EOF]")
 
   // Test PDF comment at end of file (no end-of-line marker)
   let input4 = b"true % This is a comment"
@@ -859,7 +873,7 @@ test "PDF comment lexing with different end-of-line markers" {
     let (tok, _, _) = triplet
     tok
   })
-  inspect(token_kinds4, content="[TRUE, EOF]")
+  debug_inspect(token_kinds4, content="[TRUE, EOF]")
 
   // Test multiple comments with different end-of-line markers
   let input5 = b"% Comment 1\r\n% Comment 2\r% Comment 3\ntrue"
@@ -868,7 +882,7 @@ test "PDF comment lexing with different end-of-line markers" {
     let (tok, _, _) = triplet
     tok
   })
-  inspect(token_kinds5, content="[TRUE, EOF]")
+  debug_inspect(token_kinds5, content="[TRUE, EOF]")
 }
 
 ///|
@@ -1154,10 +1168,20 @@ test "tokenize_pdf_hexadecimal_string odd number of digits" {
   // Test various odd digits
   let input4 = b"A" // Should become 0xA0 = 160
   let result4 = tokenize_pdf_hexadecimal_string(input4[:])
-  inspect(result4.to_array(), content="[b'\\xA0']")
+  debug_inspect(
+    result4.to_array(),
+    content=(
+      #|[0xa0]
+    ),
+  )
   let input5 = b"F" // Should become 0xF0 = 240
   let result5 = tokenize_pdf_hexadecimal_string(input5[:])
-  inspect(result5.to_array(), content="[b'\\xF0']")
+  debug_inspect(
+    result5.to_array(),
+    content=(
+      #|[0xf0]
+    ),
+  )
 }
 
 ///|
@@ -1193,7 +1217,12 @@ test "tokenize_pdf_hexadecimal_string special byte values" {
   // Test high values
   let input2 = b"FF" // 255
   let result2 = tokenize_pdf_hexadecimal_string(input2[:])
-  inspect(result2.to_array(), content="[b'\\xFF']")
+  debug_inspect(
+    result2.to_array(),
+    content=(
+      #|[0xff]
+    ),
+  )
 
   // Test control characters
   let input3 = b"070809" // Bell, backspace, tab
@@ -1241,7 +1270,7 @@ test "tokenize_pdf_hexadecimal_string edge cases" {
 test "tokenize" {
   let input = b"/hello"
   let tokens = tokenize(input).map(triple => triple.0)
-  inspect(tokens, content="[NAME(/hello), EOF]")
+  debug_inspect(tokens, content="[NAME(/hello), EOF]")
 }
 
 ///|
@@ -1249,12 +1278,12 @@ test "tokenize basic literals" {
   // Test boolean literals
   let input1 = b"true false"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[TRUE, FALSE, EOF]")
+  debug_inspect(tokens1, content="[TRUE, FALSE, EOF]")
 
   // Test integers
   let input2 = b"123 -456 0 42"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
     content="[INTEGER(123), INTEGER(-456), INTEGER(0), INTEGER(42), EOF]",
   )
@@ -1262,9 +1291,19 @@ test "tokenize basic literals" {
   // Test real numbers
   let input3 = b"3.14 -2.5 .5 123. 1E10 -2.5E-3"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens3,
-    content="[REAL(3.14), REAL(-2.5), REAL(0.5), REAL(123), REAL(10000000000), REAL(-0.0025), EOF]",
+    content=(
+      #|[
+      #|  REAL(3.14),
+      #|  REAL(-2.5),
+      #|  REAL(0.5),
+      #|  REAL(123),
+      #|  REAL(10000000000),
+      #|  REAL(-0.0025),
+      #|  EOF,
+      #|]
+    ),
   )
 }
 
@@ -1273,9 +1312,22 @@ test "tokenize delimiters" {
   // Test all delimiter tokens
   let input = b"() {} [] < > / << >>"
   let tokens = tokenize(input).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens,
-    content="[STRING(), LEFT_CURLY_BRACE, RIGHT_CURLY_BRACE, LEFT_SQUARE_BRACKET, RIGHT_SQUARE_BRACKET, STRING(), NAME(/), DICT_BEGIN, DICT_END, EOF]",
+    content=(
+      #|[
+      #|  STRING(),
+      #|  LEFT_CURLY_BRACE,
+      #|  RIGHT_CURLY_BRACE,
+      #|  LEFT_SQUARE_BRACKET,
+      #|  RIGHT_SQUARE_BRACKET,
+      #|  STRING(),
+      #|  NAME(/),
+      #|  DICT_BEGIN,
+      #|  DICT_END,
+      #|  EOF,
+      #|]
+    ),
   )
 }
 
@@ -1284,12 +1336,15 @@ test "tokenize pdf names" {
   // Test simple PDF names
   let input1 = b"/Name /Type /Subtype"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[NAME(/Name), NAME(/Type), NAME(/Subtype), EOF]")
+  debug_inspect(
+    tokens1,
+    content="[NAME(/Name), NAME(/Type), NAME(/Subtype), EOF]",
+  )
 
   // Test PDF names with numbers and underscores
   let input2 = b"/Name123 /_Private /Test_Name"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
     content="[NAME(/Name123), NAME(/_Private), NAME(/Test_Name), EOF]",
   )
@@ -1300,12 +1355,15 @@ test "tokenize literal strings" {
   // Test simple literal strings
   let input1 = b"(Hello World) (Simple string)"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[STRING(Hello World), STRING(Simple string), EOF]")
+  debug_inspect(
+    tokens1,
+    content="[STRING(Hello World), STRING(Simple string), EOF]",
+  )
 
   // Test literal strings with escape sequences
   let input2 = b"(Line1\\nLine2) (Tab\\tSeparated) (Quote\\\"Test)"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
     content="[STRING(Line1\\nLine2), STRING(Tab\\tSeparated), STRING(QuoteTest), EOF]",
   )
@@ -1316,17 +1374,17 @@ test "tokenize hexadecimal strings" {
   // Test hexadecimal strings
   let input1 = b"<48656C6C6F> <576F726C64>"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[STRING(Hello), STRING(World), EOF]")
+  debug_inspect(tokens1, content="[STRING(Hello), STRING(World), EOF]")
 
   // Test hex strings with whitespace
   let input2 = b"<48 65 6C 6C 6F> <57 6F 72 6C 64>"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[STRING(Hello), STRING(World), EOF]")
+  debug_inspect(tokens2, content="[STRING(Hello), STRING(World), EOF]")
 
   // Test empty hex string
   let input3 = b"<>"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(tokens3, content="[STRING(), EOF]")
+  debug_inspect(tokens3, content="[STRING(), EOF]")
 }
 
 ///|
@@ -1334,9 +1392,21 @@ test "tokenize mixed content" {
   // Test realistic PDF content mixing different token types
   let input = b"<< /Type /Catalog /Pages 123 /Count 5 >>"
   let tokens = tokenize(input).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens,
-    content="[DICT_BEGIN, NAME(/Type), NAME(/Catalog), NAME(/Pages), INTEGER(123), NAME(/Count), INTEGER(5), DICT_END, EOF]",
+    content=(
+      #|[
+      #|  DICT_BEGIN,
+      #|  NAME(/Type),
+      #|  NAME(/Catalog),
+      #|  NAME(/Pages),
+      #|  INTEGER(123),
+      #|  NAME(/Count),
+      #|  INTEGER(5),
+      #|  DICT_END,
+      #|  EOF,
+      #|]
+    ),
   )
 }
 
@@ -1345,17 +1415,42 @@ test "tokenize arrays and objects" {
   // Test array notation
   let input1 = b"[1 2 3 /Name (string)]"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens1,
-    content="[LEFT_SQUARE_BRACKET, INTEGER(1), INTEGER(2), INTEGER(3), NAME(/Name), STRING(string), RIGHT_SQUARE_BRACKET, EOF]",
+    content=(
+      #|[
+      #|  LEFT_SQUARE_BRACKET,
+      #|  INTEGER(1),
+      #|  INTEGER(2),
+      #|  INTEGER(3),
+      #|  NAME(/Name),
+      #|  STRING(string),
+      #|  RIGHT_SQUARE_BRACKET,
+      #|  EOF,
+      #|]
+    ),
   )
 
   // Test nested structures
   let input2 = b"{[/Key (Value)] << /Inner true >>}"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
-    content="[LEFT_CURLY_BRACE, LEFT_SQUARE_BRACKET, NAME(/Key), STRING(Value), RIGHT_SQUARE_BRACKET, DICT_BEGIN, NAME(/Inner), TRUE, DICT_END, RIGHT_CURLY_BRACE, EOF]",
+    content=(
+      #|[
+      #|  LEFT_CURLY_BRACE,
+      #|  LEFT_SQUARE_BRACKET,
+      #|  NAME(/Key),
+      #|  STRING(Value),
+      #|  RIGHT_SQUARE_BRACKET,
+      #|  DICT_BEGIN,
+      #|  NAME(/Inner),
+      #|  TRUE,
+      #|  DICT_END,
+      #|  RIGHT_CURLY_BRACE,
+      #|  EOF,
+      #|]
+    ),
   )
 }
 
@@ -1364,17 +1459,17 @@ test "tokenize with comments" {
   // Test single line comment
   let input1 = b"true % this is a comment\nfalse"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[TRUE, FALSE, EOF]")
+  debug_inspect(tokens1, content="[TRUE, FALSE, EOF]")
 
   // Test comment at end of file
   let input2 = b"123 % comment at end"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[INTEGER(123), EOF]")
+  debug_inspect(tokens2, content="[INTEGER(123), EOF]")
 
   // Test multiple comments
   let input3 = b"% First comment\n42 % inline comment\n% Final comment\ntrue"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(tokens3, content="[INTEGER(42), TRUE, EOF]")
+  debug_inspect(tokens3, content="[INTEGER(42), TRUE, EOF]")
 }
 
 ///|
@@ -1382,12 +1477,12 @@ test "tokenize with whitespace variations" {
   // Test different whitespace characters
   let input1 = b"true\t\ffalse"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[TRUE, FALSE, EOF]")
+  debug_inspect(tokens1, content="[TRUE, FALSE, EOF]")
 
   // Test different newline variations
   let input2 = b"123\r\n456\r789\n000"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
     content="[INTEGER(123), INTEGER(456), INTEGER(789), INTEGER(0), EOF]",
   )
@@ -1398,7 +1493,7 @@ test "tokenize numeric edge cases" {
   // Test different integer formats
   let input1 = b"0x1A 0xFF 077 0123"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens1,
     content="[INTEGER(26), INTEGER(255), INTEGER(77), INTEGER(123), EOF]",
   )
@@ -1406,9 +1501,17 @@ test "tokenize numeric edge cases" {
   // Test scientific notation edge cases
   let input2 = b"1e5 1E-5 -1.5e+10 .5E10"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
-    content="[REAL(100000), REAL(0.00001), REAL(-15000000000), REAL(5000000000), EOF]",
+    content=(
+      #|[
+      #|  REAL(100000),
+      #|  REAL(0.00001),
+      #|  REAL(-15000000000),
+      #|  REAL(5000000000),
+      #|  EOF,
+      #|]
+    ),
   )
 }
 
@@ -1454,23 +1557,42 @@ test "tokenize complex pdf document structure" {
     ),
   )
   let tokens = tokenize(input).map(triple => triple.0)
-  // This tests a complex nested structure with various token types
-  let expected_tokens = [
-    "DICT_BEGIN", "NAME(Type)", "NAME(Page)", "NAME(Parent)", "INTEGER(3)", "INTEGER(0)",
-    "NAME(R)", "NAME(MediaBox)", "LEFT_SQUARE_BRACKET", "INTEGER(0)", "INTEGER(0)",
-    "INTEGER(612)", "INTEGER(792)", "RIGHT_SQUARE_BRACKET", "NAME(Contents)", "INTEGER(5)",
-    "INTEGER(0)", "NAME(R)", "NAME(Resources)", "DICT_BEGIN", "NAME(Font)", "DICT_BEGIN",
-    "NAME(F1)", "INTEGER(6)", "INTEGER(0)", "NAME(R)", "DICT_END", "NAME(ProcSet)",
-    "LEFT_SQUARE_BRACKET", "NAME(PDF)", "NAME(Text)", "RIGHT_SQUARE_BRACKET", "DICT_END",
-    "DICT_END", "EOF",
-  ]
-
   // Convert to string representation for easier comparison
   let token_strings = tokens.map(Token::to_string)
-  inspect(
+  debug_inspect(
     token_strings,
     content=(
-      #|[DICT_BEGIN, NAME(/Type), NAME(/Page), NAME(/Parent), INDIRECT(3, 0), NAME(/MediaBox), LEFT_SQUARE_BRACKET, INTEGER(0), INTEGER(0), INTEGER(612), INTEGER(792), RIGHT_SQUARE_BRACKET, NAME(/Contents), INDIRECT(5, 0), NAME(/Resources), DICT_BEGIN, NAME(/Font), DICT_BEGIN, NAME(/F1), INDIRECT(6, 0), DICT_END, NAME(/ProcSet), LEFT_SQUARE_BRACKET, NAME(/PDF), NAME(/Text), RIGHT_SQUARE_BRACKET, DICT_END, DICT_END, EOF]
+      #|[
+      #|  "DICT_BEGIN",
+      #|  "NAME(/Type)",
+      #|  "NAME(/Page)",
+      #|  "NAME(/Parent)",
+      #|  "INDIRECT(3, 0)",
+      #|  "NAME(/MediaBox)",
+      #|  "LEFT_SQUARE_BRACKET",
+      #|  "INTEGER(0)",
+      #|  "INTEGER(0)",
+      #|  "INTEGER(612)",
+      #|  "INTEGER(792)",
+      #|  "RIGHT_SQUARE_BRACKET",
+      #|  "NAME(/Contents)",
+      #|  "INDIRECT(5, 0)",
+      #|  "NAME(/Resources)",
+      #|  "DICT_BEGIN",
+      #|  "NAME(/Font)",
+      #|  "DICT_BEGIN",
+      #|  "NAME(/F1)",
+      #|  "INDIRECT(6, 0)",
+      #|  "DICT_END",
+      #|  "NAME(/ProcSet)",
+      #|  "LEFT_SQUARE_BRACKET",
+      #|  "NAME(/PDF)",
+      #|  "NAME(/Text)",
+      #|  "RIGHT_SQUARE_BRACKET",
+      #|  "DICT_END",
+      #|  "DICT_END",
+      #|  "EOF",
+      #|]
     ),
   )
 }
@@ -1480,17 +1602,17 @@ test "tokenize empty and edge inputs" {
   // Test empty input
   let input1 = b""
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[EOF]")
+  debug_inspect(tokens1, content="[EOF]")
 
   // Test only whitespace
   let input2 = b"   \t  \n  \r\n  "
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[EOF]")
+  debug_inspect(tokens2, content="[EOF]")
 
   // Test only comments
   let input3 = b"% just a comment\n% another comment"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(tokens3, content="[EOF]")
+  debug_inspect(tokens3, content="[EOF]")
 }
 
 ///|
@@ -1499,7 +1621,7 @@ test "tokenize string escaping comprehensive" {
   let input = b"(Start\\n\\tIndented\\\\Path\\(param\\)\\101nd\\12Bell\\0Null)"
   let tokens = tokenize(input).map(triple => triple.0)
   // This should parse the escape sequences according to PDF literal string rules
-  inspect(
+  debug_inspect(
     tokens,
     content="[STRING(Start\\n\\tIndented\\\\Path(param)And\\nBell\\000Null), EOF]",
   )
@@ -1507,7 +1629,7 @@ test "tokenize string escaping comprehensive" {
   // Test multiline string continuation
   let input2 = b"(Line1\\\nLine2)"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[STRING(Line1Line2), EOF]")
+  debug_inspect(tokens2, content="[STRING(Line1Line2), EOF]")
 }
 
 ///|
@@ -1515,20 +1637,31 @@ test "tokenize hex string edge cases" {
   // Test hex string with odd number of digits
   let input1 = b"<48656C6C6F4>"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[STRING(Hello@), EOF]")
+  debug_inspect(tokens1, content="[STRING(Hello@), EOF]")
 
   // Test hex string with non-hex characters (should be ignored)
   let input2 = b"<48G65H6CI6CJ6F>"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens2,
-    content="[LESS_THAN_SIGN, INTEGER(48), INTEGER(65), INTEGER(6), INTEGER(6), INTEGER(6), GREATER_THAN_SIGN, EOF]",
+    content=(
+      #|[
+      #|  LESS_THAN_SIGN,
+      #|  INTEGER(48),
+      #|  INTEGER(65),
+      #|  INTEGER(6),
+      #|  INTEGER(6),
+      #|  INTEGER(6),
+      #|  GREATER_THAN_SIGN,
+      #|  EOF,
+      #|]
+    ),
   )
 
   // Test hex string with mixed case
   let input3 = b"<48656C6c6F>"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(tokens3, content="[STRING(Hello), EOF]")
+  debug_inspect(tokens3, content="[STRING(Hello), EOF]")
 }
 
 ///|
@@ -1536,12 +1669,12 @@ test "tokenize pdf name with escapes" {
   // Test PDF names with hex escape sequences  
   let input1 = b"/Name#20With#20Spaces"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[NAME(/Name With Spaces), EOF]")
+  debug_inspect(tokens1, content="[NAME(/Name With Spaces), EOF]")
 
   // Test PDF names with special characters
   let input2 = b"/Søren#20Åberg"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[NAME(/S\\303\\270ren \\303\\205berg), EOF]")
+  debug_inspect(tokens2, content="[NAME(/S\\303\\270ren \\303\\205berg), EOF]")
 }
 
 ///|
@@ -1552,7 +1685,7 @@ test "tokenize error resilience" {
   let tokens = tokenize(input).map(triple => triple.0)
 
   // Should tokenize everything it can recognize
-  inspect(
+  debug_inspect(
     tokens,
     content="[TRUE, STRING(unclosed string /name 123 false), EOF]",
   )
@@ -1563,17 +1696,17 @@ test "tokenize pdf indirect object references" {
   // Test basic indirect object reference
   let input1 = b"123 0 R"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[INDIRECT(123, 0), EOF]")
+  debug_inspect(tokens1, content="[INDIRECT(123, 0), EOF]")
 
   // Test indirect reference with different numbers
   let input2 = b"456 17 R"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[INDIRECT(456, 17), EOF]")
+  debug_inspect(tokens2, content="[INDIRECT(456, 17), EOF]")
 
   // Test multiple indirect references
   let input3 = b"1 0 R 2 0 R 3 5 R"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens3,
     content="[INDIRECT(1, 0), INDIRECT(2, 0), INDIRECT(3, 5), EOF]",
   )
@@ -1581,12 +1714,12 @@ test "tokenize pdf indirect object references" {
   // Test indirect reference with extra whitespace
   let input4 = b"789  \t 42  \t R"
   let tokens4 = tokenize(input4).map(triple => triple.0)
-  inspect(tokens4, content="[INDIRECT(789, 42), EOF]")
+  debug_inspect(tokens4, content="[INDIRECT(789, 42), EOF]")
 
   // Test mixed content with indirect references
   let input5 = b"/Parent 3 0 R /Contents 5 0 R"
   let tokens5 = tokenize(input5).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens5,
     content="[NAME(/Parent), INDIRECT(3, 0), NAME(/Contents), INDIRECT(5, 0), EOF]",
   )
@@ -1633,10 +1766,20 @@ test "tokenize comprehensive integration" {
 
   // Should find all major token types in this comprehensive example
   found_token_types.sort()
-  inspect(
+  debug_inspect(
     found_token_types,
     content=(
-      #|[EOF, DICT, NAME, REAL, ARRAY, OTHER, STRING, BOOLEAN, INTEGER]
+      #|[
+      #|  "EOF",
+      #|  "DICT",
+      #|  "NAME",
+      #|  "REAL",
+      #|  "ARRAY",
+      #|  "OTHER",
+      #|  "STRING",
+      #|  "BOOLEAN",
+      #|  "INTEGER",
+      #|]
     ),
   )
 }
@@ -1646,11 +1789,26 @@ test {
   let input = b"true\n"
   let tokens = tokenize(input)
   inspect(tokens.length(), content="2")
-  inspect(tokens[0], content="(TRUE, {row: 0, col: 0}, {row: 0, col: 4})")
-  inspect(tokens[1], content="(EOF, {row: 1, col: 0}, {row: 1, col: 0})")
-  inspect(
+  debug_inspect(
+    tokens[0],
+    content=(
+      #|(TRUE, { row: 0, col: 0 }, { row: 0, col: 4 })
+    ),
+  )
+  debug_inspect(
+    tokens[1],
+    content=(
+      #|(EOF, { row: 1, col: 0 }, { row: 1, col: 0 })
+    ),
+  )
+  debug_inspect(
     tokens,
-    content="[(TRUE, {row: 0, col: 0}, {row: 0, col: 4}), (EOF, {row: 1, col: 0}, {row: 1, col: 0})]",
+    content=(
+      #|[
+      #|  (TRUE, { row: 0, col: 0 }, { row: 0, col: 4 }),
+      #|  (EOF, { row: 1, col: 0 }, { row: 1, col: 0 }),
+      #|]
+    ),
   )
 }
 
@@ -1659,7 +1817,7 @@ test "tokenize stream data" {
   // Test basic stream with simple content
   let input1 = b"stream\nHello World\nendstream"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[STREAM_BYTES(Hello World\\n), EOF]")
+  debug_inspect(tokens1, content="[STREAM_BYTES(Hello World\\n), EOF]")
 
   // Test stream with binary data
   let input2 = Bytes::from_array([
@@ -1672,17 +1830,25 @@ test "tokenize stream data" {
     STREAM_BYTES(data) => data.to_array()
     _ => []
   }
-  inspect(stream_data, content="[b'\\x01', b'\\x02', b'\\x03', b'\\x04']")
+  debug_inspect(
+    stream_data,
+    content=(
+      #|[0x01, 0x02, 0x03, 0x04]
+    ),
+  )
 
   // Test stream with multiple lines
   let input3 = b"stream\nLine 1\nLine 2\nLine 3\nendstream"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(tokens3, content="[STREAM_BYTES(Line 1\\nLine 2\\nLine 3\\n), EOF]")
+  debug_inspect(
+    tokens3,
+    content="[STREAM_BYTES(Line 1\\nLine 2\\nLine 3\\n), EOF]",
+  )
 
   // Test stream with different whitespace after "stream"
   let input4 = b"stream \t\r\nData after whitespace\nendstream"
   let tokens4 = tokenize(input4).map(triple => triple.0)
-  inspect(
+  debug_inspect(
     tokens4,
     content="[STREAM_BYTES( \\t\\r\\nData after whitespace\\n), EOF]",
   )
@@ -1693,20 +1859,23 @@ test "tokenize stream edge cases" {
   // Test empty stream
   let input1 = b"stream\nendstream"
   let tokens1 = tokenize(input1).map(triple => triple.0)
-  inspect(tokens1, content="[STREAM_BYTES(), EOF]")
+  debug_inspect(tokens1, content="[STREAM_BYTES(), EOF]")
 
   // Test stream without endstream (should handle gracefully)
   let input2 = b"stream\nData without end"
   let tokens2 = tokenize(input2).map(triple => triple.0)
-  inspect(tokens2, content="[STREAM_BYTES(), EOF]")
+  debug_inspect(tokens2, content="[STREAM_BYTES(), EOF]")
 
   // Test stream with endstream in the middle of data
   let input3 = b"stream\nThis has endstream word but\nendstream"
   let tokens3 = tokenize(input3).map(triple => triple.0)
-  inspect(tokens3, content="[STREAM_BYTES(This has ), STREAM_BYTES(), EOF]")
+  debug_inspect(
+    tokens3,
+    content="[STREAM_BYTES(This has ), STREAM_BYTES(), EOF]",
+  )
 
   // Test immediate stream->endstream (no newline)
   let input4 = b"streamendstream"
   let tokens4 = tokenize(input4).map(triple => triple.0)
-  inspect(tokens4, content="[STREAM_BYTES(), EOF]")
+  debug_inspect(tokens4, content="[STREAM_BYTES(), EOF]")
 }

@@ -4,7 +4,7 @@ test "test write to file" {
   let buf = buffer
 
   // Use define_pages helper function
-  let pages = define_pages(pages=[@pdf.Indirect(4)])
+  let pages = define_pages(pages=[Indirect(4)])
   let offset = @fmt.write(pages, buf, 0)
   inspect(
     string_of_memory(buffer, offset),
@@ -16,14 +16,7 @@ test "test write to file" {
       #|>>
     ),
   )
-  let tm : @pdf.TransformMatrix = @pdf.TransformMatrix::{
-    a: 1,
-    b: 0,
-    c: 0,
-    d: 1,
-    e: 50,
-    f: 770,
-  }
+  let tm : @pdf.TransformMatrix = { a: 1, b: 0, c: 0, d: 1, e: 50, f: 770 }
   let op1 = @pdf.Op_cm(tm)
   let op2 = @pdf.Op_BT
   let op3 = @pdf.Op_Tf(b"/F0", 36)
@@ -33,10 +26,7 @@ test "test write to file" {
   let offset = @fmt.write(content, buf, 0)
   let bytes = bytes_of_memory(buf, offset)
   let len = bytes.length()
-  let stm = @pdf.Object::Stream(
-    @pdf.Dictionary([(b"/Length", @pdf.Integer(len))]),
-    bytes,
-  )
+  let stm = @pdf.Object::Stream(Dictionary([(b"/Length", Integer(len))]), bytes)
   let offset = @fmt.write(stm, buf, 0)
   inspect(
     string_of_memory(buffer, offset),
@@ -62,11 +52,11 @@ test {
 /// 
 /// first and last should be indirect references
 fn make_outline(first : @pdf.Object, last : @pdf.Object) -> @pdf.Object {
-  @pdf.Dictionary([
-    (b"/Type", @pdf.Name(b"/Outlines")),
+  Dictionary([
+    (b"/Type", Name(b"/Outlines")),
     (b"/First", first),
     (b"/Last", last),
-    (b"/Count", @pdf.Integer(0)),
+    (b"/Count", Integer(0)),
   ])
 }
 
@@ -79,14 +69,14 @@ fn make_outline_item(
   first~ : @pdf.Object,
   last~ : @pdf.Object,
 ) -> @pdf.Object {
-  @pdf.Dictionary([
-    (b"/Title", @pdf.String(title)),
+  Dictionary([
+    (b"/Title", String(title)),
     (b"/Parent", parent),
     (b"/Prev", prev),
     (b"/Next", next),
     (b"/First", first),
     (b"/Last", last),
-    (b"/Count", @pdf.Integer(0)),
+    (b"/Count", Integer(0)),
   ])
 }
 
@@ -119,11 +109,7 @@ fn TreeWithIndex::from(tree : Tree, start_index : Int) -> TreeWithIndex {
   // pre-order traversal
   fn dfs(root : Tree) -> TreeWithIndex {
     index = index + 1
-    TreeWithIndex::{
-      title: root.title,
-      index,
-      children: root.children.map(dfs),
-    }
+    { title: root.title, index, children: root.children.map(dfs) }
   }
 
   dfs(tree)
@@ -147,16 +133,16 @@ fn TreeWithIndex::to_outline_item(
     let first = if len == 0 {
       @pdf.Null
     } else {
-      @pdf.Indirect(root.children[0].index)
+      Indirect(root.children[0].index)
     }
     let last = if len == 0 {
       @pdf.Null
     } else {
-      @pdf.Indirect(root.children[len - 1].index)
+      Indirect(root.children[len - 1].index)
     }
     let outline_item = make_outline_item(
       title=@encoding/utf8.encode(root.title),
-      parent=@pdf.Indirect(parent),
+      parent=Indirect(parent),
       prev~,
       next~,
       first~,
@@ -170,19 +156,19 @@ fn TreeWithIndex::to_outline_item(
       let child_prev = if i == 0 {
         @pdf.Null
       } else {
-        @pdf.Indirect(root.children[i - 1].index)
+        Indirect(root.children[i - 1].index)
       }
       let child_next = if i == len - 1 {
         @pdf.Null
       } else {
-        @pdf.Indirect(root.children[i + 1].index)
+        Indirect(root.children[i + 1].index)
       }
       dfs(child, root.index, child_prev, child_next)
     }
   }
 
   // Start DFS from root with no prev/next (since it's the root)
-  dfs(self, parent, @pdf.Null, @pdf.Null)
+  dfs(self, parent, Null, Null)
   items.sort_by_key(x => x.0)
   items
 }
@@ -269,14 +255,7 @@ test {
 test (t : @test.Test) {
   let buffer = @fmt.Memory::make(4096, Byte::default())
   let buf = buffer
-  let tm : @pdf.TransformMatrix = @pdf.TransformMatrix::{
-    a: 1,
-    b: 0,
-    c: 0,
-    d: 1,
-    e: 50,
-    f: 770,
-  }
+  let tm : @pdf.TransformMatrix = { a: 1, b: 0, c: 0, d: 1, e: 50, f: 770 }
   let op1 = @pdf.Op_cm(tm)
   let op2 = @pdf.Op_BT
   let op3 = @pdf.Op_Tf(b"/F0", 36)
@@ -292,31 +271,25 @@ test (t : @test.Test) {
   let len = bytes.length()
 
   // 1 0 obj
-  let stm = @pdf.Object::Stream(
-    @pdf.Dictionary([(b"/Length", @pdf.Integer(len))]),
-    bytes,
-  )
+  let stm = @pdf.Object::Stream(Dictionary([(b"/Length", Integer(len))]), bytes)
   // 2 0 obj - Use define_pages helper
-  let pages = define_pages(pages=[@pdf.Indirect(4)])
+  let pages = define_pages(pages=[Indirect(4)])
 
   // 3 0 obj - Use define_catalog helper
-  let catalog = define_catalog(
-    pages=@pdf.Indirect(2),
-    outlines=@pdf.Indirect(5),
-  )
+  let catalog = define_catalog(pages=Indirect(2), outlines=Indirect(5))
   let times_italic_font = @pdf.Dictionary([
-    (b"/Type", @pdf.Name(b"/Font")),
-    (b"/Subtype", @pdf.Name(b"/Type1")),
-    (b"/BaseFont", @pdf.Name(b"/Times-Italic")),
+    (b"/Type", Name(b"/Font")),
+    (b"/Subtype", Name(b"/Type1")),
+    (b"/BaseFont", Name(b"/Times-Italic")),
   ])
   let font_f0 = define_font_item(name=b"/F0", font=times_italic_font)
   // 4 0 obj - Use define_page and helper functions for resources
   let font_resources = define_fonts(fonts=[font_f0])
-  let page = define_page(contents=@pdf.Indirect(1), parent=@pdf.Indirect(2), resources=[
+  let page = define_page(contents=Indirect(1), parent=Indirect(2), resources=[
     font_resources,
   ])
   // 5 0 obj - outline dictionary
-  let outline = make_outline(@pdf.Indirect(6), @pdf.Indirect(6))
+  let outline = make_outline(Indirect(6), Indirect(6))
   let tree = Tree::{
     title: "chapter 1",
     children: [
@@ -330,7 +303,7 @@ test (t : @test.Test) {
   let tree_with_index = TreeWithIndex::from(tree, 6)
   let outline_items = tree_with_index.to_outline_item(5).map(x => x.1)
   let pdf = make_pdf(
-    @pdf.Indirect(3),
+    Indirect(3),
     [stm, pages, catalog, page, outline, ..outline_items],
   )
   let offset = @fmt.write(pdf, buf, 0)
@@ -345,7 +318,7 @@ test "image" (t : @test.Test) {
   let buffer = @fmt.Memory::make(1_000_000, Byte::default())
   let buf = buffer
   let times = 28.0
-  let tm : @pdf.TransformMatrix = @pdf.TransformMatrix::{
+  let tm : @pdf.TransformMatrix = {
     a: 3.6 * times,
     b: 0,
     c: 0,
@@ -353,27 +326,24 @@ test "image" (t : @test.Test) {
     e: 50,
     f: 770,
   }
-  let content : @pdf.ContentStream = [@pdf.Op_cm(tm), @pdf.Op_Do(b"/Im0")]
+  let content : @pdf.ContentStream = [Op_cm(tm), Op_Do(b"/Im0")]
   let offset = @fmt.write(content, buf, 0)
   let bytes = bytes_of_memory(buf, offset)
   let len = bytes.length()
 
   // 1 0 obj
-  let stm = @pdf.Object::Stream(
-    @pdf.Dictionary([(b"/Length", @pdf.Integer(len))]),
-    bytes,
-  )
+  let stm = @pdf.Object::Stream(Dictionary([(b"/Length", Integer(len))]), bytes)
   // 2 0 obj - Use define_pages helper
-  let pages = define_pages(pages=[@pdf.Indirect(4)])
+  let pages = define_pages(pages=[Indirect(4)])
 
   // 3 0 obj - Use define_catalog helper
-  let catalog = define_catalog(pages=@pdf.Indirect(2), outlines=Null)
+  let catalog = define_catalog(pages=Indirect(2), outlines=Null)
 
   // 4 0 obj - Use define_page and helper functions for resources
   let times_italic_font = @pdf.Dictionary([
-    (b"/Type", @pdf.Name(b"/Font")),
-    (b"/Subtype", @pdf.Name(b"/Type1")),
-    (b"/BaseFont", @pdf.Name(b"/Times-Italic")),
+    (b"/Type", Name(b"/Font")),
+    (b"/Subtype", Name(b"/Type1")),
+    (b"/BaseFont", Name(b"/Times-Italic")),
   ])
   let image_bytes = @fs.read_file_to_bytes("resources/images/ocaml.jpg")
   // 5 0 obj 
@@ -390,11 +360,11 @@ test "image" (t : @test.Test) {
   let icc = define_icc(icc=icc_bytes)
   let font_f0 = define_font_item(name=b"/F0", font=times_italic_font)
   let font_resources = define_fonts(fonts=[font_f0])
-  let xobjects = define_xobject(xobjs=[(b"/Im0", @pdf.Indirect(5))])
-  let page = define_page(contents=@pdf.Indirect(1), parent=@pdf.Indirect(2), resources=[
+  let xobjects = define_xobject(xobjs=[(b"/Im0", Indirect(5))])
+  let page = define_page(contents=Indirect(1), parent=Indirect(2), resources=[
     font_resources, xobjects,
   ])
-  let pdf = make_pdf(@pdf.Indirect(3), [stm, pages, catalog, page, image, icc])
+  let pdf = make_pdf(Indirect(3), [stm, pages, catalog, page, image, icc])
   let offset = @fmt.write(pdf, buf, 0)
   let bytes = bytes_of_memory(buf, offset)
   @fs.write_bytes_to_file("./output/ocaml.pdf", bytes)

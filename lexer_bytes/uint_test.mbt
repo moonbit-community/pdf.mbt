@@ -17,8 +17,8 @@ fn tokenize_uint64_as_result(
   s : BytesView,
   base? : Int = 0,
 ) -> Result[(UInt64, Int), String] {
-  Result::Ok(@lexer_bytes.tokenize_uint64(s, base~)) catch {
-    @lexer_bytes.LexError(err) => Err(err)
+  Ok(@lexer_bytes.tokenize_uint64(s, base~)) catch {
+    error => Err(error.to_string())
   }
 }
 

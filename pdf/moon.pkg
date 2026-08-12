@@ -15,4 +15,13 @@ import {
   "moonbitlang/core/test",
 } for "test"
 
-warnings = "-2-6-20"
+rule(
+  name: "moonyacc",
+  command: "moon runwasm moonbitlang/yacc@0.7.19 --external-tokens $input -o $output",
+)
+
+dev_build(
+  rule: "moonyacc",
+  input: "pdf_obj_parser.mbty",
+  output: "pdf_obj_parser.mbt",
+)

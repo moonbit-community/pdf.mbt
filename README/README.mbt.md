@@ -69,8 +69,8 @@ test "PDF objects" {
   // Arrays and dictionaries
   let _array_obj = @pdf.Object::Array([int_obj, string_obj])
   let dict_obj = @pdf.Object::Dictionary([
-    (b"/Type", @pdf.Object::Name(b"/Page")),
-    (b"/Contents", @pdf.Object::Integer(1)),
+    (b"/Type", Name(b"/Page")),
+    (b"/Contents", Integer(1)),
   ])
   json_inspect(dict_obj, content=[
     "Dictionary",
@@ -250,16 +250,16 @@ test "custom PDF document" {
     f: 750.0,
   }
   let content = @pdf.ContentStream([
-    @pdf.GraphicOperator::Op_cm(transform),
-    @pdf.GraphicOperator::Op_BT,
-    @pdf.GraphicOperator::Op_Tf(b"/F0", 24.0),
-    @pdf.GraphicOperator::Op_Tj(b"Custom PDF Content"),
-    @pdf.GraphicOperator::Op_ET,
+    Op_cm(transform),
+    Op_BT,
+    Op_Tf(b"/F0", 24.0),
+    Op_Tj(b"Custom PDF Content"),
+    Op_ET,
   ])
 
   // Create PDF structure
-  let pages = @pdf.define_pages(pages=[@pdf.Object::Indirect(4)])
-  let catalog = @pdf.define_catalog(pages=@pdf.Object::Indirect(2))
+  let pages = @pdf.define_pages(pages=[Indirect(4)])
+  let catalog = @pdf.define_catalog(pages=Indirect(2))
 
   // Create complete PDF
   let pdf_file = @pdf.make_pdf(catalog, [content.to_stream_object(), pages])
@@ -274,15 +274,19 @@ test "custom PDF document" {
 ///|
 test "error handling examples" {
   // Handle parsing errors
-  let result = try? @lexer_bytes.tokenize_int(b"not_a_number")
+  let result = try @lexer_bytes.tokenize_int(b"not_a_number") catch {
+    error => Err(error)
+  } noraise {
+    value => Ok(value)
+  }
   match result {
     Ok(_) => inspect("unexpected success", content="unexpected success")
-    Err(@lexer_bytes.LexError(msg)) => inspect(msg, content="invalid syntax")
+    Err(LexError(msg)) => inspect(msg, content="invalid syntax")
   }
 
   // Safe parsing with fallback
   let safe_parse = @lexer_bytes.tokenize_double(b"invalid") catch {
-    @lexer_bytes.LexError(_) => (0.0, 0)
+    LexError(_) => (0.0, 0)
   }
   json_inspect(safe_parse.0, content=0.0)
 }
@@ -298,12 +302,12 @@ test "image handling concept" {
 
   // Define image object structure
   let image_dict = @pdf.Object::Dictionary([
-    (b"/Type", @pdf.Object::Name(b"/XObject")),
-    (b"/Subtype", @pdf.Object::Name(b"/Image")),
-    (b"/Width", @pdf.Object::Integer(100)),
-    (b"/Height", @pdf.Object::Integer(100)),
-    (b"/BitsPerComponent", @pdf.Object::Integer(8)),
-    (b"/ColorSpace", @pdf.Object::Name(b"/DeviceRGB")),
+    (b"/Type", Name(b"/XObject")),
+    (b"/Subtype", Name(b"/Image")),
+    (b"/Width", Integer(100)),
+    (b"/Height", Integer(100)),
+    (b"/BitsPerComponent", Integer(8)),
+    (b"/ColorSpace", Name(b"/DeviceRGB")),
   ])
   json_inspect(image_dict, content=[
     "Dictionary",

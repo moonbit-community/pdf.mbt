@@ -46,7 +46,7 @@ pub fn bytes_of_memory(mem : @fmt.Memory, len : Int) -> Bytes {
 
 ///|
 pub fn make_pdf(catalog : Object, objects : Array[Object]) -> File {
-  File::{
+  {
     major: 1,
     minor: 4,
     trailer: Dictionary([(b"/Size", Integer(5)), (b"/Root", catalog)]),

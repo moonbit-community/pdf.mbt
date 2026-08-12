@@ -40,7 +40,7 @@ pub impl Show for LexError
 
 // Traits
 pub(open) trait FromBytesView {
-  from(BytesView) -> (Self, Int) raise LexError
+  fn from(BytesView) -> (Self, Int) raise LexError
 }
 pub impl FromBytesView for Bool
 pub impl FromBytesView for Int
@@ -48,4 +48,3 @@ pub impl FromBytesView for Int64
 pub impl FromBytesView for UInt
 pub impl FromBytesView for UInt64
 pub impl FromBytesView for Double
-

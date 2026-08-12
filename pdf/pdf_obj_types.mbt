@@ -5,7 +5,7 @@ pub struct Position {
 } derive(Debug, ToJson, @json.FromJson)
 
 ///|
-pub impl Show for Position with output(self, logger) {
+pub impl Show for Position with fn output(self, logger) {
   logger.write_string("{row: ")
   logger.write_object(self.row)
   logger.write_string(", col: ")
@@ -14,7 +14,7 @@ pub impl Show for Position with output(self, logger) {
 }
 
 ///|
-pub impl Show for Token with output(self, logger) {
+pub impl Show for Token with fn output(self, logger) {
   match self {
     LEFT_PARENTHESIS => logger.write_string("LEFT_PARENTHESIS")
     RIGHT_PARENTHESIS => logger.write_string("RIGHT_PARENTHESIS")
@@ -64,4 +64,11 @@ pub impl Show for Token with output(self, logger) {
       logger.write_string(")")
     }
   }
+}
+
+///|
+/// Keep the concise lexer-oriented representation when tokens are inspected
+/// through the current debugging API.
+pub impl @debug.Debug for Token with fn to_repr(self) {
+  @debug.Repr::literal(self.to_string())
 }

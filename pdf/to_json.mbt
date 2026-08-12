@@ -1,6 +1,6 @@
 ///|
 /// ToJson pub implementation for GraphicOperator
-pub impl ToJson for GraphicOperator with to_json(self) {
+pub impl ToJson for GraphicOperator with fn to_json(self) {
   match self {
     Op_w(width) => { "op": "w", "width": width }
     Op_J(cap) => { "op": "J", "cap": cap }
@@ -131,7 +131,7 @@ pub impl ToJson for GraphicOperator with to_json(self) {
 
 ///|
 /// ToJson pub implementation for File
-pub impl ToJson for File with to_json(self) {
+pub impl ToJson for File with fn to_json(self) {
   {
     "major": self.major,
     "minor": self.minor,
@@ -142,7 +142,7 @@ pub impl ToJson for File with to_json(self) {
 
 ///|
 /// ToJson pub implementation for TransformMatrix
-pub impl ToJson for TransformMatrix with to_json(self) {
+pub impl ToJson for TransformMatrix with fn to_json(self) {
   {
     "a": self.a,
     "b": self.b,
@@ -155,13 +155,13 @@ pub impl ToJson for TransformMatrix with to_json(self) {
 
 ///|
 /// ToJson pub implementation for ContentStream
-pub impl ToJson for ContentStream with to_json(self) {
+pub impl ToJson for ContentStream with fn to_json(self) {
   { "operators": self.0 }
 }
 
 ///|
 /// ToJson pub implementation for StandardFont
-pub impl ToJson for StandardFont with to_json(self) {
+pub impl ToJson for StandardFont with fn to_json(self) {
   match self {
     TimesRoman => "Times-Roman"
     TimesBold => "Times-Bold"
@@ -181,7 +181,7 @@ pub impl ToJson for StandardFont with to_json(self) {
 }
 
 ///|
-pub impl ToJson for LexFile with to_json(self) {
+pub impl ToJson for LexFile with fn to_json(self) {
   {
     "header": self.header,
     "body": self.body,
@@ -192,12 +192,12 @@ pub impl ToJson for LexFile with to_json(self) {
 }
 
 ///|
-pub impl ToJson for LexHeader with to_json(self) {
+pub impl ToJson for LexHeader with fn to_json(self) {
   { "major": self.major, "minor": self.minor }
 }
 
 ///|
-pub impl ToJson for LexObj with to_json(self) {
+pub impl ToJson for LexObj with fn to_json(self) {
   {
     "bytes_offset": self.start_bytes_offset,
     "object_num": self.object_num,
@@ -207,17 +207,17 @@ pub impl ToJson for LexObj with to_json(self) {
 }
 
 ///|
-pub impl ToJson for LexBody with to_json(self) {
+pub impl ToJson for LexBody with fn to_json(self) {
   self.0.to_json()
 }
 
 ///|
-pub impl ToJson for LexXRefTable with to_json(self) {
+pub impl ToJson for LexXRefTable with fn to_json(self) {
   { "entries": self.entries, "start_num": self.start_num }
 }
 
 ///|
-pub impl ToJson for LexXRefEntry with to_json(self) {
+pub impl ToJson for LexXRefEntry with fn to_json(self) {
   {
     "bytes_offset": self.bytes_offset,
     "generation_num": self.generation_num,
@@ -226,7 +226,7 @@ pub impl ToJson for LexXRefEntry with to_json(self) {
 }
 
 ///|
-pub impl ToJson for LexEntryState with to_json(self) {
+pub impl ToJson for LexEntryState with fn to_json(self) {
   match self {
     InUse => "InUse"
     Free => "Free"
@@ -267,7 +267,7 @@ test "ToJson implementations" {
 }
 
 ///|
-pub impl[T : ToJson] ToJson for LexResult[T] with to_json(self) {
+pub impl[T : ToJson] ToJson for LexResult[T] with fn to_json(self) {
   {
     "value": self.value,
     "start_bytes_offset": self.start_bytes_offset,

@@ -8,13 +8,13 @@ pub(open) trait HexLowerFormat {
   /// and return the number of bytes written.
   ///
   /// The number of bytes written must not exceed count().
-  write(value : Self, buffer : Memory, start : Int) -> Int
+  fn write(value : Self, buffer : Memory, start : Int) -> Int
   /// Upper bound on the number of bytes written
-  count(value : Self) -> Int
+  fn count(value : Self) -> Int
 }
 
 ///|
-pub impl[T : HexLowerFormat] Format for HexLower[T] with write(
+pub impl[T : HexLowerFormat] Format for HexLower[T] with fn write(
   value,
   buffer,
   start,
@@ -23,7 +23,7 @@ pub impl[T : HexLowerFormat] Format for HexLower[T] with write(
 }
 
 ///|
-pub impl[T : HexLowerFormat] Format for HexLower[T] with count(self) {
+pub impl[T : HexLowerFormat] Format for HexLower[T] with fn count(self) {
   T::count(self.0)
 }
 
@@ -37,13 +37,13 @@ pub(open) trait HexUpperFormat {
   /// and return the number of bytes written.
   ///
   /// The number of bytes written must not exceed count().
-  write(value : Self, buffer : Memory, start : Int) -> Int
+  fn write(value : Self, buffer : Memory, start : Int) -> Int
   /// Upper bound on the number of bytes written
-  count(value : Self) -> Int
+  fn count(value : Self) -> Int
 }
 
 ///|
-pub impl[T : HexUpperFormat] Format for HexUpper[T] with write(
+pub impl[T : HexUpperFormat] Format for HexUpper[T] with fn write(
   value,
   buffer,
   start,
@@ -52,6 +52,6 @@ pub impl[T : HexUpperFormat] Format for HexUpper[T] with write(
 }
 
 ///|
-pub impl[T : HexUpperFormat] Format for HexUpper[T] with count(self) {
+pub impl[T : HexUpperFormat] Format for HexUpper[T] with fn count(self) {
   T::count(self.0)
 }

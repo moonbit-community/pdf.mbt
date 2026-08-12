@@ -14,7 +14,7 @@
 /// 3. Cross-reference table
 /// 4. Trailer
 /// 
-pub impl @fmt.Format for File with write(
+pub impl @fmt.Format for File with fn write(
   value : File,
   buffer : @fmt.Memory,
   start : Int,
@@ -45,7 +45,7 @@ pub impl @fmt.Format for File with write(
 }
 
 ///|
-pub impl @fmt.Format for File with count(value : File) -> Int {
+pub impl @fmt.Format for File with fn count(value : File) -> Int {
   let mut total = 0
   total += count_pdf_header(value)
   let xref_offsets = []
